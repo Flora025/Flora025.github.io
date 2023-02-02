@@ -24,9 +24,11 @@
              <a  href="<%=url_for(post.path)%>">
             <div class="img-show-post-title animate__animated  animate__fadeInUp"><%=post.title%></div>
             </a>
-            <div class="img-show-post-date animate__animated  animate__fadeInUp"><%=full_date(post.date,'MMM DD YYYY') %> </div>
+            <div class="img-show-post-date animate__animated  animate__fadeInUp">
+		<%=full_date(post.date,'MMM DD YYYY') %> </div>
+	   <div class="img-show-post-excerpt animate__animated  animate__fadeInUp"><%=post.excerpt%></div>
             </div>
-          </div>
+            </div>
           <% nums=nums+1; %>
          <% }) %>
     </section>

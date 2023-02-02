@@ -1,11 +1,12 @@
 ############## style ##############
+# 重要的事说100遍：不能用单引号
 style:
   layout:
     max-width: 1130px #总体宽度
     post-max-width: 800px #文章内容宽度
   color:
-    theme-main: "#1A98FF" # 主色调
-    theme-secondary: "#DDF0FF" # 次色调
+    theme-main: "#FFD700" #"#1A98FF" 主色调
+    theme-secondary: "#FFFACD" # "#DDF0FF" # 次色调
     text-main: "#333333" # 文字主色调
     text-secondary: "#898FA0" # 文字次色调
   animation:
@@ -15,7 +16,7 @@ style:
 ########## 关于主页的设置 ##########
 # home页可选类型
 home:
-  type: "simple" # 主页的类型，可选 home | img | simple
+  type: "home" # 主页的类型，可选 home | img | simple
 
 # archive页可选类型
 archive:
@@ -48,12 +49,15 @@ archive_img_mode:
 # icon
 icon:  #标签页图标
 #  header
-site_name: white.
+site_name: F. Z.
 site_description: A minimalist theme for hexo. #The default meta description for all the meta descriptions
-#Add description property to any page to change the meta description
+# Add description property to any page to change the meta description
 menu:
   HOME: /
-  BLOG: /archives
+  About: /about
+  Archives: /archives
+  # Categories: /categories
+
 
 
 ## 本地搜索
@@ -65,20 +69,23 @@ search:
 
 # 自我介绍
 intro:
-  title: Hi.I'm White.
-  sub: 'A [White](https://github.com/FuShaoLei/hexo-theme-white) theme for [Hexo](http://hexo.io/)' # markdown语法
+  title: "|•'-'•) ✧"
+  sub: "重生之ようこそ[Flora's blog](https://flora.github.io/archives)へ" # markdown语法
   avator: https://cdn.jsdelivr.net/gh/fushaolei/img/20200524104925.jpg #头像 暂时还没用到
-  author: white #所有文章的默认作者
+  author: EIMY #所有文章的默认作者
 
 #联系方式
 #更多图标：https://remixicon.com/
 contact:
   Github:
-    - https://github.com/FuShaoLei/hexo-theme-white
+    - https://github.com/Flora025/
     - ri-github-line
   Email:
-    - mailto:1563250958@qq.com
+    - mailto:2365349265@qq.com
     - ri-mail-line
+  Marshmallow:
+    - https://peing.net/zh-CN/flora_025
+    - ri-questionnaire-line
 
 
 ########## 关于文章的设置 ##########
@@ -131,12 +138,12 @@ pagination:
 ############## 其他 ##############
 
 # 页脚
-footer: Power by [Hexo](http://hexo.io/) Theme by [White](https://github.com/FuShaoLei/hexo-theme-white) # markdown语法
+footer: Powered by [Hexo](http://hexo.io/). Theme by [White](https://github.com/FuShaoLei/hexo-theme-white). # markdown语法
 
 #有分类时是否开启menu分类页和自定义名字
 menu_categories:
   open: true
-  name: 分类
+  name: Categories
 
 #可自定义归档标签页名字
 archive_tab_name: Blog
@@ -145,3 +152,8 @@ archive_tab_name: Blog
 #图片懒加载
 lazyload:
   open: true #是否开启
+
+# MathJax Support
+mathjax:
+  enable: true
+  cdn: https://cdn.jsdelivr.net/npm/mathjax@2.7.8/MathJax.js?config=TeX-AMS-MML_HTMLorMML
