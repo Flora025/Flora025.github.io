@@ -146,6 +146,12 @@ span {
   font-weight: 1000;
   margin: 0;
   padding: 0;
+/* added */
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+  user-select: none;
 }
 .intro-sub {
   font-family: Gothic;
