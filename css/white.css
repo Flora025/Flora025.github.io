@@ -110,7 +110,7 @@ span {
   min-width: 100px;
   border: 1px solid #FFD700;
   position: absolute;
-  left: -30px;
+  left: -10px;
   top: 30px;
 }
 #sort .categories-outer ul {
@@ -824,6 +824,8 @@ li p {
   position: relative;
   width: 55%;
   margin: 0 auto;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
 }
 .search-input-outer input,
 .search-input-outer button {
@@ -837,6 +839,8 @@ li p {
   padding-right: 46px;
   background: transparent;
   border: 2px solid #FFD700;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
 }
 .search-input-outer button {
   height: 42px;
@@ -845,9 +849,12 @@ li p {
   position: absolute;
   background: #FFD700;
   color: #fff;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
 }
 #local-search-result {
-  border-top: 1px dashed #898FA0;
+  border-top: 1.5px dotted #FFD700;
+  border-image: linear-gradient(to right, transparent, #FFD700, transparent) 1;
   margin-top: 40px;
   padding-top: 30px;
 }
