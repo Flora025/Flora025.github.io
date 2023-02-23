@@ -46,7 +46,7 @@ span {
   background-color: #fff;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: #FFD700;
+  background-color: #f0c000;
 }
 .menu-outer {
   font-family: Gothic;
@@ -93,7 +93,7 @@ span {
   right: 0;
   bottom: -0.2em;
   transition: all 0.3s;
-  background-color: #FFD700;
+  background-color: #f0c000;
 }
 .active-link li:hover:after {
   right: 50%;
@@ -108,7 +108,7 @@ span {
   background: #fff;
   border-radius: 3px;
   min-width: 100px;
-  border: 1px solid #FFD700;
+  border: 1px solid #f0c000;
   position: absolute;
   left: -10px;
   top: 30px;
@@ -173,7 +173,7 @@ span {
   right: 0;
   bottom: -0.04em;
   transition: all 0.3s;
-  background-color: #FFD700;
+  background-color: #f0c000;
 }
 .intro-sub a:hover:after {
   right: 50%;
@@ -215,7 +215,7 @@ a {
   margin: 7px 0px;
 }
 .archive-post:hover .archive-post-title {
-  color: #FFD700;
+  color: #f0c000;
 }
 .archive-post-title {
   font-size: 1.1em;
@@ -225,7 +225,7 @@ a {
 }
 .archive-post-date {
   font-family: Merriweather;
-  color: #FFD700;
+  color: #f0c000;
   font-weight: 1000;
   background-color: #FFFACD;
   font-size: 0.8em;
@@ -246,7 +246,7 @@ a {
 .paginator .extend {
   margin: 0 10px;
   background-color: #FFFACD;
-  color: #FFD700;
+  color: #f0c000;
   padding: 10px 20px;
   border-radius: 5px;
   font-size: 0.9em;
@@ -255,7 +255,7 @@ a {
 }
 .paginator .extend:hover {
   color: #fff;
-  background-color: #FFD700;
+  background-color: #f0c000;
 }
 .footer-outer {
   display: flex;
@@ -278,7 +278,7 @@ a {
   transition: all 0.3s;
 }
 .footer-text a:hover {
-  color: #FFD700;
+  color: #f0c000;
 }
 .footer-contact {
   font-size: 1.2em;
@@ -299,7 +299,7 @@ a {
   border-radius: 100%;
 }
 .footer-li:hover i {
-  color: #FFD700;
+  color: #f0c000;
 }
 .gitalk-saysay > #gitalk-container .gt-counts {
   display: none;
@@ -344,7 +344,7 @@ a {
   right: 45%;
   bottom: 98%;
   transition: all 0.3s;
-  background-color: #FFD700;
+  background-color: #f0c000;
 }
 .img-show-post-excerpt {
   text-align: center;
@@ -366,7 +366,7 @@ a {
   right: 45%;
   bottom: 98%;
   transition: all 0.3s;
-  background-color: #FFD700;
+  background-color: #f0c000;
 }
 .img-show-post {
   display: flex;
@@ -400,7 +400,7 @@ a {
   font-family: Gothic;
 }
 .post-cover {
-  margin-top: 80px;
+  margin-top: 50px;
 }
 .post-cover-img {
   min-width: 100%;
@@ -440,7 +440,7 @@ a {
   right: 48%;
   bottom: 98%;
   transition: all 0.3s;
-  background-color: #FFD700;
+  background-color: #f0c000;
 }
 .post-content-outer {
   margin-top: 50px;
@@ -449,6 +449,7 @@ a {
   flex-direction: column;
 }
 .post-content-inner {
+  margin-top: 10px;
   margin-bottom: 20px;
   letter-spacing: 0.7px;
   line-height: 2;
@@ -489,6 +490,9 @@ a {
 .post-content-inner h6 {
   font-size: 1em;
 }
+.post-content-inner p {
+  margin-bottom: 7px;
+}
 .post-content-inner blockquote {
   border-left: 4.2px solid #e3e3e3;
   padding-left: 17px;
@@ -501,7 +505,7 @@ a {
   line-height: 1.65;
 }
 .post-content-inner a {
-  color: #FFD700;
+  color: #f0c000;
 }
 .post-content-inner a:hover {
   text-decoration: underline;
@@ -513,7 +517,7 @@ a {
   display: block;
 }
 strong {
-  color: #FFD700;
+  color: #f0c000;
   display: inline-block;
 }
 hr {
@@ -553,7 +557,7 @@ ol {
   list-style: none;
 }
 .post-content-inner ul li {
-  line-height: 1.2;
+  line-height: 1.7;
   margin: 6px 0px;
 }
 .post-content-inner ul li::before {
@@ -600,7 +604,7 @@ table tbody tr {
   border-color: inherit;
 }
 pre .hljs {
-  border-radius: 2px;
+  border-radius: 3px;
 }
 code,
 kbd,
@@ -623,6 +627,7 @@ code {
   font-weight: normal;
 }
 code {
+  border-radius: 3px;
   font-size: 0.8em;
   font-weight: 1000;
   background-color: #f8f8f8;
@@ -686,40 +691,40 @@ li p {
 }
 #gitalk-container .gt-header-controls>.gt-header-controls-tip,
 .gt-svg {
-  color: #FFD700;
+  color: #f0c000;
 }
 #gitalk-container .gt-header-avatar>img,
 .gt-comment-avatar>img {
   border-radius: 100% !important;
 }
 #gitalk-container .gt-btn-preview {
-  border: 1px solid #FFD700;
+  border: 1px solid #f0c000;
   border-radius: 20px;
   transition: all 0.3s;
 }
 #gitalk-container .gt-btn-preview:hover {
-  background-color: #FFD700;
+  background-color: #f0c000;
   color: #fff;
 }
 #gitalk-container .gt-btn-login {
-  border: 1px solid #FFD700;
-  background-color: #FFD700;
+  border: 1px solid #f0c000;
+  background-color: #f0c000;
   border-radius: 20px;
   transition: all 0.3s;
 }
 #gitalk-container .gt-btn-login:hover {
   background-color: #fff;
-  color: #FFD700;
+  color: #f0c000;
 }
 #gitalk-container .gt-btn-public {
-  border: 1px solid #FFD700;
-  background-color: #FFD700;
+  border: 1px solid #f0c000;
+  background-color: #f0c000;
   border-radius: 20px;
   transition: all 0.3s;
 }
 #gitalk-container .gt-btn-public:hover {
   background-color: #fff;
-  color: #FFD700;
+  color: #f0c000;
 }
 .post-content-inner {
   display: flex;
@@ -838,7 +843,7 @@ li p {
   padding-left: 13px;
   padding-right: 46px;
   background: transparent;
-  border: 2px solid #FFD700;
+  border: 2px solid #f0c000;
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
 }
@@ -847,14 +852,14 @@ li p {
   width: 42px;
   cursor: pointer;
   position: absolute;
-  background: #FFD700;
+  background: #f0c000;
   color: #fff;
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
 }
 #local-search-result {
-  border-top: 1.5px dotted #FFD700;
-  border-image: linear-gradient(to right, transparent, #FFD700, transparent) 1;
+  border-top: 1.5px dotted #f0c000;
+  border-image: linear-gradient(to right, transparent, #f0c000, transparent) 1;
   margin-top: 40px;
   padding-top: 30px;
 }
@@ -870,10 +875,10 @@ li p {
 }
 #local-search-result .search-result-title:hover {
   text-decoration: none;
-  color: #FFD700;
+  color: #f0c000;
 }
 #local-search-result .search-keyword {
-  color: #FFD700;
+  color: #f0c000;
   font-weight: 1000;
 }
 #mobile-main {
@@ -912,7 +917,7 @@ li p {
   cursor: pointer;
 }
 .moibile-active-link span {
-  box-shadow: inset 0 -0.2em 0 #FFD700;
+  box-shadow: inset 0 -0.2em 0 #f0c000;
 }
 #mobile-menu {
   display: none;
