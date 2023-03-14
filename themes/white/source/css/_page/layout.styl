@@ -75,7 +75,7 @@ body,p,div,span
     min-width: 100px
     border 1px solid $color-theme-main
     position absolute
-    left -30px
+    left -10px
     top 30px
     ul
       list-style none
@@ -107,6 +107,12 @@ body,p,div,span
   font-weight 1000
   margin 0
   padding 0
+  /* added */
+  -moz-user-select: none
+  -khtml-user-select: none
+  -webkit-user-select: none
+  -o-user-select: none
+  user-select: none
 .intro-sub 
   font-family Gothic
   margin-top 30px
@@ -129,16 +135,19 @@ body,p,div,span
     &:hover 
       &:after 
         right 50%
+
 /* intro-sub中超链接的样式 */
 .intro-contact 
   margin-top 10px
   font-size 1.5em
   line-height 1.8em
   margin-left 5px
+
 .intro-content,a 
   color #2e2e2e
   text-decoration none
   margin-right 3px
+
 /* archive */
 .archive-outer 
   display flex

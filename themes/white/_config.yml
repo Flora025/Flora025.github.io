@@ -5,7 +5,7 @@ style:
     max-width: 1130px #总体宽度
     post-max-width: 800px #文章内容宽度
   color:
-    theme-main: "#FFD700" #"#1A98FF" 主色调
+    theme-main: "#f0c000" #"#1A98FF" 主色调
     theme-secondary: "#FFFACD" # "#DDF0FF" # 次色调
     text-main: "#333333" # 文字主色调
     text-secondary: "#898FA0" # 文字次色调
@@ -47,7 +47,7 @@ archive_img_mode:
     - https://cdn.jsdelivr.net/gh/fushaolei/cdn-white@1.0/cover/15.jpg
 
 # icon
-icon:  #标签页图标
+icon: /favicon.ico #标签页图标
 #  header
 site_name: F. Z.
 site_description: A minimalist theme for hexo. #The default meta description for all the meta descriptions
@@ -62,7 +62,7 @@ menu:
 
 ## 本地搜索
 search:
-  open: false # 是否开启
+  open: true # 是否开启
   page: /search # 页面路径（通常命名为search）
 
 
@@ -70,7 +70,7 @@ search:
 # 自我介绍
 intro:
   title: "|•'-'•) ✧"
-  sub: "重生之ようこそ[Flora's blog](https://flora.github.io/archives)へ" # markdown语法
+  sub: "重生之ようこそ[Flora's blog](https://flora025.github.io/archives/)へ" # markdown语法
   avator: https://cdn.jsdelivr.net/gh/fushaolei/img/20200524104925.jpg #头像 暂时还没用到
   author: EIMY #所有文章的默认作者
 
@@ -94,15 +94,18 @@ contact:
 toc:
   open: true # 是否开启
   side: true  # 选择toc的位置，填true的话toc将会显示在文章的侧边，填false的话 toc将出现在文章的开头
-  max: 2 #最大深度
+  max: 3 #最大深度
   min: 2 #最小深度
 
 # 插件
 plugins:
   # 代码高亮，想要使用代码高亮，得先把根目录的_config.yml里的highlight的enable置成false
+  # 修改css的的链接即可调整显示，更多样式见more的链接
   highlightjs:
     js: https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js
-    css: https://cdn.jsdelivr.net/npm/highlight.js@10.1.1/styles/github.css
+    # js: https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/lib/index.min.js
+    css: https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/stackoverflow-light.css
+    # css: https://cdn.jsdelivr.net/npm/highlight.js@10.1.1/styles/github.css
     # more: https://www.jsdelivr.com/package/npm/highlight.js?path=styles
 
 # 评论系统设置

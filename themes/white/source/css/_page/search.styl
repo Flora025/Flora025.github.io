@@ -9,6 +9,8 @@
         position relative
         width 55%
         margin 0 auto
+        border-top-left-radius 3px
+        border-bottom-left-radius 3px
     input,button
         border none
         outline none
@@ -19,6 +21,8 @@
         padding-right 46px
         background transparent
         border: 2px solid $color-theme-main
+        border-top-left-radius 3px
+        border-bottom-left-radius 3px
     button
         height 42px
         width 42px
@@ -26,9 +30,12 @@
         position absolute
         background $color-theme-main
         color #fff
+        border-top-right-radius 3px
+        border-bottom-right-radius 3px
 
 #local-search-result
-    border-top 1px dashed $color-text-secondary
+    border-top 1.5px dotted $color-theme-main
+    border-image: linear-gradient(to right, transparent, $color-theme-main, transparent) 1
     margin-top 40px
     padding-top 30px
     li
