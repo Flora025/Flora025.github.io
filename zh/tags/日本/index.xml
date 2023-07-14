@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>日本 on FloraZ</title>
+    <link>http://Flora025.github.io/zh/tags/%E6%97%A5%E6%9C%AC/</link>
+    <description>Recent content in 日本 on FloraZ</description>
+    <image>
+      <title>FloraZ</title>
+      <url>http://Flora025.github.io/papermod-cover.png</url>
+      <link>http://Flora025.github.io/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Sat, 24 Jun 2023 14:33:57 +0800</lastBuildDate><atom:link href="http://Flora025.github.io/zh/tags/%E6%97%A5%E6%9C%AC/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>日本中部旅游Plog 2</title>
+      <link>http://Flora025.github.io/zh/posts/2023/plog-japan-ii/</link>
+      <pubDate>Sat, 24 Jun 2023 14:33:57 +0800</pubDate>
+      
+      <guid>http://Flora025.github.io/zh/posts/2023/plog-japan-ii/</guid>
+      <description>高山 富山 白川乡</description>
+    </item>
+    
+    <item>
+      <title>日本关西旅游Plog 1</title>
+      <link>http://Flora025.github.io/zh/posts/2023/plog-japan-i/</link>
+      <pubDate>Wed, 21 Jun 2023 14:33:57 +0800</pubDate>
+      
+      <guid>http://Flora025.github.io/zh/posts/2023/plog-japan-i/</guid>
+      <description>讲五个不好笑的冷笑话</description>
+    </item>
+    
+  </channel>
+</rss>
