@@ -2,76 +2,76 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>笔记 on FloraZ</title>
-    <link>http://Flora025.github.io/zh/categories/%E7%AC%94%E8%AE%B0/</link>
+    <link>http://flora025.github.io/zh/categories/%E7%AC%94%E8%AE%B0/</link>
     <description>Recent content in 笔记 on FloraZ</description>
     <image>
       <title>FloraZ</title>
-      <url>http://Flora025.github.io/papermod-cover.png</url>
-      <link>http://Flora025.github.io/papermod-cover.png</link>
+      <url>http://flora025.github.io/papermod-cover.png</url>
+      <link>http://flora025.github.io/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Thu, 13 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://Flora025.github.io/zh/categories/%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 13 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://flora025.github.io/zh/categories/%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CS61B Gitlet 完结记录</title>
-      <link>http://Flora025.github.io/zh/posts/2023/gitlet-fin/</link>
+      <link>http://flora025.github.io/zh/posts/2023/gitlet-fin/</link>
       <pubDate>Thu, 13 Jul 2023 00:00:00 +0000</pubDate>
       
-      <guid>http://Flora025.github.io/zh/posts/2023/gitlet-fin/</guid>
+      <guid>http://flora025.github.io/zh/posts/2023/gitlet-fin/</guid>
       <description>♪(´ε｀ )</description>
     </item>
     
     <item>
       <title>61B Notes - Hashing</title>
-      <link>http://Flora025.github.io/zh/posts/2023/hashing/</link>
+      <link>http://flora025.github.io/zh/posts/2023/hashing/</link>
       <pubDate>Fri, 31 Mar 2023 20:35:43 +0800</pubDate>
       
-      <guid>http://Flora025.github.io/zh/posts/2023/hashing/</guid>
+      <guid>http://flora025.github.io/zh/posts/2023/hashing/</guid>
       <description>\hashbrown/\hashbrown/</description>
     </item>
     
     <item>
       <title>61B Notes - B-Trees &amp; LLRB</title>
-      <link>http://Flora025.github.io/zh/posts/2023/b-tree-llrb/</link>
+      <link>http://flora025.github.io/zh/posts/2023/b-tree-llrb/</link>
       <pubDate>Tue, 28 Mar 2023 22:36:43 +0800</pubDate>
       
-      <guid>http://Flora025.github.io/zh/posts/2023/b-tree-llrb/</guid>
+      <guid>http://flora025.github.io/zh/posts/2023/b-tree-llrb/</guid>
       <description>B树と旋转と红黑色树</description>
     </item>
     
     <item>
       <title>61B Notes - ADT and BST</title>
-      <link>http://Flora025.github.io/zh/posts/2023/bst/</link>
+      <link>http://flora025.github.io/zh/posts/2023/bst/</link>
       <pubDate>Mon, 27 Mar 2023 22:36:43 +0800</pubDate>
       
-      <guid>http://Flora025.github.io/zh/posts/2023/bst/</guid>
+      <guid>http://flora025.github.io/zh/posts/2023/bst/</guid>
       <description>ヽ(´o｀；</description>
     </item>
     
     <item>
       <title>61B Notes - Asymptotics II</title>
-      <link>http://Flora025.github.io/zh/posts/2023/asymptotics2-notes/</link>
+      <link>http://flora025.github.io/zh/posts/2023/asymptotics2-notes/</link>
       <pubDate>Fri, 24 Mar 2023 20:11:22 +0800</pubDate>
       
-      <guid>http://Flora025.github.io/zh/posts/2023/asymptotics2-notes/</guid>
+      <guid>http://flora025.github.io/zh/posts/2023/asymptotics2-notes/</guid>
       <description>copied from the textbook</description>
     </item>
     
     <item>
       <title>61B Notes - Asymptotics</title>
-      <link>http://Flora025.github.io/zh/posts/2023/asymptotics-notes/</link>
+      <link>http://flora025.github.io/zh/posts/2023/asymptotics-notes/</link>
       <pubDate>Wed, 22 Mar 2023 18:19:26 +0800</pubDate>
       
-      <guid>http://Flora025.github.io/zh/posts/2023/asymptotics-notes/</guid>
+      <guid>http://flora025.github.io/zh/posts/2023/asymptotics-notes/</guid>
       <description>halfway through 61b!</description>
     </item>
     
     <item>
       <title>Intel Mac迁移至M1 Mac记录</title>
-      <link>http://Flora025.github.io/zh/posts/2023/mbp-setup/</link>
+      <link>http://flora025.github.io/zh/posts/2023/mbp-setup/</link>
       <pubDate>Wed, 15 Mar 2023 10:12:10 +0800</pubDate>
       
-      <guid>http://Flora025.github.io/zh/posts/2023/mbp-setup/</guid>
+      <guid>http://flora025.github.io/zh/posts/2023/mbp-setup/</guid>
       <description>再见了，所有的intel mbp(哦咩跌多パチパチ)</description>
     </item>
     

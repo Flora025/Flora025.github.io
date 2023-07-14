@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>复旦 on FloraZ</title>
-    <link>http://Flora025.github.io/zh/tags/%E5%A4%8D%E6%97%A6/</link>
+    <link>http://flora025.github.io/zh/tags/%E5%A4%8D%E6%97%A6/</link>
     <description>Recent content in 复旦 on FloraZ</description>
     <image>
       <title>FloraZ</title>
-      <url>http://Flora025.github.io/papermod-cover.png</url>
-      <link>http://Flora025.github.io/papermod-cover.png</link>
+      <url>http://flora025.github.io/papermod-cover.png</url>
+      <link>http://flora025.github.io/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Tue, 13 Jun 2023 20:54:40 +0800</lastBuildDate><atom:link href="http://Flora025.github.io/zh/tags/%E5%A4%8D%E6%97%A6/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 13 Jun 2023 20:54:40 +0800</lastBuildDate><atom:link href="http://flora025.github.io/zh/tags/%E5%A4%8D%E6%97%A6/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Graduation</title>
-      <link>http://Flora025.github.io/zh/posts/2023/graduation/</link>
+      <link>http://flora025.github.io/zh/posts/2023/graduation/</link>
       <pubDate>Tue, 13 Jun 2023 20:54:40 +0800</pubDate>
       
-      <guid>http://Flora025.github.io/zh/posts/2023/graduation/</guid>
+      <guid>http://flora025.github.io/zh/posts/2023/graduation/</guid>
       <description>「がんばってもそれが公正に報われない社会があなたたちを待っています」</description>
     </item>
     
