@@ -1,3 +1,3 @@
 User-agent: *
 Disallow:
-Sitemap: http://flora025.github.io/sitemap.xml
+Sitemap: http://eimy.ink/sitemap.xml

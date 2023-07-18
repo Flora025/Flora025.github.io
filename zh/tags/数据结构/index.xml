@@ -2,40 +2,40 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>数据结构 on FloraZ</title>
-    <link>http://flora025.github.io/zh/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
+    <link>http://eimy.ink/zh/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
     <description>Recent content in 数据结构 on FloraZ</description>
     <image>
       <title>FloraZ</title>
-      <url>http://flora025.github.io/papermod-cover.png</url>
-      <link>http://flora025.github.io/papermod-cover.png</link>
+      <url>http://eimy.ink/papermod-cover.png</url>
+      <link>http://eimy.ink/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Fri, 31 Mar 2023 20:35:43 +0800</lastBuildDate><atom:link href="http://flora025.github.io/zh/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 31 Mar 2023 20:35:43 +0800</lastBuildDate><atom:link href="http://eimy.ink/zh/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>61B Notes - Hashing</title>
-      <link>http://flora025.github.io/zh/posts/2023/hashing/</link>
+      <link>http://eimy.ink/zh/posts/2023/hashing/</link>
       <pubDate>Fri, 31 Mar 2023 20:35:43 +0800</pubDate>
       
-      <guid>http://flora025.github.io/zh/posts/2023/hashing/</guid>
+      <guid>http://eimy.ink/zh/posts/2023/hashing/</guid>
       <description>\hashbrown/\hashbrown/</description>
     </item>
     
     <item>
       <title>61B Notes - B-Trees &amp; LLRB</title>
-      <link>http://flora025.github.io/zh/posts/2023/b-tree-llrb/</link>
+      <link>http://eimy.ink/zh/posts/2023/b-tree-llrb/</link>
       <pubDate>Tue, 28 Mar 2023 22:36:43 +0800</pubDate>
       
-      <guid>http://flora025.github.io/zh/posts/2023/b-tree-llrb/</guid>
+      <guid>http://eimy.ink/zh/posts/2023/b-tree-llrb/</guid>
       <description>B树と旋转と红黑色树</description>
     </item>
     
     <item>
       <title>61B Notes - ADT and BST</title>
-      <link>http://flora025.github.io/zh/posts/2023/bst/</link>
+      <link>http://eimy.ink/zh/posts/2023/bst/</link>
       <pubDate>Mon, 27 Mar 2023 22:36:43 +0800</pubDate>
       
-      <guid>http://flora025.github.io/zh/posts/2023/bst/</guid>
+      <guid>http://eimy.ink/zh/posts/2023/bst/</guid>
       <description>ヽ(´o｀；</description>
     </item>
     

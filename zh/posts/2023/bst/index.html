@@ -9,19 +9,19 @@
 <meta name="keywords" content="数据结构">
 <meta name="description" content="ヽ(´o｀；">
 <meta name="author" content="Flora">
-<link rel="canonical" href="http://flora025.github.io/zh/posts/2023/bst/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.31d4ca0b0f0c25b30a5eeb159f350b1d5571601bc987f2d9189fa51d953169d0.css" integrity="sha256-MdTKCw8MJbMKXusVnzULHVVxYBvJh/LZGJ&#43;lHZUxadA=" rel="preload stylesheet" as="style">
+<link rel="canonical" href="http://eimy.ink/zh/posts/2023/bst/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.2269a59b042200e3a3f4c30065389d2258a50e2aa5cd8bd8c488ede1342f7039.css" integrity="sha256-ImmlmwQiAOOj9MMAZTidIlilDiqlzYvYxIjt4TQvcDk=" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.f83806d9904cccf883edf075a5ce1d71136879702650d07aca8c76361a3e467b.js" integrity="sha256-&#43;DgG2ZBMzPiD7fB1pc4dcRNoeXAmUNB6yox2Nho&#43;Rns="
     onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="http://flora025.github.io/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://flora025.github.io/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://flora025.github.io/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://flora025.github.io/apple-touch-icon.png">
-<link rel="mask-icon" href="http://flora025.github.io/safari-pinned-tab.svg">
+<link rel="icon" href="http://eimy.ink/favicons/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://eimy.ink/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://eimy.ink/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://eimy.ink/apple-touch-icon.png">
+<link rel="mask-icon" href="http://eimy.ink/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="zh" href="http://flora025.github.io/zh/posts/2023/bst/">
-<link rel="alternate" hreflang="en" href="http://flora025.github.io/posts/2023/bst/">
+<link rel="alternate" hreflang="zh" href="http://eimy.ink/zh/posts/2023/bst/">
+<link rel="alternate" hreflang="en" href="http://eimy.ink/posts/2023/bst/">
 <noscript>
     <style>
         #theme-toggle,
@@ -81,12 +81,12 @@
     </script><meta property="og:title" content="61B Notes - ADT and BST" />
 <meta property="og:description" content="ヽ(´o｀；" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://flora025.github.io/zh/posts/2023/bst/" /><meta property="og:image" content="http://flora025.github.io/papermod-cover.png"/><meta property="article:section" content="posts" />
+<meta property="og:url" content="http://eimy.ink/zh/posts/2023/bst/" /><meta property="og:image" content="http://eimy.ink/papermod-cover.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-03-27T22:36:43+08:00" />
 <meta property="article:modified_time" content="2023-03-27T22:36:43+08:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="http://flora025.github.io/papermod-cover.png"/>
+<meta name="twitter:image" content="http://eimy.ink/papermod-cover.png"/>
 
 <meta name="twitter:title" content="61B Notes - ADT and BST"/>
 <meta name="twitter:description" content="ヽ(´o｀；"/>
@@ -101,13 +101,13 @@
       "@type": "ListItem",
       "position":  1 ,
       "name": "Posts",
-      "item": "http://flora025.github.io/zh/posts/"
+      "item": "http://eimy.ink/zh/posts/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
       "name": "61B Notes - ADT and BST",
-      "item": "http://flora025.github.io/zh/posts/2023/bst/"
+      "item": "http://eimy.ink/zh/posts/2023/bst/"
     }
   ]
 }
@@ -133,14 +133,14 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "http://flora025.github.io/zh/posts/2023/bst/"
+    "@id": "http://eimy.ink/zh/posts/2023/bst/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "FloraZ",
     "logo": {
       "@type": "ImageObject",
-      "url": "http://flora025.github.io/favicon.ico"
+      "url": "http://eimy.ink/favicons/favicon.ico"
     }
   }
 }
@@ -162,7 +162,7 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://flora025.github.io/zh/" accesskey="h" title="FloraZ (Alt + H)">FloraZ</a>
+            <a href="http://eimy.ink/zh/" accesskey="h" title="FloraZ (Alt + H)">FloraZ</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -186,7 +186,7 @@
                 </button>
                 <ul class="lang-switch"><li>|</li>
                     <li>
-                        <a href="http://flora025.github.io/" title="English"
+                        <a href="http://eimy.ink/" title="English"
                             aria-label="English">English</a>
                     </li>
                 </ul>
@@ -194,27 +194,27 @@
         </div>
         <ul id="menu">
             <li>
-                <a href="http://flora025.github.io/zh/archives" title="归档">
+                <a href="http://eimy.ink/zh/archives" title="归档">
                     <span>归档</span>
                 </a>
             </li>
             <li>
-                <a href="http://flora025.github.io/zh/categories/" title="分类">
+                <a href="http://eimy.ink/zh/categories/" title="分类">
                     <span>分类</span>
                 </a>
             </li>
             <li>
-                <a href="http://flora025.github.io/zh/tags/" title="标签">
+                <a href="http://eimy.ink/zh/tags/" title="标签">
                     <span>标签</span>
                 </a>
             </li>
             <li>
-                <a href="http://flora025.github.io/zh/search/" title="搜索">
+                <a href="http://eimy.ink/zh/search/" title="搜索">
                     <span>搜索</span>
                 </a>
             </li>
             <li>
-                <a href="http://flora025.github.io/zh/about/" title="关于">
+                <a href="http://eimy.ink/zh/about/" title="关于">
                     <span>关于</span>
                 </a>
             </li>
@@ -225,76 +225,137 @@
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="http://flora025.github.io/zh/">主页</a>&nbsp;»&nbsp;<a href="http://flora025.github.io/zh/posts/">Posts</a></div>
+    <div class="breadcrumbs"><a href="http://eimy.ink/zh/">主页</a>&nbsp;»&nbsp;<a href="http://eimy.ink/zh/posts/">Posts</a></div>
     <h1 class="post-title">
       61B Notes - ADT and BST
     </h1>
     <div class="post-meta"><span title='2023-03-27 22:36:43 +0800 CST'>三月 27, 2023</span>&nbsp;·&nbsp;4 分钟&nbsp;·&nbsp;Flora&nbsp;|&nbsp;语言:
 <ul class="i18n_list">
     <li>
-        <a href="http://flora025.github.io/posts/2023/bst/">English</a>
+        <a href="http://eimy.ink/posts/2023/bst/">English</a>
     </li>
 </ul>
 
 </div>
-  </header> <div class="toc side">
-    <details  open>
-        <summary accesskey="c" title="(Alt + C)">
-            <span class="details">目录</span>
-        </summary>
+  </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">目录</span>
+            </summary>
 
-        <div class="inner"><ul>
-                <li>
-                    <a href="#trees" aria-label="Trees">Trees</a><ul>
-                        
-                <li>
-                    <a href="#abstract-data-typesadt" aria-label="Abstract Data Types（ADT）">Abstract Data Types（ADT）</a></li>
-                <li>
-                    <a href="#binary-search-tree" aria-label="Binary Search Tree">Binary Search Tree</a><ul>
-                        
-                <li>
-                    <a href="#bst%e7%bc%98%e8%b5%b7" aria-label="BST缘起">BST缘起</a></li>
-                <li>
-                    <a href="#bst%e5%ae%9a%e4%b9%89%e4%b8%8e%e6%80%a7%e8%b4%a8" aria-label="BST定义与性质">BST定义与性质</a></li>
-                <li>
-                    <a href="#bst-operations" aria-label="BST Operations">BST Operations</a><ul>
-                        
-                <li>
-                    <a href="#search--find" aria-label="Search / Find">Search / Find</a><ul>
-                        
-                <li>
-                    <a href="#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0" aria-label="代码实现">代码实现</a></li>
-                <li>
-                    <a href="#runtime-analysis" aria-label="Runtime Analysis">Runtime Analysis</a></li></ul>
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#trees" aria-label="Trees">Trees</a><ul>
+                            
+                    <li>
+                        <a href="#abstract-data-typesadt" aria-label="Abstract Data Types（ADT）">Abstract Data Types（ADT）</a></li>
+                    <li>
+                        <a href="#binary-search-tree" aria-label="Binary Search Tree">Binary Search Tree</a><ul>
+                            
+                    <li>
+                        <a href="#bst%e7%bc%98%e8%b5%b7" aria-label="BST缘起">BST缘起</a></li>
+                    <li>
+                        <a href="#bst%e5%ae%9a%e4%b9%89%e4%b8%8e%e6%80%a7%e8%b4%a8" aria-label="BST定义与性质">BST定义与性质</a></li>
+                    <li>
+                        <a href="#bst-operations" aria-label="BST Operations">BST Operations</a><ul>
+                            
+                    <li>
+                        <a href="#search--find" aria-label="Search / Find">Search / Find</a><ul>
+                            
+                    <li>
+                        <a href="#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0" aria-label="代码实现">代码实现</a></li>
+                    <li>
+                        <a href="#runtime-analysis" aria-label="Runtime Analysis">Runtime Analysis</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#insert" aria-label="Insert">Insert</a><ul>
+                            
+                    <li>
+                        <a href="#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0-1" aria-label="代码实现">代码实现</a></li>
+                    <li>
+                        <a href="#insert2-runtime-analysis" aria-label="Insert.2 Runtime Analysis">Insert.2 Runtime Analysis</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#delete" aria-label="Delete">Delete</a><ul>
+                            
+                    <li>
+                        <a href="#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0-p411" aria-label="代码实现 p.411">代码实现 p.411</a></li>
+                    <li>
+                        <a href="#runtime" aria-label="Runtime">Runtime</a></li></ul>
+                    </li></ul>
+                    </li>
+                    <li>
+                        <a href="#bstset-vs-bstmap" aria-label="BSTSet v.s. BSTMap">BSTSet v.s. BSTMap</a>
+                    </li>
+                </ul>
                 </li>
-                <li>
-                    <a href="#insert" aria-label="Insert">Insert</a><ul>
-                        
-                <li>
-                    <a href="#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0-1" aria-label="代码实现">代码实现</a></li>
-                <li>
-                    <a href="#insert2-runtime-analysis" aria-label="Insert.2 Runtime Analysis">Insert.2 Runtime Analysis</a></li></ul>
+                </ul>
                 </li>
-                <li>
-                    <a href="#delete" aria-label="Delete">Delete</a><ul>
-                        
-                <li>
-                    <a href="#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0-p411" aria-label="代码实现 p.411">代码实现 p.411</a></li>
-                <li>
-                    <a href="#runtime" aria-label="Runtime">Runtime</a></li></ul>
-                </li></ul>
-                </li>
-                <li>
-                    <a href="#bstset-vs-bstmap" aria-label="BSTSet v.s. BSTMap">BSTSet v.s. BSTMap</a>
-                </li>
-            </ul>
-            </li>
-            </ul>
-            </li>
-            </ul>
-        </div>
-    </details>
-</div>
+                </ul>
+            </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+         
+         activeElement = elements[0];
+         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+     }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+             const id = encodeURI(element.getAttribute('id')).toLowerCase();
+             if (element === activeElement){
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+             } else {
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+             }
+         })
+     }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;   
+    }
+</script>
 
   <div class="post-content"><p>Reference是19sp的lec slides。</p>
 <h1 id="trees">Trees<a hidden class="anchor" aria-hidden="true" href="#trees">#</a></h1>
@@ -590,15 +651,15 @@
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://flora025.github.io/zh/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></li>
+      <li><a href="http://eimy.ink/zh/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="http://flora025.github.io/zh/posts/2023/b-tree-llrb/">
+  <a class="prev" href="http://eimy.ink/zh/posts/2023/b-tree-llrb/">
     <span class="title">« 上一页</span>
     <br>
     <span>61B Notes - B-Trees &amp; LLRB</span>
   </a>
-  <a class="next" href="http://flora025.github.io/zh/posts/2023/asymptotics2-notes/">
+  <a class="next" href="http://eimy.ink/zh/posts/2023/asymptotics2-notes/">
     <span class="title">下一页 »</span>
     <br>
     <span>61B Notes - Asymptotics II</span>
@@ -610,7 +671,7 @@
     </main>
     
 <footer class="footer">
-    <span>&copy; 2023 <a href="http://flora025.github.io/zh/">FloraZ</a></span><span style="display: inline-block; margin-left: 1em;">
+    <span>&copy; 2023 <a href="http://eimy.ink/zh/">FloraZ</a></span><span style="display: inline-block; margin-left: 1em;">
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
         <a href="https://github.com/reorx/hugo-PaperMod" rel="noopener" target="_blank">PaperMod</a>
