@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Deploying an App via AWS Amplify | FloraZ</title>
+<meta name="keywords" content="aws">
+<meta name="description" content="playing with AWS">
+<meta name="author" content="Flora">
+<link rel="canonical" href="http://eimy.ink/posts/2023/aws-amplify/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.2269a59b042200e3a3f4c30065389d2258a50e2aa5cd8bd8c488ede1342f7039.css" integrity="sha256-ImmlmwQiAOOj9MMAZTidIlilDiqlzYvYxIjt4TQvcDk=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f83806d9904cccf883edf075a5ce1d71136879702650d07aca8c76361a3e467b.js" integrity="sha256-&#43;DgG2ZBMzPiD7fB1pc4dcRNoeXAmUNB6yox2Nho&#43;Rns="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="http://eimy.ink/favicons/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://eimy.ink/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://eimy.ink/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://eimy.ink/apple-touch-icon.png">
+<link rel="mask-icon" href="http://eimy.ink/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="http://eimy.ink/zh/posts/2023/aws-amplify/">
+<link rel="alternate" hreflang="en" href="http://eimy.ink/posts/2023/aws-amplify/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+
+<meta property="og:title" content="Deploying an App via AWS Amplify" />
+<meta property="og:description" content="playing with AWS" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://eimy.ink/posts/2023/aws-amplify/" /><meta property="og:image" content="http://eimy.ink/papermod-cover.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-07-18T21:27:16+08:00" />
+<meta property="article:modified_time" content="2023-07-18T21:27:16+08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://eimy.ink/papermod-cover.png"/>
+
+<meta name="twitter:title" content="Deploying an App via AWS Amplify"/>
+<meta name="twitter:description" content="playing with AWS"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://eimy.ink/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Deploying an App via AWS Amplify",
+      "item": "http://eimy.ink/posts/2023/aws-amplify/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Deploying an App via AWS Amplify",
+  "name": "Deploying an App via AWS Amplify",
+  "description": "playing with AWS",
+  "keywords": [
+    "aws"
+  ],
+  "articleBody": "Note: This passage is written in Chinese and translated into English via ChatGPT.\nI found a project tutorial for AWS Amplify on the AWS official website. It seems that it has not been translated into Chinese yet, so I took some notes while exploring it.\nIntroduction to AWS Amplify Amplify is a comprehensive platform that provides static resource hosting for:\nCreating AWS backends with features like authentication, data storage, and more for web, iOS, or Android applications in minutes. Building frontend UI intuitively from design to code with Figma integration and connecting it to the backend with just a few clicks. In summary, apart from a few distinctive features, it is quite similar to services like Netlify and also offers a certain amount of free usage:\nAWS Amplify Features: Supports visual development of full-stack websites or applications. Supports deploying mobile applications, which Netlify does not. Comprehensive ecosystem, making it convenient to use other AWS services. Getting Started with Amplify The main goal is to host a web page and deploy a backend, and additionally, there are examples of adding AWS authentication and storage services as supplementary features.\nNote: The following steps only show the configuration and deployment process related to Amplify. The complete code of the app is not provided here. Please refer to the original article for the specific app code.\nPrerequisites Create a frontend application or use an existing one. Push it to a GitHub repository. Deploying the Frontend Register for an AWS account (requires a credit card that can be charged $1). Log in and find the AWS Management Console. Go to the “Get started” page and click “Get started” under the “Host your web app” section. Choose GitHub as the deployment option, confirm the repository and branch information, and click “Next” multiple times. Click “Save and deploy” to complete the process. Afterward, any modifications and pushes to the repository will automatically update the website. Completion Page Installing Amplify CLI - Adding/Managing AWS Services Installing the CLI Amplify CLI allows you to add AWS services to your project.\n1 2 # Install CLI npm install -g @aws-amplify/cli Note: Compatibility issue on ARM Macs\nIf you encounter issues on M1/M2 Macs, where the CLI installs successfully but commands don’t respond, you can try one of the following solutions. Refer to issue #10193 for more information:\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 # Solution 1: Install Rosetta (may or may not work) softwareupdate --install-rosetta # Solution 2: Clone an older version of the CLI (@danrivett) (may or may not work) # Environment: amplify-cli@v10.4.1 node@16 git clone https://github.com/aws-amplify/amplify-cli.git cd amplify-cli git checkout v10.4.1 # Avoids building the dev branch but builds a release tag; update as necessary yarn \u0026\u0026 yarn build rm ~/.amplify/bin/amplify ln -s $(pwd)/packages/amplify-cli/bin/amplify ~/.amplify/bin/amplify # Solution 3: Manually download and install an older version from the releases page (@kzetxa) # Environment: node@16.12.0, Amplify 10.3.1, macOS Monterey 12.6 # 1. Delete the binary at /usr/local/bin/amplify # 2. Rename the binary inside the downloaded package # 3. Move it to the location where the old deleted binary was sudo chown -R $(whoami) ~/.amplify I have successfully used the third solution, with the same environment as mentioned. It seems that it involves a translation from x86.\nConfiguring the CLI 1 2 3 4 5 6 7 8 # Configure the CLI amplify configure # 1. You will be redirected to the web console for login. # 2. Select your region. # 3. Return to the web console to create a new user. # The user needs programmatic access. # Record the access key ID and secret access key. You will need the CLI for adding various services. Additionally, you can now use the following command to directly access the console:\n1 2 # In the local terminal amplify console Deploying the Backend Launching Amplify Studio Go back to the application page - backend environments - get started - launch studio - and run the local setup command in the terminal (copy from the web page).\nThen choose the configuration options:\n1 2 3 4 5 6 7 8 ? Choose your default editor: Visual Studio Code ? Choose the type of app that you're building: JavaScript ? What javascript framework are you using: React ? Source Directory Path: src ? Distribution Directory Path: build ? Build Command: npm run-script build ? Start Command: npm run-script start ? Do you plan on modifying this backend? Y Adding Backend Build Configuration 1 2 3 4 5 6 7 8 9 10 11 # App settings \u003e Build settings # Add backend configuration ... backend: phases: build: commands: - '# Execute Amplify CLI with the helper script' - amplifyPush --simple frontend: ... Example: Adding AWS Authentication This example demonstrates how to add AWS authentication to a note-taking application.\nAdding Authentication via the Command Line 1 2 3 4 5 # In the local terminal # Create the authentication service locally amplify add auth # Deploy it amplify push --y Using the Auth Service in src/index.js Import the configuration and add the following code to your src/index.js file:\n1 2 3 4 // in `src/index.js` import { Amplify } from 'aws-amplify'; import config from './aws-exports'; Amplify.configure(config); Importing Authentication into src/App.js Import similar to the following (a sample with only authentication):\n1 2 3 4 5 6 7 8 9 10 import \"@aws-amplify/ui-react/styles.css\"; import { withAuthenticator } from \"@aws-amplify/ui-react\"; function App({ signOut }) { return ( /* Middle part omitted */ ); } export default withAuthenticator(App); Finally, push the changes to the remote repository.\nAdding a Backend Database Add a GraphQL API 1 2 amplify add api # Choose GraphQL Local configuration Create a schema in /amplify/backend/api//schema.graphql. For example:\n1 2 3 4 5 type Note @model @auth(rules: [{ allow: public }]) { id: ID! name: String! description: String } Deploy the service 1 amplify push --y # --yes: Omit all command-line configuration options and set as default This will do three things:\nCreate the AWS AppSync API Create a DynamoDB table Create the local GraphQL operations in a folder located at src/graphql that you can use to query the API Send a query in the frontend Example:\n1 2 3 4 5 6 7 8 9 async function deleteNote({ id }) { const newNotes = notes.filter((note) =\u003e note.id !== id); setNotes(newNotes); // query await API.graphql({ query: deleteNoteMutation, variables: { input: { id } }, }); } Example: Using AWS Storage Services This example shows how to use Amazon S3 (AWS Simple Storage Service) to store image data.\nAdd the storage service 1 amplify add storage Modify the schema 1 2 3 4 5 6 7 // amplify/backend/api/notesapp/schema.graphql type Note @model @auth(rules: [{ allow: public }]) { id: ID! name: String! description: String image: String // update } Use storage in the app 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 // Update imports import { API, Storage } from 'aws-amplify'; import { Button, Flex, Heading, Image, Text, TextField, View, withAuthenticator, } from '@aws-amplify/ui-react'; // Update functions, e.g., createNote async function createNote(event) { event.preventDefault(); const form = new FormData(event.target); const image = form.get(\"image\"); const data = { name: form.get(\"name\"), description: form.get(\"description\"), image: image.name, }; // Put image into storage if (!!data.image) await Storage.put(data.name, image); await API.graphql({ query: createNoteMutation, variables: { input: data }, }); fetchNotes(); event.target.reset(); } Deploy the service 1 amplify push --y # --yes: Omit all command-line configuration options and set as default End ",
+  "wordCount" : "1267",
+  "inLanguage": "en",
+  "datePublished": "2023-07-18T21:27:16+08:00",
+  "dateModified": "2023-07-18T21:27:16+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "Flora"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://eimy.ink/posts/2023/aws-amplify/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "FloraZ",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://eimy.ink/favicons/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://eimy.ink/" accesskey="h" title="FloraZ (Alt + H)">FloraZ</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                    <li>
+                        <a href="http://eimy.ink/zh/" title="中文"
+                            aria-label="中文">中文</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://eimy.ink/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://eimy.ink/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://eimy.ink/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://eimy.ink/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://eimy.ink/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main post">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://eimy.ink/">Home</a>&nbsp;»&nbsp;<a href="http://eimy.ink/posts/">Posts</a></div>
+    <h1 class="post-title">
+      Deploying an App via AWS Amplify
+    </h1>
+    <div class="post-meta"><span title='2023-07-18 21:27:16 +0800 CST'>July 18, 2023</span>&nbsp;·&nbsp;6 min&nbsp;·&nbsp;Flora&nbsp;|&nbsp;Translations:
+<ul class="i18n_list">
+    <li>
+        <a href="http://eimy.ink/zh/posts/2023/aws-amplify/">中文</a>
+    </li>
+</ul>
+
+</div>
+  </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">Table of Contents</span>
+            </summary>
+
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#introduction-to-aws-amplify" aria-label="Introduction to AWS Amplify">Introduction to AWS Amplify</a></li>
+                    <li>
+                        <a href="#getting-started-with-amplify" aria-label="Getting Started with Amplify">Getting Started with Amplify</a><ul>
+                            
+                    <li>
+                        <a href="#prerequisites" aria-label="Prerequisites">Prerequisites</a></li>
+                    <li>
+                        <a href="#deploying-the-frontend" aria-label="Deploying the Frontend">Deploying the Frontend</a></li>
+                    <li>
+                        <a href="#installing-amplify-cli---addingmanaging-aws-services" aria-label="Installing Amplify CLI - Adding/Managing AWS Services">Installing Amplify CLI - Adding/Managing AWS Services</a><ul>
+                            
+                    <li>
+                        <a href="#installing-the-cli" aria-label="Installing the CLI">Installing the CLI</a></li>
+                    <li>
+                        <a href="#configuring-the-cli" aria-label="Configuring the CLI">Configuring the CLI</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#deploying-the-backend" aria-label="Deploying the Backend">Deploying the Backend</a><ul>
+                            
+                    <li>
+                        <a href="#launching-amplify-studio" aria-label="Launching Amplify Studio">Launching Amplify Studio</a></li>
+                    <li>
+                        <a href="#adding-backend-build-configuration" aria-label="Adding Backend Build Configuration">Adding Backend Build Configuration</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#example-adding-aws-authentication" aria-label="Example: Adding AWS Authentication">Example: Adding AWS Authentication</a><ul>
+                            
+                    <li>
+                        <a href="#adding-authentication-via-the-command-line" aria-label="Adding Authentication via the Command Line">Adding Authentication via the Command Line</a></li>
+                    <li>
+                        <a href="#using-the-auth-service-in-srcindexjs" aria-label="Using the Auth Service in src/index.js">Using the Auth Service in <code>src/index.js</code></a></li>
+                    <li>
+                        <a href="#importing-authentication-into-srcappjs" aria-label="Importing Authentication into src/App.js">Importing Authentication into <code>src/App.js</code></a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#adding-a-backend-database" aria-label="Adding a Backend Database">Adding a Backend Database</a></li>
+                    <li>
+                        <a href="#example-using-aws-storage-services" aria-label="Example: Using AWS Storage Services">Example: Using AWS Storage Services</a>
+                    </li>
+                </ul>
+                </li>
+                </ul>
+            </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+         
+         activeElement = elements[0];
+         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+     }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+             const id = encodeURI(element.getAttribute('id')).toLowerCase();
+             if (element === activeElement){
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+             } else {
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+             }
+         })
+     }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;   
+    }
+</script>
+
+  <div class="post-content"><p>Note: This passage is written in Chinese and translated into English via ChatGPT.</p>
+<hr>
+<p>I found a project tutorial for AWS Amplify on the AWS official website. It seems that it has not been translated into Chinese yet, so I took some notes while exploring it.</p>
+<p><img loading="lazy" src="./assets/image-20230718215138550.png#center" alt="Not Translated"  />
+</p>
+<h2 id="introduction-to-aws-amplify">Introduction to AWS Amplify<a hidden class="anchor" aria-hidden="true" href="#introduction-to-aws-amplify">#</a></h2>
+<p>Amplify is a comprehensive platform that provides static resource hosting for:</p>
+<ul>
+<li>Creating AWS backends with features like authentication, data storage, and more for web, iOS, or Android applications in minutes.</li>
+<li>Building frontend UI intuitively from design to code with Figma integration and connecting it to the backend with just a few clicks.</li>
+</ul>
+<p>In summary, apart from a few distinctive features, it is quite similar to services like Netlify and also offers a certain amount of free usage:</p>
+<ul>
+<li>AWS Amplify Features:
+<ul>
+<li>Supports visual development of full-stack websites or applications.</li>
+<li>Supports deploying mobile applications, which Netlify does not.</li>
+<li>Comprehensive ecosystem, making it convenient to use other AWS services.</li>
+</ul>
+</li>
+</ul>
+<h2 id="getting-started-with-amplify">Getting Started with Amplify<a hidden class="anchor" aria-hidden="true" href="#getting-started-with-amplify">#</a></h2>
+<p>The main goal is to host a web page and deploy a backend, and additionally, there are examples of adding AWS authentication and storage services as supplementary features.</p>
+<blockquote>
+<p>Note: The following steps only show the configuration and deployment process related to Amplify. The complete code of the app is not provided here. Please refer to the <a href="https://aws.amazon.com/cn/getting-started/hands-on/build-react-app-amplify-graphql/">original article</a> for the specific app code.</p>
+</blockquote>
+<h3 id="prerequisites">Prerequisites<a hidden class="anchor" aria-hidden="true" href="#prerequisites">#</a></h3>
+<ol>
+<li>Create a frontend application or use an existing one.</li>
+<li>Push it to a GitHub repository.</li>
+</ol>
+<h3 id="deploying-the-frontend">Deploying the Frontend<a hidden class="anchor" aria-hidden="true" href="#deploying-the-frontend">#</a></h3>
+<ol>
+<li>Register for an AWS account (requires a credit card that can be charged $1).</li>
+<li>Log in and find the <a href="https://console.aws.amazon.com/">AWS Management Console</a>.</li>
+<li>Go to the &ldquo;Get started&rdquo; page and click &ldquo;Get started&rdquo; under the &ldquo;Host your web app&rdquo; section.</li>
+</ol>
+<p><img loading="lazy" src="./assets/1.png#center" alt="Get started"  />
+</p>
+<ol start="4">
+<li>Choose GitHub as the deployment option, confirm the repository and branch information, and click &ldquo;Next&rdquo; multiple times.</li>
+<li>Click &ldquo;Save and deploy&rdquo; to complete the process. Afterward, any modifications and pushes to the repository will automatically update the website.</li>
+</ol>
+<center><font color="grey">Completion Page</font></center>
+<p><img loading="lazy" src="./assets/2.png#center" alt="Deployed"  />
+</p>
+<h3 id="installing-amplify-cli---addingmanaging-aws-services">Installing Amplify CLI - Adding/Managing AWS Services<a hidden class="anchor" aria-hidden="true" href="#installing-amplify-cli---addingmanaging-aws-services">#</a></h3>
+<h4 id="installing-the-cli">Installing the CLI<a hidden class="anchor" aria-hidden="true" href="#installing-the-cli">#</a></h4>
+<p>Amplify CLI allows you to add AWS services to your project.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># Install CLI</span>
+</span></span><span class="line"><span class="cl">npm install -g @aws-amplify/cli
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>Note: Compatibility issue on ARM Macs</p>
+</blockquote>
+<p>If you encounter issues on M1/M2 Macs, where the CLI installs successfully but commands don&rsquo;t respond, you can try one of the following solutions. Refer to <a href="https://github.com/aws-amplify/amplify-cli/issues/10193">issue #10193</a> for more information:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># Solution 1: Install Rosetta (may or may not work)</span>
+</span></span><span class="line"><span class="cl">softwareupdate --install-rosetta
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Solution 2: Clone an older version of the CLI (@danrivett) (may or may not work)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Environment: amplify-cli@v10.4.1 node@16</span>
+</span></span><span class="line"><span class="cl">git clone https://github.com/aws-amplify/amplify-cli.git
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> amplify-cli
+</span></span><span class="line"><span class="cl">git checkout v10.4.1 <span class="c1"># Avoids building the dev branch but builds a release tag; update as necessary</span>
+</span></span><span class="line"><span class="cl">yarn <span class="o">&amp;&amp;</span> yarn build
+</span></span><span class="line"><span class="cl">rm ~/.amplify/bin/amplify
+</span></span><span class="line"><span class="cl">ln -s <span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/packages/amplify-cli/bin/amplify ~/.amplify/bin/amplify
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Solution 3: Manually download and install an older version from the releases page (@kzetxa)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Environment: node@16.12.0, Amplify 10.3.1, macOS Monterey 12.6</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 1. Delete the binary at /usr/local/bin/amplify</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 2. Rename the binary inside the downloaded package</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 3. Move it to the location where the old deleted binary was</span>
+</span></span><span class="line"><span class="cl">sudo chown -R <span class="k">$(</span>whoami<span class="k">)</span> ~/.amplify
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>I have successfully used the third solution, with the same environment as mentioned. It seems that it involves a translation from x86.</p>
+<h4 id="configuring-the-cli">Configuring the CLI<a hidden class="anchor" aria-hidden="true" href="#configuring-the-cli">#</a></h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># Configure the CLI</span>
+</span></span><span class="line"><span class="cl">amplify configure
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 1. You will be redirected to the web console for login.</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 2. Select your region.</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 3. Return to the web console to create a new user.</span>
+</span></span><span class="line"><span class="cl">   <span class="c1"># The user needs programmatic access.</span>
+</span></span><span class="line"><span class="cl">   <span class="c1"># Record the access key ID and secret access key.</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>You will need the CLI for adding various services. Additionally, you can now use the following command to directly access the console:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># In the local terminal</span>
+</span></span><span class="line"><span class="cl">amplify console
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="deploying-the-backend">Deploying the Backend<a hidden class="anchor" aria-hidden="true" href="#deploying-the-backend">#</a></h3>
+<h4 id="launching-amplify-studio">Launching Amplify Studio<a hidden class="anchor" aria-hidden="true" href="#launching-amplify-studio">#</a></h4>
+<p>Go back to the application page - backend environments - get started - launch studio - and run the local setup command in the terminal (copy from the web page).</p>
+<p><img loading="lazy" src="./assets/react-app-module-two-2.5be98fc064c13b3e6bc983685462eb032dc01332.png#center" alt="Launching Studio"  />
+</p>
+<p>Then choose the configuration options:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">? Choose your default editor: Visual Studio Code
+</span></span><span class="line"><span class="cl">? Choose the <span class="nb">type</span> of app that you<span class="err">&#39;</span>re building: JavaScript
+</span></span><span class="line"><span class="cl">? What javascript framework are you using: React
+</span></span><span class="line"><span class="cl">? Source Directory Path: src
+</span></span><span class="line"><span class="cl">? Distribution Directory Path: build
+</span></span><span class="line"><span class="cl">? Build Command: npm run-script build
+</span></span><span class="line"><span class="cl">? Start Command: npm run-script start
+</span></span><span class="line"><span class="cl">? Do you plan on modifying this backend? Y
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="adding-backend-build-configuration">Adding Backend Build Configuration<a hidden class="anchor" aria-hidden="true" href="#adding-backend-build-configuration">#</a></h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># App settings &gt; Build settings </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># Add backend configuration</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">backend</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">phases</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">build</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">commands</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="s1">&#39;# Execute Amplify CLI with the helper script&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">amplifyPush --simple</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">frontend</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">...</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="example-adding-aws-authentication">Example: Adding AWS Authentication<a hidden class="anchor" aria-hidden="true" href="#example-adding-aws-authentication">#</a></h3>
+<p>This example demonstrates how to add AWS authentication to a note-taking application.</p>
+<h4 id="adding-authentication-via-the-command-line">Adding Authentication via the Command Line<a hidden class="anchor" aria-hidden="true" href="#adding-authentication-via-the-command-line">#</a></h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># In the local terminal</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Create the authentication service locally</span>
+</span></span><span class="line"><span class="cl">amplify add auth
+</span></span><span class="line"><span class="cl"><span class="c1"># Deploy it</span>
+</span></span><span class="line"><span class="cl">amplify push --y
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="using-the-auth-service-in-srcindexjs">Using the Auth Service in <code>src/index.js</code><a hidden class="anchor" aria-hidden="true" href="#using-the-auth-service-in-srcindexjs">#</a></h4>
+<p>Import the configuration and add the following code to your <code>src/index.js</code> file:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="c1">// in `src/index.js`
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Amplify</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;aws-amplify&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">config</span> <span class="nx">from</span> <span class="s1">&#39;./aws-exports&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">Amplify</span><span class="p">.</span><span class="nx">configure</span><span class="p">(</span><span class="nx">config</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="importing-authentication-into-srcappjs">Importing Authentication into <code>src/App.js</code><a hidden class="anchor" aria-hidden="true" href="#importing-authentication-into-srcappjs">#</a></h4>
+<p>Import similar to the following (a sample with only authentication):</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kr">import</span> <span class="s2">&#34;@aws-amplify/ui-react/styles.css&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">withAuthenticator</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;@aws-amplify/ui-react&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">App</span><span class="p">({</span> <span class="nx">signOut</span> <span class="p">})</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="cm">/* Middle part omitted */</span>
+</span></span><span class="line"><span class="cl">  <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="nx">withAuthenticator</span><span class="p">(</span><span class="nx">App</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img loading="lazy" src="./assets/3.png#center" alt="Authentication"  />
+Finally, push the changes to the remote repository.</p>
+<h3 id="adding-a-backend-database">Adding a Backend Database<a hidden class="anchor" aria-hidden="true" href="#adding-a-backend-database">#</a></h3>
+<ul>
+<li>Add a GraphQL API</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">amplify add api
+</span></span><span class="line"><span class="cl"><span class="c1"># Choose GraphQL</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Local configuration</li>
+</ul>
+<p>Create a schema in <code>/amplify/backend/api/&lt;api_name&gt;/schema.graphql</code>. For example:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">type</span> <span class="nx">Note</span> <span class="kd">@model</span> <span class="kd">@auth</span><span class="p">(</span><span class="nx">rules</span><span class="o">:</span> <span class="p">[{</span> <span class="nx">allow</span>: <span class="kt">public</span> <span class="p">}])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">id</span>: <span class="kt">ID</span><span class="o">!</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">name</span>: <span class="kt">String</span><span class="o">!</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">description</span>: <span class="kt">String</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Deploy the service</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">amplify push --y <span class="c1"># --yes: Omit all command-line configuration options and set as default</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>This will do three things:</p>
+<ol>
+<li>Create the <strong>AWS AppSync API</strong></li>
+<li>Create a <strong>DynamoDB table</strong></li>
+<li>Create the local GraphQL operations in a folder located at src/graphql that you can <strong>use to query the API</strong></li>
+</ol>
+</blockquote>
+<ul>
+<li>Send a query in the frontend</li>
+</ul>
+<p>Example:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kr">async</span> <span class="kd">function</span> <span class="nx">deleteNote</span><span class="p">({</span> <span class="nx">id</span> <span class="p">})</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">newNotes</span> <span class="o">=</span> <span class="nx">notes</span><span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">note</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">note</span><span class="p">.</span><span class="nx">id</span> <span class="o">!==</span> <span class="nx">id</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">setNotes</span><span class="p">(</span><span class="nx">newNotes</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// query
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kr">await</span> <span class="nx">API</span><span class="p">.</span><span class="nx">graphql</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">query</span><span class="o">:</span> <span class="nx">deleteNoteMutation</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">variables</span><span class="o">:</span> <span class="p">{</span> <span class="nx">input</span><span class="o">:</span> <span class="p">{</span> <span class="nx">id</span> <span class="p">}</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="example-using-aws-storage-services">Example: Using AWS Storage Services<a hidden class="anchor" aria-hidden="true" href="#example-using-aws-storage-services">#</a></h3>
+<p>This example shows how to use Amazon S3 (AWS Simple Storage Service) to store image data.</p>
+<ul>
+<li>Add the storage service</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">amplify add storage
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Modify the schema</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="c1">// amplify/backend/api/notesapp/schema.graphql
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">type</span> <span class="nx">Note</span> <span class="kd">@model</span> <span class="kd">@auth</span><span class="p">(</span><span class="nx">rules</span><span class="o">:</span> <span class="p">[{</span> <span class="nx">allow</span>: <span class="kt">public</span> <span class="p">}])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">id</span>: <span class="kt">ID</span><span class="o">!</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">name</span>: <span class="kt">String</span><span class="o">!</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">description</span>: <span class="kt">String</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">image</span>: <span class="kt">String</span> <span class="c1">// update
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Use storage in the app</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="c1">// Update imports
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">API</span><span class="p">,</span> <span class="nx">Storage</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;aws-amplify&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">Button</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">Flex</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">Heading</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">Image</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">Text</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">TextField</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">View</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">withAuthenticator</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-amplify/ui-react&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Update functions, e.g., createNote
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">async</span> <span class="kd">function</span> <span class="nx">createNote</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">form</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FormData</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">image</span> <span class="o">=</span> <span class="nx">form</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&#34;image&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">name</span><span class="o">:</span> <span class="nx">form</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&#34;name&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">description</span><span class="o">:</span> <span class="nx">form</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&#34;description&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">image</span><span class="o">:</span> <span class="nx">image</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// Put image into storage
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">if</span> <span class="p">(</span><span class="o">!!</span><span class="nx">data</span><span class="p">.</span><span class="nx">image</span><span class="p">)</span> <span class="kr">await</span> <span class="nx">Storage</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span> <span class="nx">image</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">await</span> <span class="nx">API</span><span class="p">.</span><span class="nx">graphql</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">query</span><span class="o">:</span> <span class="nx">createNoteMutation</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">variables</span><span class="o">:</span> <span class="p">{</span> <span class="nx">input</span><span class="o">:</span> <span class="nx">data</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="p">});</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">fetchNotes</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">reset</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Deploy the service</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">amplify push --y <span class="c1"># --yes: Omit all command-line configuration options and set as default</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<center><font color="grey">End</font></center>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://eimy.ink/tags/aws/">aws</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="http://eimy.ink/posts/2023/gitlet-fin/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Notes and Thoughts on CS61B Gitlet</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="http://eimy.ink/">FloraZ</a></span><span style="display: inline-block; margin-left: 1em;">
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/reorx/hugo-PaperMod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+  (function() {
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    const disableSmoothScroll = '' == '1';
+    const enableInstantClick = '' == '1';
+    
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || disableSmoothScroll || enableInstantClick) {
+      return;
+    }
+    
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                behavior: "smooth"
+            });
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+  })();
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = 'copy';
+
+        function copyingDone() {
+            copybutton.innerText = 'copied!';
+            setTimeout(() => {
+                copybutton.innerText = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+<script>
+window.addEventListener('DOMContentLoaded', function (event) {
+  const headings = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id]');
+  const activeClass = 'active';
+
+  
+  let activeHeading = headings[0];
+  getLinkByHeading(activeHeading).classList.add(activeClass);
+
+  const onScroll = () => {
+    const passedHeadings = [];
+    for (const h of headings) {
+      
+      if (getOffsetTop(h) < 5) {
+        passedHeadings.push(h)
+      } else {
+        break;
+      }
+    }
+    if (passedHeadings.length > 0) {
+      newActiveHeading = passedHeadings[passedHeadings.length - 1];
+    } else {
+      newActiveHeading = headings[0];
+    }
+    if (activeHeading != newActiveHeading) {
+      getLinkByHeading(activeHeading).classList.remove(activeClass);
+      activeHeading = newActiveHeading;
+      getLinkByHeading(activeHeading).classList.add(activeClass);
+    }
+  }
+
+  let timer = null;
+  window.addEventListener('scroll', () => {
+    if (timer !== null) {
+      clearTimeout(timer)
+    }
+    timer = setTimeout(onScroll, 50)
+  }, false);
+
+  function getLinkByHeading(heading) {
+    const id = encodeURI(heading.getAttribute('id')).toLowerCase();
+    return document.querySelector(`.toc ul li a[href="#${id}"]`);
+  }
+
+  function getOffsetTop(heading) {
+    if (!heading.getClientRects().length) {
+      return 0;
+    }
+    let rect = heading.getBoundingClientRect();
+    return rect.top
+  }
+}, false);
+</script></body>
+
+</html>

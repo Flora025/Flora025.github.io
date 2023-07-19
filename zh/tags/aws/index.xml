@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>aws on FloraZ</title>
+    <link>http://eimy.ink/zh/tags/aws/</link>
+    <description>Recent content in aws on FloraZ</description>
+    <image>
+      <title>FloraZ</title>
+      <url>http://eimy.ink/papermod-cover.png</url>
+      <link>http://eimy.ink/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Tue, 18 Jul 2023 21:27:16 +0800</lastBuildDate><atom:link href="http://eimy.ink/zh/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AWS Amplify记录</title>
+      <link>http://eimy.ink/zh/posts/2023/aws-amplify/</link>
+      <pubDate>Tue, 18 Jul 2023 21:27:16 +0800</pubDate>
+      
+      <guid>http://eimy.ink/zh/posts/2023/aws-amplify/</guid>
+      <description>playing with AWS</description>
+    </item>
+    
+  </channel>
+</rss>

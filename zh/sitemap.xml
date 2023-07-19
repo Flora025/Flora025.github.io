@@ -2,21 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://eimy.ink/zh/posts/2023/gitlet-fin/</loc>
-    <lastmod>2023-07-13T00:00:00+00:00</lastmod>
+    <loc>http://eimy.ink/zh/tags/aws/</loc>
+    <lastmod>2023-07-18T21:27:16+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://eimy.ink/posts/2023/gitlet-fin/"
+                href="http://eimy.ink/tags/aws/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://eimy.ink/zh/posts/2023/gitlet-fin/"
+                href="http://eimy.ink/zh/tags/aws/"
+                />
+  </url><url>
+    <loc>http://eimy.ink/zh/posts/2023/aws-amplify/</loc>
+    <lastmod>2023-07-18T21:27:16+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://eimy.ink/posts/2023/aws-amplify/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="http://eimy.ink/zh/posts/2023/aws-amplify/"
                 />
   </url><url>
     <loc>http://eimy.ink/zh/categories/</loc>
-    <lastmod>2023-07-13T00:00:00+00:00</lastmod>
+    <lastmod>2023-07-18T21:27:16+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -29,7 +42,7 @@
                 />
   </url><url>
     <loc>http://eimy.ink/zh/</loc>
-    <lastmod>2023-07-13T00:00:00+00:00</lastmod>
+    <lastmod>2023-07-18T21:27:16+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -42,7 +55,7 @@
                 />
   </url><url>
     <loc>http://eimy.ink/zh/posts/</loc>
-    <lastmod>2023-07-13T00:00:00+00:00</lastmod>
+    <lastmod>2023-07-18T21:27:16+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -55,7 +68,7 @@
                 />
   </url><url>
     <loc>http://eimy.ink/zh/tags/</loc>
-    <lastmod>2023-07-13T00:00:00+00:00</lastmod>
+    <lastmod>2023-07-18T21:27:16+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -68,7 +81,20 @@
                 />
   </url><url>
     <loc>http://eimy.ink/zh/categories/%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2023-07-18T21:27:16+08:00</lastmod>
+  </url><url>
+    <loc>http://eimy.ink/zh/posts/2023/gitlet-fin/</loc>
     <lastmod>2023-07-13T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://eimy.ink/posts/2023/gitlet-fin/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="http://eimy.ink/zh/posts/2023/gitlet-fin/"
+                />
   </url><url>
     <loc>http://eimy.ink/zh/tags/%E8%AF%BE%E7%A8%8B/</loc>
     <lastmod>2023-07-13T00:00:00+00:00</lastmod>

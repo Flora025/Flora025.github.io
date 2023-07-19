@@ -11,7 +11,16 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Thu, 13 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://eimy.ink/zh/categories/%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 18 Jul 2023 21:27:16 +0800</lastBuildDate><atom:link href="http://eimy.ink/zh/categories/%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AWS Amplify记录</title>
+      <link>http://eimy.ink/zh/posts/2023/aws-amplify/</link>
+      <pubDate>Tue, 18 Jul 2023 21:27:16 +0800</pubDate>
+      
+      <guid>http://eimy.ink/zh/posts/2023/aws-amplify/</guid>
+      <description>playing with AWS</description>
+    </item>
+    
     <item>
       <title>CS61B Gitlet 完结记录</title>
       <link>http://eimy.ink/zh/posts/2023/gitlet-fin/</link>
