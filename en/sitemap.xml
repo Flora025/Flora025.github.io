@@ -2,6 +2,77 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://eimy.ink/categories/</loc>
+    <lastmod>2023-08-11T14:33:57+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="http://eimy.ink/zh/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://eimy.ink/categories/"
+                />
+  </url><url>
+    <loc>http://eimy.ink/tags/computer-architecture/</loc>
+    <lastmod>2023-08-11T14:33:57+08:00</lastmod>
+  </url><url>
+    <loc>http://eimy.ink/posts/2023/cs61c/</loc>
+    <lastmod>2023-08-11T14:33:57+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="http://eimy.ink/zh/posts/2023/cs61c/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://eimy.ink/posts/2023/cs61c/"
+                />
+  </url><url>
+    <loc>http://eimy.ink/</loc>
+    <lastmod>2023-08-11T14:33:57+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="http://eimy.ink/zh/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://eimy.ink/"
+                />
+  </url><url>
+    <loc>http://eimy.ink/categories/notes/</loc>
+    <lastmod>2023-08-11T14:33:57+08:00</lastmod>
+  </url><url>
+    <loc>http://eimy.ink/posts/</loc>
+    <lastmod>2023-08-11T14:33:57+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="http://eimy.ink/zh/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://eimy.ink/posts/"
+                />
+  </url><url>
+    <loc>http://eimy.ink/tags/</loc>
+    <lastmod>2023-08-11T14:33:57+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="http://eimy.ink/zh/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://eimy.ink/tags/"
+                />
+  </url><url>
     <loc>http://eimy.ink/tags/aws/</loc>
     <lastmod>2023-07-18T21:27:16+08:00</lastmod>
     <xhtml:link
@@ -15,19 +86,6 @@
                 href="http://eimy.ink/tags/aws/"
                 />
   </url><url>
-    <loc>http://eimy.ink/categories/</loc>
-    <lastmod>2023-07-18T21:27:16+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="http://eimy.ink/zh/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://eimy.ink/categories/"
-                />
-  </url><url>
     <loc>http://eimy.ink/posts/2023/aws-amplify/</loc>
     <lastmod>2023-07-18T21:27:16+08:00</lastmod>
     <xhtml:link
@@ -39,48 +97,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="http://eimy.ink/posts/2023/aws-amplify/"
-                />
-  </url><url>
-    <loc>http://eimy.ink/</loc>
-    <lastmod>2023-07-18T21:27:16+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="http://eimy.ink/zh/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://eimy.ink/"
-                />
-  </url><url>
-    <loc>http://eimy.ink/categories/notes/</loc>
-    <lastmod>2023-07-18T21:27:16+08:00</lastmod>
-  </url><url>
-    <loc>http://eimy.ink/posts/</loc>
-    <lastmod>2023-07-18T21:27:16+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="http://eimy.ink/zh/posts/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://eimy.ink/posts/"
-                />
-  </url><url>
-    <loc>http://eimy.ink/tags/</loc>
-    <lastmod>2023-07-18T21:27:16+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="http://eimy.ink/zh/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://eimy.ink/tags/"
                 />
   </url><url>
     <loc>http://eimy.ink/tags/course/</loc>
