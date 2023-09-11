@@ -6,7 +6,7 @@
     <lastmod>2023-02-08T21:12:10+08:00</lastmod>
   </url><url>
     <loc>http://eimy.ink/zh/categories/</loc>
-    <lastmod>2023-08-11T14:33:57+08:00</lastmod>
+    <lastmod>2023-08-31T20:46:43+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -18,21 +18,8 @@
                 href="http://eimy.ink/zh/categories/"
                 />
   </url><url>
-    <loc>http://eimy.ink/zh/posts/2023/cs61c/</loc>
-    <lastmod>2023-08-11T14:33:57+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://eimy.ink/posts/2023/cs61c/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="http://eimy.ink/zh/posts/2023/cs61c/"
-                />
-  </url><url>
     <loc>http://eimy.ink/zh/</loc>
-    <lastmod>2023-08-11T14:33:57+08:00</lastmod>
+    <lastmod>2023-08-31T20:46:43+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -45,7 +32,7 @@
                 />
   </url><url>
     <loc>http://eimy.ink/zh/posts/</loc>
-    <lastmod>2023-08-11T14:33:57+08:00</lastmod>
+    <lastmod>2023-08-31T20:46:43+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -58,7 +45,7 @@
                 />
   </url><url>
     <loc>http://eimy.ink/zh/tags/</loc>
-    <lastmod>2023-08-11T14:33:57+08:00</lastmod>
+    <lastmod>2023-08-31T20:46:43+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -68,6 +55,37 @@
                 rel="alternate"
                 hreflang="zh"
                 href="http://eimy.ink/zh/tags/"
+                />
+  </url><url>
+    <loc>http://eimy.ink/zh/tags/%E7%BE%8E%E5%9B%BD/</loc>
+    <lastmod>2023-08-31T20:46:43+08:00</lastmod>
+  </url><url>
+    <loc>http://eimy.ink/zh/posts/2023/commencement/</loc>
+    <lastmod>2023-08-31T20:46:43+08:00</lastmod>
+  </url><url>
+    <loc>http://eimy.ink/zh/tags/%E6%97%A5%E6%9C%AC/</loc>
+    <lastmod>2023-08-31T20:46:43+08:00</lastmod>
+  </url><url>
+    <loc>http://eimy.ink/zh/categories/%E6%9D%82%E8%AE%B0/</loc>
+    <lastmod>2023-08-31T20:46:43+08:00</lastmod>
+  </url><url>
+    <loc>http://eimy.ink/zh/tags/%E6%B8%B8%E6%88%8F/</loc>
+    <lastmod>2023-08-20T10:33:57+08:00</lastmod>
+  </url><url>
+    <loc>http://eimy.ink/zh/posts/2023/genshin-events/</loc>
+    <lastmod>2023-08-20T10:33:57+08:00</lastmod>
+  </url><url>
+    <loc>http://eimy.ink/zh/posts/2023/cs61c/</loc>
+    <lastmod>2023-08-11T14:33:57+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://eimy.ink/posts/2023/cs61c/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="http://eimy.ink/zh/posts/2023/cs61c/"
                 />
   </url><url>
     <loc>http://eimy.ink/zh/categories/%E7%AC%94%E8%AE%B0/</loc>
@@ -121,13 +139,7 @@
     <loc>http://eimy.ink/zh/tags/%E6%97%85%E8%A1%8C/</loc>
     <lastmod>2023-06-24T14:33:57+08:00</lastmod>
   </url><url>
-    <loc>http://eimy.ink/zh/tags/%E6%97%A5%E6%9C%AC/</loc>
-    <lastmod>2023-06-24T14:33:57+08:00</lastmod>
-  </url><url>
     <loc>http://eimy.ink/zh/posts/2023/plog-japan-ii/</loc>
-    <lastmod>2023-06-24T14:33:57+08:00</lastmod>
-  </url><url>
-    <loc>http://eimy.ink/zh/categories/%E6%9D%82%E8%AE%B0/</loc>
     <lastmod>2023-06-24T14:33:57+08:00</lastmod>
   </url><url>
     <loc>http://eimy.ink/zh/posts/2023/plog-japan-i/</loc>

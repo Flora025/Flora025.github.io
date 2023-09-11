@@ -11,7 +11,7 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Sat, 24 Jun 2023 14:33:57 +0800</lastBuildDate><atom:link href="http://eimy.ink/zh/categories/%E6%9D%82%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 31 Aug 2023 20:46:43 +0800</lastBuildDate><atom:link href="http://eimy.ink/zh/categories/%E6%9D%82%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>【置顶】随想录</title>
       <link>http://eimy.ink/zh/posts/2023/thoughts/</link>
@@ -19,6 +19,24 @@
       
       <guid>http://eimy.ink/zh/posts/2023/thoughts/</guid>
       <description>长期更新中</description>
+    </item>
+    
+    <item>
+      <title>去上学的路上，日本旅游5.0</title>
+      <link>http://eimy.ink/zh/posts/2023/commencement/</link>
+      <pubDate>Thu, 31 Aug 2023 20:46:43 +0800</pubDate>
+      
+      <guid>http://eimy.ink/zh/posts/2023/commencement/</guid>
+      <description>去上学的路上：上海-东京</description>
+    </item>
+    
+    <item>
+      <title>原神版本活动设计思路分析</title>
+      <link>http://eimy.ink/zh/posts/2023/genshin-events/</link>
+      <pubDate>Sun, 20 Aug 2023 10:33:57 +0800</pubDate>
+      
+      <guid>http://eimy.ink/zh/posts/2023/genshin-events/</guid>
+      <description>曾经想过去搞游戏</description>
     </item>
     
     <item>
