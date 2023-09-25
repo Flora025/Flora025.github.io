@@ -6,7 +6,7 @@
     <lastmod>2023-02-08T21:12:10+08:00</lastmod>
   </url><url>
     <loc>http://eimy.ink/zh/categories/</loc>
-    <lastmod>2023-08-31T20:46:43+08:00</lastmod>
+    <lastmod>2023-09-25T18:43:10-04:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -19,7 +19,7 @@
                 />
   </url><url>
     <loc>http://eimy.ink/zh/</loc>
-    <lastmod>2023-08-31T20:46:43+08:00</lastmod>
+    <lastmod>2023-09-25T18:43:10-04:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -32,7 +32,7 @@
                 />
   </url><url>
     <loc>http://eimy.ink/zh/posts/</loc>
-    <lastmod>2023-08-31T20:46:43+08:00</lastmod>
+    <lastmod>2023-09-25T18:43:10-04:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -45,7 +45,7 @@
                 />
   </url><url>
     <loc>http://eimy.ink/zh/tags/</loc>
-    <lastmod>2023-08-31T20:46:43+08:00</lastmod>
+    <lastmod>2023-09-25T18:43:10-04:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -56,6 +56,25 @@
                 hreflang="zh"
                 href="http://eimy.ink/zh/tags/"
                 />
+  </url><url>
+    <loc>http://eimy.ink/zh/posts/2023/xv6-lab-pgtbl/</loc>
+    <lastmod>2023-09-25T18:43:10-04:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://eimy.ink/posts/2023/xv6-lab-pgtbl/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="http://eimy.ink/zh/posts/2023/xv6-lab-pgtbl/"
+                />
+  </url><url>
+    <loc>http://eimy.ink/zh/categories/%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2023-09-25T18:43:10-04:00</lastmod>
+  </url><url>
+    <loc>http://eimy.ink/zh/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</loc>
+    <lastmod>2023-09-25T18:43:10-04:00</lastmod>
   </url><url>
     <loc>http://eimy.ink/zh/tags/%E7%BE%8E%E5%9B%BD/</loc>
     <lastmod>2023-08-31T20:46:43+08:00</lastmod>
@@ -87,9 +106,6 @@
                 hreflang="zh"
                 href="http://eimy.ink/zh/posts/2023/cs61c/"
                 />
-  </url><url>
-    <loc>http://eimy.ink/zh/categories/%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2023-08-11T14:33:57+08:00</lastmod>
   </url><url>
     <loc>http://eimy.ink/zh/tags/%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/</loc>
     <lastmod>2023-08-11T14:33:57+08:00</lastmod>

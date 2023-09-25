@@ -11,7 +11,16 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 11 Aug 2023 14:33:57 +0800</lastBuildDate><atom:link href="http://eimy.ink/categories/notes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 25 Sep 2023 18:43:10 -0400</lastBuildDate><atom:link href="http://eimy.ink/categories/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>xv6: Lab 3 pgtbl Notes</title>
+      <link>http://eimy.ink/posts/2023/xv6-lab-pgtbl/</link>
+      <pubDate>Mon, 25 Sep 2023 18:43:10 -0400</pubDate>
+      
+      <guid>http://eimy.ink/posts/2023/xv6-lab-pgtbl/</guid>
+      <description>MIT 6.S081 Lab3 Pagetable</description>
+    </item>
+    
     <item>
       <title>CS61C Completed</title>
       <link>http://eimy.ink/posts/2023/cs61c/</link>
