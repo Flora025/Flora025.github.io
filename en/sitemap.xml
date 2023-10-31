@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://eimy.ink/categories/</loc>
-    <lastmod>2023-09-25T18:43:10-04:00</lastmod>
+    <lastmod>2023-10-31T12:43:10-04:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -16,7 +16,7 @@
                 />
   </url><url>
     <loc>http://eimy.ink/</loc>
-    <lastmod>2023-09-25T18:43:10-04:00</lastmod>
+    <lastmod>2023-10-31T12:43:10-04:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -29,13 +29,13 @@
                 />
   </url><url>
     <loc>http://eimy.ink/categories/notes/</loc>
-    <lastmod>2023-09-25T18:43:10-04:00</lastmod>
+    <lastmod>2023-10-31T12:43:10-04:00</lastmod>
   </url><url>
     <loc>http://eimy.ink/tags/operating-system/</loc>
-    <lastmod>2023-09-25T18:43:10-04:00</lastmod>
+    <lastmod>2023-10-31T12:43:10-04:00</lastmod>
   </url><url>
     <loc>http://eimy.ink/posts/</loc>
-    <lastmod>2023-09-25T18:43:10-04:00</lastmod>
+    <lastmod>2023-10-31T12:43:10-04:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -48,7 +48,7 @@
                 />
   </url><url>
     <loc>http://eimy.ink/tags/</loc>
-    <lastmod>2023-09-25T18:43:10-04:00</lastmod>
+    <lastmod>2023-10-31T12:43:10-04:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -60,17 +60,69 @@
                 href="http://eimy.ink/tags/"
                 />
   </url><url>
-    <loc>http://eimy.ink/posts/2023/xv6-lab-pgtbl/</loc>
-    <lastmod>2023-09-25T18:43:10-04:00</lastmod>
+    <loc>http://eimy.ink/posts/2023/xv6/lab-net/</loc>
+    <lastmod>2023-10-31T12:43:10-04:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://eimy.ink/zh/posts/2023/xv6-lab-pgtbl/"
+                href="http://eimy.ink/zh/posts/2023/xv6/lab-net/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://eimy.ink/posts/2023/xv6-lab-pgtbl/"
+                href="http://eimy.ink/posts/2023/xv6/lab-net/"
+                />
+  </url><url>
+    <loc>http://eimy.ink/posts/2023/xv6/lab-fs/</loc>
+    <lastmod>2023-10-28T18:43:10-04:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="http://eimy.ink/zh/posts/2023/xv6/lab-fs/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://eimy.ink/posts/2023/xv6/lab-fs/"
+                />
+  </url><url>
+    <loc>http://eimy.ink/posts/2023/xv6/lab-lazy/</loc>
+    <lastmod>2023-09-30T18:43:10-04:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="http://eimy.ink/zh/posts/2023/xv6/lab-lazy/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://eimy.ink/posts/2023/xv6/lab-lazy/"
+                />
+  </url><url>
+    <loc>http://eimy.ink/posts/2023/xv6/lab-traps/</loc>
+    <lastmod>2023-09-28T18:43:10-04:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="http://eimy.ink/zh/posts/2023/xv6/lab-traps/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://eimy.ink/posts/2023/xv6/lab-traps/"
+                />
+  </url><url>
+    <loc>http://eimy.ink/posts/2023/xv6/lab-pgtbl/</loc>
+    <lastmod>2023-09-25T18:43:10-04:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="http://eimy.ink/zh/posts/2023/xv6/lab-pgtbl/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://eimy.ink/posts/2023/xv6/lab-pgtbl/"
                 />
   </url><url>
     <loc>http://eimy.ink/tags/computer-architecture/</loc>

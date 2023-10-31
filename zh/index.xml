@@ -11,7 +11,7 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Mon, 25 Sep 2023 18:43:10 -0400</lastBuildDate><atom:link href="http://eimy.ink/zh/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 31 Oct 2023 12:43:10 -0400</lastBuildDate><atom:link href="http://eimy.ink/zh/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>【置顶】随想录</title>
       <link>http://eimy.ink/zh/posts/2023/thoughts/</link>
@@ -22,12 +22,48 @@
     </item>
     
     <item>
+      <title>xv6 Lab 11 networking 实验记录</title>
+      <link>http://eimy.ink/zh/posts/2023/xv6/lab-net/</link>
+      <pubDate>Tue, 31 Oct 2023 12:43:10 -0400</pubDate>
+      
+      <guid>http://eimy.ink/zh/posts/2023/xv6/lab-net/</guid>
+      <description>MIT 6.S081 lab 11 networking 实验记录</description>
+    </item>
+    
+    <item>
+      <title>xv6 Lab 9 file system 实验记录</title>
+      <link>http://eimy.ink/zh/posts/2023/xv6/lab-fs/</link>
+      <pubDate>Sat, 28 Oct 2023 18:43:10 -0400</pubDate>
+      
+      <guid>http://eimy.ink/zh/posts/2023/xv6/lab-fs/</guid>
+      <description>MIT 6.S081 lab 9 file system 实验记录</description>
+    </item>
+    
+    <item>
+      <title>xv6 Lab 5 lazy 实验记录</title>
+      <link>http://eimy.ink/zh/posts/2023/xv6/lab-lazy/</link>
+      <pubDate>Sat, 30 Sep 2023 18:43:10 -0400</pubDate>
+      
+      <guid>http://eimy.ink/zh/posts/2023/xv6/lab-lazy/</guid>
+      <description>MIT 6.S081 lab 5 lazy allocation 实验记录</description>
+    </item>
+    
+    <item>
+      <title>xv6 Lab 4 traps 实验记录</title>
+      <link>http://eimy.ink/zh/posts/2023/xv6/lab-traps/</link>
+      <pubDate>Thu, 28 Sep 2023 18:43:10 -0400</pubDate>
+      
+      <guid>http://eimy.ink/zh/posts/2023/xv6/lab-traps/</guid>
+      <description>MIT 6.S081 lab 4 traps 实验记录</description>
+    </item>
+    
+    <item>
       <title>xv6 Lab 3 pgtbl 实验记录</title>
-      <link>http://eimy.ink/zh/posts/2023/xv6-lab-pgtbl/</link>
+      <link>http://eimy.ink/zh/posts/2023/xv6/lab-pgtbl/</link>
       <pubDate>Mon, 25 Sep 2023 18:43:10 -0400</pubDate>
       
-      <guid>http://eimy.ink/zh/posts/2023/xv6-lab-pgtbl/</guid>
-      <description>lab3 页表 实验记录</description>
+      <guid>http://eimy.ink/zh/posts/2023/xv6/lab-pgtbl/</guid>
+      <description>MIT 6.S081 lab3 页表 实验记录</description>
     </item>
     
     <item>
