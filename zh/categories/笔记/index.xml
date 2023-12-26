@@ -11,7 +11,16 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Tue, 31 Oct 2023 12:43:10 -0400</lastBuildDate><atom:link href="http://eimy.ink/zh/categories/%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 25 Dec 2023 23:52:10 -0500</lastBuildDate><atom:link href="http://eimy.ink/zh/categories/%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2023年终总结：开放世界的主线之余</title>
+      <link>http://eimy.ink/zh/posts/2023/year-in-retrospect/</link>
+      <pubDate>Mon, 25 Dec 2023 23:52:10 -0500</pubDate>
+      
+      <guid>http://eimy.ink/zh/posts/2023/year-in-retrospect/</guid>
+      <description>先が長い&amp;hellip;</description>
+    </item>
+    
     <item>
       <title>xv6 Lab 11 networking 实验记录</title>
       <link>http://eimy.ink/zh/posts/2023/xv6/lab-net/</link>

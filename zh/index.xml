@@ -11,14 +11,14 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Tue, 31 Oct 2023 12:43:10 -0400</lastBuildDate><atom:link href="http://eimy.ink/zh/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 25 Dec 2023 23:52:10 -0500</lastBuildDate><atom:link href="http://eimy.ink/zh/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>【置顶】随想录</title>
-      <link>http://eimy.ink/zh/posts/2023/thoughts/</link>
-      <pubDate>Wed, 08 Feb 2023 21:12:10 +0800</pubDate>
+      <title>2023年终总结：开放世界的主线之余</title>
+      <link>http://eimy.ink/zh/posts/2023/year-in-retrospect/</link>
+      <pubDate>Mon, 25 Dec 2023 23:52:10 -0500</pubDate>
       
-      <guid>http://eimy.ink/zh/posts/2023/thoughts/</guid>
-      <description>长期更新中</description>
+      <guid>http://eimy.ink/zh/posts/2023/year-in-retrospect/</guid>
+      <description>先が長い&amp;hellip;</description>
     </item>
     
     <item>
@@ -199,6 +199,15 @@
       
       <guid>http://eimy.ink/zh/posts/2023/live-japan/</guid>
       <description>论文开题副产物</description>
+    </item>
+    
+    <item>
+      <title>【置顶】随想录</title>
+      <link>http://eimy.ink/zh/posts/2023/thoughts/</link>
+      <pubDate>Wed, 08 Feb 2023 21:12:10 +0800</pubDate>
+      
+      <guid>http://eimy.ink/zh/posts/2023/thoughts/</guid>
+      <description>长期更新中</description>
     </item>
     
     <item>
