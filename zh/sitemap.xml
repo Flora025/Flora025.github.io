@@ -2,6 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://eimy.ink/zh/posts/2023/thoughts/</loc>
+    <lastmod>2023-02-08T21:12:10+08:00</lastmod>
+  </url><url>
     <loc>http://eimy.ink/zh/posts/2023/year-in-retrospect/</loc>
     <lastmod>2023-12-25T23:52:10-05:00</lastmod>
   </url><url>
@@ -222,6 +225,12 @@
     <loc>http://eimy.ink/zh/tags/%E5%A4%8D%E6%97%A6/</loc>
     <lastmod>2023-06-13T20:54:40+08:00</lastmod>
   </url><url>
+    <loc>http://eimy.ink/zh/tags/%E6%97%A5%E5%B8%B8/</loc>
+    <lastmod>2023-06-05T20:33:57+08:00</lastmod>
+  </url><url>
+    <loc>http://eimy.ink/zh/posts/2023/undergrad-chronicle/</loc>
+    <lastmod>2023-06-05T20:33:57+08:00</lastmod>
+  </url><url>
     <loc>http://eimy.ink/zh/posts/2023/hashing/</loc>
     <lastmod>2023-03-31T20:35:43+08:00</lastmod>
   </url><url>
@@ -291,12 +300,6 @@
   </url><url>
     <loc>http://eimy.ink/zh/posts/2023/live-japan/</loc>
     <lastmod>2023-02-23T15:26:39+08:00</lastmod>
-  </url><url>
-    <loc>http://eimy.ink/zh/posts/2023/thoughts/</loc>
-    <lastmod>2023-02-08T21:12:10+08:00</lastmod>
-  </url><url>
-    <loc>http://eimy.ink/zh/tags/%E6%97%A5%E5%B8%B8/</loc>
-    <lastmod>2023-02-08T21:12:10+08:00</lastmod>
   </url><url>
     <loc>http://eimy.ink/zh/posts/first-post/</loc>
     <lastmod>2022-12-24T01:11:44+08:00</lastmod>
