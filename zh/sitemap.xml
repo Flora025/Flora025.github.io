@@ -5,11 +5,8 @@
     <loc>http://eimy.ink/zh/posts/2023/thoughts/</loc>
     <lastmod>2023-02-08T21:12:10+08:00</lastmod>
   </url><url>
-    <loc>http://eimy.ink/zh/posts/2023/year-in-retrospect/</loc>
-    <lastmod>2023-12-25T23:52:10-05:00</lastmod>
-  </url><url>
     <loc>http://eimy.ink/zh/categories/</loc>
-    <lastmod>2023-12-25T23:52:10-05:00</lastmod>
+    <lastmod>2024-03-11T23:33:57+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -22,7 +19,7 @@
                 />
   </url><url>
     <loc>http://eimy.ink/zh/</loc>
-    <lastmod>2023-12-25T23:52:10-05:00</lastmod>
+    <lastmod>2024-03-11T23:33:57+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -35,7 +32,7 @@
                 />
   </url><url>
     <loc>http://eimy.ink/zh/posts/</loc>
-    <lastmod>2023-12-25T23:52:10-05:00</lastmod>
+    <lastmod>2024-03-11T23:33:57+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -48,7 +45,7 @@
                 />
   </url><url>
     <loc>http://eimy.ink/zh/tags/</loc>
-    <lastmod>2023-12-25T23:52:10-05:00</lastmod>
+    <lastmod>2024-03-11T23:33:57+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -60,13 +57,22 @@
                 href="http://eimy.ink/zh/tags/"
                 />
   </url><url>
-    <loc>http://eimy.ink/zh/categories/%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2023-12-25T23:52:10-05:00</lastmod>
-  </url><url>
     <loc>http://eimy.ink/zh/tags/%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</loc>
-    <lastmod>2023-12-25T23:52:10-05:00</lastmod>
+    <lastmod>2024-03-11T23:33:57+08:00</lastmod>
+  </url><url>
+    <loc>http://eimy.ink/zh/tags/%E6%97%A5%E5%B8%B8/</loc>
+    <lastmod>2024-03-11T23:33:57+08:00</lastmod>
+  </url><url>
+    <loc>http://eimy.ink/zh/posts/2024/half-year-review/</loc>
+    <lastmod>2024-03-11T23:33:57+08:00</lastmod>
   </url><url>
     <loc>http://eimy.ink/zh/categories/%E6%9D%82%E8%AE%B0/</loc>
+    <lastmod>2024-03-11T23:33:57+08:00</lastmod>
+  </url><url>
+    <loc>http://eimy.ink/zh/posts/2023/year-in-retrospect/</loc>
+    <lastmod>2023-12-25T23:52:10-05:00</lastmod>
+  </url><url>
+    <loc>http://eimy.ink/zh/categories/%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2023-12-25T23:52:10-05:00</lastmod>
   </url><url>
     <loc>http://eimy.ink/zh/posts/2023/xv6/lab-net/</loc>
@@ -225,9 +231,6 @@
     <loc>http://eimy.ink/zh/tags/%E5%A4%8D%E6%97%A6/</loc>
     <lastmod>2023-06-13T20:54:40+08:00</lastmod>
   </url><url>
-    <loc>http://eimy.ink/zh/tags/%E6%97%A5%E5%B8%B8/</loc>
-    <lastmod>2023-06-05T20:33:57+08:00</lastmod>
-  </url><url>
     <loc>http://eimy.ink/zh/posts/2023/undergrad-chronicle/</loc>
     <lastmod>2023-06-05T20:33:57+08:00</lastmod>
   </url><url>
@@ -306,8 +309,6 @@
   </url><url>
     <loc>http://eimy.ink/zh/posts/gallery/</loc>
     <lastmod>2022-12-24T01:11:44+08:00</lastmod>
-  </url><url>
-    <loc>http://eimy.ink/zh/posts/2024/half-year-review/</loc>
   </url><url>
     <loc>http://eimy.ink/zh/series/</loc>
     <xhtml:link

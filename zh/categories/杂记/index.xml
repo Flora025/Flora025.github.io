@@ -11,7 +11,7 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Mon, 25 Dec 2023 23:52:10 -0500</lastBuildDate><atom:link href="http://eimy.ink/zh/categories/%E6%9D%82%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 11 Mar 2024 23:33:57 +0800</lastBuildDate><atom:link href="http://eimy.ink/zh/categories/%E6%9D%82%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>【置顶】随想录</title>
       <link>http://eimy.ink/zh/posts/2023/thoughts/</link>
@@ -19,6 +19,15 @@
       
       <guid>http://eimy.ink/zh/posts/2023/thoughts/</guid>
       <description>长期更新中</description>
+    </item>
+    
+    <item>
+      <title>一份人生管理实验报告（2023.6～2024.2）</title>
+      <link>http://eimy.ink/zh/posts/2024/half-year-review/</link>
+      <pubDate>Mon, 11 Mar 2024 23:33:57 +0800</pubDate>
+      
+      <guid>http://eimy.ink/zh/posts/2024/half-year-review/</guid>
+      <description>盘一下这大半年干了什么</description>
     </item>
     
     <item>
