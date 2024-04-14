@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="zh" dir="auto" translate="no">
 
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>Notes and Thoughts on CS61B Gitlet | FloraZ</title>
-<meta name="keywords" content="course">
+<title>CS61B Gitlet 完结记录 | FloraZ</title>
+<meta name="keywords" content="课程">
 <meta name="description" content="♪(´ε｀ )">
 <meta name="author" content="Flora">
 <link rel="canonical" href="http://eimy.ink/posts/2023/gitlet-fin/">
@@ -20,8 +20,8 @@
 <link rel="mask-icon" href="http://eimy.ink/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="zh" href="http://eimy.ink/zh/posts/2023/gitlet-fin/">
-<link rel="alternate" hreflang="en" href="http://eimy.ink/posts/2023/gitlet-fin/">
+<link rel="alternate" hreflang="zh" href="http://eimy.ink/posts/2023/gitlet-fin/">
+<link rel="alternate" hreflang="en" href="http://eimy.ink/en/posts/2023/gitlet-fin/">
 <noscript>
     <style>
         #theme-toggle,
@@ -60,7 +60,7 @@
     </style>
 </noscript>
 
-<meta property="og:title" content="Notes and Thoughts on CS61B Gitlet" />
+<meta property="og:title" content="CS61B Gitlet 完结记录" />
 <meta property="og:description" content="♪(´ε｀ )" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://eimy.ink/posts/2023/gitlet-fin/" /><meta property="og:image" content="http://eimy.ink/papermod-cover.png"/><meta property="article:section" content="posts" />
@@ -70,7 +70,7 @@
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="http://eimy.ink/papermod-cover.png"/>
 
-<meta name="twitter:title" content="Notes and Thoughts on CS61B Gitlet"/>
+<meta name="twitter:title" content="CS61B Gitlet 完结记录"/>
 <meta name="twitter:description" content="♪(´ε｀ )"/>
 
 
@@ -88,7 +88,7 @@
     {
       "@type": "ListItem",
       "position":  2 ,
-      "name": "Notes and Thoughts on CS61B Gitlet",
+      "name": "CS61B Gitlet 完结记录",
       "item": "http://eimy.ink/posts/2023/gitlet-fin/"
     }
   ]
@@ -98,15 +98,15 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Notes and Thoughts on CS61B Gitlet",
-  "name": "Notes and Thoughts on CS61B Gitlet",
+  "headline": "CS61B Gitlet 完结记录",
+  "name": "CS61B Gitlet 完结记录",
   "description": "♪(´ε｀ )",
   "keywords": [
-    "course"
+    "课程"
   ],
-  "articleBody": "Note: The passage is originally written in Chinese and translated into English via ChatGPT.\nTranslated passage:\nAlias: Gitlet in Hindsight: Why I Suggest You Always Read the DON’Ts Part in Spec First\nAfter spending a few days catching up with the renowned project Gitlet, which has a weighty 60-page spec covering everything (lol), including informative content that provides a comprehensive understanding and training on every technical foundation, from system design to integration testing. It truly deserves the highest praise for this course project in its history.\n[Reference]: UCB CS61B-21SP-Gitlet\nProject Overview Gitlet is a version control system that mimics the functionality of the popular system Git and implements some of its basic commands, including init, add, commit, rm, checkout, branch, reset, rm-branch, merge, and more.\nAs an individual project for the course, it starts with only a few necessary .java classes and a few lines of code samples. The task requires designing and completing the system, object methods, data structures, and a few algorithms based on the requirements.\nGitlet Version-Control Mechanism In essence, version control in Git (Gitlet) revolves around the question of “how to save a certain version” and “how to switch to a specific version.” These two questions can be understood from three levels, from top to bottom: the user level, the object level, and the file read/write level.\nFrom a design perspective, there should exist an abstraction barrier between these three levels, as explained in the abstraction barrier concept. This means that when users issue commands, they don’t need to know or manipulate objects, pointers, etc., and file read/write operations should not occur between objects either.\nUser Level First, let’s discuss what happens at a higher level, which is the part that users are aware of.\nWhat does Git initialization do? It creates a hidden directory called .git in the current working directory (CWD) and some files inside it. How are file versions saved? When a commit is made, Git captures the current snapshot of the committed files and stores it in the .git directory. How to switch to a specific version? When using commands like checkout or reset to switch versions, Git looks for the corresponding snapshot based on the given branch name/commit ID in the .git directory. It then restores the specified file or the entire directory in the CWD to match that snapshot. Object Level Now let’s see how these steps are implemented at the object level. Gitlet simplifies the directory structure of Git to some extent, storing fewer metadata for each object, but the essence remains the same. The following diagram represents the structure of the .gitlet directory.\nGitlet version control utilizes two types of objects: Commit and Blob. Each Blob object corresponds to a file snapshot. Each Commit object corresponds to a commit. How are these objects used to track file versions? When a file is added to the staging area (add [file name]), a Blob object is created to store the current file content. The mapping between the file name and the corresponding Blob instance is then stored in the staging area. When committing files, a Commit object is created. It retrieves the mapping relationships from the staging area and saves them in the Commit object. In addition to the index mapping, each object also records the parent Commit, timestamp, commit message, etc. Example: In the diagram below, each blue square represents a Commit object. Inside each Commit object, there is a Map that records the file snapshots for the current commit. For instance, both Hello.txt in Commit 1 and Commit 2 point to Blob 0, indicating that the file content (snapshot) did not change in these two commits. How is switching to a specific version implemented? — By moving pointers To switch the HEAD pointer to another branch’s branchHeadCommit, at the object level, it means that the HEAD pointer, originally pointing to a Commit object on branchA, should now point to another Commit object branchHeadCommit on branchB. This can be achieved by something like updatePointerToCommit(HEAD, branchHeadCommit). File I/O Level Finally, let’s dive into the lower-level and examine file read/write operations. Since certain commands require storing Blob objects, Commit objects, and the current content of the staging area locally, two questions arise:\nHow are objects stored as data (to retrieve and use them later)?\nJava’s serialization is used to store objects. In Gitlet, all objects can be serialized and stored in files, including Blob, Commit, and StagingArea (if applicable). In the .git directory, they are stored in the /objects/ directory.\nOn the other hand, pointers are managed through file read/write operations (without serialization). Each pointer corresponds to a file that contains the ID of the object it points to. When modifying a pointer’s target, the actual change occurs in the file by updating the ID. In the .git directory, pointers are stored in the .git/refs/ directory.\n1 2 3 4 5 6 7 8 9 10 11 /* Serialize a Model object */ Model m = ....; // Assuming Model class implements Serializable File outFile = new File(saveFileName); // Create a new File try { ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(outFile)); out.writeObject(m); // Write the object to the stream out.close(); } catch (IOException excp) { ... } 1 2 3 4 5 6 7 8 9 10 11 12 /* Deserialize a Model object */ Model m; File inFile = new File(saveFileName); try { ObjectInputStream inp = new ObjectInputStream(new FileInputStream(inFile)); m = (Model) inp.readObject(); // Cast object into the expected class inp.close(); } catch (IOException | ClassNotFoundException excp) { ... m = null; } How to find and retrieve objects/modify pointer targets?\nGitlet, like Git, uses SHA-1 (Secure Hash Algorithm 1) to generate a 160-bit hash value as the unique ID (40 hexadecimal characters) for each object. When an object is created, its ID is generated based on its content. For example, identical file contents will produce the same ID after encryption. The filenames for the stored objects are their respective IDs. This means that the ID can be used to locate the serialized objects in the directory. Furthermore, this enables content-addressable lookup based on the object’s content. Regarding object retrieval, let’s take obtaining a Commit object as an example. The steps include: obtaining the commit ID (which should be a field of the object) -\u003e obtaining the file path based on the ID (since they are stored in a specified directory) -\u003e deserializing the file. Similarly, modifying the object involves updating its content and then serializing it back into the file. As for modifying pointer targets, at the file read/write level, the operation involves: obtaining the ID of the targetCommit -\u003e writing the ID into the file corresponding to the HEAD pointer. (Reminder to self) It’s important to encapsulate these operations within the objects. The main logic should not contain statements like commitMap.put(readContentAsString(commitPath), readContentAsString(blobPath)). When reviewing others’ implementations, if you come across such mixed file read/write operations at the object level, be cautious.\nIn Brief The above passages may seem repetitive, but they provide different perspectives on version control systems. Here’s a basic analogy:\nInitializing a version control system == Placing a small box in the current working directory. Saving file versions == Each time a commit is made, making a copy of the submitted files and storing them in the box. Switching the current directory or a file in the directory to a specific version == Finding the corresponding archive in the box and bringing it back to the current working directory (CWD). The other concepts, such as objects, pointers, encoding, etc., are methods used to optimize the copying process and speed up the retrieval of files from the box (at least that’s how I understand it):\nBlob object == Archive of a single file. Commit object == A note indicating which file versions to retrieve at a particular time. Commit tree == An outline of the notes (commits). SHA-1 encoding == Giving each file a name based on its content (useful for fast content comparison and addressing). Pointers == Labels indicating which version is currently in the box. Archiving files is a straightforward process that anyone can do (think: paper_final_final_final.docx). However, I believe the essence lies in SHA-1 encoding.\nReflection Notes taken while coding, might be messy.\nReading Order for the Spec The project specification for Gitlet is quite lengthy, making it impractical to read it all at once before starting. If I were to do it again, I would watch the videos first, skim through the command explanations and the “avoids” section, and then refer to the spec while coding. It’s important to pay close attention to the “Don’t” sections in the spec. The reason they are mentioned is that people tend to make those mistakes. For example, using a HashMap as the default Map implementation and encountering a Heisenbug. In reality, a TreeMap should be used to maintain order. ← Starts with “callback”. Regarding Design Initially, it’s crucial to read the entire spec comprehensively, understanding the roles of each object and their commonly used interaction methods. Once the design is clear, implementation can begin.\nPositive example: When implementing the command, a major directory overhaul was planned. However, due to a well-designed abstraction earlier, only a single line needed to be added to the File directory without any other changes.\nProtect the abstraction barrier. Interactions between higher-level objects should avoid using lower-level operations.\nNegative example: Initially, hashing and serialization were done directly in the main logic, leading to a lot of refactoring during the encapsulation process.\nNaming is crucial. After some painful lessons, the following points are summarized:\nUniformity: Just like joining database tables, if objects need to communicate, they must have some common names. A negative example would be what I did initially, using different names for the IDs obtained from sha-1 hashing, such as shaName, shaId, hashName, etc. Intuitiveness: Variable names should be as specific as possible. For example, “map” can be written as “keyToVal,” making it easier to understand. Generality: Methods should not be overly specific so that they can be easily recalled when used elsewhere. For example, instead of using “getHead” and “getMaster,” it is better to use “getCommit” and “getPointer.” Other Points It would be beneficial to read the source code of Git to find better practices, although the specification alone is generally sufficient. Stats Time and Space The code consists of approximately 1,000 lines. In terms of time, it took around 4.5 days to complete, with a recorded duration of around 40 hours according to Wakatime. Although I spent more than 10 hours debugging during that time (oops!). I remember Josh sharing some data in class, and most students took around 30-40 hours to complete the project.\nFrom a statistical standpoint, Gitlet is not a large-scale project. However, considering that it requires independent completion and involves design, unit and integration testing, makefile, Java file I/O, algorithms, encoding, and even training on Git itself, it is still a highly rewarding experience.\nAutograder Results All functional tests passed successfully. The Extra-Credit tests failed, as well as the style check (mainly due to naming, which I’ll improve next time). However, I believe those failures don’t significantly impact the overall outcome, so I didn’t continue the autograder-oriented programming.\nBTW, reasons for not implementing Extra-Credit features:\nTowards the end, many commands were combinations of previous commands, resulting in diminishing returns. The “remote” command in Gitlet differs greatly from Git and may not contribute much to understanding the underlying logic of Git. After encountering a Heisenbug, my energy was depleted. Despite not pursuing the Extra-Credit tasks, I still found the Gitlet project rewarding and a valuable learning experience.\nReflection Gitlet is an impressive project in the world of renowned universities. As I mentioned at the beginning, I firmly believe that most individuals with a similar level of proficiency can gain a lot from this project. Just take a glance at the spec, and you’ll understand.\nSpeaking from a technical standpoint, I’m not qualified to say much as I consider myself a novice. So, let me conclude with a few remarks. In one of Josh’s lectures, he shared the results of a Gitlet survey, and one particular detail stuck with me. Some students spent over 50 hours on this project (which, in my personal experience, far exceeds the workload of a typical course assignment in the freshman year). However, only a few individuals gave negative feedback in the end, and I recall Josh expressing his apologies for that. This indirectly reflects the worthwhileness of “The Gitlet Grind.”\nAn official end of CS61B – so grateful for the open-source materials! Time to move on and continue working on something else.\nAppendix The following is an excerpt from the README I wrote, explaining the design aspects of my Gitlet implementation.\nDesign Abstraction Principle An issue with version control systems:\nRequires cumbersome operations like hashing, serialization, map operations, directory concatenation, file I/O, etc.\nSolution:\nOn a higher level, involve only communications between objects (between Blob and Commit, there should only be Blob b = commit1.get(filename)) Eliminate the need to dive into low-level operations through encapsulation. i.e. Outside the class of that object, never try to hash things, or modify maps inside Commit/Blob objects. E.g. The StagingArea supports common map operations. Upon put (fileName, Commit), it completes: read commit into commit id -\u003e put into its map -\u003e serialize itself and write into the file for staging. Persistence The directory structure looks like this:\n1 2 3 4 5 6 7 8 9 10 CWD └──.gitlet └── --commits/ # all commits ├──blobs/ # file content ├──branchHeads/ # branch heads | └──--master # master branch | ├──..\t# other branches ├──HEAD\t# HEAD commit ├──add # staging area for addition └──rm # staging area for removal The Main class is the entry class of the project. It is responsible for calling different functions according to given commands.\nThe Repository class will set up all persistance. It will\nCreate and initialize files and directories in the .gitlet folder if the directory does not exist; Handle all updates of HEAD , master, branchHeads and the serialization of two StagingAreas add and rm. Execute the commands / function calls from Main. The Commit class handles the serialization of Commit objects. It also deals with conversion between commit ids and commit objects. Each Commit records mappings of held file names and their corresponding file content. Specifically, it fulfil the following purposes:\nConstructs Commit objects; Serializes and saves Commit objects to the .gitlet/commits directory; Given a commit id, retrieves the corresponding Commit object. The Blob class handles the serialization of Blob objects. A blob is a snapshot of a file’s content at the moment of addition. For instance, a file named “hello.txt” can refer to different Blobs in different Commits.\nIts functions are similar to Commit, namely object construction, serialization and retrieval.\nThe StagingArea class stores files for addition and removal. A StagingArea works like a Java Map, stores mappings of file plain names to their blob ids, and supports basic map operations (remove, get, put). add and rm are StagingAreas for staged addition and removal respectively.\n",
-  "wordCount" : "2510",
-  "inLanguage": "en",
+  "articleBody": " 又名：Gitlet in Hindsight: Why I Suggest U Always Read the DON’Ts Part in Spec First\n花了几天补票了61b的知名项目Gitlet——60页重量级spec面面俱到（笑），项目内容自带科普性，覆盖从系统设计到集成测试的每种技术基础普及和训练，不愧是该课史上评价最高的pj。\n【指路】UCB CS61B-21SP-Gitlet\n项目概述 Gitlet是一个版本管理系统，仿照主流系统Git的功能并实现了其部分基本命令，包括init, add, commit, rm, checkout, branch, reset, rm-branch, merge等。\n作为一个课程个人项目，开局仅有几个必要的类.java和几行代码样例，要求根据需求自行设计并完成系统、对象方法、数据结构和少量算法的构造。\nGitlet版本控制原理 Git（let）的版本控制说白了就是「怎么保存某个版本」和「怎么切换到某个版本」的问题。可以从由上至下三个层面理解这两个问题：一是从最上面的用户层面；二是从对象层面；三是从文件读写层面。\n从设计上来说这三层之间应该存在abtraction barrier。也就是说用户使用命令时不需要知道也不能操作对象、指针这些，对象之间也不应该出现文件读写操作。\n用户层面 先是一些上层发生的事情，也就是用户能知道的部分。\ngit初始化干了什么？在当前工作目录（CWD）创建一个.git的隐藏目录目录和里面的一些文件。 怎么保存文件的版本？每次commit时，获取所提交的文件的当前快照（snapshot），并保存在.git中。 怎么切换到指定的版本？使用像是checkout, reset 这样切换版本的命令时，git会根据给定的分支名/commit id等，在.git中查找对应的快照，然后把CWD中指定的文件或是整个目录还原成这个快照的样子。 对象层面 然后再看对象层是如何实现这几个步骤的。gitlet在一定程度上简化了git的目录结构，各个对象少存了一些元数据，但本质不变，就用gitlet举例了。下图里是.gitlet目录的结构示意。\ngitlet的版本控制实现用到了两类的对象：Commit和Blob。 每个Blob对象对应一个文件快照。 每个Commit对象对应一次commit。 怎么利用这些对象记录文件的版本？ 每次把文件加入staging area暂存区（add [file name]）时，会创建一个Blob对象存储当前的文件内容，然后把（文件名: 对应的Blob实例）映射关系丢到暂存区里。 每次commit一些文件时，会创建一个Commit对象，从暂存区把可以提交的映射关系保存进Commit对象中。每个对象里除了索引对以外还会记录其父Commit、时间戳、commit message等。 例子：下图中每个蓝色方块代表一个Commit对象，每个Commit对象中存有一个Map，里面记录了当前commit的文件对应的文件快照。比如Commit 1和Commit 2的Hello.txt都指向Blob 0，这就是说在两次commit时文件内容（快照）没有变化。 怎么实现切换到指定的版本？——移动指针 要让HEAD指针切换到另一个分支branchB的branchHeadCommit，这在对象层就等于：HEAD指针本来指向branchA上的某个Commit对象，现在让它指向另一个branchHeadCommit这个Commit对象。类似updatePointerToCommit(HEAD, branchHeadCommit)。 文件读写层面 最后看更低一层，文件读写层。因为执行一部分命令时要把Blob对象和Commit对象以及暂存区的当前内容存储到本地，这就涉及到两个问题：\n如何对象存成数据（方便后续需要的时候从文件中取出调用）？\n利用Java的序列化（Serialization）。Java里的序列化读写操作：\n在gitlet里，所有对象都是可以序列化存进文件里的，包括Blob、Commit和StagingArea（如有）。在.git里，它们被存放在/.git/objects/目录中。\n而指针变动实际是通过文件读写实现的（不需要序列化）。每个指针都是一个文件，文件里存着它指向的对象的id。在修改指针指向时，实际修改的是文件里的id。在.git里，它们被存放在.git/refs/目录中。\n1 2 3 4 5 6 7 8 9 10 11 /* Serialize a Model object */ Model m = ....; // 可序列化前提：Model类需要implements Serializable File outFile = new File(saveFileName); // 新建File try { ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(outFile)); out.writeObject(m); // 将对象写入steam out.close(); } catch (IOException excp) { ... } 1 2 3 4 5 6 7 8 9 10 11 12 /* Deserialize a Model object */ Model m; File inFile = new File(saveFileName); try { ObjectInputStream inp = new ObjectInputStream(new FileInputStream(inFile)); m = (Model) inp.readObject(); // cast object into expected class inp.close(); } catch (IOException | ClassNotFoundException excp) { ... m = null; } 如何查找并获取对象/修改指针指向？\nGitlet和Git都使用SHA-1（Secure Hash Algorithm 1）加密数据，产生一个160位的哈希值作为当前对象的id（40个十六进制数）。每个对象在创建时会根据自身的内容产生id，比如相同的文件内容经过加密会产生相同的id；并且它们保存的文件名就是它们的id。这意味着通过id就可以在目录中找到对应序列化过的对象。更重要的是，这就允许根据内容寻找文件的地址（content-addressable)。 关于对象获取，以获取Commit对象为例，步骤是：获得commit id（对象在构造时应有id字段） -\u003e 根据id获取文件路径（因为都存放在指定目录下，根据id寻址） -\u003e 反序列化文件。同理，修改就是修改对象内容后，再序列化写入文件。 关于修改指针指向，在文件读写层实际需要完成的操作是：获取targetCommit的id -\u003e 把id写入HEAD指针对应的文件中。 （提醒自己）需要注意的是这些操作都应该封装在对象里，在主逻辑里不该出现commitMap.put(readContentAsString(commitPath), readContentAsString(blobPath))这种东西。写完翻别人实现的时候，看到有人是这样在对象层混用文件读写操作的，达咩。\n小结 以上是三遍不同的废话。版本控制系统类比一下基本就是：\n初始化版本控制系统 == 在当前工作目录放一个小盒子 保存文件的版本 == 每次提交时，把提交的东西拷一份存档放盒子里 切换当前目录/目录中某个文件到某个版本 == 在盒子里找对应的存档，拿出来放在CWD 其余的对象、指针和编码等等方式，都是用来精简每次拷贝的东西、加快盒子里找东西的速度的tricks（至少我是这么理解）：\nBlob对象 == 一个文件的存档 Commit对象 == 一张记录哪个时候该找哪个文件版本的小抄 Commit tree == 小抄们的目录大纲 SHA-1编码 == 给每个文件按照他们的内容起名（在快速对比文件内容、寻址上都有用） 指针 == 写着现在盒子里是哪个版本的标签 暴力存档谁都会（试想：paper_final_final_final.docx)，要说的话，我觉得精髓在于sha-1。\n思考 边写代码边记录的，比较乱\n关于spec阅读顺序 gitlet的项目说明很长，一次读完再开始不现实。如果再写一次，我会先看视频+扫读所有commands说明和avoids事项，然后边写边看。 spec里的「注意不要xxx」部分要仔细看，之所以写上去是因为大家真的会这样做，比如默认Map都是HashMap然后写出Heisenbug，实际为了维护顺序应该用TreeMap。←callback开头 关于设计 一开始需要整体地阅读spec，明确每个对象的作用和它们之间的常用交互方法，设计好了再开始实现。\n正面案例：在写命令的时候准备大改目录，但因为前面abstraction设计得还不错，除了File目录加一句以外什么都不需要改。\n保护abstraction barrier。上层对象之间的交互一定要避免使用底层操作。\n反面案例：前期直接在主逻辑里完成hashing、序列化，中间为了封装重构改了好久\n起名很重要。经过血的教训总结以下几点：\n统一性–就像数据表连接一样，既然对象之间需要通信，那它们一定有一些共通的名字。反面案例就像是我一开始干的，把sha-1 hash得到的id，在不同类里写成shaName、shaId、hashName… 直观性–变量名越具体越好，比如map可以写出keyToVal，不然想起来费劲 泛用性–方法最好不要太具体，这样再别处调用的时候也能想起来。比如getHead getMaster就可以写成getCommit/getPointer。 其他 可以读下git的源码寻找better practice，虽然只看spec也基本够用。 数据 time and space 代码总行数大约1k；时间上大概花了4.5天，wakatime统计的用时是40小时左右，虽然里面十多个小时在debug（。）这方面我记得Josh课上有分享同学的数据，大部分人完成时间也差不多是30-40hrs。\n从统计上看gitlet体量不大，不过考虑到它要求独立完成且涉及到了设计、单元和集成测试、makefile、java file i/o、算法、编码、甚至git本身的训练，还是非常rewarding的。\nAutograder情况 通过了所有功能性测试。Fail的几个Extra-Credit，style (mainly naming，下次一定)和迟交我认为无伤大雅，就没有继续面向autograder编程。\n没有写EC的原因：1）到了后期很多指令都是组合前面的指令，边际效益低；2）gitlet中的remote指令和git相去甚远，不见得有助于学习git的底层逻辑；3）在de了一个Heisenbug以后心力憔悴。\n感想 Gitlet是一款我的世界名校震撼.jpg 就像开头吹的一样，我坚信大部分水平和我类似的人都能通过这个project收获很多，具体只要看一眼spec就知道了。\n技术上我太菜也没资格说什么，只能最后讲几句别的。Josh在不记得哪节课上分享过Gitlet的survey结果，印象深刻的是有一部分学生在这个pj上花了50+小时（就我个人经历，这远超出正常大一的一门课的一个课设的workload），但是最后给了负面评价的只有寥寥几人，Josh好像还单独拿出来表示抱歉了。从侧面反映了The Gitlet Grind的价值。\n61B至此完结，感恩开源！继续肝别的去咯\n附录 以下是从写的readme中转载的my gitlet设计方面的说明\nDesign Abstraction Principle An issue with version control systems:\nRequires cumbersome operations like hashing, serialization, map operations, directory concatenation, file I/O, etc.\nSolution:\nOn a higher level, involve only communications between objects (between Blob and Commit, there should only be Blob b = commit1.get(filename)) Eliminate the need to dive into low-level operations through encapsulation. i.e. Outside the class of that object, never try to hash things, or modify maps inside Commit/Blob objects. E.g. The StagingArea supports common map operations. Upon put (fileName, Commit), it completes: read commit into commit id -\u003e put into its map -\u003e serialize itself and write into the file for staging. Persistence The directory structure looks like this:\n1 2 3 4 5 6 7 8 9 10 CWD └──.gitlet └── --commits/ # all commits ├──blobs/ # file content ├──branchHeads/ # branch heads | └──--master # master branch | ├──..\t# other branches ├──HEAD\t# HEAD commit ├──add # staging area for addition └──rm # staging area for removal The Main class is the entry class of the project. It is responsible for calling different functions according to given commands.\nThe Repository class will set up all persistance. It will\nCreate and initialize files and directories in the .gitlet folder if the directory does not exist; Handle all updates of HEAD , master, branchHeads and the serialization of two StagingAreas add and rm. Execute the commands / function calls from Main. The Commit class handles the serialization of Commit objects. It also deals with conversion between commit ids and commit objects. Each Commit records mappings of held file names and their corresponding file content. Specifically, it fulfil the following purposes:\nConstructs Commit objects; Serializes and saves Commit objects to the .gitlet/commits directory; Given a commit id, retrieves the corresponding Commit object. The Blob class handles the serialization of Blob objects. A blob is a snapshot of a file’s content at the moment of addition. For instance, a file named “hello.txt” can refer to different Blobs in different Commits.\nIts functions are similar to Commit, namely object construction, serialization and retrieval.\nThe StagingArea class stores files for addition and removal. A StagingArea works like a Java Map, stores mappings of file plain names to their blob ids, and supports basic map operations (remove, get, put). add and rm are StagingAreas for staged addition and removal respectively.\n",
+  "wordCount" : "650",
+  "inLanguage": "zh",
   "datePublished": "2023-07-13T00:00:00Z",
   "dateModified": "2023-07-13T00:00:00Z",
   "author":{
@@ -168,36 +168,36 @@
                 </button>
                 <ul class="lang-switch"><li>|</li>
                     <li>
-                        <a href="http://eimy.ink/zh/" title="中文"
-                            aria-label="中文">中文</a>
+                        <a href="http://eimy.ink/en/" title="English"
+                            aria-label="English">English</a>
                     </li>
                 </ul>
             </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="http://eimy.ink/archives" title="Archive">
-                    <span>Archive</span>
+                <a href="http://eimy.ink/archives" title="归档">
+                    <span>归档</span>
                 </a>
             </li>
             <li>
-                <a href="http://eimy.ink/categories/" title="Categories">
-                    <span>Categories</span>
+                <a href="http://eimy.ink/categories/" title="分类">
+                    <span>分类</span>
                 </a>
             </li>
             <li>
-                <a href="http://eimy.ink/tags/" title="Tags">
-                    <span>Tags</span>
+                <a href="http://eimy.ink/tags/" title="标签">
+                    <span>标签</span>
                 </a>
             </li>
             <li>
-                <a href="http://eimy.ink/search/" title="Search (Alt &#43; /)" accesskey=/>
-                    <span>Search</span>
+                <a href="http://eimy.ink/search/" title="搜索">
+                    <span>搜索</span>
                 </a>
             </li>
             <li>
-                <a href="http://eimy.ink/about/" title="About">
-                    <span>About</span>
+                <a href="http://eimy.ink/about/" title="关于">
+                    <span>关于</span>
                 </a>
             </li>
         </ul>
@@ -207,14 +207,14 @@
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="http://eimy.ink/">Home</a>&nbsp;»&nbsp;<a href="http://eimy.ink/posts/">Posts</a></div>
+    <div class="breadcrumbs"><a href="http://eimy.ink/">主页</a>&nbsp;»&nbsp;<a href="http://eimy.ink/posts/">Posts</a></div>
     <h1 class="post-title">
-      Notes and Thoughts on CS61B Gitlet
+      CS61B Gitlet 完结记录
     </h1>
-    <div class="post-meta"><span title='2023-07-13 00:00:00 +0000 UTC'>July 13, 2023</span>&nbsp;·&nbsp;12 min&nbsp;·&nbsp;Flora&nbsp;|&nbsp;Translations:
+    <div class="post-meta"><span title='2023-07-13 00:00:00 +0000 UTC'>七月 13, 2023</span>&nbsp;·&nbsp;4 分钟&nbsp;·&nbsp;Flora&nbsp;|&nbsp;语言:
 <ul class="i18n_list">
     <li>
-        <a href="http://eimy.ink/zh/posts/2023/gitlet-fin/">中文</a>
+        <a href="http://eimy.ink/en/posts/2023/gitlet-fin/">English</a>
     </li>
 </ul>
 
@@ -223,46 +223,46 @@
     <div class="toc">
         <details  open>
             <summary accesskey="c" title="(Alt + C)">
-                <span class="details">Table of Contents</span>
+                <span class="details">目录</span>
             </summary>
 
             <div class="inner"><ul>
                     <li>
-                        <a href="#project-overview" aria-label="Project Overview">Project Overview</a></li>
+                        <a href="#%e9%a1%b9%e7%9b%ae%e6%a6%82%e8%bf%b0" aria-label="项目概述">项目概述</a></li>
                     <li>
-                        <a href="#gitlet-version-control-mechanism" aria-label="Gitlet Version-Control Mechanism">Gitlet Version-Control Mechanism</a><ul>
+                        <a href="#gitlet%e7%89%88%e6%9c%ac%e6%8e%a7%e5%88%b6%e5%8e%9f%e7%90%86" aria-label="Gitlet版本控制原理">Gitlet版本控制原理</a><ul>
                             
                     <li>
-                        <a href="#user-level" aria-label="User Level">User Level</a></li>
+                        <a href="#%e7%94%a8%e6%88%b7%e5%b1%82%e9%9d%a2" aria-label="用户层面">用户层面</a></li>
                     <li>
-                        <a href="#object-level" aria-label="Object Level">Object Level</a></li>
+                        <a href="#%e5%af%b9%e8%b1%a1%e5%b1%82%e9%9d%a2" aria-label="对象层面">对象层面</a></li>
                     <li>
-                        <a href="#file-io-level" aria-label="File I/O Level">File I/O Level</a></li>
+                        <a href="#%e6%96%87%e4%bb%b6%e8%af%bb%e5%86%99%e5%b1%82%e9%9d%a2" aria-label="文件读写层面">文件读写层面</a></li>
                     <li>
-                        <a href="#in-brief" aria-label="In Brief">In Brief</a></li></ul>
+                        <a href="#%e5%b0%8f%e7%bb%93" aria-label="小结">小结</a></li></ul>
                     </li>
                     <li>
-                        <a href="#reflection" aria-label="Reflection">Reflection</a><ul>
+                        <a href="#%e6%80%9d%e8%80%83" aria-label="思考">思考</a><ul>
                             
                     <li>
-                        <a href="#reading-order-for-the-spec" aria-label="Reading Order for the Spec">Reading Order for the Spec</a></li>
+                        <a href="#%e5%85%b3%e4%ba%8espec%e9%98%85%e8%af%bb%e9%a1%ba%e5%ba%8f" aria-label="关于spec阅读顺序">关于spec阅读顺序</a></li>
                     <li>
-                        <a href="#regarding-design" aria-label="Regarding Design">Regarding Design</a></li>
+                        <a href="#%e5%85%b3%e4%ba%8e%e8%ae%be%e8%ae%a1" aria-label="关于设计">关于设计</a></li>
                     <li>
-                        <a href="#other-points" aria-label="Other Points">Other Points</a></li></ul>
+                        <a href="#%e5%85%b6%e4%bb%96" aria-label="其他">其他</a></li></ul>
                     </li>
                     <li>
-                        <a href="#stats" aria-label="Stats">Stats</a><ul>
+                        <a href="#%e6%95%b0%e6%8d%ae" aria-label="数据">数据</a><ul>
                             
                     <li>
-                        <a href="#time-and-space" aria-label="Time and Space">Time and Space</a></li>
+                        <a href="#time-and-space" aria-label="time and space">time and space</a></li>
                     <li>
-                        <a href="#autograder-results" aria-label="Autograder Results">Autograder Results</a></li></ul>
+                        <a href="#autograder%e6%83%85%e5%86%b5" aria-label="Autograder情况">Autograder情况</a></li></ul>
                     </li>
                     <li>
-                        <a href="#reflection-1" aria-label="Reflection">Reflection</a></li>
+                        <a href="#%e6%84%9f%e6%83%b3" aria-label="感想">感想</a></li>
                     <li>
-                        <a href="#appendix" aria-label="Appendix">Appendix</a><ul>
+                        <a href="#%e9%99%84%e5%bd%95" aria-label="附录">附录</a><ul>
                             
                     <li>
                         <a href="#design" aria-label="Design">Design</a><ul>
@@ -341,62 +341,62 @@
     }
 </script>
 
-  <div class="post-content"><p>Note: The passage is originally written in Chinese and translated into English via ChatGPT.</p>
-<hr>
-<p>Translated passage:</p>
-<blockquote>
-<p>Alias: Gitlet in Hindsight: Why I Suggest You Always Read the DON&rsquo;Ts Part in Spec First</p>
+  <div class="post-content"><blockquote>
+<p>又名：Gitlet in Hindsight: Why I Suggest U Always Read the DON&rsquo;Ts Part in Spec First</p>
 </blockquote>
-<p>After spending a few days catching up with the renowned project Gitlet, which has a weighty 60-page spec covering everything (lol), including informative content that provides a comprehensive understanding and training on every technical foundation, from system design to integration testing. It truly deserves the highest praise for this course project in its history.</p>
-<p>[Reference]: <a href="https://sp21.datastructur.es/materials/proj/proj2/proj2">UCB CS61B-21SP-Gitlet</a></p>
-<h2 id="project-overview">Project Overview<a hidden class="anchor" aria-hidden="true" href="#project-overview">#</a></h2>
-<p>Gitlet is a version control system that mimics the functionality of the popular system Git and implements some of its basic commands, including <code>init</code>, <code>add</code>, <code>commit</code>, <code>rm</code>, <code>checkout</code>, <code>branch</code>, <code>reset</code>, <code>rm-branch</code>, <code>merge</code>, and more.</p>
-<p>As an individual project for the course, it starts with only a few necessary <code>.java</code> classes and a few lines of code samples. The task requires designing and completing the system, object methods, data structures, and a few algorithms based on the requirements.</p>
-<h2 id="gitlet-version-control-mechanism">Gitlet Version-Control Mechanism<a hidden class="anchor" aria-hidden="true" href="#gitlet-version-control-mechanism">#</a></h2>
-<p>In essence, version control in Git (Gitlet) revolves around the question of &ldquo;how to save a certain version&rdquo; and &ldquo;how to switch to a specific version.&rdquo; These two questions can be understood from three levels, from top to bottom: the user level, the object level, and the file read/write level.</p>
-<p>From a design perspective, there should exist an abstraction barrier between these three levels, as explained in the <a href="https://en.wikibooks.org/wiki/Object_Oriented_Programming/Abstraction_Barrier">abstraction barrier</a> concept. This means that when users issue commands, they don&rsquo;t need to know or manipulate objects, pointers, etc., and file read/write operations should not occur between objects either.</p>
-<h3 id="user-level">User Level<a hidden class="anchor" aria-hidden="true" href="#user-level">#</a></h3>
-<p>First, let&rsquo;s discuss what happens at a higher level, which is the part that users are aware of.</p>
+<p>花了几天补票了61b的知名项目Gitlet——60页重量级spec面面俱到（笑），项目内容自带科普性，覆盖从系统设计到集成测试的每种技术基础普及和训练，不愧是该课史上评价最高的pj。</p>
+<p>【指路】<a href="https://sp21.datastructur.es/materials/proj/proj2/proj2">UCB CS61B-21SP-Gitlet</a></p>
+<h2 id="项目概述">项目概述<a hidden class="anchor" aria-hidden="true" href="#项目概述">#</a></h2>
+<p>Gitlet是一个版本管理系统，仿照主流系统Git的功能并实现了其部分基本命令，包括<code>init</code>, <code>add</code>, <code>commit</code>, <code>rm</code>, <code>checkout</code>, <code>branch</code>, <code>reset</code>, <code>rm-branch</code>, <code>merge</code>等。</p>
+<p>作为一个课程个人项目，开局仅有几个必要的类.java和几行代码样例，要求根据需求自行设计并完成系统、对象方法、数据结构和少量算法的构造。</p>
+<h2 id="gitlet版本控制原理">Gitlet版本控制原理<a hidden class="anchor" aria-hidden="true" href="#gitlet版本控制原理">#</a></h2>
+<p>Git（let）的版本控制说白了就是「怎么保存某个版本」和「怎么切换到某个版本」的问题。可以从由上至下三个层面理解这两个问题：一是从最上面的用户层面；二是从对象层面；三是从文件读写层面。</p>
+<p>从设计上来说这三层之间应该存在<a href="https://en.wikibooks.org/wiki/Object_Oriented_Programming/Abstraction_Barrier">abtraction barrier</a>。也就是说用户使用命令时不需要知道也不能操作对象、指针这些，对象之间也不应该出现文件读写操作。</p>
+<h3 id="用户层面">用户层面<a hidden class="anchor" aria-hidden="true" href="#用户层面">#</a></h3>
+<p>先是一些上层发生的事情，也就是用户能知道的部分。</p>
 <ul>
-<li>What does Git initialization do? It creates a hidden directory called <code>.git</code> in the current working directory (CWD) and some files inside it.</li>
-<li>How are file versions saved? When a <code>commit</code> is made, Git captures the current snapshot of the committed files and stores it in the <code>.git</code> directory.</li>
-<li>How to switch to a specific version? When using commands like <code>checkout</code> or <code>reset</code> to switch versions, Git looks for the corresponding snapshot based on the given branch name/commit ID in the <code>.git</code> directory. It then restores the specified file or the entire directory in the CWD to match that snapshot.</li>
+<li>git初始化干了什么？在当前工作目录（CWD）创建一个<code>.git</code>的隐藏目录目录和里面的一些文件。</li>
+<li>怎么保存文件的版本？每次<code>commit</code>时，获取所提交的文件的当前快照（snapshot），并保存在<code>.git</code>中。</li>
+<li>怎么切换到指定的版本？使用像是<code>checkout</code>, <code>reset</code> 这样切换版本的命令时，git会根据给定的分支名/commit id等，在<code>.git</code>中查找对应的快照，然后把CWD中指定的文件或是整个目录还原成这个快照的样子。</li>
 </ul>
 <img src="./assets/image-20230713140220806.png#center" alt=".git目录" style="zoom:50%;border-radius:5px;" />
-<h3 id="object-level">Object Level<a hidden class="anchor" aria-hidden="true" href="#object-level">#</a></h3>
-<p>Now let&rsquo;s see how these steps are implemented at the object level. Gitlet simplifies the directory structure of Git to some extent, storing fewer metadata for each object, but the essence remains the same. The following diagram represents the structure of the <code>.gitlet</code> directory.</p>
+<h3 id="对象层面">对象层面<a hidden class="anchor" aria-hidden="true" href="#对象层面">#</a></h3>
+<p>然后再看对象层是如何实现这几个步骤的。gitlet在一定程度上简化了git的目录结构，各个对象少存了一些元数据，但本质不变，就用gitlet举例了。下图里是<code>.gitlet</code>目录的结构示意。</p>
 <ul>
-<li>Gitlet version control utilizes two types of objects: Commit and Blob.
+<li>gitlet的版本控制实现用到了两类的对象：Commit和Blob。
 <ul>
-<li>Each Blob object corresponds to a file snapshot.</li>
-<li>Each Commit object corresponds to a <code>commit</code>.</li>
+<li>每个Blob对象对应一个文件快照。</li>
+<li>每个Commit对象对应一次<code>commit</code>。</li>
 </ul>
 </li>
-<li>How are these objects used to track file versions?
+<li>怎么利用这些对象记录文件的版本？
 <ul>
-<li>When a file is added to the staging area (<code>add [file name]</code>), a Blob object is created to store the current file content. The mapping between the file name and the corresponding Blob instance is then stored in the staging area.</li>
-<li>When committing files, a Commit object is created. It retrieves the mapping relationships from the staging area and saves them in the Commit object. In addition to the index mapping, each object also records the parent Commit, timestamp, commit message, etc.</li>
-<li>Example: In the diagram below, each blue square represents a Commit object. Inside each Commit object, there is a Map that records the file snapshots for the current commit. For instance, both Hello.txt in Commit 1 and Commit 2 point to Blob 0, indicating that the file content (snapshot) did not change in these two commits.</li>
+<li>每次把文件加入staging area暂存区（<code>add [file name]</code>）时，会创建一个Blob对象存储当前的文件内容，然后把<code>（文件名: 对应的Blob实例）</code>映射关系丢到暂存区里。</li>
+<li>每次<code>commit</code>一些文件时，会创建一个Commit对象，从暂存区把可以提交的映射关系保存进Commit对象中。每个对象里除了索引对以外还会记录其父Commit、时间戳、commit message等。</li>
+<li>例子：下图中每个蓝色方块代表一个Commit对象，每个Commit对象中存有一个Map，里面记录了当前commit的文件对应的文件快照。比如Commit 1和Commit 2的Hello.txt都指向Blob 0，这就是说在两次commit时文件内容（快照）没有变化。</li>
 </ul>
 </li>
-<li>How is switching to a specific version implemented? — By moving pointers
+<li>怎么实现切换到指定的版本？——移动指针
 <ul>
-<li>To switch the <code>HEAD</code> pointer to another branch&rsquo;s <code>branchHeadCommit</code>, at the object level, it means that the <code>HEAD</code> pointer, originally pointing to a Commit object on branchA, should now point to another Commit object <code>branchHeadCommit</code> on branchB. This can be achieved by something like <code>updatePointerToCommit(HEAD, branchHeadCommit)</code>.</li>
+<li>要让<code>HEAD</code>指针切换到另一个分支branchB的<code>branchHeadCommit</code>，这在对象层就等于：<code>HEAD</code>指针本来指向branchA上的某个Commit对象，现在让它指向另一个<code>branchHeadCommit</code>这个Commit对象。类似<code>updatePointerToCommit(HEAD, branchHeadCommit)</code>。</li>
 </ul>
 </li>
 </ul>
 <img src="./assets/image-20230707133304171.png#center" alt=".gitlet结构" style="zoom:50%;" />
-<h3 id="file-io-level">File I/O Level<a hidden class="anchor" aria-hidden="true" href="#file-io-level">#</a></h3>
-<p>Finally, let&rsquo;s dive into the lower-level and examine file read/write operations. Since certain commands require storing Blob objects, Commit objects, and the current content of the staging area locally, two questions arise:</p>
+<h3 id="文件读写层面">文件读写层面<a hidden class="anchor" aria-hidden="true" href="#文件读写层面">#</a></h3>
+<p>最后看更低一层，文件读写层。因为执行一部分命令时要把Blob对象和Commit对象以及暂存区的当前内容存储到本地，这就涉及到两个问题：</p>
 <ul>
 <li>
-<p>How are objects stored as data (to retrieve and use them later)?</p>
+<p>如何对象存成数据（方便后续需要的时候从文件中取出调用）？</p>
 <ul>
 <li>
-<p>Java&rsquo;s serialization is used to store objects. In Gitlet, all <strong>objects</strong> can be serialized and stored in files, including Blob, Commit, and StagingArea (if applicable). In the <code>.git</code> directory, they are stored in the <code>/objects/</code> directory.</p>
+<p>利用Java的序列化（Serialization）。Java里的序列化读写操作：</p>
 </li>
 <li>
-<p>On the other hand, <strong>pointers</strong> are managed through file read/write operations (without serialization). Each pointer corresponds to a file that contains the ID of the object it points to. When modifying a pointer&rsquo;s target, the actual change occurs in the file by updating the ID. In the <code>.git</code> directory, pointers are stored in the <code>.git/refs/</code> directory.</p>
+<p>在gitlet里，所有<strong>对象</strong>都是可以序列化存进文件里的，包括Blob、Commit和StagingArea（如有）。在<code>.git</code>里，它们被存放在<code>/.git/objects/</code>目录中。</p>
+</li>
+<li>
+<p>而<strong>指针</strong>变动实际是通过文件读写实现的（不需要序列化）。每个指针都是一个文件，文件里存着它指向的对象的id。在修改指针指向时，实际修改的是文件里的id。在<code>.git</code>里，它们被存放在<code>.git/refs/</code>目录中。</p>
 </li>
 </ul>
 <div class="highlight"><div class="chroma">
@@ -415,12 +415,12 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/* Serialize a Model object */</span>
-</span></span><span class="line"><span class="cl"><span class="n">Model</span> <span class="n">m</span> <span class="o">=</span> <span class="o">....;</span> <span class="c1">// Assuming Model class implements Serializable
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">File</span> <span class="n">outFile</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="n">saveFileName</span><span class="o">);</span> <span class="c1">// Create a new File
+</span></span><span class="line"><span class="cl"><span class="n">Model</span> <span class="n">m</span> <span class="o">=</span> <span class="o">....;</span> <span class="c1">// 可序列化前提：Model类需要implements Serializable
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">File</span> <span class="n">outFile</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="n">saveFileName</span><span class="o">);</span> <span class="c1">// 新建File
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">try</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="n">ObjectOutputStream</span> <span class="n">out</span> <span class="o">=</span>
 </span></span><span class="line"><span class="cl">        <span class="k">new</span> <span class="n">ObjectOutputStream</span><span class="o">(</span><span class="k">new</span> <span class="n">FileOutputStream</span><span class="o">(</span><span class="n">outFile</span><span class="o">));</span>
-</span></span><span class="line"><span class="cl">    <span class="n">out</span><span class="o">.</span><span class="na">writeObject</span><span class="o">(</span><span class="n">m</span><span class="o">);</span> <span class="c1">// Write the object to the stream
+</span></span><span class="line"><span class="cl">    <span class="n">out</span><span class="o">.</span><span class="na">writeObject</span><span class="o">(</span><span class="n">m</span><span class="o">);</span> <span class="c1">// 将对象写入steam
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">out</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="n">excp</span><span class="o">)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="o">...</span>
@@ -449,7 +449,7 @@
 </span></span><span class="line"><span class="cl"><span class="k">try</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="n">ObjectInputStream</span> <span class="n">inp</span> <span class="o">=</span>
 </span></span><span class="line"><span class="cl">        <span class="k">new</span> <span class="n">ObjectInputStream</span><span class="o">(</span><span class="k">new</span> <span class="n">FileInputStream</span><span class="o">(</span><span class="n">inFile</span><span class="o">));</span>
-</span></span><span class="line"><span class="cl">    <span class="n">m</span> <span class="o">=</span> <span class="o">(</span><span class="n">Model</span><span class="o">)</span> <span class="n">inp</span><span class="o">.</span><span class="na">readObject</span><span class="o">();</span>  <span class="c1">// Cast object into the expected class
+</span></span><span class="line"><span class="cl">    <span class="n">m</span> <span class="o">=</span> <span class="o">(</span><span class="n">Model</span><span class="o">)</span> <span class="n">inp</span><span class="o">.</span><span class="na">readObject</span><span class="o">();</span>  <span class="c1">// cast object into expected class
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">inp</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="o">|</span> <span class="n">ClassNotFoundException</span> <span class="n">excp</span><span class="o">)</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    <span class="o">...</span>
@@ -459,85 +459,79 @@
 </div>
 </div></li>
 <li>
-<p>How to find and retrieve objects/modify pointer targets?</p>
+<p>如何查找并获取对象/修改指针指向？</p>
 <ul>
-<li>Gitlet, like Git, uses SHA-1 (Secure Hash Algorithm 1) to generate a 160-bit hash value as the unique ID (40 hexadecimal characters) for each object. When an object is created, its ID is generated based on its content. For example, <strong>identical file contents will produce the same ID after encryption</strong>. The filenames for the stored objects are their respective IDs. This means that the ID can be used to locate the serialized objects in the directory. Furthermore, this enables <strong>content-addressable lookup</strong> based on the object&rsquo;s content.</li>
-<li>Regarding object retrieval, let&rsquo;s take obtaining a Commit object as an example. The steps include: obtaining the commit ID (which should be a field of the object) -&gt; obtaining the file path based on the ID (since they are stored in a specified directory) -&gt; deserializing the file. Similarly, modifying the object involves updating its content and then serializing it back into the file.</li>
-<li>As for modifying <strong>pointer</strong> targets, at the file read/write level, the operation involves: obtaining the ID of the targetCommit -&gt; writing the ID into the file corresponding to the HEAD pointer.</li>
+<li>Gitlet和Git都使用SHA-1（Secure Hash Algorithm 1）加密数据，产生一个160位的哈希值作为当前对象的id（40个十六进制数）。每个对象在创建时会<strong>根据自身的内容</strong>产生id，比如<strong>相同的文件内容经过加密会产生相同的id</strong>；并且它们保存的文件名就是它们的id。这意味着通过id就可以在目录中找到对应序列化过的对象。更重要的是，这就允许<strong>根据内容寻找文件的地址</strong>（content-addressable)。</li>
+<li>关于<strong>对象</strong>获取，以获取Commit对象为例，步骤是：获得commit id（对象在构造时应有id字段） -&gt; 根据id获取文件路径（因为都存放在指定目录下，根据id寻址） -&gt; 反序列化文件。同理，修改就是修改对象内容后，再序列化写入文件。</li>
+<li>关于修改<strong>指针</strong>指向，在文件读写层实际需要完成的操作是：获取targetCommit的id -&gt; 把id写入HEAD指针对应的文件中。</li>
 </ul>
 </li>
 </ul>
-<p>(Reminder to self) It&rsquo;s important to encapsulate these operations within the objects. The main logic should not contain statements like <code>commitMap.put(readContentAsString(commitPath), readContentAsString(blobPath))</code>. When reviewing others&rsquo; implementations, if you come across such mixed file read/write operations at the object level, be cautious.</p>
-<h3 id="in-brief">In Brief<a hidden class="anchor" aria-hidden="true" href="#in-brief">#</a></h3>
-<p>The above passages may seem repetitive, but they provide different perspectives on version control systems. Here&rsquo;s a basic analogy:</p>
+<p>（提醒自己）需要注意的是这些操作都应该封装在对象里，在主逻辑里不该出现<code>commitMap.put(readContentAsString(commitPath), readContentAsString(blobPath))</code>这种东西。写完翻别人实现的时候，看到有人是这样在对象层混用文件读写操作的，达咩。</p>
+<h3 id="小结">小结<a hidden class="anchor" aria-hidden="true" href="#小结">#</a></h3>
+<p>以上是三遍不同的废话。版本控制系统类比一下基本就是：</p>
 <ul>
-<li>Initializing a version control system == Placing a small box in the current working directory.</li>
-<li>Saving file versions == Each time a commit is made, making a copy of the submitted files and storing them in the box.</li>
-<li>Switching the current directory or a file in the directory to a specific version == Finding the corresponding archive in the box and bringing it back to the current working directory (CWD).</li>
+<li>初始化版本控制系统 == 在当前工作目录放一个小盒子</li>
+<li>保存文件的版本 == 每次提交时，把提交的东西拷一份存档放盒子里</li>
+<li>切换当前目录/目录中某个文件到某个版本 == 在盒子里找对应的存档，拿出来放在CWD</li>
 </ul>
-<p>The other concepts, such as objects, pointers, encoding, etc., are methods used to optimize the copying process and speed up the retrieval of files from the box (at least that&rsquo;s how I understand it):</p>
+<p>其余的对象、指针和编码等等方式，都是用来精简每次拷贝的东西、加快盒子里找东西的速度的tricks（至少我是这么理解）：</p>
 <ul>
-<li>Blob object == Archive of a single file.</li>
-<li>Commit object == A note indicating which file versions to retrieve at a particular time.</li>
-<li>Commit tree == An outline of the notes (commits).</li>
-<li>SHA-1 encoding == Giving each file a name based on its content (useful for fast content comparison and addressing).</li>
-<li>Pointers == Labels indicating which version is currently in the box.</li>
+<li>Blob对象 == 一个文件的存档</li>
+<li>Commit对象 == 一张记录哪个时候该找哪个文件版本的小抄</li>
+<li>Commit tree == 小抄们的目录大纲</li>
+<li>SHA-1编码 == 给每个文件按照他们的内容起名（在快速对比文件内容、寻址上都有用）</li>
+<li>指针 == 写着现在盒子里是哪个版本的标签</li>
 </ul>
-<p>Archiving files is a straightforward process that anyone can do (think: paper_final_final_final.docx). However, I believe the essence lies in SHA-1 encoding.</p>
-<h2 id="reflection">Reflection<a hidden class="anchor" aria-hidden="true" href="#reflection">#</a></h2>
+<p>暴力存档谁都会（试想：paper_final_final_final.docx)，要说的话，我觉得精髓在于sha-1。</p>
+<h2 id="思考">思考<a hidden class="anchor" aria-hidden="true" href="#思考">#</a></h2>
 <blockquote>
-<p>Notes taken while coding, might be messy.</p>
+<p>边写代码边记录的，比较乱</p>
 </blockquote>
-<h3 id="reading-order-for-the-spec">Reading Order for the Spec<a hidden class="anchor" aria-hidden="true" href="#reading-order-for-the-spec">#</a></h3>
+<h3 id="关于spec阅读顺序">关于spec阅读顺序<a hidden class="anchor" aria-hidden="true" href="#关于spec阅读顺序">#</a></h3>
 <ul>
-<li>The project specification for Gitlet is quite lengthy, making it impractical to read it all at once before starting. If I were to do it again, I would watch the videos first, skim through the command explanations and the &ldquo;avoids&rdquo; section, and then refer to the spec while coding.</li>
-<li>It&rsquo;s important to pay close attention to the &ldquo;Don&rsquo;t&rdquo; sections in the spec. The reason they are mentioned is that people tend to make those mistakes. For example, using a HashMap as the default Map implementation and encountering a Heisenbug. In reality, a TreeMap should be used to maintain order. ← Starts with &ldquo;callback&rdquo;.</li>
+<li>gitlet的项目说明很长，一次读完再开始不现实。如果再写一次，我会先看视频+扫读所有commands说明和avoids事项，然后边写边看。</li>
+<li>spec里的「注意不要xxx」部分要仔细看，之所以写上去是因为大家真的会这样做，比如默认Map都是HashMap然后写出Heisenbug，实际为了维护顺序应该用TreeMap。←callback开头</li>
 </ul>
-<h3 id="regarding-design">Regarding Design<a hidden class="anchor" aria-hidden="true" href="#regarding-design">#</a></h3>
+<h3 id="关于设计">关于设计<a hidden class="anchor" aria-hidden="true" href="#关于设计">#</a></h3>
 <ul>
 <li>
-<p>Initially, it&rsquo;s crucial to read the entire spec comprehensively, understanding the roles of each object and their commonly used interaction methods. Once the design is clear, implementation can begin.</p>
-<p>Positive example: When implementing the <code>&lt;branch&gt;</code> command, a major directory overhaul was planned. However, due to a well-designed abstraction earlier, only a single line needed to be added to the File directory without any other changes.</p>
+<p>一开始需要整体地阅读spec，明确每个对象的作用和它们之间的常用交互方法，设计好了再开始实现。</p>
+<p>正面案例：在写&lt;branch&gt;命令的时候准备大改目录，但因为前面abstraction设计得还不错，除了File目录加一句以外什么都不需要改。</p>
 </li>
 <li>
-<p>Protect the abstraction barrier. Interactions between higher-level objects should avoid using lower-level operations.</p>
-<p>Negative example: Initially, hashing and serialization were done directly in the main logic, leading to a lot of refactoring during the encapsulation process.</p>
+<p>保护abstraction barrier。上层对象之间的交互一定要避免使用底层操作。</p>
+<p>反面案例：前期直接在主逻辑里完成hashing、序列化，中间为了封装重构改了好久</p>
 </li>
 <li>
-<p>Naming is crucial. After some painful lessons, the following points are summarized:</p>
+<p>起名很重要。经过血的教训总结以下几点：</p>
 <ul>
-<li>Uniformity: Just like joining database tables, if objects need to communicate, they must have some common names. A negative example would be what I did initially, using different names for the IDs obtained from sha-1 hashing, such as shaName, shaId, hashName, etc.</li>
-<li>Intuitiveness: Variable names should be as specific as possible. For example, &ldquo;map&rdquo; can be written as &ldquo;keyToVal,&rdquo; making it easier to understand.</li>
-<li>Generality: Methods should not be overly specific so that they can be easily recalled when used elsewhere. For example, instead of using &ldquo;getHead&rdquo; and &ldquo;getMaster,&rdquo; it is better to use &ldquo;getCommit&rdquo; and &ldquo;getPointer.&rdquo;</li>
+<li>统一性&ndash;就像数据表连接一样，既然对象之间需要通信，那它们一定有一些共通的名字。反面案例就像是我一开始干的，把sha-1 hash得到的id，在不同类里写成shaName、shaId、hashName&hellip;</li>
+<li>直观性&ndash;变量名越具体越好，比如map可以写出keyToVal，不然想起来费劲</li>
+<li>泛用性&ndash;方法最好不要太具体，这样再别处调用的时候也能想起来。比如getHead getMaster就可以写成getCommit/getPointer。</li>
 </ul>
 </li>
 </ul>
-<h3 id="other-points">Other Points<a hidden class="anchor" aria-hidden="true" href="#other-points">#</a></h3>
+<h3 id="其他">其他<a hidden class="anchor" aria-hidden="true" href="#其他">#</a></h3>
 <ul>
-<li>It would be beneficial to read the source code of Git to find better practices, although the specification alone is generally sufficient.</li>
+<li>可以读下git的源码寻找better practice，虽然只看spec也基本够用。</li>
 </ul>
-<h2 id="stats">Stats<a hidden class="anchor" aria-hidden="true" href="#stats">#</a></h2>
-<h3 id="time-and-space">Time and Space<a hidden class="anchor" aria-hidden="true" href="#time-and-space">#</a></h3>
-<p>The code consists of approximately 1,000 lines. In terms of time, it took around 4.5 days to complete, with a recorded duration of around 40 hours according to Wakatime. Although I spent more than 10 hours debugging during that time (oops!). I remember Josh sharing some data in class, and most students took around 30-40 hours to complete the project.</p>
-<p>From a statistical standpoint, Gitlet is not a large-scale project. However, considering that it requires independent completion and involves design, unit and integration testing, makefile, Java file I/O, algorithms, encoding, and even training on Git itself, it is still a highly rewarding experience.</p>
+<h2 id="数据">数据<a hidden class="anchor" aria-hidden="true" href="#数据">#</a></h2>
+<h3 id="time-and-space">time and space<a hidden class="anchor" aria-hidden="true" href="#time-and-space">#</a></h3>
+<p>代码总行数大约1k；时间上大概花了4.5天，wakatime统计的用时是40小时左右，虽然里面十多个小时在debug（。）这方面我记得Josh课上有分享同学的数据，大部分人完成时间也差不多是30-40hrs。</p>
+<p>从统计上看gitlet体量不大，不过考虑到它要求独立完成且涉及到了设计、单元和集成测试、makefile、java file i/o、算法、编码、甚至git本身的训练，还是非常rewarding的。</p>
 <img src="./assets/image-20230712171416829.png#center" alt="code stats" style="zoom:50%;" />
-<h3 id="autograder-results">Autograder Results<a hidden class="anchor" aria-hidden="true" href="#autograder-results">#</a></h3>
-<p>All functional tests passed successfully. The Extra-Credit tests failed, as well as the style check (mainly due to naming, which I&rsquo;ll improve next time). However, I believe those failures don&rsquo;t significantly impact the overall outcome, so I didn&rsquo;t continue the autograder-oriented programming.</p>
-<p>BTW, reasons for not implementing Extra-Credit features:</p>
-<ol>
-<li>Towards the end, many commands were combinations of previous commands, resulting in diminishing returns.</li>
-<li>The &ldquo;remote&rdquo; command in Gitlet differs greatly from Git and may not contribute much to understanding the underlying logic of Git.</li>
-<li>After encountering a Heisenbug, my energy was depleted.</li>
-</ol>
-<p>Despite not pursuing the Extra-Credit tasks, I still found the Gitlet project rewarding and a valuable learning experience.</p>
+<h3 id="autograder情况">Autograder情况<a hidden class="anchor" aria-hidden="true" href="#autograder情况">#</a></h3>
+<p>通过了所有功能性测试。Fail的几个Extra-Credit，style (mainly naming，下次一定)和迟交我认为无伤大雅，就没有继续面向autograder编程。</p>
+<p>没有写EC的原因：1）到了后期很多指令都是组合前面的指令，边际效益低；2）gitlet中的remote指令和git相去甚远，不见得有助于学习git的底层逻辑；3）在de了一个Heisenbug以后心力憔悴。</p>
 <img src="./assets/image-20230712170907514.png#center" alt="Autograder: passed all functional tests" style="zoom:50%;" />
-<h2 id="reflection-1">Reflection<a hidden class="anchor" aria-hidden="true" href="#reflection-1">#</a></h2>
-<p>Gitlet is an impressive project in the world of renowned universities. As I mentioned at the beginning, I firmly believe that most individuals with a similar level of proficiency can gain a lot from this project. Just take a glance at the spec, and you&rsquo;ll understand.</p>
-<p>Speaking from a technical standpoint, I&rsquo;m not qualified to say much as I consider myself a novice. So, let me conclude with a few remarks. In one of Josh&rsquo;s lectures, he shared the results of a Gitlet survey, and one particular detail stuck with me. Some students spent over 50 hours on this project (which, in my personal experience, far exceeds the workload of a typical course assignment in the freshman year). However, only a few individuals gave negative feedback in the end, and I recall Josh expressing his apologies for that. This indirectly reflects the worthwhileness of &ldquo;The Gitlet Grind.&rdquo;</p>
-<p>An official end of CS61B &ndash; so grateful for the open-source materials! Time to move on and continue working on something else.</p>
-<h2 id="appendix">Appendix<a hidden class="anchor" aria-hidden="true" href="#appendix">#</a></h2>
+<h2 id="感想">感想<a hidden class="anchor" aria-hidden="true" href="#感想">#</a></h2>
+<p>Gitlet是一款我的世界名校震撼.jpg 就像开头吹的一样，我坚信大部分水平和我类似的人都能通过这个project收获很多，具体只要看一眼spec就知道了。</p>
+<p>技术上我太菜也没资格说什么，只能最后讲几句别的。Josh在不记得哪节课上分享过Gitlet的survey结果，印象深刻的是有一部分学生在这个pj上花了50+小时（就我个人经历，这远超出正常大一的一门课的一个课设的workload），但是最后给了负面评价的只有寥寥几人，Josh好像还单独拿出来表示抱歉了。从侧面反映了The Gitlet Grind的价值。</p>
+<p>61B至此完结，感恩开源！继续肝别的去咯</p>
+<h2 id="附录">附录<a hidden class="anchor" aria-hidden="true" href="#附录">#</a></h2>
 <blockquote>
-<p>The following is an excerpt from the README I wrote, explaining the design aspects of my Gitlet implementation.</p>
+<p>以下是从写的readme中转载的my gitlet设计方面的说明</p>
 </blockquote>
 <h3 id="design">Design<a hidden class="anchor" aria-hidden="true" href="#design">#</a></h3>
 <h4 id="abstraction-principle">Abstraction Principle<a hidden class="anchor" aria-hidden="true" href="#abstraction-principle">#</a></h4>
@@ -606,22 +600,39 @@ E.g. The <code>StagingArea</code> supports common map operations. Upon put (file
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://eimy.ink/tags/course/">course</a></li>
+      <li><a href="http://eimy.ink/tags/%E8%AF%BE%E7%A8%8B/">课程</a></li>
     </ul>
 <nav class="paginav">
   <a class="prev" href="http://eimy.ink/posts/2023/aws-amplify/">
-    <span class="title">« Prev</span>
+    <span class="title">« 上一页</span>
     <br>
-    <span>Deploying an App via AWS Amplify</span>
+    <span>AWS Amplify记录</span>
   </a>
-  <a class="next" href="http://eimy.ink/posts/2023/b-tree-llrb/">
-    <span class="title">Next »</span>
+  <a class="next" href="http://eimy.ink/posts/2023/plog-japan-ii/">
+    <span class="title">下一页 »</span>
     <br>
-    <span>61B Notes - B-Trees &amp; LLRB</span>
+    <span>日本中部旅游Plog 2</span>
   </a>
 </nav>
 
-  </footer>
+  </footer><div id="disqus_thread"></div>
+<script>
+    
+  
+    
+    var disqus_config = function () {
+    this.page.url = "https://Flora025.github.io"; 
+    this.page.identifier = hello; 
+    };
+    
+    (function() { 
+    var d = document, s = d.createElement('script');
+    s.src = 'https://flora025.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </article>
     </main>
     
@@ -702,12 +713,12 @@ E.g. The <code>StagingArea</code> supports common map operations. Upon put (file
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerText = 'copy';
+        copybutton.innerText = '复制';
 
         function copyingDone() {
-            copybutton.innerText = 'copied!';
+            copybutton.innerText = '已复制！';
             setTimeout(() => {
-                copybutton.innerText = 'copy';
+                copybutton.innerText = '复制';
             }, 2000);
         }
 

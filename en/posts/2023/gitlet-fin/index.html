@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" translate="no">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Notes and Thoughts on CS61B Gitlet | FloraZ</title>
+<meta name="keywords" content="course">
+<meta name="description" content="♪(´ε｀ )">
+<meta name="author" content="Flora">
+<link rel="canonical" href="http://eimy.ink/en/posts/2023/gitlet-fin/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.3f09ba765b9df309056d4698ef69e5ff8d1e95c6d19db8f6e8faedc07b090157.css" integrity="sha256-Pwm6dlud8wkFbUaY72nl/40elcbRnbj26PrtwHsJAVc=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f83806d9904cccf883edf075a5ce1d71136879702650d07aca8c76361a3e467b.js" integrity="sha256-&#43;DgG2ZBMzPiD7fB1pc4dcRNoeXAmUNB6yox2Nho&#43;Rns="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="http://eimy.ink/favicons/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://eimy.ink/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://eimy.ink/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://eimy.ink/apple-touch-icon.png">
+<link rel="mask-icon" href="http://eimy.ink/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="http://eimy.ink/posts/2023/gitlet-fin/">
+<link rel="alternate" hreflang="en" href="http://eimy.ink/en/posts/2023/gitlet-fin/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+
+<meta property="og:title" content="Notes and Thoughts on CS61B Gitlet" />
+<meta property="og:description" content="♪(´ε｀ )" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://eimy.ink/en/posts/2023/gitlet-fin/" /><meta property="og:image" content="http://eimy.ink/papermod-cover.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-07-13T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-07-13T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://eimy.ink/papermod-cover.png"/>
+
+<meta name="twitter:title" content="Notes and Thoughts on CS61B Gitlet"/>
+<meta name="twitter:description" content="♪(´ε｀ )"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://eimy.ink/en/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Notes and Thoughts on CS61B Gitlet",
+      "item": "http://eimy.ink/en/posts/2023/gitlet-fin/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Notes and Thoughts on CS61B Gitlet",
+  "name": "Notes and Thoughts on CS61B Gitlet",
+  "description": "♪(´ε｀ )",
+  "keywords": [
+    "course"
+  ],
+  "articleBody": "Note: The passage is originally written in Chinese and translated into English via ChatGPT.\nTranslated passage:\nAlias: Gitlet in Hindsight: Why I Suggest You Always Read the DON’Ts Part in Spec First\nAfter spending a few days catching up with the renowned project Gitlet, which has a weighty 60-page spec covering everything (lol), including informative content that provides a comprehensive understanding and training on every technical foundation, from system design to integration testing. It truly deserves the highest praise for this course project in its history.\n[Reference]: UCB CS61B-21SP-Gitlet\nProject Overview Gitlet is a version control system that mimics the functionality of the popular system Git and implements some of its basic commands, including init, add, commit, rm, checkout, branch, reset, rm-branch, merge, and more.\nAs an individual project for the course, it starts with only a few necessary .java classes and a few lines of code samples. The task requires designing and completing the system, object methods, data structures, and a few algorithms based on the requirements.\nGitlet Version-Control Mechanism In essence, version control in Git (Gitlet) revolves around the question of “how to save a certain version” and “how to switch to a specific version.” These two questions can be understood from three levels, from top to bottom: the user level, the object level, and the file read/write level.\nFrom a design perspective, there should exist an abstraction barrier between these three levels, as explained in the abstraction barrier concept. This means that when users issue commands, they don’t need to know or manipulate objects, pointers, etc., and file read/write operations should not occur between objects either.\nUser Level First, let’s discuss what happens at a higher level, which is the part that users are aware of.\nWhat does Git initialization do? It creates a hidden directory called .git in the current working directory (CWD) and some files inside it. How are file versions saved? When a commit is made, Git captures the current snapshot of the committed files and stores it in the .git directory. How to switch to a specific version? When using commands like checkout or reset to switch versions, Git looks for the corresponding snapshot based on the given branch name/commit ID in the .git directory. It then restores the specified file or the entire directory in the CWD to match that snapshot. Object Level Now let’s see how these steps are implemented at the object level. Gitlet simplifies the directory structure of Git to some extent, storing fewer metadata for each object, but the essence remains the same. The following diagram represents the structure of the .gitlet directory.\nGitlet version control utilizes two types of objects: Commit and Blob. Each Blob object corresponds to a file snapshot. Each Commit object corresponds to a commit. How are these objects used to track file versions? When a file is added to the staging area (add [file name]), a Blob object is created to store the current file content. The mapping between the file name and the corresponding Blob instance is then stored in the staging area. When committing files, a Commit object is created. It retrieves the mapping relationships from the staging area and saves them in the Commit object. In addition to the index mapping, each object also records the parent Commit, timestamp, commit message, etc. Example: In the diagram below, each blue square represents a Commit object. Inside each Commit object, there is a Map that records the file snapshots for the current commit. For instance, both Hello.txt in Commit 1 and Commit 2 point to Blob 0, indicating that the file content (snapshot) did not change in these two commits. How is switching to a specific version implemented? — By moving pointers To switch the HEAD pointer to another branch’s branchHeadCommit, at the object level, it means that the HEAD pointer, originally pointing to a Commit object on branchA, should now point to another Commit object branchHeadCommit on branchB. This can be achieved by something like updatePointerToCommit(HEAD, branchHeadCommit). File I/O Level Finally, let’s dive into the lower-level and examine file read/write operations. Since certain commands require storing Blob objects, Commit objects, and the current content of the staging area locally, two questions arise:\nHow are objects stored as data (to retrieve and use them later)?\nJava’s serialization is used to store objects. In Gitlet, all objects can be serialized and stored in files, including Blob, Commit, and StagingArea (if applicable). In the .git directory, they are stored in the /objects/ directory.\nOn the other hand, pointers are managed through file read/write operations (without serialization). Each pointer corresponds to a file that contains the ID of the object it points to. When modifying a pointer’s target, the actual change occurs in the file by updating the ID. In the .git directory, pointers are stored in the .git/refs/ directory.\n1 2 3 4 5 6 7 8 9 10 11 /* Serialize a Model object */ Model m = ....; // Assuming Model class implements Serializable File outFile = new File(saveFileName); // Create a new File try { ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(outFile)); out.writeObject(m); // Write the object to the stream out.close(); } catch (IOException excp) { ... } 1 2 3 4 5 6 7 8 9 10 11 12 /* Deserialize a Model object */ Model m; File inFile = new File(saveFileName); try { ObjectInputStream inp = new ObjectInputStream(new FileInputStream(inFile)); m = (Model) inp.readObject(); // Cast object into the expected class inp.close(); } catch (IOException | ClassNotFoundException excp) { ... m = null; } How to find and retrieve objects/modify pointer targets?\nGitlet, like Git, uses SHA-1 (Secure Hash Algorithm 1) to generate a 160-bit hash value as the unique ID (40 hexadecimal characters) for each object. When an object is created, its ID is generated based on its content. For example, identical file contents will produce the same ID after encryption. The filenames for the stored objects are their respective IDs. This means that the ID can be used to locate the serialized objects in the directory. Furthermore, this enables content-addressable lookup based on the object’s content. Regarding object retrieval, let’s take obtaining a Commit object as an example. The steps include: obtaining the commit ID (which should be a field of the object) -\u003e obtaining the file path based on the ID (since they are stored in a specified directory) -\u003e deserializing the file. Similarly, modifying the object involves updating its content and then serializing it back into the file. As for modifying pointer targets, at the file read/write level, the operation involves: obtaining the ID of the targetCommit -\u003e writing the ID into the file corresponding to the HEAD pointer. (Reminder to self) It’s important to encapsulate these operations within the objects. The main logic should not contain statements like commitMap.put(readContentAsString(commitPath), readContentAsString(blobPath)). When reviewing others’ implementations, if you come across such mixed file read/write operations at the object level, be cautious.\nIn Brief The above passages may seem repetitive, but they provide different perspectives on version control systems. Here’s a basic analogy:\nInitializing a version control system == Placing a small box in the current working directory. Saving file versions == Each time a commit is made, making a copy of the submitted files and storing them in the box. Switching the current directory or a file in the directory to a specific version == Finding the corresponding archive in the box and bringing it back to the current working directory (CWD). The other concepts, such as objects, pointers, encoding, etc., are methods used to optimize the copying process and speed up the retrieval of files from the box (at least that’s how I understand it):\nBlob object == Archive of a single file. Commit object == A note indicating which file versions to retrieve at a particular time. Commit tree == An outline of the notes (commits). SHA-1 encoding == Giving each file a name based on its content (useful for fast content comparison and addressing). Pointers == Labels indicating which version is currently in the box. Archiving files is a straightforward process that anyone can do (think: paper_final_final_final.docx). However, I believe the essence lies in SHA-1 encoding.\nReflection Notes taken while coding, might be messy.\nReading Order for the Spec The project specification for Gitlet is quite lengthy, making it impractical to read it all at once before starting. If I were to do it again, I would watch the videos first, skim through the command explanations and the “avoids” section, and then refer to the spec while coding. It’s important to pay close attention to the “Don’t” sections in the spec. The reason they are mentioned is that people tend to make those mistakes. For example, using a HashMap as the default Map implementation and encountering a Heisenbug. In reality, a TreeMap should be used to maintain order. ← Starts with “callback”. Regarding Design Initially, it’s crucial to read the entire spec comprehensively, understanding the roles of each object and their commonly used interaction methods. Once the design is clear, implementation can begin.\nPositive example: When implementing the command, a major directory overhaul was planned. However, due to a well-designed abstraction earlier, only a single line needed to be added to the File directory without any other changes.\nProtect the abstraction barrier. Interactions between higher-level objects should avoid using lower-level operations.\nNegative example: Initially, hashing and serialization were done directly in the main logic, leading to a lot of refactoring during the encapsulation process.\nNaming is crucial. After some painful lessons, the following points are summarized:\nUniformity: Just like joining database tables, if objects need to communicate, they must have some common names. A negative example would be what I did initially, using different names for the IDs obtained from sha-1 hashing, such as shaName, shaId, hashName, etc. Intuitiveness: Variable names should be as specific as possible. For example, “map” can be written as “keyToVal,” making it easier to understand. Generality: Methods should not be overly specific so that they can be easily recalled when used elsewhere. For example, instead of using “getHead” and “getMaster,” it is better to use “getCommit” and “getPointer.” Other Points It would be beneficial to read the source code of Git to find better practices, although the specification alone is generally sufficient. Stats Time and Space The code consists of approximately 1,000 lines. In terms of time, it took around 4.5 days to complete, with a recorded duration of around 40 hours according to Wakatime. Although I spent more than 10 hours debugging during that time (oops!). I remember Josh sharing some data in class, and most students took around 30-40 hours to complete the project.\nFrom a statistical standpoint, Gitlet is not a large-scale project. However, considering that it requires independent completion and involves design, unit and integration testing, makefile, Java file I/O, algorithms, encoding, and even training on Git itself, it is still a highly rewarding experience.\nAutograder Results All functional tests passed successfully. The Extra-Credit tests failed, as well as the style check (mainly due to naming, which I’ll improve next time). However, I believe those failures don’t significantly impact the overall outcome, so I didn’t continue the autograder-oriented programming.\nBTW, reasons for not implementing Extra-Credit features:\nTowards the end, many commands were combinations of previous commands, resulting in diminishing returns. The “remote” command in Gitlet differs greatly from Git and may not contribute much to understanding the underlying logic of Git. After encountering a Heisenbug, my energy was depleted. Despite not pursuing the Extra-Credit tasks, I still found the Gitlet project rewarding and a valuable learning experience.\nReflection Gitlet is an impressive project in the world of renowned universities. As I mentioned at the beginning, I firmly believe that most individuals with a similar level of proficiency can gain a lot from this project. Just take a glance at the spec, and you’ll understand.\nSpeaking from a technical standpoint, I’m not qualified to say much as I consider myself a novice. So, let me conclude with a few remarks. In one of Josh’s lectures, he shared the results of a Gitlet survey, and one particular detail stuck with me. Some students spent over 50 hours on this project (which, in my personal experience, far exceeds the workload of a typical course assignment in the freshman year). However, only a few individuals gave negative feedback in the end, and I recall Josh expressing his apologies for that. This indirectly reflects the worthwhileness of “The Gitlet Grind.”\nAn official end of CS61B – so grateful for the open-source materials! Time to move on and continue working on something else.\nAppendix The following is an excerpt from the README I wrote, explaining the design aspects of my Gitlet implementation.\nDesign Abstraction Principle An issue with version control systems:\nRequires cumbersome operations like hashing, serialization, map operations, directory concatenation, file I/O, etc.\nSolution:\nOn a higher level, involve only communications between objects (between Blob and Commit, there should only be Blob b = commit1.get(filename)) Eliminate the need to dive into low-level operations through encapsulation. i.e. Outside the class of that object, never try to hash things, or modify maps inside Commit/Blob objects. E.g. The StagingArea supports common map operations. Upon put (fileName, Commit), it completes: read commit into commit id -\u003e put into its map -\u003e serialize itself and write into the file for staging. Persistence The directory structure looks like this:\n1 2 3 4 5 6 7 8 9 10 CWD └──.gitlet └── --commits/ # all commits ├──blobs/ # file content ├──branchHeads/ # branch heads | └──--master # master branch | ├──..\t# other branches ├──HEAD\t# HEAD commit ├──add # staging area for addition └──rm # staging area for removal The Main class is the entry class of the project. It is responsible for calling different functions according to given commands.\nThe Repository class will set up all persistance. It will\nCreate and initialize files and directories in the .gitlet folder if the directory does not exist; Handle all updates of HEAD , master, branchHeads and the serialization of two StagingAreas add and rm. Execute the commands / function calls from Main. The Commit class handles the serialization of Commit objects. It also deals with conversion between commit ids and commit objects. Each Commit records mappings of held file names and their corresponding file content. Specifically, it fulfil the following purposes:\nConstructs Commit objects; Serializes and saves Commit objects to the .gitlet/commits directory; Given a commit id, retrieves the corresponding Commit object. The Blob class handles the serialization of Blob objects. A blob is a snapshot of a file’s content at the moment of addition. For instance, a file named “hello.txt” can refer to different Blobs in different Commits.\nIts functions are similar to Commit, namely object construction, serialization and retrieval.\nThe StagingArea class stores files for addition and removal. A StagingArea works like a Java Map, stores mappings of file plain names to their blob ids, and supports basic map operations (remove, get, put). add and rm are StagingAreas for staged addition and removal respectively.\n",
+  "wordCount" : "2510",
+  "inLanguage": "en",
+  "datePublished": "2023-07-13T00:00:00Z",
+  "dateModified": "2023-07-13T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Flora"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://eimy.ink/en/posts/2023/gitlet-fin/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "FloraZ",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://eimy.ink/favicons/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://eimy.ink/en/" accesskey="h" title="FloraZ (Alt + H)">FloraZ</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                    <li>
+                        <a href="http://eimy.ink/" title="中文"
+                            aria-label="中文">中文</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://eimy.ink/en/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://eimy.ink/en/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://eimy.ink/en/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://eimy.ink/en/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://eimy.ink/en/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main post">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://eimy.ink/en/">Home</a>&nbsp;»&nbsp;<a href="http://eimy.ink/en/posts/">Posts</a></div>
+    <h1 class="post-title">
+      Notes and Thoughts on CS61B Gitlet
+    </h1>
+    <div class="post-meta"><span title='2023-07-13 00:00:00 +0000 UTC'>July 13, 2023</span>&nbsp;·&nbsp;12 min&nbsp;·&nbsp;Flora&nbsp;|&nbsp;Translations:
+<ul class="i18n_list">
+    <li>
+        <a href="http://eimy.ink/posts/2023/gitlet-fin/">中文</a>
+    </li>
+</ul>
+
+</div>
+  </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+            <summary accesskey="c" title="(Alt + C)">
+                <span class="details">Table of Contents</span>
+            </summary>
+
+            <div class="inner"><ul>
+                    <li>
+                        <a href="#project-overview" aria-label="Project Overview">Project Overview</a></li>
+                    <li>
+                        <a href="#gitlet-version-control-mechanism" aria-label="Gitlet Version-Control Mechanism">Gitlet Version-Control Mechanism</a><ul>
+                            
+                    <li>
+                        <a href="#user-level" aria-label="User Level">User Level</a></li>
+                    <li>
+                        <a href="#object-level" aria-label="Object Level">Object Level</a></li>
+                    <li>
+                        <a href="#file-io-level" aria-label="File I/O Level">File I/O Level</a></li>
+                    <li>
+                        <a href="#in-brief" aria-label="In Brief">In Brief</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#reflection" aria-label="Reflection">Reflection</a><ul>
+                            
+                    <li>
+                        <a href="#reading-order-for-the-spec" aria-label="Reading Order for the Spec">Reading Order for the Spec</a></li>
+                    <li>
+                        <a href="#regarding-design" aria-label="Regarding Design">Regarding Design</a></li>
+                    <li>
+                        <a href="#other-points" aria-label="Other Points">Other Points</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#stats" aria-label="Stats">Stats</a><ul>
+                            
+                    <li>
+                        <a href="#time-and-space" aria-label="Time and Space">Time and Space</a></li>
+                    <li>
+                        <a href="#autograder-results" aria-label="Autograder Results">Autograder Results</a></li></ul>
+                    </li>
+                    <li>
+                        <a href="#reflection-1" aria-label="Reflection">Reflection</a></li>
+                    <li>
+                        <a href="#appendix" aria-label="Appendix">Appendix</a><ul>
+                            
+                    <li>
+                        <a href="#design" aria-label="Design">Design</a><ul>
+                            
+                    <li>
+                        <a href="#abstraction-principle" aria-label="Abstraction Principle">Abstraction Principle</a></li>
+                    <li>
+                        <a href="#persistence" aria-label="Persistence">Persistence</a>
+                    </li>
+                </ul>
+                </li>
+                </ul>
+                </li>
+                </ul>
+            </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+         
+         activeElement = elements[0];
+         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+     }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+             const id = encodeURI(element.getAttribute('id')).toLowerCase();
+             if (element === activeElement){
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+             } else {
+                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+             }
+         })
+     }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;   
+    }
+</script>
+
+  <div class="post-content"><p>Note: The passage is originally written in Chinese and translated into English via ChatGPT.</p>
+<hr>
+<p>Translated passage:</p>
+<blockquote>
+<p>Alias: Gitlet in Hindsight: Why I Suggest You Always Read the DON&rsquo;Ts Part in Spec First</p>
+</blockquote>
+<p>After spending a few days catching up with the renowned project Gitlet, which has a weighty 60-page spec covering everything (lol), including informative content that provides a comprehensive understanding and training on every technical foundation, from system design to integration testing. It truly deserves the highest praise for this course project in its history.</p>
+<p>[Reference]: <a href="https://sp21.datastructur.es/materials/proj/proj2/proj2">UCB CS61B-21SP-Gitlet</a></p>
+<h2 id="project-overview">Project Overview<a hidden class="anchor" aria-hidden="true" href="#project-overview">#</a></h2>
+<p>Gitlet is a version control system that mimics the functionality of the popular system Git and implements some of its basic commands, including <code>init</code>, <code>add</code>, <code>commit</code>, <code>rm</code>, <code>checkout</code>, <code>branch</code>, <code>reset</code>, <code>rm-branch</code>, <code>merge</code>, and more.</p>
+<p>As an individual project for the course, it starts with only a few necessary <code>.java</code> classes and a few lines of code samples. The task requires designing and completing the system, object methods, data structures, and a few algorithms based on the requirements.</p>
+<h2 id="gitlet-version-control-mechanism">Gitlet Version-Control Mechanism<a hidden class="anchor" aria-hidden="true" href="#gitlet-version-control-mechanism">#</a></h2>
+<p>In essence, version control in Git (Gitlet) revolves around the question of &ldquo;how to save a certain version&rdquo; and &ldquo;how to switch to a specific version.&rdquo; These two questions can be understood from three levels, from top to bottom: the user level, the object level, and the file read/write level.</p>
+<p>From a design perspective, there should exist an abstraction barrier between these three levels, as explained in the <a href="https://en.wikibooks.org/wiki/Object_Oriented_Programming/Abstraction_Barrier">abstraction barrier</a> concept. This means that when users issue commands, they don&rsquo;t need to know or manipulate objects, pointers, etc., and file read/write operations should not occur between objects either.</p>
+<h3 id="user-level">User Level<a hidden class="anchor" aria-hidden="true" href="#user-level">#</a></h3>
+<p>First, let&rsquo;s discuss what happens at a higher level, which is the part that users are aware of.</p>
+<ul>
+<li>What does Git initialization do? It creates a hidden directory called <code>.git</code> in the current working directory (CWD) and some files inside it.</li>
+<li>How are file versions saved? When a <code>commit</code> is made, Git captures the current snapshot of the committed files and stores it in the <code>.git</code> directory.</li>
+<li>How to switch to a specific version? When using commands like <code>checkout</code> or <code>reset</code> to switch versions, Git looks for the corresponding snapshot based on the given branch name/commit ID in the <code>.git</code> directory. It then restores the specified file or the entire directory in the CWD to match that snapshot.</li>
+</ul>
+<img src="./assets/image-20230713140220806.png#center" alt=".git目录" style="zoom:50%;border-radius:5px;" />
+<h3 id="object-level">Object Level<a hidden class="anchor" aria-hidden="true" href="#object-level">#</a></h3>
+<p>Now let&rsquo;s see how these steps are implemented at the object level. Gitlet simplifies the directory structure of Git to some extent, storing fewer metadata for each object, but the essence remains the same. The following diagram represents the structure of the <code>.gitlet</code> directory.</p>
+<ul>
+<li>Gitlet version control utilizes two types of objects: Commit and Blob.
+<ul>
+<li>Each Blob object corresponds to a file snapshot.</li>
+<li>Each Commit object corresponds to a <code>commit</code>.</li>
+</ul>
+</li>
+<li>How are these objects used to track file versions?
+<ul>
+<li>When a file is added to the staging area (<code>add [file name]</code>), a Blob object is created to store the current file content. The mapping between the file name and the corresponding Blob instance is then stored in the staging area.</li>
+<li>When committing files, a Commit object is created. It retrieves the mapping relationships from the staging area and saves them in the Commit object. In addition to the index mapping, each object also records the parent Commit, timestamp, commit message, etc.</li>
+<li>Example: In the diagram below, each blue square represents a Commit object. Inside each Commit object, there is a Map that records the file snapshots for the current commit. For instance, both Hello.txt in Commit 1 and Commit 2 point to Blob 0, indicating that the file content (snapshot) did not change in these two commits.</li>
+</ul>
+</li>
+<li>How is switching to a specific version implemented? — By moving pointers
+<ul>
+<li>To switch the <code>HEAD</code> pointer to another branch&rsquo;s <code>branchHeadCommit</code>, at the object level, it means that the <code>HEAD</code> pointer, originally pointing to a Commit object on branchA, should now point to another Commit object <code>branchHeadCommit</code> on branchB. This can be achieved by something like <code>updatePointerToCommit(HEAD, branchHeadCommit)</code>.</li>
+</ul>
+</li>
+</ul>
+<img src="./assets/image-20230707133304171.png#center" alt=".gitlet结构" style="zoom:50%;" />
+<h3 id="file-io-level">File I/O Level<a hidden class="anchor" aria-hidden="true" href="#file-io-level">#</a></h3>
+<p>Finally, let&rsquo;s dive into the lower-level and examine file read/write operations. Since certain commands require storing Blob objects, Commit objects, and the current content of the staging area locally, two questions arise:</p>
+<ul>
+<li>
+<p>How are objects stored as data (to retrieve and use them later)?</p>
+<ul>
+<li>
+<p>Java&rsquo;s serialization is used to store objects. In Gitlet, all <strong>objects</strong> can be serialized and stored in files, including Blob, Commit, and StagingArea (if applicable). In the <code>.git</code> directory, they are stored in the <code>/objects/</code> directory.</p>
+</li>
+<li>
+<p>On the other hand, <strong>pointers</strong> are managed through file read/write operations (without serialization). Each pointer corresponds to a file that contains the ID of the object it points to. When modifying a pointer&rsquo;s target, the actual change occurs in the file by updating the ID. In the <code>.git</code> directory, pointers are stored in the <code>.git/refs/</code> directory.</p>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/* Serialize a Model object */</span>
+</span></span><span class="line"><span class="cl"><span class="n">Model</span> <span class="n">m</span> <span class="o">=</span> <span class="o">....;</span> <span class="c1">// Assuming Model class implements Serializable
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">File</span> <span class="n">outFile</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="n">saveFileName</span><span class="o">);</span> <span class="c1">// Create a new File
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">try</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ObjectOutputStream</span> <span class="n">out</span> <span class="o">=</span>
+</span></span><span class="line"><span class="cl">        <span class="k">new</span> <span class="n">ObjectOutputStream</span><span class="o">(</span><span class="k">new</span> <span class="n">FileOutputStream</span><span class="o">(</span><span class="n">outFile</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">out</span><span class="o">.</span><span class="na">writeObject</span><span class="o">(</span><span class="n">m</span><span class="o">);</span> <span class="c1">// Write the object to the stream
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">out</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="n">excp</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/* Deserialize a Model object */</span>
+</span></span><span class="line"><span class="cl"><span class="n">Model</span> <span class="n">m</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">File</span> <span class="n">inFile</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="n">saveFileName</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="k">try</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ObjectInputStream</span> <span class="n">inp</span> <span class="o">=</span>
+</span></span><span class="line"><span class="cl">        <span class="k">new</span> <span class="n">ObjectInputStream</span><span class="o">(</span><span class="k">new</span> <span class="n">FileInputStream</span><span class="o">(</span><span class="n">inFile</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">m</span> <span class="o">=</span> <span class="o">(</span><span class="n">Model</span><span class="o">)</span> <span class="n">inp</span><span class="o">.</span><span class="na">readObject</span><span class="o">();</span>  <span class="c1">// Cast object into the expected class
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">inp</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="o">|</span> <span class="n">ClassNotFoundException</span> <span class="n">excp</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span><span class="line"><span class="cl">    <span class="n">m</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>How to find and retrieve objects/modify pointer targets?</p>
+<ul>
+<li>Gitlet, like Git, uses SHA-1 (Secure Hash Algorithm 1) to generate a 160-bit hash value as the unique ID (40 hexadecimal characters) for each object. When an object is created, its ID is generated based on its content. For example, <strong>identical file contents will produce the same ID after encryption</strong>. The filenames for the stored objects are their respective IDs. This means that the ID can be used to locate the serialized objects in the directory. Furthermore, this enables <strong>content-addressable lookup</strong> based on the object&rsquo;s content.</li>
+<li>Regarding object retrieval, let&rsquo;s take obtaining a Commit object as an example. The steps include: obtaining the commit ID (which should be a field of the object) -&gt; obtaining the file path based on the ID (since they are stored in a specified directory) -&gt; deserializing the file. Similarly, modifying the object involves updating its content and then serializing it back into the file.</li>
+<li>As for modifying <strong>pointer</strong> targets, at the file read/write level, the operation involves: obtaining the ID of the targetCommit -&gt; writing the ID into the file corresponding to the HEAD pointer.</li>
+</ul>
+</li>
+</ul>
+<p>(Reminder to self) It&rsquo;s important to encapsulate these operations within the objects. The main logic should not contain statements like <code>commitMap.put(readContentAsString(commitPath), readContentAsString(blobPath))</code>. When reviewing others&rsquo; implementations, if you come across such mixed file read/write operations at the object level, be cautious.</p>
+<h3 id="in-brief">In Brief<a hidden class="anchor" aria-hidden="true" href="#in-brief">#</a></h3>
+<p>The above passages may seem repetitive, but they provide different perspectives on version control systems. Here&rsquo;s a basic analogy:</p>
+<ul>
+<li>Initializing a version control system == Placing a small box in the current working directory.</li>
+<li>Saving file versions == Each time a commit is made, making a copy of the submitted files and storing them in the box.</li>
+<li>Switching the current directory or a file in the directory to a specific version == Finding the corresponding archive in the box and bringing it back to the current working directory (CWD).</li>
+</ul>
+<p>The other concepts, such as objects, pointers, encoding, etc., are methods used to optimize the copying process and speed up the retrieval of files from the box (at least that&rsquo;s how I understand it):</p>
+<ul>
+<li>Blob object == Archive of a single file.</li>
+<li>Commit object == A note indicating which file versions to retrieve at a particular time.</li>
+<li>Commit tree == An outline of the notes (commits).</li>
+<li>SHA-1 encoding == Giving each file a name based on its content (useful for fast content comparison and addressing).</li>
+<li>Pointers == Labels indicating which version is currently in the box.</li>
+</ul>
+<p>Archiving files is a straightforward process that anyone can do (think: paper_final_final_final.docx). However, I believe the essence lies in SHA-1 encoding.</p>
+<h2 id="reflection">Reflection<a hidden class="anchor" aria-hidden="true" href="#reflection">#</a></h2>
+<blockquote>
+<p>Notes taken while coding, might be messy.</p>
+</blockquote>
+<h3 id="reading-order-for-the-spec">Reading Order for the Spec<a hidden class="anchor" aria-hidden="true" href="#reading-order-for-the-spec">#</a></h3>
+<ul>
+<li>The project specification for Gitlet is quite lengthy, making it impractical to read it all at once before starting. If I were to do it again, I would watch the videos first, skim through the command explanations and the &ldquo;avoids&rdquo; section, and then refer to the spec while coding.</li>
+<li>It&rsquo;s important to pay close attention to the &ldquo;Don&rsquo;t&rdquo; sections in the spec. The reason they are mentioned is that people tend to make those mistakes. For example, using a HashMap as the default Map implementation and encountering a Heisenbug. In reality, a TreeMap should be used to maintain order. ← Starts with &ldquo;callback&rdquo;.</li>
+</ul>
+<h3 id="regarding-design">Regarding Design<a hidden class="anchor" aria-hidden="true" href="#regarding-design">#</a></h3>
+<ul>
+<li>
+<p>Initially, it&rsquo;s crucial to read the entire spec comprehensively, understanding the roles of each object and their commonly used interaction methods. Once the design is clear, implementation can begin.</p>
+<p>Positive example: When implementing the <code>&lt;branch&gt;</code> command, a major directory overhaul was planned. However, due to a well-designed abstraction earlier, only a single line needed to be added to the File directory without any other changes.</p>
+</li>
+<li>
+<p>Protect the abstraction barrier. Interactions between higher-level objects should avoid using lower-level operations.</p>
+<p>Negative example: Initially, hashing and serialization were done directly in the main logic, leading to a lot of refactoring during the encapsulation process.</p>
+</li>
+<li>
+<p>Naming is crucial. After some painful lessons, the following points are summarized:</p>
+<ul>
+<li>Uniformity: Just like joining database tables, if objects need to communicate, they must have some common names. A negative example would be what I did initially, using different names for the IDs obtained from sha-1 hashing, such as shaName, shaId, hashName, etc.</li>
+<li>Intuitiveness: Variable names should be as specific as possible. For example, &ldquo;map&rdquo; can be written as &ldquo;keyToVal,&rdquo; making it easier to understand.</li>
+<li>Generality: Methods should not be overly specific so that they can be easily recalled when used elsewhere. For example, instead of using &ldquo;getHead&rdquo; and &ldquo;getMaster,&rdquo; it is better to use &ldquo;getCommit&rdquo; and &ldquo;getPointer.&rdquo;</li>
+</ul>
+</li>
+</ul>
+<h3 id="other-points">Other Points<a hidden class="anchor" aria-hidden="true" href="#other-points">#</a></h3>
+<ul>
+<li>It would be beneficial to read the source code of Git to find better practices, although the specification alone is generally sufficient.</li>
+</ul>
+<h2 id="stats">Stats<a hidden class="anchor" aria-hidden="true" href="#stats">#</a></h2>
+<h3 id="time-and-space">Time and Space<a hidden class="anchor" aria-hidden="true" href="#time-and-space">#</a></h3>
+<p>The code consists of approximately 1,000 lines. In terms of time, it took around 4.5 days to complete, with a recorded duration of around 40 hours according to Wakatime. Although I spent more than 10 hours debugging during that time (oops!). I remember Josh sharing some data in class, and most students took around 30-40 hours to complete the project.</p>
+<p>From a statistical standpoint, Gitlet is not a large-scale project. However, considering that it requires independent completion and involves design, unit and integration testing, makefile, Java file I/O, algorithms, encoding, and even training on Git itself, it is still a highly rewarding experience.</p>
+<img src="./assets/image-20230712171416829.png#center" alt="code stats" style="zoom:50%;" />
+<h3 id="autograder-results">Autograder Results<a hidden class="anchor" aria-hidden="true" href="#autograder-results">#</a></h3>
+<p>All functional tests passed successfully. The Extra-Credit tests failed, as well as the style check (mainly due to naming, which I&rsquo;ll improve next time). However, I believe those failures don&rsquo;t significantly impact the overall outcome, so I didn&rsquo;t continue the autograder-oriented programming.</p>
+<p>BTW, reasons for not implementing Extra-Credit features:</p>
+<ol>
+<li>Towards the end, many commands were combinations of previous commands, resulting in diminishing returns.</li>
+<li>The &ldquo;remote&rdquo; command in Gitlet differs greatly from Git and may not contribute much to understanding the underlying logic of Git.</li>
+<li>After encountering a Heisenbug, my energy was depleted.</li>
+</ol>
+<p>Despite not pursuing the Extra-Credit tasks, I still found the Gitlet project rewarding and a valuable learning experience.</p>
+<img src="./assets/image-20230712170907514.png#center" alt="Autograder: passed all functional tests" style="zoom:50%;" />
+<h2 id="reflection-1">Reflection<a hidden class="anchor" aria-hidden="true" href="#reflection-1">#</a></h2>
+<p>Gitlet is an impressive project in the world of renowned universities. As I mentioned at the beginning, I firmly believe that most individuals with a similar level of proficiency can gain a lot from this project. Just take a glance at the spec, and you&rsquo;ll understand.</p>
+<p>Speaking from a technical standpoint, I&rsquo;m not qualified to say much as I consider myself a novice. So, let me conclude with a few remarks. In one of Josh&rsquo;s lectures, he shared the results of a Gitlet survey, and one particular detail stuck with me. Some students spent over 50 hours on this project (which, in my personal experience, far exceeds the workload of a typical course assignment in the freshman year). However, only a few individuals gave negative feedback in the end, and I recall Josh expressing his apologies for that. This indirectly reflects the worthwhileness of &ldquo;The Gitlet Grind.&rdquo;</p>
+<p>An official end of CS61B &ndash; so grateful for the open-source materials! Time to move on and continue working on something else.</p>
+<h2 id="appendix">Appendix<a hidden class="anchor" aria-hidden="true" href="#appendix">#</a></h2>
+<blockquote>
+<p>The following is an excerpt from the README I wrote, explaining the design aspects of my Gitlet implementation.</p>
+</blockquote>
+<h3 id="design">Design<a hidden class="anchor" aria-hidden="true" href="#design">#</a></h3>
+<h4 id="abstraction-principle">Abstraction Principle<a hidden class="anchor" aria-hidden="true" href="#abstraction-principle">#</a></h4>
+<ul>
+<li>
+<p>An issue with version control systems:</p>
+<p>Requires cumbersome operations like hashing, serialization, map operations, directory concatenation, file I/O, etc.</p>
+</li>
+<li>
+<p>Solution:</p>
+<ul>
+<li>On a higher level, involve only communications between objects (between Blob and Commit, there should only be <code>Blob b = commit1.get(filename)</code>)</li>
+<li>Eliminate the need to dive into low-level operations through encapsulation.
+i.e. Outside the class of that object, never try to hash things, or modify maps inside Commit/Blob objects.
+E.g. The <code>StagingArea</code> supports common map operations. Upon put (fileName, Commit), it completes: read commit into commit id -&gt; put into its map -&gt; serialize itself and write into the file for staging.</li>
+</ul>
+</li>
+</ul>
+<h4 id="persistence">Persistence<a hidden class="anchor" aria-hidden="true" href="#persistence">#</a></h4>
+<p>The directory structure looks like this:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">CWD
+</span></span><span class="line"><span class="cl"> └──.gitlet
+</span></span><span class="line"><span class="cl">     └── --commits/       <span class="c1"># all commits</span>
+</span></span><span class="line"><span class="cl">        ├──blobs/         <span class="c1"># file content</span>
+</span></span><span class="line"><span class="cl">        ├──branchHeads/   <span class="c1"># branch heads</span>
+</span></span><span class="line"><span class="cl">        <span class="p">|</span>  └──--master      <span class="c1"># master branch</span>
+</span></span><span class="line"><span class="cl">        <span class="p">|</span>    ├──..	      <span class="c1"># other branches</span>
+</span></span><span class="line"><span class="cl">        ├──HEAD	          <span class="c1"># HEAD commit</span>
+</span></span><span class="line"><span class="cl">        ├──add            <span class="c1"># staging area for addition</span>
+</span></span><span class="line"><span class="cl">        └──rm             <span class="c1"># staging area for removal</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The <code>Main</code> class is the entry class of the project. It is responsible for calling different functions according to given commands.</p>
+<p>The <code>Repository</code> class will set up all persistance. It will</p>
+<ol>
+<li>Create and initialize files and directories in the <code>.gitlet</code> folder if the directory does not exist;</li>
+<li>Handle all updates of <code>HEAD</code> , <code>master</code>, <code>branchHeads</code> and the serialization of two StagingAreas <code>add</code> and <code>rm</code>.</li>
+<li>Execute the commands / function calls from <code>Main</code>.</li>
+</ol>
+<p>The <code>Commit</code> class handles the serialization of <code>Commit</code> objects. It also deals with conversion between commit ids and commit objects. Each <code>Commit</code> records mappings of held file names and their corresponding file content. Specifically, it fulfil the following purposes:</p>
+<ol>
+<li>Constructs Commit objects;</li>
+<li>Serializes and saves Commit objects to the .gitlet/commits directory;</li>
+<li>Given a commit id, retrieves the corresponding Commit object.</li>
+</ol>
+<p>The <code>Blob</code> class handles the serialization of <code>Blob</code> objects. A blob is a snapshot of a file&rsquo;s content at the moment of addition. For instance, a file named &ldquo;hello.txt&rdquo; can refer to different <code>Blobs</code> in different <code>Commits</code>.</p>
+<p>Its functions are similar to <code>Commit</code>, namely object construction, serialization and retrieval.</p>
+<p>The <code>StagingArea</code> class stores files for addition and removal. A StagingArea works like a Java Map, stores mappings of file plain names to their blob ids, and supports basic map operations (<code>remove</code>, <code>get</code>, <code>put</code>). <code>add</code> and <code>rm</code> are <code>StagingAreas</code> for staged addition and removal respectively.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://eimy.ink/en/tags/course/">course</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="http://eimy.ink/en/posts/2023/aws-amplify/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>Deploying an App via AWS Amplify</span>
+  </a>
+  <a class="next" href="http://eimy.ink/en/posts/2023/b-tree-llrb/">
+    <span class="title">Next »</span>
+    <br>
+    <span>61B Notes - B-Trees &amp; LLRB</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2024 <a href="http://eimy.ink/en/">FloraZ</a></span><span style="display: inline-block; margin-left: 1em;">
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/reorx/hugo-PaperMod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+  (function() {
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    const disableSmoothScroll = '' == '1';
+    const enableInstantClick = '' == '1';
+    
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || disableSmoothScroll || enableInstantClick) {
+      return;
+    }
+    
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                behavior: "smooth"
+            });
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+  })();
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerText = 'copy';
+
+        function copyingDone() {
+            copybutton.innerText = 'copied!';
+            setTimeout(() => {
+                copybutton.innerText = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+<script>
+window.addEventListener('DOMContentLoaded', function (event) {
+  const headings = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id]');
+  const activeClass = 'active';
+
+  
+  let activeHeading = headings[0];
+  getLinkByHeading(activeHeading).classList.add(activeClass);
+
+  const onScroll = () => {
+    const passedHeadings = [];
+    for (const h of headings) {
+      
+      if (getOffsetTop(h) < 5) {
+        passedHeadings.push(h)
+      } else {
+        break;
+      }
+    }
+    if (passedHeadings.length > 0) {
+      newActiveHeading = passedHeadings[passedHeadings.length - 1];
+    } else {
+      newActiveHeading = headings[0];
+    }
+    if (activeHeading != newActiveHeading) {
+      getLinkByHeading(activeHeading).classList.remove(activeClass);
+      activeHeading = newActiveHeading;
+      getLinkByHeading(activeHeading).classList.add(activeClass);
+    }
+  }
+
+  let timer = null;
+  window.addEventListener('scroll', () => {
+    if (timer !== null) {
+      clearTimeout(timer)
+    }
+    timer = setTimeout(onScroll, 50)
+  }, false);
+
+  function getLinkByHeading(heading) {
+    const id = encodeURI(heading.getAttribute('id')).toLowerCase();
+    return document.querySelector(`.toc ul li a[href="#${id}"]`);
+  }
+
+  function getOffsetTop(heading) {
+    if (!heading.getClientRects().length) {
+      return 0;
+    }
+    let rect = heading.getBoundingClientRect();
+    return rect.top
+  }
+}, false);
+</script></body>
+
+</html>

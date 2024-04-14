@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="zh" dir="auto" translate="no">
 
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>xv6: Lab 11 networking Notes | FloraZ</title>
-<meta name="keywords" content="Operating System">
-<meta name="description" content="MIT 6.S081 Lab 11 Networking">
+<title>xv6 Lab 11 networking 实验记录 | FloraZ</title>
+<meta name="keywords" content="操作系统">
+<meta name="description" content="MIT 6.S081 lab 11 networking 实验记录">
 <meta name="author" content="fll">
 <link rel="canonical" href="http://eimy.ink/posts/2023/xv6/lab-net/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.3f09ba765b9df309056d4698ef69e5ff8d1e95c6d19db8f6e8faedc07b090157.css" integrity="sha256-Pwm6dlud8wkFbUaY72nl/40elcbRnbj26PrtwHsJAVc=" rel="preload stylesheet" as="style">
@@ -20,8 +20,8 @@
 <link rel="mask-icon" href="http://eimy.ink/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="zh" href="http://eimy.ink/zh/posts/2023/xv6/lab-net/">
-<link rel="alternate" hreflang="en" href="http://eimy.ink/posts/2023/xv6/lab-net/">
+<link rel="alternate" hreflang="zh" href="http://eimy.ink/posts/2023/xv6/lab-net/">
+<link rel="alternate" hreflang="en" href="http://eimy.ink/en/posts/2023/xv6/lab-net/">
 <noscript>
     <style>
         #theme-toggle,
@@ -60,8 +60,8 @@
     </style>
 </noscript>
 
-<meta property="og:title" content="xv6: Lab 11 networking Notes" />
-<meta property="og:description" content="MIT 6.S081 Lab 11 Networking" />
+<meta property="og:title" content="xv6 Lab 11 networking 实验记录" />
+<meta property="og:description" content="MIT 6.S081 lab 11 networking 实验记录" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://eimy.ink/posts/2023/xv6/lab-net/" /><meta property="og:image" content="http://eimy.ink/papermod-cover.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-10-31T12:43:10-04:00" />
@@ -70,8 +70,8 @@
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="http://eimy.ink/papermod-cover.png"/>
 
-<meta name="twitter:title" content="xv6: Lab 11 networking Notes"/>
-<meta name="twitter:description" content="MIT 6.S081 Lab 11 Networking"/>
+<meta name="twitter:title" content="xv6 Lab 11 networking 实验记录"/>
+<meta name="twitter:description" content="MIT 6.S081 lab 11 networking 实验记录"/>
 
 
 <script type="application/ld+json">
@@ -88,7 +88,7 @@
     {
       "@type": "ListItem",
       "position":  2 ,
-      "name": "xv6: Lab 11 networking Notes",
+      "name": "xv6 Lab 11 networking 实验记录",
       "item": "http://eimy.ink/posts/2023/xv6/lab-net/"
     }
   ]
@@ -98,15 +98,15 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "xv6: Lab 11 networking Notes",
-  "name": "xv6: Lab 11 networking Notes",
-  "description": "MIT 6.S081 Lab 11 Networking",
+  "headline": "xv6 Lab 11 networking 实验记录",
+  "name": "xv6 Lab 11 networking 实验记录",
+  "description": "MIT 6.S081 lab 11 networking 实验记录",
   "keywords": [
-    "Operating System"
+    "操作系统"
   ],
   "articleBody": "Lab 11 networking 实验记录 lab link: https://pdos.csail.mit.edu/6.828/2020/labs/net.html\n11.1 E100 1 要求 补全网卡驱动里的e1000_transmit()和e1000_recv()函数，使之能够接受发送数据packets。\n这个task的自由度不高，细节主要跟着prompts和hints就可以实现。需要了解大致步骤\u0026原理可以参考manual里的ch3。\n2 实现 实现e1000_transmit() 首先获取当前的ring index以及对应的desc：\n1 2 3 4 5 6 7 8 9 10 11 12 13 int e1000_transmit(struct mbuf *m) { // // Your code here. uint32 end; struct tx_desc *desc; acquire(\u0026e1000_lock); end = regs[E1000_TDT]; // cur desc id desc = \u0026tx_ring[end]; // index into ring to get cur desc // ... } 然后检查desc overflow。如果desc上设置好了E1000_TXD_STAT_DD，说明上一轮已经完成，可以释放buf里上一轮的内存。\n1 2 3 4 5 6 7 8 9 10 // check overflow if (!desc-\u003estatus \u0026 E1000_TXD_STAT_DD) { release(\u0026e1000_lock); return -1; } // use mbuffree() to free the last mbuf if (tx_mbufs[end]) { mbuffree(tx_mbufs[end]); } 最后更新当前desc中的信息，更新ring index\n1 2 3 4 5 6 7 8 9 10 desc-\u003eaddr = (uint64) m-\u003ehead; tx_mbufs[end] = m; desc-\u003elength = m-\u003elen; desc-\u003ecmd = E1000_TXD_CMD_EOP | E1000_TXD_CMD_RS; // update the ring position regs[E1000_TDT] = (end + 1) % TX_RING_SIZE; release(\u0026e1000_lock); return 0; 实现e1000_recv() 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 static void e1000_recv(void) { // ask the E1000 for the ring index int end = (regs[E1000_RDT] + 1) % RX_RING_SIZE; // get the next waiting received packet struct rx_desc *desc = \u0026rx_ring[end]; // check if a new packet is available while ((desc-\u003estatus \u0026 E1000_RXD_STAT_DD)) { if(desc-\u003elength \u003e MBUF_SIZE) { panic(\"e1000_resv\"); } // update the length reported in the descriptor rx_mbufs[end]-\u003elen = desc-\u003elength; // deliver the mbuf to the network stack net_rx(rx_mbufs[end]); // allocate a new mbuf replace the one given to net_rx() rx_mbufs[end] = mbufalloc(0); if (!rx_mbufs[end]) { panic(\"e1000_resv\"); } // update descriptor and status desc-\u003eaddr = (uint64) rx_mbufs[end]-\u003ehead; desc-\u003estatus = 0; end = (end + 1) % RX_RING_SIZE; // mod if exceeding ring size desc = \u0026rx_ring[end]; } regs[E1000_RDT] = (end - 1) % RX_RING_SIZE; // // Check for packets that have arrived from the e1000 // Create and deliver an mbuf for each packet (using net_rx()). // } Grade ",
   "wordCount" : "340",
-  "inLanguage": "en",
+  "inLanguage": "zh",
   "datePublished": "2023-10-31T12:43:10-04:00",
   "dateModified": "2023-10-31T12:43:10-04:00",
   "author":{
@@ -168,36 +168,36 @@
                 </button>
                 <ul class="lang-switch"><li>|</li>
                     <li>
-                        <a href="http://eimy.ink/zh/" title="中文"
-                            aria-label="中文">中文</a>
+                        <a href="http://eimy.ink/en/" title="English"
+                            aria-label="English">English</a>
                     </li>
                 </ul>
             </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="http://eimy.ink/archives" title="Archive">
-                    <span>Archive</span>
+                <a href="http://eimy.ink/archives" title="归档">
+                    <span>归档</span>
                 </a>
             </li>
             <li>
-                <a href="http://eimy.ink/categories/" title="Categories">
-                    <span>Categories</span>
+                <a href="http://eimy.ink/categories/" title="分类">
+                    <span>分类</span>
                 </a>
             </li>
             <li>
-                <a href="http://eimy.ink/tags/" title="Tags">
-                    <span>Tags</span>
+                <a href="http://eimy.ink/tags/" title="标签">
+                    <span>标签</span>
                 </a>
             </li>
             <li>
-                <a href="http://eimy.ink/search/" title="Search (Alt &#43; /)" accesskey=/>
-                    <span>Search</span>
+                <a href="http://eimy.ink/search/" title="搜索">
+                    <span>搜索</span>
                 </a>
             </li>
             <li>
-                <a href="http://eimy.ink/about/" title="About">
-                    <span>About</span>
+                <a href="http://eimy.ink/about/" title="关于">
+                    <span>关于</span>
                 </a>
             </li>
         </ul>
@@ -207,14 +207,14 @@
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="http://eimy.ink/">Home</a>&nbsp;»&nbsp;<a href="http://eimy.ink/posts/">Posts</a></div>
+    <div class="breadcrumbs"><a href="http://eimy.ink/">主页</a>&nbsp;»&nbsp;<a href="http://eimy.ink/posts/">Posts</a></div>
     <h1 class="post-title">
-      xv6: Lab 11 networking Notes
+      xv6 Lab 11 networking 实验记录
     </h1>
-    <div class="post-meta"><span title='2023-10-31 12:43:10 -0400 EDT'>October 31, 2023</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;fll&nbsp;|&nbsp;Translations:
+    <div class="post-meta"><span title='2023-10-31 12:43:10 -0400 EDT'>十月 31, 2023</span>&nbsp;·&nbsp;2 分钟&nbsp;·&nbsp;fll&nbsp;|&nbsp;语言:
 <ul class="i18n_list">
     <li>
-        <a href="http://eimy.ink/zh/posts/2023/xv6/lab-net/">中文</a>
+        <a href="http://eimy.ink/en/posts/2023/xv6/lab-net/">English</a>
     </li>
 </ul>
 
@@ -223,7 +223,7 @@
     <div class="toc">
         <details  open>
             <summary accesskey="c" title="(Alt + C)">
-                <span class="details">Table of Contents</span>
+                <span class="details">目录</span>
             </summary>
 
             <div class="inner"><ul>
@@ -505,13 +505,18 @@
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://eimy.ink/tags/operating-system/">Operating System</a></li>
+      <li><a href="http://eimy.ink/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a></li>
     </ul>
 <nav class="paginav">
-  <a class="next" href="http://eimy.ink/posts/2023/xv6/lab-fs/">
-    <span class="title">Next »</span>
+  <a class="prev" href="http://eimy.ink/posts/2023/year-in-retrospect/">
+    <span class="title">« 上一页</span>
     <br>
-    <span>xv6: Lab 9 file system Notes</span>
+    <span>2023年终总结：开放世界的主线之余</span>
+  </a>
+  <a class="next" href="http://eimy.ink/posts/2023/xv6/lab-fs/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>xv6 Lab 9 file system 实验记录</span>
   </a>
 </nav>
 
@@ -596,12 +601,12 @@
 
         const copybutton = document.createElement('button');
         copybutton.classList.add('copy-code');
-        copybutton.innerText = 'copy';
+        copybutton.innerText = '复制';
 
         function copyingDone() {
-            copybutton.innerText = 'copied!';
+            copybutton.innerText = '已复制！';
             setTimeout(() => {
-                copybutton.innerText = 'copy';
+                copybutton.innerText = '复制';
             }, 2000);
         }
 

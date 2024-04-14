@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>杂记 on FloraZ</title>
+    <link>http://eimy.ink/categories/%E6%9D%82%E8%AE%B0/</link>
+    <description>Recent content in 杂记 on FloraZ</description>
+    <image>
+      <title>FloraZ</title>
+      <url>http://eimy.ink/papermod-cover.png</url>
+      <link>http://eimy.ink/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Mon, 11 Mar 2024 23:33:57 +0800</lastBuildDate><atom:link href="http://eimy.ink/categories/%E6%9D%82%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【置顶】随想录</title>
+      <link>http://eimy.ink/posts/2023/thoughts/</link>
+      <pubDate>Wed, 08 Feb 2023 21:12:10 +0800</pubDate>
+      
+      <guid>http://eimy.ink/posts/2023/thoughts/</guid>
+      <description>长期更新中</description>
+    </item>
+    
+    <item>
+      <title>一份人生管理实验报告（2023.6～2024.2）</title>
+      <link>http://eimy.ink/posts/2024/half-year-review/</link>
+      <pubDate>Mon, 11 Mar 2024 23:33:57 +0800</pubDate>
+      
+      <guid>http://eimy.ink/posts/2024/half-year-review/</guid>
+      <description>盘一下这大半年干了什么</description>
+    </item>
+    
+    <item>
+      <title>2023年终总结：开放世界的主线之余</title>
+      <link>http://eimy.ink/posts/2023/year-in-retrospect/</link>
+      <pubDate>Mon, 25 Dec 2023 23:52:10 -0500</pubDate>
+      
+      <guid>http://eimy.ink/posts/2023/year-in-retrospect/</guid>
+      <description>先が長い&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>去上学的路上，日本旅游5.0</title>
+      <link>http://eimy.ink/posts/2023/commencement/</link>
+      <pubDate>Thu, 31 Aug 2023 20:46:43 +0800</pubDate>
+      
+      <guid>http://eimy.ink/posts/2023/commencement/</guid>
+      <description>去上学的路上：上海-东京</description>
+    </item>
+    
+    <item>
+      <title>原神版本活动设计思路分析</title>
+      <link>http://eimy.ink/posts/2023/genshin-events/</link>
+      <pubDate>Sun, 20 Aug 2023 10:33:57 +0800</pubDate>
+      
+      <guid>http://eimy.ink/posts/2023/genshin-events/</guid>
+      <description>曾经想过去搞游戏</description>
+    </item>
+    
+    <item>
+      <title>日本中部旅游Plog 2</title>
+      <link>http://eimy.ink/posts/2023/plog-japan-ii/</link>
+      <pubDate>Sat, 24 Jun 2023 14:33:57 +0800</pubDate>
+      
+      <guid>http://eimy.ink/posts/2023/plog-japan-ii/</guid>
+      <description>高山 富山 白川乡</description>
+    </item>
+    
+    <item>
+      <title>日本关西旅游Plog 1</title>
+      <link>http://eimy.ink/posts/2023/plog-japan-i/</link>
+      <pubDate>Wed, 21 Jun 2023 14:33:57 +0800</pubDate>
+      
+      <guid>http://eimy.ink/posts/2023/plog-japan-i/</guid>
+      <description>讲五个不好笑的冷笑话</description>
+    </item>
+    
+    <item>
+      <title>Graduation</title>
+      <link>http://eimy.ink/posts/2023/graduation/</link>
+      <pubDate>Tue, 13 Jun 2023 20:54:40 +0800</pubDate>
+      
+      <guid>http://eimy.ink/posts/2023/graduation/</guid>
+      <description>「がんばってもそれが公正に報われない社会があなたたちを待っています」</description>
+    </item>
+    
+    <item>
+      <title>我的《本科择业编年史》</title>
+      <link>http://eimy.ink/posts/2023/undergrad-chronicle/</link>
+      <pubDate>Mon, 05 Jun 2023 20:33:57 +0800</pubDate>
+      
+      <guid>http://eimy.ink/posts/2023/undergrad-chronicle/</guid>
+      <description>Trust that the dots will somehow connect in your future.</description>
+    </item>
+    
+    <item>
+      <title>日本Live购票攻略</title>
+      <link>http://eimy.ink/posts/2023/live-japan/</link>
+      <pubDate>Thu, 23 Feb 2023 15:26:39 +0800</pubDate>
+      
+      <guid>http://eimy.ink/posts/2023/live-japan/</guid>
+      <description>论文开题副产物</description>
+    </item>
+    
+  </channel>
+</rss>

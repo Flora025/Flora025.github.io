@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>游戏 on FloraZ</title>
+    <link>http://eimy.ink/tags/%E6%B8%B8%E6%88%8F/</link>
+    <description>Recent content in 游戏 on FloraZ</description>
+    <image>
+      <title>FloraZ</title>
+      <url>http://eimy.ink/papermod-cover.png</url>
+      <link>http://eimy.ink/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Sun, 20 Aug 2023 10:33:57 +0800</lastBuildDate><atom:link href="http://eimy.ink/tags/%E6%B8%B8%E6%88%8F/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>原神版本活动设计思路分析</title>
+      <link>http://eimy.ink/posts/2023/genshin-events/</link>
+      <pubDate>Sun, 20 Aug 2023 10:33:57 +0800</pubDate>
+      
+      <guid>http://eimy.ink/posts/2023/genshin-events/</guid>
+      <description>曾经想过去搞游戏</description>
+    </item>
+    
+    <item>
+      <title>我的《本科择业编年史》</title>
+      <link>http://eimy.ink/posts/2023/undergrad-chronicle/</link>
+      <pubDate>Mon, 05 Jun 2023 20:33:57 +0800</pubDate>
+      
+      <guid>http://eimy.ink/posts/2023/undergrad-chronicle/</guid>
+      <description>Trust that the dots will somehow connect in your future.</description>
+    </item>
+    
+  </channel>
+</rss>

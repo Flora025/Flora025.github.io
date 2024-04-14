@@ -10,64 +10,109 @@
       <link>http://eimy.ink/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Tue, 31 Oct 2023 12:43:10 -0400</lastBuildDate><atom:link href="http://eimy.ink/index.xml" rel="self" type="application/rss+xml" />
+    <language>zh</language>
+    <lastBuildDate>Mon, 11 Mar 2024 23:33:57 +0800</lastBuildDate><atom:link href="http://eimy.ink/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>xv6: Lab 11 networking Notes</title>
+      <title>【置顶】随想录</title>
+      <link>http://eimy.ink/posts/2023/thoughts/</link>
+      <pubDate>Wed, 08 Feb 2023 21:12:10 +0800</pubDate>
+      
+      <guid>http://eimy.ink/posts/2023/thoughts/</guid>
+      <description>长期更新中</description>
+    </item>
+    
+    <item>
+      <title>一份人生管理实验报告（2023.6～2024.2）</title>
+      <link>http://eimy.ink/posts/2024/half-year-review/</link>
+      <pubDate>Mon, 11 Mar 2024 23:33:57 +0800</pubDate>
+      
+      <guid>http://eimy.ink/posts/2024/half-year-review/</guid>
+      <description>盘一下这大半年干了什么</description>
+    </item>
+    
+    <item>
+      <title>2023年终总结：开放世界的主线之余</title>
+      <link>http://eimy.ink/posts/2023/year-in-retrospect/</link>
+      <pubDate>Mon, 25 Dec 2023 23:52:10 -0500</pubDate>
+      
+      <guid>http://eimy.ink/posts/2023/year-in-retrospect/</guid>
+      <description>先が長い&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>xv6 Lab 11 networking 实验记录</title>
       <link>http://eimy.ink/posts/2023/xv6/lab-net/</link>
       <pubDate>Tue, 31 Oct 2023 12:43:10 -0400</pubDate>
       
       <guid>http://eimy.ink/posts/2023/xv6/lab-net/</guid>
-      <description>MIT 6.S081 Lab 11 Networking</description>
+      <description>MIT 6.S081 lab 11 networking 实验记录</description>
     </item>
     
     <item>
-      <title>xv6: Lab 9 file system Notes</title>
+      <title>xv6 Lab 9 file system 实验记录</title>
       <link>http://eimy.ink/posts/2023/xv6/lab-fs/</link>
       <pubDate>Sat, 28 Oct 2023 18:43:10 -0400</pubDate>
       
       <guid>http://eimy.ink/posts/2023/xv6/lab-fs/</guid>
-      <description>MIT 6.S081 Lab 9 File System</description>
+      <description>MIT 6.S081 lab 9 file system 实验记录</description>
     </item>
     
     <item>
-      <title>xv6: Lab 5 lazy Notes</title>
+      <title>xv6 Lab 5 lazy 实验记录</title>
       <link>http://eimy.ink/posts/2023/xv6/lab-lazy/</link>
       <pubDate>Sat, 30 Sep 2023 18:43:10 -0400</pubDate>
       
       <guid>http://eimy.ink/posts/2023/xv6/lab-lazy/</guid>
-      <description>MIT 6.S081 Lab 5 Lazy Allocation</description>
+      <description>MIT 6.S081 lab 5 lazy allocation 实验记录</description>
     </item>
     
     <item>
-      <title>xv6: Lab 4 traps Notes</title>
+      <title>xv6 Lab 4 traps 实验记录</title>
       <link>http://eimy.ink/posts/2023/xv6/lab-traps/</link>
       <pubDate>Thu, 28 Sep 2023 18:43:10 -0400</pubDate>
       
       <guid>http://eimy.ink/posts/2023/xv6/lab-traps/</guid>
-      <description>MIT 6.S081 Lab 4 traps</description>
+      <description>MIT 6.S081 lab 4 traps 实验记录</description>
     </item>
     
     <item>
-      <title>xv6: Lab 3 pgtbl Notes</title>
+      <title>xv6 Lab 3 pgtbl 实验记录</title>
       <link>http://eimy.ink/posts/2023/xv6/lab-pgtbl/</link>
       <pubDate>Mon, 25 Sep 2023 18:43:10 -0400</pubDate>
       
       <guid>http://eimy.ink/posts/2023/xv6/lab-pgtbl/</guid>
-      <description>MIT 6.S081 Lab3 Pagetable</description>
+      <description>MIT 6.S081 lab3 页表 实验记录</description>
     </item>
     
     <item>
-      <title>CS61C Completed</title>
+      <title>去上学的路上，日本旅游5.0</title>
+      <link>http://eimy.ink/posts/2023/commencement/</link>
+      <pubDate>Thu, 31 Aug 2023 20:46:43 +0800</pubDate>
+      
+      <guid>http://eimy.ink/posts/2023/commencement/</guid>
+      <description>去上学的路上：上海-东京</description>
+    </item>
+    
+    <item>
+      <title>原神版本活动设计思路分析</title>
+      <link>http://eimy.ink/posts/2023/genshin-events/</link>
+      <pubDate>Sun, 20 Aug 2023 10:33:57 +0800</pubDate>
+      
+      <guid>http://eimy.ink/posts/2023/genshin-events/</guid>
+      <description>曾经想过去搞游戏</description>
+    </item>
+    
+    <item>
+      <title>CS61C 完结记录</title>
       <link>http://eimy.ink/posts/2023/cs61c/</link>
       <pubDate>Fri, 11 Aug 2023 14:33:57 +0800</pubDate>
       
       <guid>http://eimy.ink/posts/2023/cs61c/</guid>
-      <description>Interesting</description>
+      <description>虽然和近期该做的事无关，但是看起来特别有趣所以还是抽时间学了</description>
     </item>
     
     <item>
-      <title>Deploying an App via AWS Amplify</title>
+      <title>AWS Amplify记录</title>
       <link>http://eimy.ink/posts/2023/aws-amplify/</link>
       <pubDate>Tue, 18 Jul 2023 21:27:16 +0800</pubDate>
       
@@ -76,7 +121,7 @@
     </item>
     
     <item>
-      <title>Notes and Thoughts on CS61B Gitlet</title>
+      <title>CS61B Gitlet 完结记录</title>
       <link>http://eimy.ink/posts/2023/gitlet-fin/</link>
       <pubDate>Thu, 13 Jul 2023 00:00:00 +0000</pubDate>
       
@@ -85,12 +130,57 @@
     </item>
     
     <item>
+      <title>日本中部旅游Plog 2</title>
+      <link>http://eimy.ink/posts/2023/plog-japan-ii/</link>
+      <pubDate>Sat, 24 Jun 2023 14:33:57 +0800</pubDate>
+      
+      <guid>http://eimy.ink/posts/2023/plog-japan-ii/</guid>
+      <description>高山 富山 白川乡</description>
+    </item>
+    
+    <item>
+      <title>日本关西旅游Plog 1</title>
+      <link>http://eimy.ink/posts/2023/plog-japan-i/</link>
+      <pubDate>Wed, 21 Jun 2023 14:33:57 +0800</pubDate>
+      
+      <guid>http://eimy.ink/posts/2023/plog-japan-i/</guid>
+      <description>讲五个不好笑的冷笑话</description>
+    </item>
+    
+    <item>
+      <title>Graduation</title>
+      <link>http://eimy.ink/posts/2023/graduation/</link>
+      <pubDate>Tue, 13 Jun 2023 20:54:40 +0800</pubDate>
+      
+      <guid>http://eimy.ink/posts/2023/graduation/</guid>
+      <description>「がんばってもそれが公正に報われない社会があなたたちを待っています」</description>
+    </item>
+    
+    <item>
+      <title>我的《本科择业编年史》</title>
+      <link>http://eimy.ink/posts/2023/undergrad-chronicle/</link>
+      <pubDate>Mon, 05 Jun 2023 20:33:57 +0800</pubDate>
+      
+      <guid>http://eimy.ink/posts/2023/undergrad-chronicle/</guid>
+      <description>Trust that the dots will somehow connect in your future.</description>
+    </item>
+    
+    <item>
+      <title>61B Notes - Hashing</title>
+      <link>http://eimy.ink/posts/2023/hashing/</link>
+      <pubDate>Fri, 31 Mar 2023 20:35:43 +0800</pubDate>
+      
+      <guid>http://eimy.ink/posts/2023/hashing/</guid>
+      <description>\hashbrown/\hashbrown/</description>
+    </item>
+    
+    <item>
       <title>61B Notes - B-Trees &amp; LLRB</title>
       <link>http://eimy.ink/posts/2023/b-tree-llrb/</link>
       <pubDate>Tue, 28 Mar 2023 22:36:43 +0800</pubDate>
       
       <guid>http://eimy.ink/posts/2023/b-tree-llrb/</guid>
-      <description>B-tree, rotation and red-black trees</description>
+      <description>B树と旋转と红黑色树</description>
     </item>
     
     <item>
@@ -121,16 +211,43 @@
     </item>
     
     <item>
-      <title>Move</title>
-      <link>http://eimy.ink/posts/move/</link>
-      <pubDate>Wed, 21 Dec 2022 16:05:40 +0800</pubDate>
+      <title>Intel Mac迁移至M1 Mac记录</title>
+      <link>http://eimy.ink/posts/2023/mbp-setup/</link>
+      <pubDate>Wed, 15 Mar 2023 10:12:10 +0800</pubDate>
       
-      <guid>http://eimy.ink/posts/move/</guid>
-      <description>moving from hexo-matery to hugo-papermod</description>
+      <guid>http://eimy.ink/posts/2023/mbp-setup/</guid>
+      <description>再见了，所有的intel mbp(哦咩跌多パチパチ)</description>
     </item>
     
     <item>
-      <title>About</title>
+      <title>日本Live购票攻略</title>
+      <link>http://eimy.ink/posts/2023/live-japan/</link>
+      <pubDate>Thu, 23 Feb 2023 15:26:39 +0800</pubDate>
+      
+      <guid>http://eimy.ink/posts/2023/live-japan/</guid>
+      <description>论文开题副产物</description>
+    </item>
+    
+    <item>
+      <title>First Post</title>
+      <link>http://eimy.ink/posts/first-post/</link>
+      <pubDate>Sat, 24 Dec 2022 01:11:44 +0800</pubDate>
+      
+      <guid>http://eimy.ink/posts/first-post/</guid>
+      <description>一篇为了填充个人主页临时拼凑的自我介绍</description>
+    </item>
+    
+    <item>
+      <title>Gallery</title>
+      <link>http://eimy.ink/posts/gallery/</link>
+      <pubDate>Sat, 24 Dec 2022 01:11:44 +0800</pubDate>
+      
+      <guid>http://eimy.ink/posts/gallery/</guid>
+      <description>my gallery</description>
+    </item>
+    
+    <item>
+      <title>关于</title>
       <link>http://eimy.ink/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       

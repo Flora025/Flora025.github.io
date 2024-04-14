@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>复旦 on FloraZ</title>
+    <link>http://eimy.ink/tags/%E5%A4%8D%E6%97%A6/</link>
+    <description>Recent content in 复旦 on FloraZ</description>
+    <image>
+      <title>FloraZ</title>
+      <url>http://eimy.ink/papermod-cover.png</url>
+      <link>http://eimy.ink/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Tue, 13 Jun 2023 20:54:40 +0800</lastBuildDate><atom:link href="http://eimy.ink/tags/%E5%A4%8D%E6%97%A6/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Graduation</title>
+      <link>http://eimy.ink/posts/2023/graduation/</link>
+      <pubDate>Tue, 13 Jun 2023 20:54:40 +0800</pubDate>
+      
+      <guid>http://eimy.ink/posts/2023/graduation/</guid>
+      <description>「がんばってもそれが公正に報われない社会があなたたちを待っています」</description>
+    </item>
+    
+    <item>
+      <title>我的《本科择业编年史》</title>
+      <link>http://eimy.ink/posts/2023/undergrad-chronicle/</link>
+      <pubDate>Mon, 05 Jun 2023 20:33:57 +0800</pubDate>
+      
+      <guid>http://eimy.ink/posts/2023/undergrad-chronicle/</guid>
+      <description>Trust that the dots will somehow connect in your future.</description>
+    </item>
+    
+  </channel>
+</rss>

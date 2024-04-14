@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>日本 on FloraZ</title>
+    <link>http://eimy.ink/tags/%E6%97%A5%E6%9C%AC/</link>
+    <description>Recent content in 日本 on FloraZ</description>
+    <image>
+      <title>FloraZ</title>
+      <url>http://eimy.ink/papermod-cover.png</url>
+      <link>http://eimy.ink/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Thu, 31 Aug 2023 20:46:43 +0800</lastBuildDate><atom:link href="http://eimy.ink/tags/%E6%97%A5%E6%9C%AC/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>去上学的路上，日本旅游5.0</title>
+      <link>http://eimy.ink/posts/2023/commencement/</link>
+      <pubDate>Thu, 31 Aug 2023 20:46:43 +0800</pubDate>
+      
+      <guid>http://eimy.ink/posts/2023/commencement/</guid>
+      <description>去上学的路上：上海-东京</description>
+    </item>
+    
+    <item>
+      <title>日本中部旅游Plog 2</title>
+      <link>http://eimy.ink/posts/2023/plog-japan-ii/</link>
+      <pubDate>Sat, 24 Jun 2023 14:33:57 +0800</pubDate>
+      
+      <guid>http://eimy.ink/posts/2023/plog-japan-ii/</guid>
+      <description>高山 富山 白川乡</description>
+    </item>
+    
+    <item>
+      <title>日本关西旅游Plog 1</title>
+      <link>http://eimy.ink/posts/2023/plog-japan-i/</link>
+      <pubDate>Wed, 21 Jun 2023 14:33:57 +0800</pubDate>
+      
+      <guid>http://eimy.ink/posts/2023/plog-japan-i/</guid>
+      <description>讲五个不好笑的冷笑话</description>
+    </item>
+    
+  </channel>
+</rss>
