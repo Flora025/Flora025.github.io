@@ -6,7 +6,7 @@
     <lastmod>2023-02-08T21:12:10+08:00</lastmod>
   </url><url>
     <loc>http://eimy.ink/categories/</loc>
-    <lastmod>2024-05-21T09:33:57+08:00</lastmod>
+    <lastmod>2024-06-08T15:33:57+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -19,7 +19,7 @@
                 />
   </url><url>
     <loc>http://eimy.ink/</loc>
-    <lastmod>2024-05-21T09:33:57+08:00</lastmod>
+    <lastmod>2024-06-08T15:33:57+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -31,11 +31,8 @@
                 href="http://eimy.ink/"
                 />
   </url><url>
-    <loc>http://eimy.ink/tags/llm/</loc>
-    <lastmod>2024-05-21T09:33:57+08:00</lastmod>
-  </url><url>
     <loc>http://eimy.ink/posts/</loc>
-    <lastmod>2024-05-21T09:33:57+08:00</lastmod>
+    <lastmod>2024-06-08T15:33:57+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -48,7 +45,7 @@
                 />
   </url><url>
     <loc>http://eimy.ink/tags/</loc>
-    <lastmod>2024-05-21T09:33:57+08:00</lastmod>
+    <lastmod>2024-06-08T15:33:57+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -59,6 +56,21 @@
                 hreflang="zh"
                 href="http://eimy.ink/tags/"
                 />
+  </url><url>
+    <loc>http://eimy.ink/posts/2024/recent/</loc>
+    <lastmod>2024-06-08T15:33:57+08:00</lastmod>
+  </url><url>
+    <loc>http://eimy.ink/tags/%E7%94%9F%E6%B4%BB/</loc>
+    <lastmod>2024-06-08T15:33:57+08:00</lastmod>
+  </url><url>
+    <loc>http://eimy.ink/tags/%E9%9A%8F%E7%AC%94/</loc>
+    <lastmod>2024-06-08T15:33:57+08:00</lastmod>
+  </url><url>
+    <loc>http://eimy.ink/categories/%E6%9D%82%E8%AE%B0/</loc>
+    <lastmod>2024-06-08T15:33:57+08:00</lastmod>
+  </url><url>
+    <loc>http://eimy.ink/tags/llm/</loc>
+    <lastmod>2024-05-21T09:33:57+08:00</lastmod>
   </url><url>
     <loc>http://eimy.ink/categories/%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2024-05-21T09:33:57+08:00</lastmod>
@@ -76,9 +88,6 @@
     <lastmod>2024-03-11T23:33:57+08:00</lastmod>
   </url><url>
     <loc>http://eimy.ink/posts/2024/half-year-review/</loc>
-    <lastmod>2024-03-11T23:33:57+08:00</lastmod>
-  </url><url>
-    <loc>http://eimy.ink/categories/%E6%9D%82%E8%AE%B0/</loc>
     <lastmod>2024-03-11T23:33:57+08:00</lastmod>
   </url><url>
     <loc>http://eimy.ink/posts/2023/year-in-retrospect/</loc>
