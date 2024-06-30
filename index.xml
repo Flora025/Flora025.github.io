@@ -11,7 +11,7 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Sat, 08 Jun 2024 15:33:57 +0800</lastBuildDate><atom:link href="http://eimy.ink/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 30 Jun 2024 15:33:57 +0800</lastBuildDate><atom:link href="http://eimy.ink/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>【置顶】随想录</title>
       <link>http://eimy.ink/posts/2023/thoughts/</link>
@@ -19,6 +19,15 @@
       
       <guid>http://eimy.ink/posts/2023/thoughts/</guid>
       <description>长期更新 LastUpdated 20240526</description>
+    </item>
+    
+    <item>
+      <title>2024毕业季，瓷饭碗道出的人文无用论</title>
+      <link>http://eimy.ink/posts/2024/on-university/</link>
+      <pubDate>Sun, 30 Jun 2024 15:33:57 +0800</pubDate>
+      
+      <guid>http://eimy.ink/posts/2024/on-university/</guid>
+      <description>some ideas of a univeristy?</description>
     </item>
     
     <item>
