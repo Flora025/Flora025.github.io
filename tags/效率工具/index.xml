@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>效率工具 on FloraZ</title>
+    <link>http://eimy.ink/tags/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/</link>
+    <description>Recent content in 效率工具 on FloraZ</description>
+    <image>
+      <title>FloraZ</title>
+      <url>http://eimy.ink/papermod-cover.png</url>
+      <link>http://eimy.ink/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Tue, 09 Jul 2024 22:33:57 +0800</lastBuildDate><atom:link href="http://eimy.ink/tags/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>我的好帮手们！——个人工作流总结和效率工具推荐</title>
+      <link>http://eimy.ink/posts/2024/productivity-tools/</link>
+      <pubDate>Tue, 09 Jul 2024 22:33:57 +0800</pubDate>
+      
+      <guid>http://eimy.ink/posts/2024/productivity-tools/</guid>
+      <description>还没写完，提前占坑</description>
+    </item>
+    
+  </channel>
+</rss>
