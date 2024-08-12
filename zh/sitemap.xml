@@ -170,6 +170,9 @@
                 href="http://eimy.ink/posts/2023/xv6/lab-pgtbl/"
                 />
   </url><url>
+    <loc>http://eimy.ink/posts/2023/recent/</loc>
+    <lastmod>2023-09-11T19:33:57+08:00</lastmod>
+  </url><url>
     <loc>http://eimy.ink/tags/%E7%BE%8E%E5%9B%BD/</loc>
     <lastmod>2023-08-31T20:46:43+08:00</lastmod>
   </url><url>
@@ -329,9 +332,6 @@
     <lastmod>2023-02-23T15:26:39+08:00</lastmod>
   </url><url>
     <loc>http://eimy.ink/posts/first-post/</loc>
-    <lastmod>2022-12-24T01:11:44+08:00</lastmod>
-  </url><url>
-    <loc>http://eimy.ink/posts/gallery/</loc>
     <lastmod>2022-12-24T01:11:44+08:00</lastmod>
   </url><url>
     <loc>http://eimy.ink/posts/papermod/</loc>
