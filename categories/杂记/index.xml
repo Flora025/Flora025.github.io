@@ -11,7 +11,7 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Sun, 11 Aug 2024 19:33:57 +0800</lastBuildDate><atom:link href="http://eimy.ink/categories/%E6%9D%82%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 21 Sep 2024 23:07:57 +0800</lastBuildDate><atom:link href="http://eimy.ink/categories/%E6%9D%82%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>【置顶】随想录</title>
       <link>http://eimy.ink/posts/2023/thoughts/</link>
@@ -22,11 +22,20 @@
     </item>
     
     <item>
+      <title>近况乱报 · 九月刊</title>
+      <link>http://eimy.ink/posts/2024/recent-sep/</link>
+      <pubDate>Sat, 21 Sep 2024 23:07:57 +0800</pubDate>
+      
+      <guid>http://eimy.ink/posts/2024/recent-sep/</guid>
+      <description>春耕夏耘秋收冬藏</description>
+    </item>
+    
+    <item>
       <title>近况乱报 · 八月刊</title>
-      <link>http://eimy.ink/posts/2024/recent2/</link>
+      <link>http://eimy.ink/posts/2024/recent-aug/</link>
       <pubDate>Sun, 11 Aug 2024 19:33:57 +0800</pubDate>
       
-      <guid>http://eimy.ink/posts/2024/recent2/</guid>
+      <guid>http://eimy.ink/posts/2024/recent-aug/</guid>
       <description>さよならだけが人生だ</description>
     </item>
     
@@ -41,10 +50,10 @@
     
     <item>
       <title>近况乱报 · 六月刊</title>
-      <link>http://eimy.ink/posts/2024/recent/</link>
+      <link>http://eimy.ink/posts/2024/recent-jun/</link>
       <pubDate>Sat, 08 Jun 2024 15:33:57 +0800</pubDate>
       
-      <guid>http://eimy.ink/posts/2024/recent/</guid>
+      <guid>http://eimy.ink/posts/2024/recent-jun/</guid>
       <description>納得いかない二三事</description>
     </item>
     
