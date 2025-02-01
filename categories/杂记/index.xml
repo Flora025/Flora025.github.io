@@ -11,7 +11,7 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Tue, 31 Dec 2024 10:52:10 -0500</lastBuildDate><atom:link href="http://eimy.ink/categories/%E6%9D%82%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 31 Jan 2025 15:33:57 +0800</lastBuildDate><atom:link href="http://eimy.ink/categories/%E6%9D%82%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>【置顶】随想录</title>
       <link>http://eimy.ink/posts/2023/thoughts/</link>
@@ -19,6 +19,15 @@
       
       <guid>http://eimy.ink/posts/2023/thoughts/</guid>
       <description>长期更新 LastUpdated 20240526</description>
+    </item>
+    
+    <item>
+      <title>近况乱报 · 一月刊</title>
+      <link>http://eimy.ink/posts/2025/recent-jan/</link>
+      <pubDate>Fri, 31 Jan 2025 15:33:57 +0800</pubDate>
+      
+      <guid>http://eimy.ink/posts/2025/recent-jan/</guid>
+      <description>从字数肉眼可见的身心俱疲</description>
     </item>
     
     <item>
