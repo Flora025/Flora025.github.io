@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://eimy.ink/posts/2023/thoughts/</loc>
+    <loc>http://eimy.ink/posts/thoughts/</loc>
     <lastmod>2023-02-08T21:12:10+08:00</lastmod>
   </url><url>
     <loc>http://eimy.ink/categories/</loc>
@@ -57,7 +57,7 @@
                 href="http://eimy.ink/tags/"
                 />
   </url><url>
-    <loc>http://eimy.ink/posts/2025/recent-sat/</loc>
+    <loc>http://eimy.ink/posts/2025/recent-jul/</loc>
     <lastmod>2025-07-27T21:33:57+08:00</lastmod>
   </url><url>
     <loc>http://eimy.ink/tags/%E7%94%9F%E6%B4%BB/</loc>
