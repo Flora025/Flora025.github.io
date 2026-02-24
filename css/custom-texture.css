@@ -1,0 +1,12 @@
+body:not(.night) {
+  background-color: #eadfce;
+  background-image: url('/images/texture-wood.jpg');
+  background-repeat: repeat;
+  background-size: 720px auto;
+}
+
+body:not(.night) .side-container,
+body:not(.night) .extra-container,
+body:not(.night) .stream-container {
+  background: transparent;
+}

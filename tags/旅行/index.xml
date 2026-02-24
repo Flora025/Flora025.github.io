@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>旅行 on EIMY</title>
     <link>http://eimy.ink/tags/%E6%97%85%E8%A1%8C/</link>
     <description>Recent content in 旅行 on EIMY</description>
-    <image>
-      <title>EIMY</title>
-      <url>http://eimy.ink/papermod-cover.png</url>
-      <link>http://eimy.ink/papermod-cover.png</link>
-    </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
+    <copyright>2026 EIMY</copyright>
     <lastBuildDate>Sat, 24 Jun 2023 14:33:57 +0800</lastBuildDate><atom:link href="http://eimy.ink/tags/%E6%97%85%E8%A1%8C/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>日本中部旅游Plog 2</title>

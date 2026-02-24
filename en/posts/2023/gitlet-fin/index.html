@@ -1,347 +1,608 @@
 <!DOCTYPE html>
-<html translate="no" lang="en" dir="auto">
+<html lang="en"><head>
+<title>Notes and Thoughts on CS61B Gitlet</title>
 
-<head><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
-<title>Notes and Thoughts on CS61B Gitlet | EIMY</title>
-<meta name="keywords" content="course">
-<meta name="description" content="♪(´ε｀ )">
-<meta name="author" content="Flora">
-<link rel="canonical" href="http://eimy.ink/en/posts/2023/gitlet-fin/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.3f09ba765b9df309056d4698ef69e5ff8d1e95c6d19db8f6e8faedc07b090157.css" integrity="sha256-Pwm6dlud8wkFbUaY72nl/40elcbRnbj26PrtwHsJAVc=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.f83806d9904cccf883edf075a5ce1d71136879702650d07aca8c76361a3e467b.js" integrity="sha256-&#43;DgG2ZBMzPiD7fB1pc4dcRNoeXAmUNB6yox2Nho&#43;Rns="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="http://eimy.ink/favicons/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://eimy.ink/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://eimy.ink/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://eimy.ink/apple-touch-icon.png">
-<link rel="mask-icon" href="http://eimy.ink/safari-pinned-tab.svg">
-<meta name="theme-color" content="#2e2e33">
-<meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="zh" href="http://eimy.ink/posts/2023/gitlet-fin/">
-<link rel="alternate" hreflang="en" href="http://eimy.ink/en/posts/2023/gitlet-fin/">
-<noscript>
-    <style>
-        #theme-toggle,
-        .top-link {
-            display: none;
-        }
 
-    </style>
-    <style>
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --theme: rgb(29, 30, 32);
-                --entry: rgb(46, 46, 51);
-                --primary: rgb(218, 218, 219);
-                --secondary: rgb(155, 156, 157);
-                --tertiary: rgb(65, 66, 68);
-                --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
-                --code-bg: rgb(55, 56, 62);
-                --border: rgb(51, 51, 51);
-            }
 
-            .list {
-                background: var(--theme);
-            }
 
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
-            }
+<meta charset="utf-8">
+<meta name="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5, user-scalable=5" name="viewport">
+<meta content="telephone=no" name="format-detection">
+<meta name="description" content="">
+<meta name="renderer" content="webkit">
+<meta name="theme-color" content="#ffffff">
 
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
-            }
-        }
 
-    </style>
-</noscript>
 
 <meta property="og:title" content="Notes and Thoughts on CS61B Gitlet" />
 <meta property="og:description" content="♪(´ε｀ )" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://eimy.ink/en/posts/2023/gitlet-fin/" /><meta property="og:image" content="http://eimy.ink/papermod-cover.png"/><meta property="article:section" content="posts" />
+<meta property="og:url" content="http://eimy.ink/en/posts/2023/gitlet-fin/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-07-13T00:00:00+00:00" />
 <meta property="article:modified_time" content="2023-07-13T00:00:00+00:00" />
 
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="http://eimy.ink/papermod-cover.png"/>
 
+
+
+
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Notes and Thoughts on CS61B Gitlet"/>
 <meta name="twitter:description" content="♪(´ε｀ )"/>
 
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position":  1 ,
-      "name": "Posts",
-      "item": "http://eimy.ink/en/posts/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
-      "name": "Notes and Thoughts on CS61B Gitlet",
-      "item": "http://eimy.ink/en/posts/2023/gitlet-fin/"
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Notes and Thoughts on CS61B Gitlet",
-  "name": "Notes and Thoughts on CS61B Gitlet",
-  "description": "♪(´ε｀ )",
-  "keywords": [
-    "course"
-  ],
-  "articleBody": "Note: The passage is originally written in Chinese and translated into English via ChatGPT.\nTranslated passage:\nAlias: Gitlet in Hindsight: Why I Suggest You Always Read the DON’Ts Part in Spec First\nAfter spending a few days catching up with the renowned project Gitlet, which has a weighty 60-page spec covering everything (lol), including informative content that provides a comprehensive understanding and training on every technical foundation, from system design to integration testing. It truly deserves the highest praise for this course project in its history.\n[Reference]: UCB CS61B-21SP-Gitlet\nProject Overview Gitlet is a version control system that mimics the functionality of the popular system Git and implements some of its basic commands, including init, add, commit, rm, checkout, branch, reset, rm-branch, merge, and more.\nAs an individual project for the course, it starts with only a few necessary .java classes and a few lines of code samples. The task requires designing and completing the system, object methods, data structures, and a few algorithms based on the requirements.\nGitlet Version-Control Mechanism In essence, version control in Git (Gitlet) revolves around the question of “how to save a certain version” and “how to switch to a specific version.” These two questions can be understood from three levels, from top to bottom: the user level, the object level, and the file read/write level.\nFrom a design perspective, there should exist an abstraction barrier between these three levels, as explained in the abstraction barrier concept. This means that when users issue commands, they don’t need to know or manipulate objects, pointers, etc., and file read/write operations should not occur between objects either.\nUser Level First, let’s discuss what happens at a higher level, which is the part that users are aware of.\nWhat does Git initialization do? It creates a hidden directory called .git in the current working directory (CWD) and some files inside it. How are file versions saved? When a commit is made, Git captures the current snapshot of the committed files and stores it in the .git directory. How to switch to a specific version? When using commands like checkout or reset to switch versions, Git looks for the corresponding snapshot based on the given branch name/commit ID in the .git directory. It then restores the specified file or the entire directory in the CWD to match that snapshot. Object Level Now let’s see how these steps are implemented at the object level. Gitlet simplifies the directory structure of Git to some extent, storing fewer metadata for each object, but the essence remains the same. The following diagram represents the structure of the .gitlet directory.\nGitlet version control utilizes two types of objects: Commit and Blob. Each Blob object corresponds to a file snapshot. Each Commit object corresponds to a commit. How are these objects used to track file versions? When a file is added to the staging area (add [file name]), a Blob object is created to store the current file content. The mapping between the file name and the corresponding Blob instance is then stored in the staging area. When committing files, a Commit object is created. It retrieves the mapping relationships from the staging area and saves them in the Commit object. In addition to the index mapping, each object also records the parent Commit, timestamp, commit message, etc. Example: In the diagram below, each blue square represents a Commit object. Inside each Commit object, there is a Map that records the file snapshots for the current commit. For instance, both Hello.txt in Commit 1 and Commit 2 point to Blob 0, indicating that the file content (snapshot) did not change in these two commits. How is switching to a specific version implemented? — By moving pointers To switch the HEAD pointer to another branch’s branchHeadCommit, at the object level, it means that the HEAD pointer, originally pointing to a Commit object on branchA, should now point to another Commit object branchHeadCommit on branchB. This can be achieved by something like updatePointerToCommit(HEAD, branchHeadCommit). File I/O Level Finally, let’s dive into the lower-level and examine file read/write operations. Since certain commands require storing Blob objects, Commit objects, and the current content of the staging area locally, two questions arise:\nHow are objects stored as data (to retrieve and use them later)?\nJava’s serialization is used to store objects. In Gitlet, all objects can be serialized and stored in files, including Blob, Commit, and StagingArea (if applicable). In the .git directory, they are stored in the /objects/ directory.\nOn the other hand, pointers are managed through file read/write operations (without serialization). Each pointer corresponds to a file that contains the ID of the object it points to. When modifying a pointer’s target, the actual change occurs in the file by updating the ID. In the .git directory, pointers are stored in the .git/refs/ directory.\n1 2 3 4 5 6 7 8 9 10 11 /* Serialize a Model object */ Model m = ....; // Assuming Model class implements Serializable File outFile = new File(saveFileName); // Create a new File try { ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(outFile)); out.writeObject(m); // Write the object to the stream out.close(); } catch (IOException excp) { ... } 1 2 3 4 5 6 7 8 9 10 11 12 /* Deserialize a Model object */ Model m; File inFile = new File(saveFileName); try { ObjectInputStream inp = new ObjectInputStream(new FileInputStream(inFile)); m = (Model) inp.readObject(); // Cast object into the expected class inp.close(); } catch (IOException | ClassNotFoundException excp) { ... m = null; } How to find and retrieve objects/modify pointer targets?\nGitlet, like Git, uses SHA-1 (Secure Hash Algorithm 1) to generate a 160-bit hash value as the unique ID (40 hexadecimal characters) for each object. When an object is created, its ID is generated based on its content. For example, identical file contents will produce the same ID after encryption. The filenames for the stored objects are their respective IDs. This means that the ID can be used to locate the serialized objects in the directory. Furthermore, this enables content-addressable lookup based on the object’s content. Regarding object retrieval, let’s take obtaining a Commit object as an example. The steps include: obtaining the commit ID (which should be a field of the object) -\u003e obtaining the file path based on the ID (since they are stored in a specified directory) -\u003e deserializing the file. Similarly, modifying the object involves updating its content and then serializing it back into the file. As for modifying pointer targets, at the file read/write level, the operation involves: obtaining the ID of the targetCommit -\u003e writing the ID into the file corresponding to the HEAD pointer. (Reminder to self) It’s important to encapsulate these operations within the objects. The main logic should not contain statements like commitMap.put(readContentAsString(commitPath), readContentAsString(blobPath)). When reviewing others’ implementations, if you come across such mixed file read/write operations at the object level, be cautious.\nIn Brief The above passages may seem repetitive, but they provide different perspectives on version control systems. Here’s a basic analogy:\nInitializing a version control system == Placing a small box in the current working directory. Saving file versions == Each time a commit is made, making a copy of the submitted files and storing them in the box. Switching the current directory or a file in the directory to a specific version == Finding the corresponding archive in the box and bringing it back to the current working directory (CWD). The other concepts, such as objects, pointers, encoding, etc., are methods used to optimize the copying process and speed up the retrieval of files from the box (at least that’s how I understand it):\nBlob object == Archive of a single file. Commit object == A note indicating which file versions to retrieve at a particular time. Commit tree == An outline of the notes (commits). SHA-1 encoding == Giving each file a name based on its content (useful for fast content comparison and addressing). Pointers == Labels indicating which version is currently in the box. Archiving files is a straightforward process that anyone can do (think: paper_final_final_final.docx). However, I believe the essence lies in SHA-1 encoding.\nReflection Notes taken while coding, might be messy.\nReading Order for the Spec The project specification for Gitlet is quite lengthy, making it impractical to read it all at once before starting. If I were to do it again, I would watch the videos first, skim through the command explanations and the “avoids” section, and then refer to the spec while coding. It’s important to pay close attention to the “Don’t” sections in the spec. The reason they are mentioned is that people tend to make those mistakes. For example, using a HashMap as the default Map implementation and encountering a Heisenbug. In reality, a TreeMap should be used to maintain order. ← Starts with “callback”. Regarding Design Initially, it’s crucial to read the entire spec comprehensively, understanding the roles of each object and their commonly used interaction methods. Once the design is clear, implementation can begin.\nPositive example: When implementing the command, a major directory overhaul was planned. However, due to a well-designed abstraction earlier, only a single line needed to be added to the File directory without any other changes.\nProtect the abstraction barrier. Interactions between higher-level objects should avoid using lower-level operations.\nNegative example: Initially, hashing and serialization were done directly in the main logic, leading to a lot of refactoring during the encapsulation process.\nNaming is crucial. After some painful lessons, the following points are summarized:\nUniformity: Just like joining database tables, if objects need to communicate, they must have some common names. A negative example would be what I did initially, using different names for the IDs obtained from sha-1 hashing, such as shaName, shaId, hashName, etc. Intuitiveness: Variable names should be as specific as possible. For example, “map” can be written as “keyToVal,” making it easier to understand. Generality: Methods should not be overly specific so that they can be easily recalled when used elsewhere. For example, instead of using “getHead” and “getMaster,” it is better to use “getCommit” and “getPointer.” Other Points It would be beneficial to read the source code of Git to find better practices, although the specification alone is generally sufficient. Stats Time and Space The code consists of approximately 1,000 lines. In terms of time, it took around 4.5 days to complete, with a recorded duration of around 40 hours according to Wakatime. Although I spent more than 10 hours debugging during that time (oops!). I remember Josh sharing some data in class, and most students took around 30-40 hours to complete the project.\nFrom a statistical standpoint, Gitlet is not a large-scale project. However, considering that it requires independent completion and involves design, unit and integration testing, makefile, Java file I/O, algorithms, encoding, and even training on Git itself, it is still a highly rewarding experience.\nAutograder Results All functional tests passed successfully. The Extra-Credit tests failed, as well as the style check (mainly due to naming, which I’ll improve next time). However, I believe those failures don’t significantly impact the overall outcome, so I didn’t continue the autograder-oriented programming.\nBTW, reasons for not implementing Extra-Credit features:\nTowards the end, many commands were combinations of previous commands, resulting in diminishing returns. The “remote” command in Gitlet differs greatly from Git and may not contribute much to understanding the underlying logic of Git. After encountering a Heisenbug, my energy was depleted. Despite not pursuing the Extra-Credit tasks, I still found the Gitlet project rewarding and a valuable learning experience.\nReflection Gitlet is an impressive project in the world of renowned universities. As I mentioned at the beginning, I firmly believe that most individuals with a similar level of proficiency can gain a lot from this project. Just take a glance at the spec, and you’ll understand.\nSpeaking from a technical standpoint, I’m not qualified to say much as I consider myself a novice. So, let me conclude with a few remarks. In one of Josh’s lectures, he shared the results of a Gitlet survey, and one particular detail stuck with me. Some students spent over 50 hours on this project (which, in my personal experience, far exceeds the workload of a typical course assignment in the freshman year). However, only a few individuals gave negative feedback in the end, and I recall Josh expressing his apologies for that. This indirectly reflects the worthwhileness of “The Gitlet Grind.”\nAn official end of CS61B – so grateful for the open-source materials! Time to move on and continue working on something else.\nAppendix The following is an excerpt from the README I wrote, explaining the design aspects of my Gitlet implementation.\nDesign Abstraction Principle An issue with version control systems:\nRequires cumbersome operations like hashing, serialization, map operations, directory concatenation, file I/O, etc.\nSolution:\nOn a higher level, involve only communications between objects (between Blob and Commit, there should only be Blob b = commit1.get(filename)) Eliminate the need to dive into low-level operations through encapsulation. i.e. Outside the class of that object, never try to hash things, or modify maps inside Commit/Blob objects. E.g. The StagingArea supports common map operations. Upon put (fileName, Commit), it completes: read commit into commit id -\u003e put into its map -\u003e serialize itself and write into the file for staging. Persistence The directory structure looks like this:\n1 2 3 4 5 6 7 8 9 10 CWD └──.gitlet └── --commits/ # all commits ├──blobs/ # file content ├──branchHeads/ # branch heads | └──--master # master branch | ├──..\t# other branches ├──HEAD\t# HEAD commit ├──add # staging area for addition └──rm # staging area for removal The Main class is the entry class of the project. It is responsible for calling different functions according to given commands.\nThe Repository class will set up all persistance. It will\nCreate and initialize files and directories in the .gitlet folder if the directory does not exist; Handle all updates of HEAD , master, branchHeads and the serialization of two StagingAreas add and rm. Execute the commands / function calls from Main. The Commit class handles the serialization of Commit objects. It also deals with conversion between commit ids and commit objects. Each Commit records mappings of held file names and their corresponding file content. Specifically, it fulfil the following purposes:\nConstructs Commit objects; Serializes and saves Commit objects to the .gitlet/commits directory; Given a commit id, retrieves the corresponding Commit object. The Blob class handles the serialization of Blob objects. A blob is a snapshot of a file’s content at the moment of addition. For instance, a file named “hello.txt” can refer to different Blobs in different Commits.\nIts functions are similar to Commit, namely object construction, serialization and retrieval.\nThe StagingArea class stores files for addition and removal. A StagingArea works like a Java Map, stores mappings of file plain names to their blob ids, and supports basic map operations (remove, get, put). add and rm are StagingAreas for staged addition and removal respectively.\n",
-  "wordCount" : "2510",
-  "inLanguage": "en",
-  "datePublished": "2023-07-13T00:00:00Z",
-  "dateModified": "2023-07-13T00:00:00Z",
-  "author":{
-    "@type": "Person",
-    "name": "Flora"
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "http://eimy.ink/en/posts/2023/gitlet-fin/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "EIMY",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "http://eimy.ink/favicons/favicon.ico"
-    }
-  }
-}
-</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+<link rel="icon" href="http://eimy.ink/favicons/favicon.ico">
+
+
+
+      <script src="/js/toc.js"></script>
+    
+    <link type="text/css" rel="stylesheet" href="/vendor/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="/scss/dark-mode.min.1b8d756f5775440d933c9656c9e438b615102519cb3d0c904c91deeaea446782.css" integrity="sha256-G411b1d1RA2TPJZWyeQ4thUQJRnLPQyQTJHe6upEZ4I=" media="screen">
+
+
+<link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Material+Icons">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/noto-serif-sc@5.2.8/index.css">
+<link rel="stylesheet" href="/css/custom-font.css">
+<link rel="stylesheet" href="/css/custom-texture.css">
+
+
 </head>
+<body>
+    	<div id="app"><div class="single-column-drawer-container" id="drawer"
+     v-bind:class="{ 'single-column-drawer-container-active': isDrawerOpen }">
+    <div class="drawer-content">
+        <div class="drawer-menu">
+            
+            
+            
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/en/archives/">
+                    Archive
+                </a>
+                
+            
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/en/categories/">
+                    Categories
+                </a>
+                
+            
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/en/tags/">
+                    Tags
+                </a>
+                
+            
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/en/search/">
+                    Search
+                </a>
+                
+            
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/en/about/">
+                    About
+                </a>
+                
+            
+            
+            <div class="toc">
 
-<body class="" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
 
-</script>
-
-<header class="header">
-    <nav class="nav">
-        <div class="logo">
-            <a href="http://eimy.ink/en/" accesskey="h" title="EIMY (Alt + H)">EIMY</a>
-            <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                </button>
-                <ul class="lang-switch"><li>|</li>
-                    <li>
-                        <a href="http://eimy.ink/" title="中文"
-                            aria-label="中文">中文</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <ul id="menu">
-            <li>
-                <a href="http://eimy.ink/en/archives" title="Archive">
-                    <span>Archive</span>
-                </a>
-            </li>
-            <li>
-                <a href="http://eimy.ink/en/categories/" title="Categories">
-                    <span>Categories</span>
-                </a>
-            </li>
-            <li>
-                <a href="http://eimy.ink/en/tags/" title="Tags">
-                    <span>Tags</span>
-                </a>
-            </li>
-            <li>
-                <a href="http://eimy.ink/en/search/" title="Search (Alt &#43; /)" accesskey=/>
-                    <span>Search</span>
-                </a>
-            </li>
-            <li>
-                <a href="http://eimy.ink/en/about/" title="About">
-                    <span>About</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
-</header>
-<main class="main post">
-
-<article class="post-single">
-  <header class="post-header">
-    <div class="breadcrumbs"><a href="http://eimy.ink/en/">Home</a>&nbsp;»&nbsp;<a href="http://eimy.ink/en/posts/">Posts</a></div>
-    <h1 class="post-title">
-      Notes and Thoughts on CS61B Gitlet
-    </h1>
-    <div class="post-meta"><span title='2023-07-13 00:00:00 +0000 UTC'>July 13, 2023</span>&nbsp;·&nbsp;Flora&nbsp;|&nbsp;Translations:
-<ul class="i18n_list">
-    <li>
-        <a href="http://eimy.ink/posts/2023/gitlet-fin/">中文</a>
-    </li>
-</ul>
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- CATALOG -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#project-overview" class="nav-project-overview">
+									Project Overview
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#gitlet-version-control-mechanism" class="nav-gitlet-version-control-mechanism">
+									Gitlet Version-Control Mechanism
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#user-level" class="nav-user-level">
+									User Level
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#object-level" class="nav-object-level">
+									Object Level
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#file-io-level" class="nav-file-io-level">
+									File I/O Level
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#in-brief" class="nav-in-brief">
+									In Brief
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#reflection" class="nav-reflection">
+									Reflection
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#reading-order-for-the-spec" class="nav-reading-order-for-the-spec">
+									Reading Order for the Spec
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#regarding-design" class="nav-regarding-design">
+									Regarding Design
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#other-points" class="nav-other-points">
+									Other Points
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#stats" class="nav-stats">
+									Stats
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#time-and-space" class="nav-time-and-space">
+									Time and Space
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#autograder-results" class="nav-autograder-results">
+									Autograder Results
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#reflection-1" class="nav-reflection-1">
+									Reflection
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#appendix" class="nav-appendix">
+									Appendix
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#design" class="nav-design">
+									Design
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#abstraction-principle" class="nav-abstraction-principle">
+									Abstraction Principle
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#persistence" class="nav-persistence">
+									Persistence
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
 
 </div>
-  </header> <aside id="toc-container" class="toc-container wide">
-    <div class="toc">
-        <details  open>
-            <summary accesskey="c" title="(Alt + C)">
-                <span class="details">Table of Contents</span>
-            </summary>
-
-            <div class="inner"><ul>
-                    <li>
-                        <a href="#project-overview" aria-label="Project Overview">Project Overview</a></li>
-                    <li>
-                        <a href="#gitlet-version-control-mechanism" aria-label="Gitlet Version-Control Mechanism">Gitlet Version-Control Mechanism</a><ul>
-                            
-                    <li>
-                        <a href="#user-level" aria-label="User Level">User Level</a></li>
-                    <li>
-                        <a href="#object-level" aria-label="Object Level">Object Level</a></li>
-                    <li>
-                        <a href="#file-io-level" aria-label="File I/O Level">File I/O Level</a></li>
-                    <li>
-                        <a href="#in-brief" aria-label="In Brief">In Brief</a></li></ul>
-                    </li>
-                    <li>
-                        <a href="#reflection" aria-label="Reflection">Reflection</a><ul>
-                            
-                    <li>
-                        <a href="#reading-order-for-the-spec" aria-label="Reading Order for the Spec">Reading Order for the Spec</a></li>
-                    <li>
-                        <a href="#regarding-design" aria-label="Regarding Design">Regarding Design</a></li>
-                    <li>
-                        <a href="#other-points" aria-label="Other Points">Other Points</a></li></ul>
-                    </li>
-                    <li>
-                        <a href="#stats" aria-label="Stats">Stats</a><ul>
-                            
-                    <li>
-                        <a href="#time-and-space" aria-label="Time and Space">Time and Space</a></li>
-                    <li>
-                        <a href="#autograder-results" aria-label="Autograder Results">Autograder Results</a></li></ul>
-                    </li>
-                    <li>
-                        <a href="#reflection-1" aria-label="Reflection">Reflection</a></li>
-                    <li>
-                        <a href="#appendix" aria-label="Appendix">Appendix</a><ul>
-                            
-                    <li>
-                        <a href="#design" aria-label="Design">Design</a><ul>
-                            
-                    <li>
-                        <a href="#abstraction-principle" aria-label="Abstraction Principle">Abstraction Principle</a></li>
-                    <li>
-                        <a href="#persistence" aria-label="Persistence">Persistence</a>
-                    </li>
-                </ul>
-                </li>
-                </ul>
-                </li>
-                </ul>
-            </div>
-        </details>
+            
+        </div>
     </div>
-</aside>
-<script>
-    let activeElement;
-    let elements;
-    window.addEventListener('DOMContentLoaded', function (event) {
-        checkTocPosition();
-
-        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
-         
-         activeElement = elements[0];
-         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
-         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
-     }, false);
-
-    window.addEventListener('resize', function(event) {
-        checkTocPosition();
-    }, false);
-
-    window.addEventListener('scroll', () => {
+</div>
+<transition name="fade">
+    <div id="drawer-mask" v-bind:class="{ 'single-column-drawer-mask': mounted }" v-if="isDrawerOpen" v-on:click="toggleDrawer"></div>
+</transition>
+<nav id="navBar" class="navbar sticky-top navbar-light single-column-nav-container">
+    <div id="navBackground" class="nav-background"></div>
+    <div class="container container-narrow nav-content">
+        <button id="nav_dropdown_btn" class="nav-dropdown-toggle" type="button" v-on:click="toggleDrawer">
+            <i class="material-icons">
+                menu
+            </i>
+        </button>
+        <a id="navTitle" class="navbar-brand" href="http://eimy.ink/en/">
+            EIMY
+        </a>
         
-        activeElement = Array.from(elements).find((element) => {
-            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
-                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
-                return element;
-            }
-        }) || activeElement
+        <button type="button" class="nav-darkmode-toggle" id="darkModeToggleButton2">
+            <i class="material-icons" id="darkModeToggleIcon2">
+                dark_mode
+            </i>
+        </button>
+        
+    </div>
+</nav>
+<div class="single-column-header-container" id="pageHead"
+     v-bind:style="{ transform: 'translateZ(0px) translateY('+.3*scrollY+'px)', opacity: 1-navOpacity }">
+    <a href="http://eimy.ink/en/">
+        <div class="single-column-header-title">EIMY</div>
+        
+        <div class="single-column-header-subtitle">The dots will connect.</div>
+        
 
-        elements.forEach(element => {
-             const id = encodeURI(element.getAttribute('id')).toLowerCase();
-             if (element === activeElement){
-                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
-             } else {
-                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
-             }
-         })
-     }, false);
+    </a>
+</div>
 
-    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
-    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
-    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+            <div id="content">
+                <div id="streamContainer" class="stream-container">
 
-    function checkTocPosition() {
-        const width = document.body.scrollWidth;
+    <div class="post-list-container post-list-container-shadow">
+        <div class="post">
+            
+            
+            
 
-        if (width - main - (toc * 2) - (gap * 4) > 0) {
-            document.getElementById("toc-container").classList.add("wide");
-        } else {
-            document.getElementById("toc-container").classList.remove("wide");
-        }
-    }
+            <div class="post-head-wrapper-text-only"
+                
+            >
+                <div class="post-title">
+                    Notes and Thoughts on CS61B Gitlet
+                    
+                    <div class="post-meta">
+                        
+                        <time itemprop="datePublished">
+                            2023-07-13 00:00
+                        </time>
+                        
 
-    function getOffsetTop(element) {
-        if (!element.getClientRects().length) {
-            return 0;
-        }
-        let rect = element.getBoundingClientRect();
-        let win = element.ownerDocument.defaultView;
-        return rect.top + win.pageYOffset;   
-    }
-</script>
+                        
+                            <i class="material-icons" style="">folder</i>
+                                <a href="/en/categories/">[notes]</a>
+                                &nbsp;
+                        
 
-  <div class="post-content"><p>Note: The passage is originally written in Chinese and translated into English via ChatGPT.</p>
+                        
+                            <i class="material-icons" style="">label</i>
+                            
+                                <a href="/en/tags/course">course</a>
+                                &nbsp;
+                            
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="post-body-wrapper">
+                
+                <div class="post-body" v-pre>
+                
+                    <p>Note: The passage is originally written in Chinese and translated into English via ChatGPT.</p>
 <hr>
 <p>Translated passage:</p>
 <blockquote>
@@ -349,13 +610,13 @@
 </blockquote>
 <p>After spending a few days catching up with the renowned project Gitlet, which has a weighty 60-page spec covering everything (lol), including informative content that provides a comprehensive understanding and training on every technical foundation, from system design to integration testing. It truly deserves the highest praise for this course project in its history.</p>
 <p>[Reference]: <a href="https://sp21.datastructur.es/materials/proj/proj2/proj2">UCB CS61B-21SP-Gitlet</a></p>
-<h2 id="project-overview">Project Overview<a hidden class="anchor" aria-hidden="true" href="#project-overview">#</a></h2>
+<h2 id="project-overview">Project Overview</h2>
 <p>Gitlet is a version control system that mimics the functionality of the popular system Git and implements some of its basic commands, including <code>init</code>, <code>add</code>, <code>commit</code>, <code>rm</code>, <code>checkout</code>, <code>branch</code>, <code>reset</code>, <code>rm-branch</code>, <code>merge</code>, and more.</p>
 <p>As an individual project for the course, it starts with only a few necessary <code>.java</code> classes and a few lines of code samples. The task requires designing and completing the system, object methods, data structures, and a few algorithms based on the requirements.</p>
-<h2 id="gitlet-version-control-mechanism">Gitlet Version-Control Mechanism<a hidden class="anchor" aria-hidden="true" href="#gitlet-version-control-mechanism">#</a></h2>
+<h2 id="gitlet-version-control-mechanism">Gitlet Version-Control Mechanism</h2>
 <p>In essence, version control in Git (Gitlet) revolves around the question of &ldquo;how to save a certain version&rdquo; and &ldquo;how to switch to a specific version.&rdquo; These two questions can be understood from three levels, from top to bottom: the user level, the object level, and the file read/write level.</p>
 <p>From a design perspective, there should exist an abstraction barrier between these three levels, as explained in the <a href="https://en.wikibooks.org/wiki/Object_Oriented_Programming/Abstraction_Barrier">abstraction barrier</a> concept. This means that when users issue commands, they don&rsquo;t need to know or manipulate objects, pointers, etc., and file read/write operations should not occur between objects either.</p>
-<h3 id="user-level">User Level<a hidden class="anchor" aria-hidden="true" href="#user-level">#</a></h3>
+<h3 id="user-level">User Level</h3>
 <p>First, let&rsquo;s discuss what happens at a higher level, which is the part that users are aware of.</p>
 <ul>
 <li>What does Git initialization do? It creates a hidden directory called <code>.git</code> in the current working directory (CWD) and some files inside it.</li>
@@ -363,7 +624,7 @@
 <li>How to switch to a specific version? When using commands like <code>checkout</code> or <code>reset</code> to switch versions, Git looks for the corresponding snapshot based on the given branch name/commit ID in the <code>.git</code> directory. It then restores the specified file or the entire directory in the CWD to match that snapshot.</li>
 </ul>
 <img src="./assets/image-20230713140220806.png#center" alt=".git目录" style="zoom:50%;border-radius:5px;" />
-<h3 id="object-level">Object Level<a hidden class="anchor" aria-hidden="true" href="#object-level">#</a></h3>
+<h3 id="object-level">Object Level</h3>
 <p>Now let&rsquo;s see how these steps are implemented at the object level. Gitlet simplifies the directory structure of Git to some extent, storing fewer metadata for each object, but the essence remains the same. The following diagram represents the structure of the <code>.gitlet</code> directory.</p>
 <ul>
 <li>Gitlet version control utilizes two types of objects: Commit and Blob.
@@ -386,7 +647,7 @@
 </li>
 </ul>
 <img src="./assets/image-20230707133304171.png#center" alt=".gitlet结构" style="zoom:50%;" />
-<h3 id="file-io-level">File I/O Level<a hidden class="anchor" aria-hidden="true" href="#file-io-level">#</a></h3>
+<h3 id="file-io-level">File I/O Level</h3>
 <p>Finally, let&rsquo;s dive into the lower-level and examine file read/write operations. Since certain commands require storing Blob objects, Commit objects, and the current content of the staging area locally, two questions arise:</p>
 <ul>
 <li>
@@ -468,7 +729,7 @@
 </li>
 </ul>
 <p>(Reminder to self) It&rsquo;s important to encapsulate these operations within the objects. The main logic should not contain statements like <code>commitMap.put(readContentAsString(commitPath), readContentAsString(blobPath))</code>. When reviewing others&rsquo; implementations, if you come across such mixed file read/write operations at the object level, be cautious.</p>
-<h3 id="in-brief">In Brief<a hidden class="anchor" aria-hidden="true" href="#in-brief">#</a></h3>
+<h3 id="in-brief">In Brief</h3>
 <p>The above passages may seem repetitive, but they provide different perspectives on version control systems. Here&rsquo;s a basic analogy:</p>
 <ul>
 <li>Initializing a version control system == Placing a small box in the current working directory.</li>
@@ -484,16 +745,16 @@
 <li>Pointers == Labels indicating which version is currently in the box.</li>
 </ul>
 <p>Archiving files is a straightforward process that anyone can do (think: paper_final_final_final.docx). However, I believe the essence lies in SHA-1 encoding.</p>
-<h2 id="reflection">Reflection<a hidden class="anchor" aria-hidden="true" href="#reflection">#</a></h2>
+<h2 id="reflection">Reflection</h2>
 <blockquote>
 <p>Notes taken while coding, might be messy.</p>
 </blockquote>
-<h3 id="reading-order-for-the-spec">Reading Order for the Spec<a hidden class="anchor" aria-hidden="true" href="#reading-order-for-the-spec">#</a></h3>
+<h3 id="reading-order-for-the-spec">Reading Order for the Spec</h3>
 <ul>
 <li>The project specification for Gitlet is quite lengthy, making it impractical to read it all at once before starting. If I were to do it again, I would watch the videos first, skim through the command explanations and the &ldquo;avoids&rdquo; section, and then refer to the spec while coding.</li>
 <li>It&rsquo;s important to pay close attention to the &ldquo;Don&rsquo;t&rdquo; sections in the spec. The reason they are mentioned is that people tend to make those mistakes. For example, using a HashMap as the default Map implementation and encountering a Heisenbug. In reality, a TreeMap should be used to maintain order. ← Starts with &ldquo;callback&rdquo;.</li>
 </ul>
-<h3 id="regarding-design">Regarding Design<a hidden class="anchor" aria-hidden="true" href="#regarding-design">#</a></h3>
+<h3 id="regarding-design">Regarding Design</h3>
 <ul>
 <li>
 <p>Initially, it&rsquo;s crucial to read the entire spec comprehensively, understanding the roles of each object and their commonly used interaction methods. Once the design is clear, implementation can begin.</p>
@@ -512,16 +773,16 @@
 </ul>
 </li>
 </ul>
-<h3 id="other-points">Other Points<a hidden class="anchor" aria-hidden="true" href="#other-points">#</a></h3>
+<h3 id="other-points">Other Points</h3>
 <ul>
 <li>It would be beneficial to read the source code of Git to find better practices, although the specification alone is generally sufficient.</li>
 </ul>
-<h2 id="stats">Stats<a hidden class="anchor" aria-hidden="true" href="#stats">#</a></h2>
-<h3 id="time-and-space">Time and Space<a hidden class="anchor" aria-hidden="true" href="#time-and-space">#</a></h3>
+<h2 id="stats">Stats</h2>
+<h3 id="time-and-space">Time and Space</h3>
 <p>The code consists of approximately 1,000 lines. In terms of time, it took around 4.5 days to complete, with a recorded duration of around 40 hours according to Wakatime. Although I spent more than 10 hours debugging during that time (oops!). I remember Josh sharing some data in class, and most students took around 30-40 hours to complete the project.</p>
 <p>From a statistical standpoint, Gitlet is not a large-scale project. However, considering that it requires independent completion and involves design, unit and integration testing, makefile, Java file I/O, algorithms, encoding, and even training on Git itself, it is still a highly rewarding experience.</p>
 <img src="./assets/image-20230712171416829.png#center" alt="code stats" style="zoom:50%;" />
-<h3 id="autograder-results">Autograder Results<a hidden class="anchor" aria-hidden="true" href="#autograder-results">#</a></h3>
+<h3 id="autograder-results">Autograder Results</h3>
 <p>All functional tests passed successfully. The Extra-Credit tests failed, as well as the style check (mainly due to naming, which I&rsquo;ll improve next time). However, I believe those failures don&rsquo;t significantly impact the overall outcome, so I didn&rsquo;t continue the autograder-oriented programming.</p>
 <p>BTW, reasons for not implementing Extra-Credit features:</p>
 <ol>
@@ -531,16 +792,16 @@
 </ol>
 <p>Despite not pursuing the Extra-Credit tasks, I still found the Gitlet project rewarding and a valuable learning experience.</p>
 <img src="./assets/image-20230712170907514.png#center" alt="Autograder: passed all functional tests" style="zoom:50%;" />
-<h2 id="reflection-1">Reflection<a hidden class="anchor" aria-hidden="true" href="#reflection-1">#</a></h2>
+<h2 id="reflection-1">Reflection</h2>
 <p>Gitlet is an impressive project in the world of renowned universities. As I mentioned at the beginning, I firmly believe that most individuals with a similar level of proficiency can gain a lot from this project. Just take a glance at the spec, and you&rsquo;ll understand.</p>
 <p>Speaking from a technical standpoint, I&rsquo;m not qualified to say much as I consider myself a novice. So, let me conclude with a few remarks. In one of Josh&rsquo;s lectures, he shared the results of a Gitlet survey, and one particular detail stuck with me. Some students spent over 50 hours on this project (which, in my personal experience, far exceeds the workload of a typical course assignment in the freshman year). However, only a few individuals gave negative feedback in the end, and I recall Josh expressing his apologies for that. This indirectly reflects the worthwhileness of &ldquo;The Gitlet Grind.&rdquo;</p>
 <p>An official end of CS61B &ndash; so grateful for the open-source materials! Time to move on and continue working on something else.</p>
-<h2 id="appendix">Appendix<a hidden class="anchor" aria-hidden="true" href="#appendix">#</a></h2>
+<h2 id="appendix">Appendix</h2>
 <blockquote>
 <p>The following is an excerpt from the README I wrote, explaining the design aspects of my Gitlet implementation.</p>
 </blockquote>
-<h3 id="design">Design<a hidden class="anchor" aria-hidden="true" href="#design">#</a></h3>
-<h4 id="abstraction-principle">Abstraction Principle<a hidden class="anchor" aria-hidden="true" href="#abstraction-principle">#</a></h4>
+<h3 id="design">Design</h3>
+<h4 id="abstraction-principle">Abstraction Principle</h4>
 <ul>
 <li>
 <p>An issue with version control systems:</p>
@@ -556,7 +817,7 @@ E.g. The <code>StagingArea</code> supports common map operations. Upon put (file
 </ul>
 </li>
 </ul>
-<h4 id="persistence">Persistence<a hidden class="anchor" aria-hidden="true" href="#persistence">#</a></h4>
+<h4 id="persistence">Persistence</h4>
 <p>The directory structure looks like this:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -601,200 +862,547 @@ E.g. The <code>StagingArea</code> supports common map operations. Upon put (file
 <p>Its functions are similar to <code>Commit</code>, namely object construction, serialization and retrieval.</p>
 <p>The <code>StagingArea</code> class stores files for addition and removal. A StagingArea works like a Java Map, stores mappings of file plain names to their blob ids, and supports basic map operations (<code>remove</code>, <code>get</code>, <code>put</code>). <code>add</code> and <code>rm</code> are <code>StagingAreas</code> for staged addition and removal respectively.</p>
 
-
-  </div>
-
-  <footer class="post-footer">
-    <ul class="post-tags">
-      <li><a href="http://eimy.ink/en/tags/course/">course</a></li>
-    </ul>
-<nav class="paginav">
-  <a class="prev" href="http://eimy.ink/en/posts/2023/aws-amplify/">
-    <span class="title">« Prev</span>
-    <br>
-    <span>Deploying an App via AWS Amplify</span>
-  </a>
-  <a class="next" href="http://eimy.ink/en/posts/2023/b-tree-llrb/">
-    <span class="title">Next »</span>
-    <br>
-    <span>61B Notes - B-Trees &amp; LLRB</span>
-  </a>
-</nav>
-
-  </footer>
-</article>
-    </main>
-    
-<footer class="footer">
-    <span>&copy; 2026 <a href="http://eimy.ink/en/">EIMY</a></span><span style="display: inline-block; margin-left: 1em;">
-        Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://github.com/reorx/hugo-PaperMod" rel="noopener" target="_blank">PaperMod</a>
-    </span>
-</footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
-    </svg>
-</a>
-
-<script>
-  (function() {
-    let menu = document.getElementById('menu')
-    if (menu) {
-        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
-        menu.onscroll = function () {
-            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
-        }
-    }
-
-    const disableSmoothScroll = '' == '1';
-    const enableInstantClick = '' == '1';
-    
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || disableSmoothScroll || enableInstantClick) {
-      return;
-    }
-    
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            var id = this.getAttribute("href").substr(1);
-            document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                behavior: "smooth"
-            });
-            if (id === "top") {
-                history.replaceState(null, null, " ");
-            } else {
-                history.pushState(null, null, `#${id}`);
-            }
-        });
-    });
-  })();
-</script>
-<script>
-    var mybutton = document.getElementById("top-link");
-    window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
-        } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
-        }
-    };
-
-</script>
-<script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            document.body.classList.add('dark');
-            localStorage.setItem("pref-theme", 'dark');
-        }
-    })
-
-</script>
-<script>
-    document.querySelectorAll('pre > code').forEach((codeblock) => {
-        const container = codeblock.parentNode.parentNode;
-
-        const copybutton = document.createElement('button');
-        copybutton.classList.add('copy-code');
-        copybutton.innerText = 'copy';
-
-        function copyingDone() {
-            copybutton.innerText = 'copied!';
-            setTimeout(() => {
-                copybutton.innerText = 'copy';
-            }, 2000);
-        }
-
-        copybutton.addEventListener('click', (cb) => {
-            if ('clipboard' in navigator) {
-                navigator.clipboard.writeText(codeblock.textContent);
-                copyingDone();
-                return;
-            }
-
-            const range = document.createRange();
-            range.selectNodeContents(codeblock);
-            const selection = window.getSelection();
-            selection.removeAllRanges();
-            selection.addRange(range);
-            try {
-                document.execCommand('copy');
-                copyingDone();
-            } catch (e) { };
-            selection.removeRange(range);
-        });
-
-        if (container.classList.contains("highlight")) {
-            container.appendChild(copybutton);
-        } else if (container.parentNode.firstChild == container) {
+                    
+                    <HR width="100%" id="EOF">
+		    <p style="color:#777;">Last modified on 2023-07-13</p>
+                    
+                </div>
+            </div>
             
-        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
             
-            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
-        } else {
+            <nav class="post-pagination">
+
+                
+                <a class="newer-posts" href="/en/posts/2023/aws-amplify/">
+			Next<br>Deploying an App via AWS Amplify
+                </a>
+                
+                
+                
+                <a class="older-posts" href="/en/posts/2023/b-tree-llrb/">
+			Previous<br>61B Notes - B-Trees &amp; LLRB
+                </a>
+                
+            </nav>
+            <div class="post-comment-wrapper">
+                
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+                    </div>
+            </div><div id="sideContainer" class="side-container">
+    
+    <a class="a-block nav-head false" href="http://eimy.ink/en/">
+    
+        <div class="nav-title">
+            EIMY
+        </div>
+        
+        <div class="nav-subtitle">
+            The dots will connect.
+        </div>
+        
+    </a>
+
+    <div class="nav-link-list">
+        
+        
             
-            codeblock.parentNode.appendChild(copybutton);
-        }
-    });
-</script>
-<script>
-window.addEventListener('DOMContentLoaded', function (event) {
-  const headings = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id]');
-  const activeClass = 'active';
+            
+            
+            <a class="a-block nav-link-item false" href="/en/archives/">
+                Archive
+            </a>
+            
+        
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/en/categories/">
+                Categories
+            </a>
+            
+        
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/en/tags/">
+                Tags
+            </a>
+            
+        
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/en/search/">
+                Search
+            </a>
+            
+        
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/en/about/">
+                About
+            </a>
+            
+        
+    </div>
 
-  
-  let activeHeading = headings[0];
-  getLinkByHeading(activeHeading).classList.add(activeClass);
+    <div class="nav-footer">
+        
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
 
-  const onScroll = () => {
-    const passedHeadings = [];
-    for (const h of headings) {
-      
-      if (getOffsetTop(h) < 5) {
-        passedHeadings.push(h)
-      } else {
-        break;
-      }
-    }
-    if (passedHeadings.length > 0) {
-      newActiveHeading = passedHeadings[passedHeadings.length - 1];
-    } else {
-      newActiveHeading = headings[0];
-    }
-    if (activeHeading != newActiveHeading) {
-      getLinkByHeading(activeHeading).classList.remove(activeClass);
-      activeHeading = newActiveHeading;
-      getLinkByHeading(activeHeading).classList.add(activeClass);
-    }
-  }
+&copy;
+	
+	2026 EIMY
+	
 
-  let timer = null;
-  window.addEventListener('scroll', () => {
-    if (timer !== null) {
-      clearTimeout(timer)
-    }
-    timer = setTimeout(onScroll, 50)
-  }, false);
+    </div>
+</div>
+<div id="extraContainer" class="extra-container">
+    <div class="toc-wrapper">
+        
 
-  function getLinkByHeading(heading) {
-    const id = encodeURI(heading.getAttribute('id')).toLowerCase();
-    return document.querySelector(`.toc ul li a[href="#${id}"]`);
-  }
+        
+        <div class="toc">
 
-  function getOffsetTop(heading) {
-    if (!heading.getClientRects().length) {
-      return 0;
-    }
-    let rect = heading.getBoundingClientRect();
-    return rect.top
-  }
-}, false);
-</script></body>
 
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- CATALOG -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#project-overview" class="nav-project-overview">
+									Project Overview
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#gitlet-version-control-mechanism" class="nav-gitlet-version-control-mechanism">
+									Gitlet Version-Control Mechanism
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#user-level" class="nav-user-level">
+									User Level
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#object-level" class="nav-object-level">
+									Object Level
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#file-io-level" class="nav-file-io-level">
+									File I/O Level
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#in-brief" class="nav-in-brief">
+									In Brief
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#reflection" class="nav-reflection">
+									Reflection
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#reading-order-for-the-spec" class="nav-reading-order-for-the-spec">
+									Reading Order for the Spec
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#regarding-design" class="nav-regarding-design">
+									Regarding Design
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#other-points" class="nav-other-points">
+									Other Points
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#stats" class="nav-stats">
+									Stats
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#time-and-space" class="nav-time-and-space">
+									Time and Space
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#autograder-results" class="nav-autograder-results">
+									Autograder Results
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#reflection-1" class="nav-reflection-1">
+									Reflection
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#appendix" class="nav-appendix">
+									Appendix
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#design" class="nav-design">
+									Design
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#abstraction-principle" class="nav-abstraction-principle">
+									Abstraction Principle
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#persistence" class="nav-persistence">
+									Persistence
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+        
+    </div>
+    <div class="pagination">
+        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top"
+            :class="{ invisible: scrollY == 0 }">
+            <i class="material-icons pagination-action-icon">
+                keyboard_arrow_up
+            </i>
+        </a>
+        
+        <a type="button" class="pagination-action" id="darkModeToggleButton">
+            <span class="material-icons pagination-action-icon" id="darkModeToggleIcon">
+                dark_mode
+            </span>
+        </a>
+        
+        
+    </div>
+</div>
+
+<div id="single-column-footer">
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	2026 EIMY
+	
+</div>
+            </div>
+    
+    <script src="/js/journal.js"></script></body>
 </html>

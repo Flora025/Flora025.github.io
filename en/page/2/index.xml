@@ -1,0 +1,479 @@
+<?xml-stylesheet href="/rss.xsl" type="text/xsl"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>EIMY</title>
+    <link>http://eimy.ink/en/</link>
+    <description>Recent content on EIMY</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>2026 EIMY</copyright>
+    <lastBuildDate>Tue, 31 Oct 2023 12:43:10 -0400</lastBuildDate>
+    
+        <atom:link href="http://eimy.ink/en/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+        <item>
+        <title>61B Notes - Asymptotics II</title>
+        <link>http://eimy.ink/en/posts/2023/asymptotics2-notes/</link>
+        <pubDate>Fri, 24 Mar 2023 20:11:22 +0800</pubDate>
+        
+        <guid>http://eimy.ink/en/posts/2023/asymptotics2-notes/</guid>
+        <description>EIMY http://eimy.ink/en/posts/2023/asymptotics2-notes/ -&lt;h2 id=&#34;useful-techniques-to-get-theta-fn&#34;&gt;Useful techniques to get $\Theta (f(N))$&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://cs61b-2.gitbook.io/cs61b-textbook/15.-asymptotics-ii/15.1-for-loops&#34;&gt;Relevant pages in 61B Textbook&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This is just a condensed(?) version of the textbook.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;ex-1-a-for-loop&#34;&gt;Ex 1: A For Loop&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;N&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;A&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;length&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;N&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;N&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;A&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;A&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;])&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;         &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;false&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol&gt;
+&lt;li&gt;Method 1: Count Number of Operations (exact count)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The total cost/operations of &amp;ldquo;==&amp;rdquo; amounts to:
+$$
+C(N)=1+2+3+\dots+(N-2)+(N-1) = N(N-1)/2
+$$
+Therefore, the runtime would be $\Theta (N^2)$.&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Method 2: Geometric Visualization&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;(Imagine the colored blocks - since it&amp;rsquo;s a triangular area - the runtime is $\Theta (N^2)$.)&lt;/p&gt;
+&lt;h3 id=&#34;ex-2-another-for-loop&#34;&gt;Ex 2: Another For Loop&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;printParty&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;N&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;N&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;         &lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;out&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;hello&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;   
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;         &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ZUG&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol&gt;
+&lt;li&gt;Method 1: Finding the Bound Visually&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Graph the trajectory of 0.5 N (lower dashed line), and 4N (upper dashed line)&lt;/p&gt;
+&lt;p&gt;And the C(N) would be between these two lines&lt;/p&gt;
+&lt;p&gt;Therefore, the runtime is $\Theta (N)$.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;(Personally I think it&amp;rsquo;s not as straighforward as the mathematical method)&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Method 2: Finding the Bound Mathematically&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Imagine the boxes:&lt;/p&gt;
+&lt;center&gt;
+     &lt;div style=&#34;color:orange; border-bottom: 1px solid #d9d9d9;
+ display: inline-block;
+ color: #999;
+ padding: 2px;&#34;&gt;Approach2-simpler geometric argument&lt;/div&gt;
+&lt;img style=&#34;border-radius: 0.3125em;
+ box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&#34; 
+ src=&#34;./Asymptotics2-notes.assets/1.png&#34;&gt;
+ &lt;br&gt;
+&lt;/center&gt;
+&lt;p&gt;So C(N) would be:
+$$
+C(N)=1+2+4+\dots+N= 2N-1
+$$
+Therefore, the runtime is $\Theta (N)$.&lt;/p&gt;
+&lt;h3 id=&#34;ex-3-tree-recursion&#34;&gt;Ex 3: Tree Recursion&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;f3&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;n&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;f3&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;f3&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol&gt;
+&lt;li&gt;Method 1: Intuition&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Every time we add one to &lt;code&gt;n&lt;/code&gt; we double the amount of work that has to be done&lt;/p&gt;
+&lt;p&gt;&amp;hellip; which results in the intuitive answer for runtime to be $2^N$.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;center&gt;
+     &lt;div style=&#34;color:orange; border-bottom: 1px solid #d9d9d9;
+ display: inline-block;
+ color: #999;
+ padding: 2px;&#34;&gt;tree recursion&lt;/div&gt;
+&lt;img style=&#34;border-radius: 0.3125em;
+ box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&#34; 
+ src=&#34;./Asymptotics2-notes.assets/2.png&#34;&gt;
+ &lt;br&gt;
+&lt;/center&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Method 2: Algebra&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$C(N)$ amounts to:
+$$
+C(N) = 1+2+4+\dots+2^\left(N-1\right)=2^N-1
+$$
+So the runtime is $\Theta (2^N)$.&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Method 3: Recurrence Relation (Out of Scope)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Starting from this:
+$$
+C(N)=2C(N-1)+1
+$$&lt;/p&gt;
+&lt;h3 id=&#34;ex-4-binary-search&#34;&gt;Ex 4: Binary Search&lt;/h3&gt;
+&lt;center&gt;
+ &lt;div style=&#34;color:orange; border-bottom: 1px solid #d9d9d9;
+ display: inline-block;
+ color: #999;
+ padding: 2px;&#34;&gt;binary search&lt;/div&gt;
+&lt;img style=&#34;border-radius: 0.3125em;
+ box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&#34; 
+ src=&#34;./Asymptotics2-notes.assets/image-20230324205823990.png&#34;&gt;
+ &lt;br&gt;
+&lt;/center&gt;
+&lt;ol&gt;
+&lt;li&gt;Method 1: intuition&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;We start with N options, then N/2, then N/4 &amp;hellip; until we have just 1.&lt;/p&gt;
+&lt;p&gt;Each time, we cut the array in half, so in the end we must perform a total of $\log_{2}(N)$operations&amp;hellip;&lt;/p&gt;
+&lt;p&gt;So the overall runtime then is order&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Method 2: exact count&lt;/li&gt;
+&lt;/ol&gt;
+&lt;center&gt;
+ &lt;div style=&#34;color:orange; border-bottom: 1px solid #d9d9d9;
+ display: inline-block;
+ color: #999;
+ padding: 2px;&#34;&gt;binary search&lt;/div&gt;
+&lt;img style=&#34;border-radius: 0.3125em;
+ box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&#34; 
+ src=&#34;./Asymptotics2-notes.assets/image-20230324210502839.png&#34;&gt;
+ &lt;br&gt;
+&lt;/center&gt;
+&lt;p&gt;So $C(N)=floor(log_{2}(N))+1$ (based on observation).&lt;/p&gt;
+&lt;p&gt;And the runtime is $\Theta(log(N))$.&lt;/p&gt;
+&lt;h3 id=&#34;ex-5-mergesort&#34;&gt;Ex 5: Mergesort&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;arbitrary units of time&lt;/strong&gt;: relative sense of the time needed&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;e.g. If we run an N=6 selection sort, and the runtime is of order $N^2$, it will take ~36 AU to run.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;About Mergesort &amp;ndash; a simple case (merge two lists into one)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;center&gt;
+ &lt;div style=&#34;color:orange; border-bottom: 1px solid #d9d9d9;
+ display: inline-block;
+ color: #999;
+ padding: 2px;&#34;&gt;mergesort&lt;/div&gt;
+&lt;img style=&#34;border-radius: 0.3125em;
+ box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&#34; 
+ src=&#34;./Asymptotics2-notes.assets/image-20230324210928875.png&#34;&gt;
+ &lt;br&gt;
+&lt;/center&gt;
+&lt;p&gt;Its runtime is $\Theta (N)$.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Mergesort &amp;ndash; applying mergesort to sort a long list&lt;/li&gt;
+&lt;/ul&gt;
+&lt;center&gt;
+ &lt;div style=&#34;color:orange; border-bottom: 1px solid #d9d9d9;
+ display: inline-block;
+ color: #999;
+ padding: 2px;&#34;&gt;mergesort&lt;/div&gt;
+&lt;img style=&#34;border-radius: 0.3125em;
+ box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&#34; 
+ src=&#34;./Asymptotics2-notes.assets/image-20230324211924264.png&#34;&gt;
+ &lt;br&gt;
+&lt;/center&gt;
+&lt;p&gt;The key idea is to split the original array into smallest pieces and apply mergesort (whose runtime is $\Theta (N)$).&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;So Mergesort has worst case runtime $\Theta (N * log(N))$, where&lt;/p&gt;
+&lt;p&gt;The top level takes ~N AU.&lt;/p&gt;
+&lt;p&gt;Next level takes ~N/2 + ~N/2 = ~N.&lt;/p&gt;
+&lt;p&gt;One more level down: ~N/4 + ~N/4 + ~N/4 + ~N/4 = ~N.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;summary&#34;&gt;Summary&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;There is no magic. Just count.&lt;/li&gt;
+&lt;li&gt;A more standardized method is shown in &lt;code&gt;andwelcome()&lt;/code&gt; in disc07:
+&lt;ul&gt;
+&lt;li&gt;Step 1: Calculate the tree height (number of layers), e.g., for a binary tree, it is $logN$.&lt;/li&gt;
+&lt;li&gt;Step 2: Calculate the branching factor (nodes per layer), e.g., for a binary tree, it is $2^N$.&lt;/li&gt;
+&lt;li&gt;Step 3: Calculate the operations per node, e.g., for a binary tree, it is $N/2^i$.&lt;/li&gt;
+&lt;li&gt;Finally, multiply the results together: $\sum_{i=0}^{logN} \cdot 2^i \cdot (\frac{N}{2^i}) = N\log{N}$.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+- http://eimy.ink/en/posts/2023/asymptotics2-notes/ - 2026 EIMY</description>
+        </item>
+    
+    
+    
+        <item>
+        <title>61B Notes - Asymptotics</title>
+        <link>http://eimy.ink/en/posts/2023/asymptotics-notes/</link>
+        <pubDate>Wed, 22 Mar 2023 18:19:26 +0800</pubDate>
+        
+        <guid>http://eimy.ink/en/posts/2023/asymptotics-notes/</guid>
+        <description>EIMY http://eimy.ink/en/posts/2023/asymptotics-notes/ -&lt;p&gt;Note: The passage is originally written in Chinese and translated into English via ChatGPT.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;asymptotics&#34;&gt;Asymptotics&lt;/h1&gt;
+&lt;p&gt;This is a mixed Chinese-English lecture notes for the algorithms section of CS61B. It outlines the main topics covered in the lecture.&lt;/p&gt;
+&lt;h2 id=&#34;general-goal&#34;&gt;General Goal&lt;/h2&gt;
+&lt;p&gt;This section introduces the core question of &amp;ldquo;how to measure algorithm efficiency.&amp;rdquo;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Efficiency comes in two ways:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Programming cost &amp;lt;&amp;ndash; The focus in the first half of 61B&lt;/li&gt;
+&lt;li&gt;Execution cost &amp;lt;&amp;ndash; The current focus
+&lt;ul&gt;
+&lt;li&gt;Time cost&lt;/li&gt;
+&lt;li&gt;Memory cost&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The question is raised: How to measure code efficiency?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Therefore, the goal of this lecture is to introduce formal standards for measuring algorithm efficiency.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;intuitive-runtime-characterizations&#34;&gt;Intuitive Runtime Characterizations&lt;/h2&gt;
+&lt;p&gt;This section provides several intuitive methods to measure program efficiency.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Comparing execution time
+The advantage is its intuitiveness, but it is unreliable due to multiple influencing factors.&lt;/li&gt;
+&lt;li&gt;Counting the total number of operations (using real numbers/abstract N)
+The advantage is that it reveals the growth scale (how it scales), but it can be cumbersome to calculate.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;center&gt;
+ &lt;div style=&#34;color:orange; border-bottom: 1px solid #d9d9d9;
+ display: inline-block;
+ color: #999;
+ padding: 2px;&#34;&gt;Screenshot&lt;/div&gt;
+&lt;img style=&#34;border-radius: 0.3125em;
+ box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&#34; 
+ src=&#34;./Asymptotics-notes.assets/image-20230322165608035.png&#34;&gt;
+ &lt;br&gt;
+&lt;/center&gt;
+&lt;h2 id=&#34;asymptotic-analysis&#34;&gt;Asymptotic Analysis&lt;/h2&gt;
+&lt;p&gt;This section first introduces the extent to which algorithm efficiency is influenced by the order of growth, and then presents methods to simplify asymptotic analysis.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;The influence of Order of Growth&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;The basic principle is to focus only on the asymptotic behavior when analyzing efficiency (i.e., how it behaves as N tends to infinity).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Based on this principle, one can observe the function shape when comparing functions at N tends to infinity.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;This function shape is temporarily referred to as the &lt;strong&gt;order of growth&lt;/strong&gt;, such as line, cubic, quadratic, etc.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;In other words, we can measure algorithm efficiency based on the order of growth.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;However, the current method of analyzing growth (symbolic count) is not simple enough and lacks mathematical rigor. Therefore, it needs to be simplified:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Only consider the worst-case count.&lt;/li&gt;
+&lt;li&gt;Choose a representative operation for counting.&lt;/li&gt;
+&lt;li&gt;Consider only the term that has the greatest impact on the order, e.g.: n^3~~+n^2+1~~.&lt;/li&gt;
+&lt;li&gt;Ignore coefficients.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;center&gt;
+ &lt;div style=&#34;color:orange; border-bottom: 1px solid #d9d9d9;
+ display: inline-block;
+ color: #999;
+ padding: 2px;&#34;&gt;Simplification/1&lt;/div&gt;
+&lt;img style=&#34;border-radius: 0.3125em;
+ box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&#34; 
+ src=&#34;./Asymptotics-notes.assets/image-20230322173642986-9480231.png&#34;&gt;
+ &lt;br&gt;
+    &lt;/center&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;At this point, the analysis involves 1) computing a complete table, 2) selecting a representative count, and 3) simplification. These steps can be further simplified:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;One way is to directly analyze the code and choose a specific operator for counting.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;center&gt;
+ &lt;div style=&#34;color:orange; border-bottom: 1px solid #d9d9d9;
+ display: inline-block;
+ color: #999;
+ padding: 2px;&#34;&gt;Approach 1 - Based on exact count&lt;/div&gt;
+&lt;img style=&#34;border-radius: 0.3125em;
+ box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&#34; 
+ src=&#34;./Asymptotics-notes.assets/image-20230322174121371-9480240.png&#34;&gt;
+ &lt;br&gt;
+      &lt;/center&gt;
+&lt;ul&gt;
+&lt;li&gt;A simpler approach is geometric analysis (assuming the side length is $N-1$, resulting in $N^2$).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;center&gt;
+&lt;div style=&#34;color:orange; border-bottom: 1px solid #d9d9d9;
+ display: inline-block;
+ color: #999;
+ padding: 2px;&#34;&gt;Approach 2 - Simpler geometric argument&lt;/div&gt;
+&lt;img style=&#34;border-radius: 0.3125em;
+ box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&#34; 
+ src=&#34;./Asymptotics-notes.assets/image-20230322174300699-9480253.png&#34;&gt;
+       &lt;br&gt;
+&lt;/center&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;asymptotic-notation&#34;&gt;Asymptotic Notation&lt;/h2&gt;
+&lt;p&gt;Finally, the commonly used notations for asymptotic analysis, Big Theta (i.e., Order of Growth) and Big O, are introduced.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Big Theta&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Big Theta is used to describe the rate of growth in the running time of a program.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Notation&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Assume there is a runtime function $R(n)$, and if the order of growth (function shape) of $R(n)$ is $f(N)$,&lt;/p&gt;
+&lt;p&gt;it is denoted as:
+$$
+R(n) \in \Theta (f(N))
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Definition&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+R(n) \in \Theta (f(N))
+$$&lt;/p&gt;
+&lt;p&gt;means that there exist positive constants $k_1$ and $k_2$ such that
+$$
+k_1 · f(n) \leq R(N) \leq k_2 · f(N)
+$$
+for all $N&amp;gt;N_0$ (i.e., very large N).&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Example&lt;/li&gt;
+&lt;/ol&gt;
+&lt;center&gt;
+ &lt;div style=&#34;color:orange; border-bottom: 1px solid #d9d9d9;
+ display: inline-block;
+ color: #999;
+ padding: 2px;&#34;&gt;Big Theta Demo&lt;/div&gt;
+&lt;img style=&#34;border-radius: 0.3125em;
+ box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&#34; 
+ src=&#34;./Asymptotics-notes.assets/image-20230322180018120-9480260.png&#34;&gt;
+ &lt;br&gt;
+&lt;/center&gt;
+- Big O
+&lt;p&gt;Big Theta describes an &amp;ldquo;equal&amp;rdquo; relationship (the growth rate of a function is equal to xx), while Big O describes a &amp;ldquo;less than or equal to&amp;rdquo; relationship.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Definition (Note: it can be observed that it removes the lower bound compared to $\Theta$)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+R(n) \in \Theta (f(N))
+$$&lt;/p&gt;
+&lt;p&gt;means that there exists a positive constant $k_2$ such that
+$$
+R(N) \leq k_2 · f(N)
+$$
+for all $N&amp;gt;N_0$ (i.e., very large N).&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Example:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+N^3+3N^4 \in \Theta(N^4)
+$$&lt;/p&gt;
+&lt;p&gt;$$
+N^3+3N^4 \in O(N^6)
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Big O vs Big Theta&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Informal Meaning&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Family&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Family Members&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Big Theta $$\Theta(f(N))$$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Order of Growth is $f(N)$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\Theta(f(N^2))$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$N^2/2$&lt;br&gt;$2N^2$&lt;br&gt;$N^2+38N$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Big O&lt;br/&gt;$$O(f(N))$$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Order of Growth is less than or equal to $f(N)$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$O(f(N^2))$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$N^2/2$&lt;br&gt;$2N^2$&lt;br&gt;$lg(N)$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+- http://eimy.ink/en/posts/2023/asymptotics-notes/ - 2026 EIMY</description>
+        </item>
+    
+    
+    
+        <item>
+        <title>Move</title>
+        <link>http://eimy.ink/en/posts/move/</link>
+        <pubDate>Wed, 21 Dec 2022 16:05:40 +0800</pubDate>
+        
+        <guid>http://eimy.ink/en/posts/move/</guid>
+        <description>EIMY http://eimy.ink/en/posts/move/ -&lt;p&gt;For certain reasons i decided to move my blogs from hexo-matery to hugo-papermod.&lt;/p&gt;
+- http://eimy.ink/en/posts/move/ - 2026 EIMY</description>
+        </item>
+    
+    
+    
+    
+    
+    
+    
+    
+  </channel>
+</rss> 

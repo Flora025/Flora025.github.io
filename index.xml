@@ -1,396 +1,327 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<?xml-stylesheet href="/rss.xsl" type="text/xsl"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>EIMY</title>
     <link>http://eimy.ink/</link>
     <description>Recent content on EIMY</description>
-    <image>
-      <title>EIMY</title>
-      <url>http://eimy.ink/papermod-cover.png</url>
-      <link>http://eimy.ink/papermod-cover.png</link>
-    </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Wed, 31 Dec 2025 10:52:10 -0500</lastBuildDate><atom:link href="http://eimy.ink/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>【置顶】随想录</title>
-      <link>http://eimy.ink/posts/thoughts/</link>
-      <pubDate>Wed, 08 Feb 2023 21:12:10 +0800</pubDate>
-      
-      <guid>http://eimy.ink/posts/thoughts/</guid>
-      <description>长期更新 LastUpdated 20250823</description>
-    </item>
+    <copyright>2026 EIMY</copyright>
+    <lastBuildDate>Wed, 31 Dec 2025 10:52:10 -0500</lastBuildDate>
     
-    <item>
-      <title>2025年终总结：悬而未决</title>
-      <link>http://eimy.ink/posts/2025/year-in-retrospect/</link>
-      <pubDate>Wed, 31 Dec 2025 10:52:10 -0500</pubDate>
-      
-      <guid>http://eimy.ink/posts/2025/year-in-retrospect/</guid>
-      <description>make me wonder</description>
-    </item>
+        <atom:link href="http://eimy.ink/index.xml" rel="self" type="application/rss+xml" />
     
-    <item>
-      <title>近况乱报 · 七月刊</title>
-      <link>http://eimy.ink/posts/2025/recent-jul/</link>
-      <pubDate>Sun, 27 Jul 2025 21:33:57 +0800</pubDate>
-      
-      <guid>http://eimy.ink/posts/2025/recent-jul/</guid>
-      <description>工作就像不慎写入我生活的无限循环</description>
-    </item>
     
-    <item>
-      <title>近况乱报 · 五六月刊</title>
-      <link>http://eimy.ink/posts/2025/recent-may-jun/</link>
-      <pubDate>Fri, 11 Jul 2025 21:33:57 +0800</pubDate>
-      
-      <guid>http://eimy.ink/posts/2025/recent-may-jun/</guid>
-      <description>消失的两个月里</description>
-    </item>
     
-    <item>
-      <title>近况乱报 · 四月刊</title>
-      <link>http://eimy.ink/posts/2025/recent-apr/</link>
-      <pubDate>Fri, 02 May 2025 21:33:57 +0800</pubDate>
-      
-      <guid>http://eimy.ink/posts/2025/recent-apr/</guid>
-      <description>纽约/考试/回国</description>
-    </item>
+        <item>
+        <title>【置顶】随想录</title>
+        <link>http://eimy.ink/posts/thoughts/</link>
+        <pubDate>Wed, 08 Feb 2023 21:12:10 +0800</pubDate>
+        
+        <guid>http://eimy.ink/posts/thoughts/</guid>
+        <description>EIMY http://eimy.ink/posts/thoughts/ -&lt;p&gt;在此记录一些突然想通的生活小寄巧或者对什么事情的碎片想法&lt;/p&gt;
+&lt;h2 id=&#34;思考&#34;&gt;思考&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;功利视角下，学校的本质是资源平台而不是学习场所。学生身份会给人超出想象的权限，合理（或者不合常理）利用权限在时限内完成资源的累积或许是作为学生最重要的事。其中的学习资源是最直观但最不值得一提的。对于一些人来说这是自然行动的一部分，但是这种事情对像我一样的人其实需要先验地提醒。&lt;/li&gt;
+&lt;li&gt;如果在同一个位置发现很多棘手问题，它们可能是一个系统性问题造成的。系统性问题无法解决，只能选一个舒服的姿势顺应或者换一个系统。&lt;/li&gt;
+&lt;li&gt;观察和经验告诉我人的心智和能力不一定和“资历”/地位正相关，所以不应该用社会属性建构人。&lt;/li&gt;
+&lt;li&gt;拖延圣经：现在不想做的事情，明天这时候真的也不会想做；计划可以落在未来但是期待不能。&lt;/li&gt;
+&lt;li&gt;我认同对大学设立目的的一切理想化描写，但是反对一些「强迫人将此视为上大学的目的」的精英主义观点。首先，大学的目的和人对它的实际接受是两件事，就像猪生命的原本目的不是给人类吃（提醒：觉得为什么不是的人是犯原罪咯），所以大学应当怎样不能在逻辑上推出人应该对大学怎样。其次，从现实角度上看也不成立。有些人还是没有跨出过精英圈层，整天说些何不食肉糜的鬼话。不是每个人的起跑线都在马斯洛顶层。不用迫于现实的、物质的原因把大学看作工具，本来就是一种特权。&lt;/li&gt;
+&lt;li&gt;人是在寻找最优解，机器也是在寻找最优解，所以人有时候可以参考机器学习方法精妙地抽象出的策略。这大概就是为啥偶尔看到有人说人生是强化学习或者梯度下降etc。-追记：跟几个朋友聊过以后发现不是所有人都这个思路，我格局小了&lt;/li&gt;
+&lt;li&gt;观身边一些人去心理咨询的经历分享有感：我非常抗拒无条件的支持，觉得这是不负责的表现，是非常浅薄的关心。考虑到“移情”关系的存在，心理咨询在我这里基本等同于花钱买工业糖精。&lt;/li&gt;
+&lt;li&gt;健康第一。&lt;/li&gt;
+&lt;li&gt;有时候会觉得所有事物的底层是一套共通的抽象原则，这些原则通过不同方式具象表达出来（自然现象、定理算法、个体发展）。有点像“理念”的本体论，但是不一样的是比起独立的一个个概念，我想象中的本体更像是一系列规则/逻辑/模型。-追记：有点像斯宾诺莎的平行论。&lt;/li&gt;
+&lt;li&gt;时间有限。好像大家都知道人生有大限，一件事有期限，但是很多人（包括我自己）在拼命生活的过程中都会忘记一天（时间标尺的中间）的时间也本应是有限的。具体体现为反正晚上可以熬夜透支时间，白天就摸摸鱼这样的做法。我在想，重新给自己的一天也设限能不能让我更珍惜时间。&lt;/li&gt;
+&lt;li&gt;&lt;del&gt;这代人又会是一代GenX吧&lt;/del&gt; -追记：不许装&lt;/li&gt;
+&lt;li&gt;时间果然是终极计量单位，发现大部分能力差异都可以换算成时间。&lt;/li&gt;
+&lt;li&gt;每个选择的背后是权衡多种价值后对其中一种的肯定，所以似乎只要没有客观条件的限制，哪怕走了再多岔路，人生最终会像均值回归一样通向心之所向，或许应该叫它“价值回归”？&lt;/li&gt;
+&lt;li&gt;选择向外界展露什么，就会吸引到什么。有时会觉得在这方面我无奈地做出了非常失败的决策，导致社交形象和本心分道扬镳。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;随笔&#34;&gt;随笔&lt;/h2&gt;
+&lt;h3 id=&#34;202304-关于yorushika的变化&#34;&gt;2023/04 关于Yorushika的“变化”&lt;/h3&gt;
+&lt;p&gt;看到b上对yorushika风格变化的乐评，有一些共鸣。我觉得这不是单方面的渐行渐远（“君がまた遠くを行くんだ”），不是湖上行舟望远山走近又淡出的感觉。n-buna只是“先に大人になった”。总有一天大家都会走到那里，所以失去摇滚的伤感是暂时的，只存在于他和我（们）的时间差中。（过了几个月的补充：现在我确实能接受并且还挺喜欢新的减法风格，可能是不再那么愤世嫉俗了，能和关注的艺术家同频成长也是一件幸福的事）&lt;/p&gt;
+&lt;h3 id=&#34;202307-关于读书的意义&#34;&gt;2023/07 关于读书的意义&lt;/h3&gt;
+&lt;p&gt;以前会纠结为什么读了很多书但什么都想不起来。不光是内容和金句，有时书名作者都会忘，一般只能记个大概的阅读感受。比如我特别喜欢密尔的《论自由》，但如果问我它的主要思想，我只能七七八八说点no harm principle、individualism。即使中文英文都读了几遍，即使是和21/22年某时期十分相衬的应景读物，还是只保留了一部分印象。于是长久以来，我一直以为读闲书对我个人而言影响不大。&lt;/p&gt;
+&lt;p&gt;但是最近偶尔反思自己的想法时，觉得这种影响比我想象地更潜移默化。经济学的理论书我在课上只看过一本，但不妨碍我不自觉代入它的视角去入世地考虑边际效益、相对优势、还有今天蔬菜的价格为什么又涨了；我可能记不清精神分析书里说的方法论，但每次做梦、发现口误笔误，我都会去随意分析梦里的隐喻、每个外显的失误中无意识，这样也总能有些有趣发现；我不可能记清每个哲学家的思想体系，我观察世界和行人的视角也更偏向胡乱缝合，但这些已经足够帮我完善关乎个人的定义，比如目的(end)、意义、自由、主体的坐标系、整点薯条；不需要重大新闻提醒，我几乎每天都会想到死亡，只因为有一本随笔集里谈到生活态度，说值得的人生的标准是「即使下一秒突然死了也不会有任何遗憾」（大意）（，说到这个，哪天要是重大新闻降临在自己身上，我也不会感到惋惜，因为我确实践行着这个原则）。&lt;/p&gt;
+&lt;p&gt;这些例子写出来会显得非常刻意，但实际的体验更接近：发现某些突然浮现的想法来自过去不经意看到的一段话、读过的名字都忘了的一本书。或许它就和吃饭一样，吃和完全不吃之间会有质的差异，一定范围内的吃多少、吃什么，却很难和生命或是生活找到显性的相关，但非显性不等于不存在。有句话叫「I am what I eat」，其实相似地，也可以认为「I am what I read」。&lt;/p&gt;
+&lt;h3 id=&#34;202309-notitle&#34;&gt;2023/09 notitle&lt;/h3&gt;
+&lt;p&gt;最近几个反复浮现的想法：&lt;/p&gt;
+&lt;p&gt;1&lt;/p&gt;
+&lt;p&gt;观察到非常优秀的人里大致存在两类（我也不喜欢二分法，请姑且认为这是一个spectrum，而我讨论的只是两端吧），一类人思而后行，另一类行而后思。同样给定一个目标，前者的行为模式经常是大比重的路径规划+稳定可预测的行动实现，就像解一道多变量的方程；后者则敢于进行反教科书的大胆尝试，依赖于风险和机会。有趣的是在我近些年身边的和听说的案例里，这两者的至少在中位水平附近是没有优劣之分的，不论采取哪一种手段都能达到很高的目标完成度。&lt;/p&gt;
+&lt;p&gt;我是病情严重的思而后行爱好者。其实之前反思到这种差异以后，我和几个有过人之处、但和我恰好行为模式相反的朋友也聊了下底层到底是怎么想的，思维上学到了很多，但觉得实践上很难转换过去（可能也是路径依赖问题）&amp;hellip;“别想太多“实在不容易。&lt;/p&gt;
+&lt;p&gt;最近因为各种原因又把它提上了日程，用暴露疗法治治应该就习惯了。&lt;/p&gt;
+&lt;p&gt;2&lt;/p&gt;
+&lt;p&gt;效率最大化的方法是：do what matters most every morning。人应该是有那种捡简单事情做的惰性的，但简单的事大多不是“主线”，日积月累把大量注意力和时间给最不重要的支线只是在自我感动。&lt;/p&gt;
+&lt;p&gt;比较典型的反面案例是每天早上拖延高脑力消耗的todo，虽然日间完成了一堆琐碎小事，最后到了晚上却没有时间也没有力气再做重要的事，然后开始明日复明日的循环。&lt;/p&gt;
+&lt;p&gt;应该从最重要的事开始做（复读）。&lt;/p&gt;
+&lt;h3 id=&#34;202310&#34;&gt;2023/10&lt;/h3&gt;
+&lt;p&gt;最近想到的几个点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;回想了一下所有在某一方面有所成就的人，好像都是把对自己的人生很重要的一部分东西倾注到一个事业里的（其实有点赌的意思，极致的Fi，把一件事做到100而不是每件事80）。虽然可能大部分人对名垂青史这件事毫无兴趣，但这点对于喜欢询问意义的人来说应该能带来启发。&lt;/li&gt;
+&lt;li&gt;速写时突然悟了，绘画其实是一种语言，每个体块、每种褶皱、头发片、五官就像是词汇。和学习语言一样，打基础时该做的不是不断仿写别人的句子，而是背单词、看语法（单词的组合）。应该做atomic practice而不是整体的练习，之前怎么就没有想通呢。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;202403&#34;&gt;2024/03&lt;/h3&gt;
+&lt;p&gt;最近的几则：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;【关于运气和努力】&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;反思最近自己起起落落的日子和看到聊到的他人经历，觉得以前把所有成果归功于勤奋和努力的自己有种既得利益者说出何不食肉糜般的狭隘和傲慢。因为看到了太多比我努力却又比我失意的人，所以明白了即使已经完成了再多「可努力事项」，最终得到的成果的大部分还是最好归因为运气。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;【关于意义】&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;看到的乔布斯的一句话：Remembering that you are going to die is the best way I know to avoid the trap of thinking you have something to lose. 虽然只是偶然看到的，但是一直萦绕心头&amp;hellip; 现在一旦心里出现“I have to&amp;hellip;”的想法，脑内就会自动触发拷问：Is it true that I cannot afford to lose it?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;【关于完美主义】&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;一个心态和行为上的WIP改变是正在学习犯错。在应试体制里做惯了好学生，会导致潜意识里用对待考试的心态面对生活中的所有事，长期焦虑累积，对精神实在不好。&lt;/p&gt;
+&lt;p&gt;于是最近看了些讲精神分析和神经症的书以后，彻底剖析了这种习得型焦虑，意识到它的来源可能是把个人畏惧失败的竞争心态和一定程度的社达心态投射到他人身上。而消解它的唯一方式是主动意识到the triviality of failures以及自己和他人心态上的区别；从实践上谈，解决方法可能只有通过亲身经历来建立「犯错/失败」 -&amp;gt; 「仍然安全」这个反射。&lt;/p&gt;
+&lt;h3 id=&#34;202404&#34;&gt;2024/04&lt;/h3&gt;
+&lt;p&gt;最近在想方向性的问题呢，粗略思考了下软件行业job market过去几年繁荣的原因：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;经济环境向上：market boom =&amp;gt; 企业的乐观展望 =&amp;gt; budget上升&lt;/li&gt;
+&lt;li&gt;特殊市场兴起：rising移动应用市场 =&amp;gt; 创造大量业务需求&lt;/li&gt;
+&lt;li&gt;专业技能短缺：技术更新迭代频繁 =&amp;gt; 比起质量（经验沉淀）更需要数量（快速学习）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;以上几点造就了过去一个周期的繁荣（可能有因果纠缠），当然疫情是一个额外的变量。我觉得缺少任意一环，情况都会大相径庭。比如，现在的问题就是虽然存在2&amp;amp;3的条件，但受到了1的限制。不过乐观点说，既然已经有2&amp;amp;3，个人能做的只有做好相应准备等待downturn结束。&lt;/p&gt;
+&lt;p&gt;另外，虽然没什么依据，中短期什么情况也说不清，但长期我还是看好广义tech行业的，只不过未必是现在我们能明确看到的方面。&lt;/p&gt;
+&lt;h3 id=&#34;202405&#34;&gt;2024/05&lt;/h3&gt;
+&lt;p&gt;【关于决裂】&lt;/p&gt;
+&lt;p&gt;失望是一瞬间的事，从一个用词、一个行为细节中发现了关系的本质，串起了过往的种种摩擦。我喜欢观察身边人的行为，分析心理动机，如果是熟人的话，会和当事人对答案。这个扭曲的爱好让我发现很多人其实不太了解自己的想法和常用的防御模式，往往是被提醒后才明白「好像我确实是这么想的」。正因如此才会在争吵中心口不一，偶然暴露出丑陋的想法等等。有些话是只能说一次的，说出去以后就无法收回的。每次想到这里，我都会想起一部叫做「心灵想要大声呐喊」的动画电影。&lt;/p&gt;
+&lt;h3 id=&#34;202508&#34;&gt;2025/08&lt;/h3&gt;
+&lt;p&gt;最近又发生了一些事，大约就是因为各种事又开始忙活以至于身体出现了些许问题。有一天晚上突然累了，完全不理解自己在干什么了，就半夜跑去公园长椅上思考人生。会变成这样实在太奇怪了，因为现在的我可以说是无可指摘地达到了去年自己的期待。&lt;/p&gt;
+&lt;p&gt;想着到底哪里出了问题，我开始和g老师聊天，反思自身性格上的各种问题，听说了“hedonic treadmill”这个概念，大概是指人在达成一个目标后幸福感很快回落到原本的水平，由此为了追求成就感带来的快乐不断追寻下一个目标，最后落得精疲力竭的情况——大约就是现在和过去的我。&lt;/p&gt;
+&lt;p&gt;关于这些苦恼，也寻求了大人们的建议。我描述了最近的心情，说理性上知道这样足够了，但实际还是觉得不够好、想要overachieve，最后又把身体搞得不太好得不偿失。然后得到了以下过来人的建议（只保留了我赞同的部分）：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;人生很少有什么值得为之牺牲健康&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;我太悲观，总是试图暴力达成最好的情况、为预想最坏情况作准备，所以才会焦虑。但其实大部分事情很难落在这两个极端（某种意义上的正态分布），而且也不是人为能控制的——世界上存在一些能够完全控制结果的人，但我不是这样的人，我至多普通人中稍微努力点或者运气好点的那端。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;所以之后会在保证健康快乐的情况下继续拼尽全力吧（。&lt;/p&gt;
+&lt;h2 id=&#34;update-log&#34;&gt;Update Log&lt;/h2&gt;
+&lt;p&gt;2023-02-08: 开始记录&lt;/p&gt;
+&lt;p&gt;2023-09-16: 分出了「思考」和「随笔」两块，理由见上。&lt;/p&gt;
+- http://eimy.ink/posts/thoughts/ - 2026 EIMY</description>
+        </item>
     
-    <item>
-      <title>近况乱报 · 三月刊</title>
-      <link>http://eimy.ink/posts/2025/recent-mar/</link>
-      <pubDate>Mon, 31 Mar 2025 19:33:57 +0800</pubDate>
-      
-      <guid>http://eimy.ink/posts/2025/recent-mar/</guid>
-      <description>NOLA</description>
-    </item>
     
-    <item>
-      <title>近况乱报 · 二月刊</title>
-      <link>http://eimy.ink/posts/2025/recent-feb/</link>
-      <pubDate>Fri, 28 Feb 2025 15:33:57 +0800</pubDate>
-      
-      <guid>http://eimy.ink/posts/2025/recent-feb/</guid>
-      <description>回归自身</description>
-    </item>
     
-    <item>
-      <title>近况乱报 · 一月刊</title>
-      <link>http://eimy.ink/posts/2025/recent-jan/</link>
-      <pubDate>Fri, 31 Jan 2025 15:33:57 +0800</pubDate>
-      
-      <guid>http://eimy.ink/posts/2025/recent-jan/</guid>
-      <description>从字数肉眼可见的身心俱疲</description>
-    </item>
+        <item>
+        <title>2025年终总结：悬而未决</title>
+        <link>http://eimy.ink/posts/2025/year-in-retrospect/</link>
+        <pubDate>Wed, 31 Dec 2025 10:52:10 -0500</pubDate>
+        
+        <guid>http://eimy.ink/posts/2025/year-in-retrospect/</guid>
+        <description>EIMY http://eimy.ink/posts/2025/year-in-retrospect/ -&lt;p&gt;相比往年干脆利落的回顾，今年的年末含糊得让人浮躁——今年所做的和未完成的很多课题只有等到明年才能落下帷幕——也因此我将今年的年度关键词定为悬而未决。&lt;/p&gt;
+&lt;h3 id=&#34;怎么是轮回&#34;&gt;怎么是轮回？&lt;/h3&gt;
+&lt;p&gt;2025和2024年的整体安排像轮回一般几乎无二致。冬天和朋友吃饭过年，春天上学，夏天实习，秋天找工作。好的地方是去年拼搏一年的成功让今年的fulltime秋招轻松了不少，九月在亚麻做fall intern时收到了暑假实习的巨硬给的ft return offer，于是只随缘投了一些我单相思的公司，争取不留遗憾。&lt;/p&gt;
+&lt;p&gt;这就造成了今年无法close的第一件事，从九月开始到年底还没结束的某司的流程&amp;hellip;虽然曾心存一丝侥幸，但经常找工的人多少知道feedback慢意味着什么，所以心态也慢慢变成了希望快点收拒信好让人安心上学。&lt;/p&gt;
+&lt;h3 id=&#34;世界线异动&#34;&gt;世界线异动？&lt;/h3&gt;
+&lt;p&gt;唯一的不同是今年对自己有了新的理解。不论在独立时有多自洽完善，人在亲密关系里还是会发现很多自己没有解决的课题。&lt;/p&gt;
+&lt;p&gt;就个人来说，我第一次意识到自己引以为傲的独立是一种因过去经历所致的不太健康的“被动”的独立，它让我极其厌恶我尚未整合的阴暗/对立面的特质。其实这是很久以前就隐约知道，只是一直无暇也没什么必要顾及应对的问题。如今难得几回闲，是时候直面这个课题。&lt;/p&gt;
+&lt;p&gt;而就关系来说，我需要什么和我能提供什么是我从一开始被问到以来至今无法回答的问题。我意识到自己可能偏好的共生关系和我当前情况会塑造的相对独立的关系是矛盾的（也可能不是？可能这就是难解的地方）。在各种无厘头的争吵中我逐渐意识到了尊重和欣赏对我来说是必要的，但是对于什么是有意义的和其中我能够给出什么仍然存疑（虽然我对自我价值毫不怀疑）。最关键的可能是解决问题的限度，我总觉得应该有个上限存在。&lt;/p&gt;
+&lt;p&gt;唯一想忏悔的是今年出于以上两个原因并没有足够的输入输出量，于是整个人变得非常浮躁焦虑静不下心，有种脱离了曾经使我稳定的锚点的感觉。&lt;/p&gt;
+&lt;p&gt;写下这些时我正坐在飞回湾区的飞机上。从时间上说，从东九区到西五区是一场回溯的旅途，我离开时是12月31日的下午六点，而我抵达的是12月31日的早晨十点，我其实觉得逃向过去非常诡异。&lt;/p&gt;
+- http://eimy.ink/posts/2025/year-in-retrospect/ - 2026 EIMY</description>
+        </item>
     
-    <item>
-      <title>2024年终总结：盛宴之后</title>
-      <link>http://eimy.ink/posts/2024/year-in-retrospect/</link>
-      <pubDate>Tue, 31 Dec 2024 10:52:10 -0500</pubDate>
-      
-      <guid>http://eimy.ink/posts/2024/year-in-retrospect/</guid>
-      <description>健康第一（嘘）</description>
-    </item>
     
-    <item>
-      <title>近况乱报 · 十一月刊</title>
-      <link>http://eimy.ink/posts/2024/recent-nov/</link>
-      <pubDate>Sat, 30 Nov 2024 23:07:57 +0800</pubDate>
-      
-      <guid>http://eimy.ink/posts/2024/recent-nov/</guid>
-      <description>结束乐队：指事情结束了就去搞乐队</description>
-    </item>
     
-    <item>
-      <title>近况乱报 · 十月刊</title>
-      <link>http://eimy.ink/posts/2024/recent-oct/</link>
-      <pubDate>Sat, 19 Oct 2024 17:07:57 +0800</pubDate>
-      
-      <guid>http://eimy.ink/posts/2024/recent-oct/</guid>
-      <description>时常会产生事情在好起来的错觉</description>
-    </item>
+        <item>
+        <title>近况乱报 · 七月刊</title>
+        <link>http://eimy.ink/posts/2025/recent-jul/</link>
+        <pubDate>Sun, 27 Jul 2025 21:33:57 +0800</pubDate>
+        
+        <guid>http://eimy.ink/posts/2025/recent-jul/</guid>
+        <description>EIMY http://eimy.ink/posts/2025/recent-jul/ -&lt;h3 id=&#34;stack-overflow&#34;&gt;Stack Overflow&lt;/h3&gt;
+&lt;p&gt;七月的某个周一晚上，我坐在桌前，转头看窗外，天早就黑了，楼下花园里的交谈声不知不觉消失了，但显示器上还挂着正在编译的程序，我祈祷这次它能成功，这样我就可以去洗漱睡觉了——毕竟第二天还要早起继续搬砖。我又一次不慎在自己的生活中写入了名为工作的无限循环，任凭它逐渐蚕食我的个人时间。&lt;/p&gt;
+&lt;p&gt;这样的事情也不是一次两次，任何我想认真对待的事情都享有无限的我的时间的使用权，虽然理性上明白原因，但总找不到解决方法。我一直知道自己心中有两个矛盾的想法，其中一个向往自由无用，另一个追求世俗价值。目前为止，我做出人生重大决定往往是依照前者的方针，但落实到行动又惯性地倾向于执行后者的逻辑。这导致我时常陷入这种「在最允许松弛的情况里成为最紧绷的人」的诡异状况。&lt;/p&gt;
+&lt;p&gt;暂时的想法是，如果无论如何都会变成这样的状态，那尽量选择能最大化潜力的方式吧。&lt;/p&gt;
+&lt;h3 id=&#34;生活小事&#34;&gt;生活小事&lt;/h3&gt;
+&lt;p&gt;七月初去了LA参加anime expo，想起小时候看过的CCG，那时候沉迷看番、热衷于买塑料小人，于是漫展就像是参观具象化的理想生活。而现在去漫展只有一份局外人感（今天，某番完结了，也许是昨天，我不能确定。），有点难过。&lt;/p&gt;
+&lt;p&gt;七月中去了Tahoe玩parasailing和透明船kayaking，很特别的体验，但对于肥宅来说过于残酷。&lt;/p&gt;
+&lt;h3 id=&#34;一些感悟&#34;&gt;一些感悟&lt;/h3&gt;
+&lt;p&gt;在社交中逐渐了解了自己对他人的偏好，在会影响我的关系中，我更欣赏言出必行和居安思危，讨厌所谓松弛感下的不思进取。&lt;/p&gt;
+- http://eimy.ink/posts/2025/recent-jul/ - 2026 EIMY</description>
+        </item>
     
-    <item>
-      <title>近况乱报 · 九月刊</title>
-      <link>http://eimy.ink/posts/2024/recent-sep/</link>
-      <pubDate>Sat, 21 Sep 2024 23:07:57 +0800</pubDate>
-      
-      <guid>http://eimy.ink/posts/2024/recent-sep/</guid>
-      <description>春耕夏耘秋收恶果</description>
-    </item>
     
-    <item>
-      <title>近况乱报 · 八月刊</title>
-      <link>http://eimy.ink/posts/2024/recent-aug/</link>
-      <pubDate>Sun, 11 Aug 2024 19:33:57 +0800</pubDate>
-      
-      <guid>http://eimy.ink/posts/2024/recent-aug/</guid>
-      <description>さよならだけが人生だ</description>
-    </item>
     
-    <item>
-      <title>2024毕业季，瓷饭碗道出的人文无用论</title>
-      <link>http://eimy.ink/posts/2024/on-university/</link>
-      <pubDate>Sun, 30 Jun 2024 15:33:57 +0800</pubDate>
-      
-      <guid>http://eimy.ink/posts/2024/on-university/</guid>
-      <description>some ideas of a univeristy?</description>
-    </item>
+        <item>
+        <title>近况乱报 · 五六月刊</title>
+        <link>http://eimy.ink/posts/2025/recent-may-jun/</link>
+        <pubDate>Fri, 11 Jul 2025 21:33:57 +0800</pubDate>
+        
+        <guid>http://eimy.ink/posts/2025/recent-may-jun/</guid>
+        <description>EIMY http://eimy.ink/posts/2025/recent-may-jun/ -&lt;p&gt;我以为赛博人间蒸发这种事永远不会发生在自己身上，但一打开博客，发现距离上次月更都已经过去两个月了。这个意外像是近期发生在我身上的种种意外的缩影&amp;hellip;&lt;/p&gt;
+&lt;h3 id=&#34;五月&#34;&gt;五月&lt;/h3&gt;
+&lt;p&gt;前半个月在国内度过最后无忧无虑的时光，现在回想起来，那非反作用力式享受自由的一个月（相比高中毕业的假期）真是可贵。后半个月又借着转机的机会去了日本旅游，看live的同时见了认识已久的网友，也算一段奇缘。&lt;/p&gt;
+&lt;h3 id=&#34;六月&#34;&gt;六月&lt;/h3&gt;
+&lt;p&gt;飞湾区、倒时差、开始实习，西海岸的一切对我都是那么新鲜，这样被兴奋和焦躁冲昏头脑的日子持续了几周。我最喜欢的是南湾的阳光和背景的山，最不喜欢的是去哪里都要开车的生活方式。关于这些还有很多能记录的，但最近忙得没什么表达欲，打算等到生活和工作都回到正轨了再写。&lt;/p&gt;
+&lt;p&gt;潦草地写于7/11 人还活着 在mtv&lt;/p&gt;
+- http://eimy.ink/posts/2025/recent-may-jun/ - 2026 EIMY</description>
+        </item>
     
-    <item>
-      <title>近况乱报 · 六月刊</title>
-      <link>http://eimy.ink/posts/2024/recent-jun/</link>
-      <pubDate>Sat, 08 Jun 2024 15:33:57 +0800</pubDate>
-      
-      <guid>http://eimy.ink/posts/2024/recent-jun/</guid>
-      <description>納得いかない二三事</description>
-    </item>
     
-    <item>
-      <title>一次开发LLM应用的尝试</title>
-      <link>http://eimy.ink/posts/2024/llm-app-dev/</link>
-      <pubDate>Tue, 21 May 2024 09:33:57 +0800</pubDate>
-      
-      <guid>http://eimy.ink/posts/2024/llm-app-dev/</guid>
-      <description>LLM-based Animation应用的开发笔记</description>
-    </item>
     
-    <item>
-      <title>一份人生管理实验报告（2023.6～2024.2）</title>
-      <link>http://eimy.ink/posts/2024/half-year-review/</link>
-      <pubDate>Mon, 11 Mar 2024 23:33:57 +0800</pubDate>
-      
-      <guid>http://eimy.ink/posts/2024/half-year-review/</guid>
-      <description>盘一下这大半年干了什么</description>
-    </item>
+        <item>
+        <title>近况乱报 · 四月刊</title>
+        <link>http://eimy.ink/posts/2025/recent-apr/</link>
+        <pubDate>Fri, 02 May 2025 21:33:57 +0800</pubDate>
+        
+        <guid>http://eimy.ink/posts/2025/recent-apr/</guid>
+        <description>EIMY http://eimy.ink/posts/2025/recent-apr/ -&lt;h3 id=&#34;八爷live&#34;&gt;八爷Live&lt;/h3&gt;
+&lt;p&gt;四月初去纽约特种兵式地看了米的world tour。和2019年看过的上海场比，八爷少了几分羞涩多了几分社牛，setlist少了点术力口多了点tieup（不知为什么到了这个年纪，发生什么都会有一些能对比研究的回忆谈）。听完还跟朋友一顿夸赞了大部分北美日音人的素质和Radio City Music Hall的音响，没有手机打闪和盗摄的沉浸式live体验真是太好了。&lt;/p&gt;
+&lt;h3 id=&#34;学业&#34;&gt;学业&lt;/h3&gt;
+&lt;p&gt;顺利完成了。想起学生时代总是做边际效益很低的努力，或许是完美主义的一种体现，明明八十分水平就能过关却花了两倍时间朝着满分努力然后搞到burnout。这学期想着往后并没有特别要求绩点的地方了，才敢第一次放下焦灼的心，真正本着非应试的态度对待学业，结果居然和过去也没什么差别。不禁幻想如果把曾经浪费的时间节约下来奉献给更喜欢的事情，现在都能做到什么地步了。&lt;/p&gt;
+&lt;h3 id=&#34;关于人际关系的反思--第n篇&#34;&gt;关于人际关系的反思 · 第N篇&lt;/h3&gt;
+&lt;p&gt;一段时间下来的发现，仅供自己参考：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;如果权力关系是平等的，那理想的交互模式也应该是相同的。&lt;/li&gt;
+&lt;li&gt;重要的课题是1）主体性 2）预期管理。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;关于未来--2025版&#34;&gt;关于未来 · 2025版&lt;/h3&gt;
+&lt;p&gt;这是最好的年纪（没有后半句）。我时常觉得自己即将挣脱家庭和学校的枷锁，尽管是以暂时失去庇护为代价。不过这毕竟只是消极自由，就现实而言，如果不牺牲一些别的，能自己规划的未来、做主的决定还是比较受限。&lt;/p&gt;
+&lt;p&gt;说了一堆废话，其实是最近在思考中短期的计划，近到今年年末，远到明后年，然后体会到了因为确定的事情太少，什么都无法决定的无力感。现在能做的也只是做好去年剧情卷土重来的心理准备，那太有生活了。&lt;/p&gt;
+&lt;p&gt;写于5/2 人在上海&lt;/p&gt;
+- http://eimy.ink/posts/2025/recent-apr/ - 2026 EIMY</description>
+        </item>
     
-    <item>
-      <title>2023年终总结：开放世界的主线之余</title>
-      <link>http://eimy.ink/posts/2023/year-in-retrospect/</link>
-      <pubDate>Mon, 25 Dec 2023 23:52:10 -0500</pubDate>
-      
-      <guid>http://eimy.ink/posts/2023/year-in-retrospect/</guid>
-      <description>先が長い&amp;hellip;</description>
-    </item>
     
-    <item>
-      <title>xv6 Lab 11 networking 实验记录</title>
-      <link>http://eimy.ink/posts/2023/xv6/lab-net/</link>
-      <pubDate>Tue, 31 Oct 2023 12:43:10 -0400</pubDate>
-      
-      <guid>http://eimy.ink/posts/2023/xv6/lab-net/</guid>
-      <description>MIT 6.S081 lab 11 networking 实验记录</description>
-    </item>
     
-    <item>
-      <title>xv6 Lab 9 file system 实验记录</title>
-      <link>http://eimy.ink/posts/2023/xv6/lab-fs/</link>
-      <pubDate>Sat, 28 Oct 2023 18:43:10 -0400</pubDate>
-      
-      <guid>http://eimy.ink/posts/2023/xv6/lab-fs/</guid>
-      <description>MIT 6.S081 lab 9 file system 实验记录</description>
-    </item>
+        <item>
+        <title>近况乱报 · 三月刊</title>
+        <link>http://eimy.ink/posts/2025/recent-mar/</link>
+        <pubDate>Mon, 31 Mar 2025 19:33:57 +0800</pubDate>
+        
+        <guid>http://eimy.ink/posts/2025/recent-mar/</guid>
+        <description>EIMY http://eimy.ink/posts/2025/recent-mar/ -&lt;h3 id=&#34;三月在干啥&#34;&gt;三月在干啥&lt;/h3&gt;
+&lt;p&gt;为了不忘记平淡的日复一日里都在干些什么，二月三月姑且恢复了记录日程的习惯。&lt;/p&gt;
+&lt;img src=&#34;./index.assets/blurred-calendar.png&#34; alt=&#34;blurred-calendar&#34; style=&#34;zoom: 33%;&#34; /&gt;
+&lt;p&gt;——然后发现并没有什么生活里程碑，大多是想着“明天一定”的稀疏平常的日子。&lt;/p&gt;
+&lt;p&gt;月初春假逃离波屯的冬天，去了新奥尔良玩，说是气分转换，其实本来也没在焦灼的状态。最值得一提的是新奥尔良的爵士氛围。尽管已经不再有种植园那样实际的奴隶制，还是可以在波本街上看到人们用日日夜夜的爵士表演和游行挣脱名为现代性的桎梏。&lt;/p&gt;
+&lt;p&gt;还记得那里随机出现的阴雨气候让人想起久别的梅雨季生活，过惯了被暴雪和零下十几度严寒软禁在家的生活，连潮湿低气压的雨天都显得眉清目秀。&lt;/p&gt;
+&lt;p&gt;关于美食，美国南部的cajun菜式口味偏重，很符合中国人的口味，比如蒜香黄油小龙虾真的很好吃，在我心目中甚至超越了十三香；炭烤生蚝也很绝，我是从来咽不下生蚝的人，但吃起chargrilled oyster就像吃萨莉亚的烤蜗牛一样简单；gumbo像是速食海鲜粥，我和朋友也都还挺喜欢。临走前吃了一家叫Bearcat的招牌可爱的brunch店，虽然有很多本地人和xhs网友推荐，但我没觉得它有特别惊艳，感觉像是上海会出现随即消失的网红店。&lt;/p&gt;
+&lt;h3 id=&#34;近期的打算&#34;&gt;近期的打算&lt;/h3&gt;
+&lt;p&gt;个人pj方面，一直想趁热情还没有完全消耗殆尽时写点nbn术专和夜鹿几个概念专的梳理，作为对逝去的青春的收尾（。）等到近期把学业上几个大任务了结了可能会花个几天完成。虽然不擅长文艺批评，但是对文献综述还是有点自信的。&lt;/p&gt;
+&lt;p&gt;写于4/1&lt;/p&gt;
+- http://eimy.ink/posts/2025/recent-mar/ - 2026 EIMY</description>
+        </item>
     
-    <item>
-      <title>xv6 Lab 5 lazy 实验记录</title>
-      <link>http://eimy.ink/posts/2023/xv6/lab-lazy/</link>
-      <pubDate>Sat, 30 Sep 2023 18:43:10 -0400</pubDate>
-      
-      <guid>http://eimy.ink/posts/2023/xv6/lab-lazy/</guid>
-      <description>MIT 6.S081 lab 5 lazy allocation 实验记录</description>
-    </item>
     
-    <item>
-      <title>xv6 Lab 4 traps 实验记录</title>
-      <link>http://eimy.ink/posts/2023/xv6/lab-traps/</link>
-      <pubDate>Thu, 28 Sep 2023 18:43:10 -0400</pubDate>
-      
-      <guid>http://eimy.ink/posts/2023/xv6/lab-traps/</guid>
-      <description>MIT 6.S081 lab 4 traps 实验记录</description>
-    </item>
     
-    <item>
-      <title>xv6 Lab 3 pgtbl 实验记录</title>
-      <link>http://eimy.ink/posts/2023/xv6/lab-pgtbl/</link>
-      <pubDate>Mon, 25 Sep 2023 18:43:10 -0400</pubDate>
-      
-      <guid>http://eimy.ink/posts/2023/xv6/lab-pgtbl/</guid>
-      <description>MIT 6.S081 lab3 页表 实验记录</description>
-    </item>
+        <item>
+        <title>近况乱报 · 二月刊</title>
+        <link>http://eimy.ink/posts/2025/recent-feb/</link>
+        <pubDate>Fri, 28 Feb 2025 15:33:57 +0800</pubDate>
+        
+        <guid>http://eimy.ink/posts/2025/recent-feb/</guid>
+        <description>EIMY http://eimy.ink/posts/2025/recent-feb/ -&lt;p&gt;这个月闲得很，但精神内耗帮我填满了时间空隙&amp;hellip;&lt;/p&gt;
+&lt;h3 id=&#34;忒修斯之船&#34;&gt;忒修斯之船&lt;/h3&gt;
+&lt;p&gt;有空的时候经常会翻翻各个平台上的黑历史，尝试从第三人称视角形成一个「曾经的我」的形象。但是最近看到以前的文字和想法时产生的物是人非感已经远超预期，看着逐渐失去能量的现状有种「以前的我去哪儿了」的悲伤，由此又开始思考忒修斯之船的关系（上次想到还是因为人际关系的变化）并开始和GPT老师聊天：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这个问题很有哲学意味，也很能共鸣。你在回顾自己这几年的变化时，其实是在思考“自我”的连续性——如果经历让你变得不同，曾经的那个“自己”还算是你的一部分吗？&lt;/p&gt;
+&lt;p&gt;从世俗角度来看，你的成长带来了客观的“成功”，但你感受到的“代价”是真实的——那种对表达、想象的狂热，那些曾经的情绪波动，似乎被现实的重压磨平了。你变得更高效、更理性，也或许更“稳重”了，但代价是少了一点“活力”和“热情”。&lt;/p&gt;
+&lt;p&gt;但换个角度想，你并没有“失去”那些东西，它们只是被当下的状态掩盖了。你的思考方式没有变——你仍然在深度思考自己是谁，你仍然在关注内心的火花，只是现在你站在另一个时间点，面对不同的挑战。这说明，你的“本质”仍然在，只是形态发生了变化。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;还是很想相信本质没变的。&lt;/p&gt;
+- http://eimy.ink/posts/2025/recent-feb/ - 2026 EIMY</description>
+        </item>
     
-    <item>
-      <title>近况乱报 · 九月刊</title>
-      <link>http://eimy.ink/posts/2023/recent/</link>
-      <pubDate>Mon, 11 Sep 2023 19:33:57 +0800</pubDate>
-      
-      <guid>http://eimy.ink/posts/2023/recent/</guid>
-      <description>日常 by HGDN</description>
-    </item>
     
-    <item>
-      <title>去上学的路上，日本旅游5.0</title>
-      <link>http://eimy.ink/posts/2023/commencement/</link>
-      <pubDate>Thu, 31 Aug 2023 20:46:43 +0800</pubDate>
-      
-      <guid>http://eimy.ink/posts/2023/commencement/</guid>
-      <description>去上学的路上：上海-东京</description>
-    </item>
     
-    <item>
-      <title>原神版本活动设计思路分析</title>
-      <link>http://eimy.ink/posts/2023/genshin-events/</link>
-      <pubDate>Sun, 20 Aug 2023 10:33:57 +0800</pubDate>
-      
-      <guid>http://eimy.ink/posts/2023/genshin-events/</guid>
-      <description>曾经想过去搞游戏</description>
-    </item>
+        <item>
+        <title>近况乱报 · 一月刊</title>
+        <link>http://eimy.ink/posts/2025/recent-jan/</link>
+        <pubDate>Fri, 31 Jan 2025 15:33:57 +0800</pubDate>
+        
+        <guid>http://eimy.ink/posts/2025/recent-jan/</guid>
+        <description>EIMY http://eimy.ink/posts/2025/recent-jan/ -&lt;h3 id=&#34;小事更新&#34;&gt;小事更新&lt;/h3&gt;
+&lt;p&gt;一月的最后一天以几封令人匪夷所思的邮件告终，定下一整年的安排原来只要几瞬间。这个月里推动了不少对未来影响巨大的决定，包括春天的规划、夏天的workload、秋冬的去向、明年的base等等。因为这些事给未来徒增了很多确定的压力和不确定的可能性，导致现在潜意识里不断在盘一件件事，又没办法好好休息。其中一件方便提及的是，可能以后再也看不到现在窗外的鹅毛大雪了，因为这会是我在波士顿的最后一个冬天，后半年大概会在几处地方流浪。&lt;/p&gt;
+&lt;p&gt;去年遗留的一片废墟的健康问题疑似是解决了，毕竟这个月也尽力在能摸鱼的时候多摸鱼了。不过我也知道什么事情都堆在下半年显然不会有好结局的，这种时候总是平等地羡慕所有能安定地流れに身を任せる的人。&lt;/p&gt;
+&lt;h3 id=&#34;at-field&#34;&gt;A.T. Field&lt;/h3&gt;
+&lt;p&gt;还是拉满比较好，基于经历来说。&lt;/p&gt;
+- http://eimy.ink/posts/2025/recent-jan/ - 2026 EIMY</description>
+        </item>
     
-    <item>
-      <title>CS61C 完结记录</title>
-      <link>http://eimy.ink/posts/2023/cs61c/</link>
-      <pubDate>Fri, 11 Aug 2023 14:33:57 +0800</pubDate>
-      
-      <guid>http://eimy.ink/posts/2023/cs61c/</guid>
-      <description>虽然和近期该做的事无关，但是看起来特别有趣所以还是抽时间学了</description>
-    </item>
     
-    <item>
-      <title>AWS Amplify记录</title>
-      <link>http://eimy.ink/posts/2023/aws-amplify/</link>
-      <pubDate>Tue, 18 Jul 2023 21:27:16 +0800</pubDate>
-      
-      <guid>http://eimy.ink/posts/2023/aws-amplify/</guid>
-      <description>playing with AWS</description>
-    </item>
     
-    <item>
-      <title>CS61B Gitlet 完结记录</title>
-      <link>http://eimy.ink/posts/2023/gitlet-fin/</link>
-      <pubDate>Thu, 13 Jul 2023 00:00:00 +0000</pubDate>
-      
-      <guid>http://eimy.ink/posts/2023/gitlet-fin/</guid>
-      <description>♪(´ε｀ )</description>
-    </item>
+        <item>
+        <title>2024年终总结：盛宴之后</title>
+        <link>http://eimy.ink/posts/2024/year-in-retrospect/</link>
+        <pubDate>Tue, 31 Dec 2024 10:52:10 -0500</pubDate>
+        
+        <guid>http://eimy.ink/posts/2024/year-in-retrospect/</guid>
+        <description>EIMY http://eimy.ink/posts/2024/year-in-retrospect/ -&lt;p&gt;今年在各种意义上都是充满变化的一年，两年前的主线任务在去年之上有了进展，更新了一些对人事的观念，发现了新的待解决的人生课题。&lt;/p&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;写作时是被backache折磨的第五天 所以只有力气写短短的一点感想&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;0健康&#34;&gt;0%健康&lt;/h3&gt;
+&lt;p&gt;去年的年终总结里提到了当时的看法，说决定在2024年更加认真地按照「局部最优解」的方式来生活，但今年其实并没有做到。&lt;/p&gt;
+&lt;p&gt;那今年在干什么呢？年末的时候胡男发了一首叫「50%」的歌，我的理解是说不要牺牲健康用100%的精力去对待每一件事，而这就是我疑似在干的事——以健康为代价通过收集世俗标签试图证明自身价值。只论主线的话，从结果上说今年收获达到了目标，二月运气很好地找到了24summer internship，秋天找25intern时收到了10家的面试，实际面了8家，最后有几个offer。从代价上说又好像很不值得，因为在十月和十一月的时候健康状况已经变得前所未有地差了，现在显然还没完全好（一个月前写过一样的话）。不至于影响生命，但确实影响了生活，这是明年最棘手的课题之一。&lt;/p&gt;
+&lt;p&gt;不过即使到了这个程度我也暂时不会做出很大的计划变更，打算熬过明年等到事情尘埃落定了再考虑代价。今年唯一的变化是价值观，我发现有些事没想象中的那么重要，于是现在能够轻松地接受任何结局了。&lt;/p&gt;
+&lt;h3 id=&#34;再观友情&#34;&gt;再观友情&lt;/h3&gt;
+&lt;p&gt;人际关系是后半年我思考最多的一个问题，我对朋友的定义在观察和摩擦中发生了变化。契机是今年某位朋友的人际关系有所变动，断崖式地影响了我们十多年的友情，由此我发现友情对于部分人来说是一种用来弥补缺失的、可以随时舍弃的替代品，与时间的积累无显著相关性，这倒是没什么问题，问题仅在于我没有更早地发现观念上的差异。&lt;/p&gt;
+&lt;p&gt;就这个问题和上一辈人进行了几次交流以后，我意识到两件事：1）自己对人际关系的理解是合理的，非血缘的社会关系的本质就是有意识或潜意识的物质/精神价值交换，虽然被评论说很功利，但目前我没能找到反例。我觉得只是包括我在内的普通人不会显式地带着这样的想法而已，仔细一想就是那么回事。2）但是过去的交友观多少有点幼稚，一部分是性格使然，一部分是经验所限。具体也没什么可说的，以此为契机重新思考了一下现状，来年会努力找到一种更健康的没那么拧巴的方式来平衡不同的关系，做一些断舍离。&lt;/p&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;几天前写的 不知为什么写成了散文&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;大家其实在差不多的地方&#34;&gt;「大家其实在差不多的地方」&lt;/h3&gt;
+&lt;p&gt;圣诞节前和停停教授出门逛逛，路上我们聊了很多。&lt;/p&gt;
+&lt;p&gt;我们应该是不太相似的人。抬头看到落日时分的天空，几乎是同时，我长叹一口气，她发出高兴的赞叹。我们对夜晚的感受太不同了，她的傍晚是个人生活的序幕，是一天真正的精神起点；而我记忆中的晚上只有咖啡和白天剩下的毫无意义的待办事项，所以天黑对我来说只会像失败结算画面一样引起不适。我说这里的冬天夜晚太漫长了，可以的话希望一直是白天，她嘲笑我根本不是什么三夜人，应该去听「ずっと真昼中でいいのに。」「ヒルシカ」，感谢这些奇怪的笑话连结了我们。&lt;/p&gt;
+&lt;p&gt;走累了我们就坐在公园的长椅上聊聊之后的打算。我说我最近不知道该做什么好了，因为以前总会设置一个有定形的理想结局，花很大代价去实现，颇有christianity世界观里理想乡永远在afterlife的感觉，但最近到头来发现，目标虽然实现了，但身心均受重创，当下的快乐和长期的意义都还是被悬置的状态，这样自己骗自己的做法实在太蠢了。她也描绘了对明年的设想，听起来似乎是打算接受不定形的存在，在变化中即兴思考出路。简直是教科书式的存在主义做法，我发自内心地佩服敢于面对未知和不确定的人，这或许是我来年的努力方向。&lt;/p&gt;
+&lt;p&gt;聊到烦恼的时候我们就有不少共鸣。她描述了工作时同事同一个模子刻出来的假期生活，我想起了其他几个朋友的近况，尽管我们也是普通人，叙述那种普通人生活的时候却有种克鲁苏感。她提到了考上medschool的朋友对自己陷入轨道的不满，停停有同感，正在计划着逃离，我说我也是，每次发现自己走到了一个一眼望到头的轨道上就会逃跑，这已经是第三四次了，我甚至发现比起逃跑的结果，我更享受逃跑时自我麻痹的过程。我们都觉得那种autofill一样的工业化生活很可怕，但是大概最后没人能回避不想进入的生活模式、走一步看一步的未来、西西弗斯式的虚无感、有朝一日不得不接受的平庸现实。&lt;/p&gt;
+&lt;p&gt;「所以我有时候觉得，大家其实在差不多的地方」，她轻声地补了一句。虽然大家在不同处境里，有不同的爱好、追求和成就，但光鲜背后淡淡的悲剧感似乎是所有人共通的——我们最后得出了这样的结论。- 你能想到什么办法吗？- 听说是存在主义。&lt;/p&gt;
+&lt;p&gt;后来就这样和停停坐在Boston Commons溜冰场旁聊了很久，就像我拖延思考沉重的课题一样，我三番五次地推迟本该离开的时间。这是为数不多我有权利反悔的选择，到了明年的冬天，我又会无奈地和差不多的大家走散。&lt;/p&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;感想不够 流水账来凑&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;附录月表&#34;&gt;附录：月表&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;旅游月表&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;一月：Boston&lt;/p&gt;
+&lt;p&gt;三月：Orlando, Philadelphia&lt;/p&gt;
+&lt;p&gt;五月：DC&lt;/p&gt;
+&lt;p&gt;七月：Providence&lt;/p&gt;
+&lt;p&gt;八月：Montreal&lt;/p&gt;
+&lt;p&gt;十月：Philadelphia&lt;/p&gt;
+&lt;p&gt;十一月：大阪、宇治、京都、东京、河口湖&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;小事月表&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;一月跨年时请yn来做客；和停停去看音乐剧；面试。二月还有几场面试；和室友&amp;amp;同学们过年。&lt;/p&gt;
+&lt;p&gt;三月春假去奥兰多玩，回来路上去费城呆了几天；和停停在公寓附近春游。四月开始练电吉他。五月去DC玩&amp;amp;见同学；终于获得了ssn。&lt;/p&gt;
+&lt;p&gt;六月开始搬砖。七月搬了家；看胡男线上live。八月离职；和yn去蒙村旅游。&lt;/p&gt;
+&lt;p&gt;九月上学；看了大象体操live。十月参加cf；面很多试。十一月去日本看胡男夜鹿live。十二月面试；去同学家过圣诞。&lt;/p&gt;
+- http://eimy.ink/posts/2024/year-in-retrospect/ - 2026 EIMY</description>
+        </item>
     
-    <item>
-      <title>日本中部旅游Plog 2</title>
-      <link>http://eimy.ink/posts/2023/plog-japan-ii/</link>
-      <pubDate>Sat, 24 Jun 2023 14:33:57 +0800</pubDate>
-      
-      <guid>http://eimy.ink/posts/2023/plog-japan-ii/</guid>
-      <description>高山 富山 白川乡</description>
-    </item>
     
-    <item>
-      <title>日本关西旅游Plog 1</title>
-      <link>http://eimy.ink/posts/2023/plog-japan-i/</link>
-      <pubDate>Wed, 21 Jun 2023 14:33:57 +0800</pubDate>
-      
-      <guid>http://eimy.ink/posts/2023/plog-japan-i/</guid>
-      <description>讲五个不好笑的冷笑话</description>
-    </item>
     
-    <item>
-      <title>Graduation</title>
-      <link>http://eimy.ink/posts/2023/graduation/</link>
-      <pubDate>Tue, 13 Jun 2023 20:54:40 +0800</pubDate>
-      
-      <guid>http://eimy.ink/posts/2023/graduation/</guid>
-      <description>「がんばってもそれが公正に報われない社会があなたたちを待っています」</description>
-    </item>
-    
-    <item>
-      <title>我的《本科择业编年史》</title>
-      <link>http://eimy.ink/posts/2023/undergrad-chronicle/</link>
-      <pubDate>Mon, 05 Jun 2023 20:33:57 +0800</pubDate>
-      
-      <guid>http://eimy.ink/posts/2023/undergrad-chronicle/</guid>
-      <description>Trust that the dots will somehow connect in your future.</description>
-    </item>
-    
-    <item>
-      <title>61B Notes - Hashing</title>
-      <link>http://eimy.ink/posts/2023/hashing/</link>
-      <pubDate>Fri, 31 Mar 2023 20:35:43 +0800</pubDate>
-      
-      <guid>http://eimy.ink/posts/2023/hashing/</guid>
-      <description>\hashbrown/\hashbrown/</description>
-    </item>
-    
-    <item>
-      <title>61B Notes - B-Trees &amp; LLRB</title>
-      <link>http://eimy.ink/posts/2023/b-tree-llrb/</link>
-      <pubDate>Tue, 28 Mar 2023 22:36:43 +0800</pubDate>
-      
-      <guid>http://eimy.ink/posts/2023/b-tree-llrb/</guid>
-      <description>B树と旋转と红黑色树</description>
-    </item>
-    
-    <item>
-      <title>61B Notes - ADT and BST</title>
-      <link>http://eimy.ink/posts/2023/bst/</link>
-      <pubDate>Mon, 27 Mar 2023 22:36:43 +0800</pubDate>
-      
-      <guid>http://eimy.ink/posts/2023/bst/</guid>
-      <description>ヽ(´o｀；</description>
-    </item>
-    
-    <item>
-      <title>61B Notes - Asymptotics II</title>
-      <link>http://eimy.ink/posts/2023/asymptotics2-notes/</link>
-      <pubDate>Fri, 24 Mar 2023 20:11:22 +0800</pubDate>
-      
-      <guid>http://eimy.ink/posts/2023/asymptotics2-notes/</guid>
-      <description>copied from the textbook</description>
-    </item>
-    
-    <item>
-      <title>61B Notes - Asymptotics</title>
-      <link>http://eimy.ink/posts/2023/asymptotics-notes/</link>
-      <pubDate>Wed, 22 Mar 2023 18:19:26 +0800</pubDate>
-      
-      <guid>http://eimy.ink/posts/2023/asymptotics-notes/</guid>
-      <description>halfway through 61b!</description>
-    </item>
-    
-    <item>
-      <title>Intel Mac迁移至M1 Mac记录</title>
-      <link>http://eimy.ink/posts/2023/mbp-setup/</link>
-      <pubDate>Wed, 15 Mar 2023 10:12:10 +0800</pubDate>
-      
-      <guid>http://eimy.ink/posts/2023/mbp-setup/</guid>
-      <description>再见了，所有的intel mbp(哦咩跌多パチパチ)</description>
-    </item>
-    
-    <item>
-      <title>日本Live购票攻略</title>
-      <link>http://eimy.ink/posts/2023/live-japan/</link>
-      <pubDate>Thu, 23 Feb 2023 15:26:39 +0800</pubDate>
-      
-      <guid>http://eimy.ink/posts/2023/live-japan/</guid>
-      <description>论文开题副产物</description>
-    </item>
-    
-    <item>
-      <title>First Post</title>
-      <link>http://eimy.ink/posts/first-post/</link>
-      <pubDate>Sat, 24 Dec 2022 01:11:44 +0800</pubDate>
-      
-      <guid>http://eimy.ink/posts/first-post/</guid>
-      <description>一篇为了填充个人主页临时拼凑的自我介绍</description>
-    </item>
-    
-    <item>
-      <title>关于</title>
-      <link>http://eimy.ink/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://eimy.ink/about/</guid>
-      <description>about</description>
-    </item>
-    
+        <item>
+        <title>近况乱报 · 十一月刊</title>
+        <link>http://eimy.ink/posts/2024/recent-nov/</link>
+        <pubDate>Sat, 30 Nov 2024 23:07:57 +0800</pubDate>
+        
+        <guid>http://eimy.ink/posts/2024/recent-nov/</guid>
+        <description>EIMY http://eimy.ink/posts/2024/recent-nov/ -&lt;h3 id=&#34;十月后日谈&#34;&gt;十月后日谈&lt;/h3&gt;
+&lt;p&gt;简短地写点抽象话。&lt;/p&gt;
+&lt;p&gt;十月下半和十一月上旬过得很糟糕，一度有点躯体化症状，中间去日本旅游休息了几天，即使这样还是到现在都还没完全恢复过来，叠加倒时差和期末实在有点地狱。&lt;/p&gt;
+&lt;p&gt;总之，好消息是去向大概尘埃落定了，还剩行程需要下周去跟两边商量。坏消息是事情还没有完全结束，怪我太贪心想要二选二，但是情况大概率只允许二选一，所以我想出的解决办法是有三就能选二了。只是最近状态实在不太行，还在犹豫要不要把最后一场推到明年。&lt;/p&gt;
+&lt;h3 id=&#34;no-music-no-life&#34;&gt;「No Music No Life」&lt;/h3&gt;
+&lt;p&gt;面完十一月最后一场的第二天就乘上了去日本的飞机。不过不是说走就走，这次行程是暑假就定下来的，一开始就是冲着higedan和yorushika的live去的——在几年内目睹了几个喜欢的音乐人的病/逝以后不敢再等下一年了。&lt;/p&gt;
+&lt;p&gt;hgdn的live是一如既往的纯粹的酒神式享受，「Rejoice」的选曲、乐队编排、唱功、互动、观众配合在我心中都是满分，即使只为了这一场演出去我也会觉得是值得的。正因如此反倒没有什么想过多评价的。&lt;/p&gt;
+&lt;p&gt;而另外一边，对夜鹿的「前世」再演有很多感想没敢在sns上说&amp;hellip;单品来看不论是歌曲还是朗诵都很好，但我的整体感受是，nbn选择的作品表现形式（Live）和他的作品本身有一丝割裂，这一点在部分在第四堵墙边缘反复横跳的不知所措的观众们身上有所体现。这样的演出或许放在音乐剧/舞台剧那样有观众-演员分隔的体系下会比Live更合适。不过还是很高兴等了六七年终于能看到喜欢的乐队，二十多岁的自己实现了十几岁时的梦想。&lt;/p&gt;
+&lt;p&gt;「No Music No Life」是塔店的slogan，在东京街头散步的时候看到一个巨大的店门看板突然很感动。那几天脑子里漂浮着「如果回不去的话就不回了，说明我不属于那里」的想法，平日里如此谨慎的人在涉及音乐的时候就会变得鲁莽。音乐永远流淌在我的生命里，希望有一天我有创作而不只是消费艺术的能力，为了能做到这个会继续努力！&lt;/p&gt;
+- http://eimy.ink/posts/2024/recent-nov/ - 2026 EIMY</description>
+        </item>
     
     
   </channel>
-</rss>
+</rss> 

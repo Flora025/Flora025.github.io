@@ -1,363 +1,576 @@
 <!DOCTYPE html>
-<html translate="no" lang="zh" dir="auto">
-
-<head><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
-<title>61B Notes - B-Trees &amp; LLRB | EIMY</title>
-<meta name="keywords" content="数据结构">
-<meta name="description" content="B树と旋转と红黑色树">
-<meta name="author" content="eimy">
-<link rel="canonical" href="http://eimy.ink/posts/2023/b-tree-llrb/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.3f09ba765b9df309056d4698ef69e5ff8d1e95c6d19db8f6e8faedc07b090157.css" integrity="sha256-Pwm6dlud8wkFbUaY72nl/40elcbRnbj26PrtwHsJAVc=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.f83806d9904cccf883edf075a5ce1d71136879702650d07aca8c76361a3e467b.js" integrity="sha256-&#43;DgG2ZBMzPiD7fB1pc4dcRNoeXAmUNB6yox2Nho&#43;Rns="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="http://eimy.ink/favicons/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://eimy.ink/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://eimy.ink/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://eimy.ink/apple-touch-icon.png">
-<link rel="mask-icon" href="http://eimy.ink/safari-pinned-tab.svg">
-<meta name="theme-color" content="#2e2e33">
-<meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="zh" href="http://eimy.ink/posts/2023/b-tree-llrb/">
-<link rel="alternate" hreflang="en" href="http://eimy.ink/en/posts/2023/b-tree-llrb/">
-<noscript>
-    <style>
-        #theme-toggle,
-        .top-link {
-            display: none;
-        }
-
-    </style>
-    <style>
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --theme: rgb(29, 30, 32);
-                --entry: rgb(46, 46, 51);
-                --primary: rgb(218, 218, 219);
-                --secondary: rgb(155, 156, 157);
-                --tertiary: rgb(65, 66, 68);
-                --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
-                --code-bg: rgb(55, 56, 62);
-                --border: rgb(51, 51, 51);
-            }
-
-            .list {
-                background: var(--theme);
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
-            }
-        }
-
-    </style>
-</noscript>
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" integrity="sha384-GvrOXuhMATgEsSwCs4smul74iXGOixntILdUW9XmUC6+HX0sLNAK3q71HotJqlAn" crossorigin="anonymous">
+<html lang="zh"><head>
+<title>61B Notes - B-Trees &amp; LLRB</title>
 
 
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js" integrity="sha384-cpW21h6RZv/phavutF+AuVYrr+dA8xD9zs6FwLpaCct6O9ctzYFfFr4dgmgccOTx" crossorigin="anonymous"></script>
 
 
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
-    onload="renderMathInElement(document.body);"></script>
+<meta charset="utf-8">
+<meta name="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5, user-scalable=5" name="viewport">
+<meta content="telephone=no" name="format-detection">
+<meta name="description" content="">
+<meta name="renderer" content="webkit">
+<meta name="theme-color" content="#ffffff">
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            renderMathInElement(document.body, {
-                delimiters: [
-                    {left: "$$", right: "$$", display: true},
-                    {left: "$", right: "$", display: false}
-                ]
-            });
-        });
-    </script><meta property="og:title" content="61B Notes - B-Trees &amp; LLRB" />
+
+
+<meta property="og:title" content="61B Notes - B-Trees &amp; LLRB" />
 <meta property="og:description" content="B树と旋转と红黑色树" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://eimy.ink/posts/2023/b-tree-llrb/" /><meta property="og:image" content="http://eimy.ink/papermod-cover.png"/><meta property="article:section" content="posts" />
+<meta property="og:url" content="http://eimy.ink/posts/2023/b-tree-llrb/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-03-28T22:36:43+08:00" />
 <meta property="article:modified_time" content="2023-03-28T22:36:43+08:00" />
 
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="http://eimy.ink/papermod-cover.png"/>
 
+
+
+
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="61B Notes - B-Trees &amp; LLRB"/>
 <meta name="twitter:description" content="B树と旋转と红黑色树"/>
 
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position":  1 ,
-      "name": "Posts",
-      "item": "http://eimy.ink/posts/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
-      "name": "61B Notes - B-Trees \u0026 LLRB",
-      "item": "http://eimy.ink/posts/2023/b-tree-llrb/"
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "61B Notes - B-Trees \u0026 LLRB",
-  "name": "61B Notes - B-Trees \u0026 LLRB",
-  "description": "B树と旋转と红黑色树",
-  "keywords": [
-    "数据结构"
-  ],
-  "articleBody": "B-Tree, LLRB Hug一般会顺滑地衔接/引入知识点，但这些衔接部分写在笔记里多少有点啰嗦，所以这里会略写。\nBST的局限 先引入两个BST的属性：height和average depth height：determines the worst case runtime to find a node average depth：determines the average case runtime to find a node 然后看看BST的各种属性 Worst case $ \\Theta( N)$ height Best case $ \\Theta(log N)$ height Random trees have $ \\Theta(log N)$ average depth and height (bushy) 随机情况下表现还不错，问题是现实中会不断从右边insert数据，这会导致不平衡，比如 add(“01-Jan-2019, 10:31:00”) add(“01-Jan-2019, 18:51:00”) B-Trees / 2-3 trees / 2-3-4 trees 接上，为了防止不平衡，我们不断把新的key insert进原来的node中，然后进行node splitting。\n于是就出现了新的树B-trees。\nB-trees should be called juicy trees.\n定义 B-tree是一种自平衡树，总的分为以下几类： B-trees of order L=3 (like we used today) are also called a 2-3-4 tree or a 2-4 tree（如图） B-trees of order L=2 are also called a 2-3 tree （如图） B-trees of large L are used in practice for databases etc. 构成机制 （node-split）\n1/ Insert into a leaf until the number of keys exceeds L\n2/ In case of excessive keys, send the second (1 st) node up, and split the node\n几个例子：\n【非连锁反应】 【涉及到连锁反应】 【涉及到root split】 性质 （or Invariants）\n基于以上构成机制，可以得出B-tree的一些性质。B-trees are balanced in that:\nAll leaves must be the same distance from the source\n考虑：涉及到root-split，height+1，所有node都会下降一层； 如不涉及root-split，height不变 A non-leaf node with k items must have exactly k+1 children\nRuntime Analysis Height：Θ(log N) for both worst cast and best case best case是每个node都有L个items（满的） $\\Rightarrow$ Height grows with $\\Theta(log_{L+1}N)$ worst case是每个node只有1个item $\\Rightarrow$ 所以和BST一样Height grows with $\\Theta(log_2N)$ operation runtime: contains() and add() are both $O(log N)$ 【worst case】contains(): $C = （层数）log_{L+1}{N} \\space·\\space （node \\space per \\space layer）1 \\space·\\space （work \\space per \\space node）L$ 【worst case】add(): 多了一些split operation，但化简后是一样的 B-Tree的局限 猜猜为什么上面没有代码实现部分\nLeft Leaning Red-Black Trees 定义 A BST with left glue links that represents a 2-3 tree is often called a “Left Leaning Red Black Binary Search Tree” or LLRB\n可以理解为：LLRB是一种和某一个B-Tree对应的BST。具体备注：\nLLRBs are normal BSTs! There is a 1-1 correspondence between an LLRB and an equivalent 2-3 tree. The red is just a convenient fiction. Red links don’t “do” anything special 性质 和BST一样\n尤其需要注意的几个性质：\nAll leaves must be the same distance from the source（只数black links） No node has two red links 构成机制 原理上是基于2-3 tree，将node中较小的item下移，如 实际上，因为不可能先实现2-3 tree，再调整成LLRB。在代码中会利用red link, rotate, flip color直接实现LLRB：\nalways use a red link when inserting （类比在2-3中会先往node中添加item）\nwhen inserting items on the right, rotateLeft()\nwhen inserting on the left twice, rotateRight()\n(a new rule) allows representing temporary 4-nodes as BST nodes with two red links\nIn case of tmp 4-nodes, flipcolor().\nIf a rotation or flip operation cause an additional violation, fix it\n代码实现 以下是这些方法的代码实现，包括调整过的Node Class、put()、新增的rotate系列、flipColors()和isred()。\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 // LLRB insertion (p.439) public class RedBlackBST\u003cKey extends Comparable\u003cKey\u003e, Value\u003e { private Node root; private class Node // BST node with color bit (see page 433) private boolean isRed(Node h) // See page 433. private Node rotateLeft(Node h) // See page 434. private Node rotateRight(Node h) // See page 434. private void flipColors(Node h) // See page 436. private int size() // See page 398. public void put(Key key, Value val) { // Search for key. Update value if found; grow table if new. root = put(root, key, val); root.color = BLACK; } private Node put(Node h, Key key, Value val) { if (h == null) { // Do standard insert, with red link to parent. return new Node(key, val, 1, RED); } int cmp = key.compareTo(h.key); if (cmp \u003c 0) { h.left = put(h.left, key, val); } else if (cmp \u003e 0) { h.right = put(h.right, key, val); } else { h.val = val; } if (isRed(h.right) \u0026\u0026 !isRed(h.left)) { // 基于BST只需要修改这里三个clause h = rotateLeft(h); } if (isRed(h.left) \u0026\u0026 isRed(h.left.left)) { h = rotateRight(h); } if (isRed(h.left) \u0026\u0026 isRed(h.right)) { flipColors(h); h.N = size(h.left) + size(h.right) + 1; return h; } } // some omitted methods within RedBlackBST Class private boolean isRed(Node x) { if (x == null) return false; return x.color == RED; } private Node rotateLeft(Node h) { // rotateRight() is similar Node x = h.right; h.right = x.left; x.left = h; x.color = h.color; h.color = RED; x.N = h.N; h.N = 1 + size(h.left) + size(h.right); return x; } private void flipColors(Node h) { h.color = RED; h.left.color = BLACK; h.right.color = BLACK; } } // delete比较麻烦，详细见p.441. Runtime Analysis Height: $O(logN)$ contains(): $O(logN)$ insert(): $O(logN)$ $O(logN)$ to add the new node $O(logN)$ for rotation and color flip operations per insert （化简后忽略常数 所以还是 $O(logN)$） Summary of search trees 逻辑梳理 Cited from the slides [lec 18, 19sp]\nBinary search trees** are simple, but they are subject to imbalance.\n2-3 Trees (B Trees) are balanced, but painful to implement and relatively slow.\nLLRBs insertion is simple to implement (but delete is hard).\nWorks by maintaining mathematical bijection with a 2-3 trees. Java’s TreeMap is a red-black tree (not left leaning).\nMaintains correspondence with 2-3-4 tree (is not a 1-1 correspondence).\nAllows glue links on either side (see Red-Black Tree).\nMore complex implementation, but significantly (?) faster.\nComplexity/runtime对比 WC = worst case\nBST B-Trees LLRB Height $O(logN)$ $\\Theta(logN)$ $O(logN)$ WC：$O(N)$ WC：$O(log N)$ WC：$O(log N)$ contains() $O(logN)$ $O(log N)$ $O(logN)$ WC：$O(N)$ WC：$O(log N)$ WC：$O(log N)$ insert() $O(logN)$ $O(log N)$ $O(logN)$ WC：$O(N)$ WC：$O(log N)$ WC：$O(log N)$ 说明：B树和LLRB是self-balanced（不会出现BST变成LinkedList的极端情况），所以比较快。\n总的来说：\nB-trees的自平衡避免了BST的worst-cast complexity， 而LLRB不仅继承了B-trees的自平衡特性，还继承了BST易于实现的特点。 ",
-  "wordCount" : "878",
-  "inLanguage": "zh",
-  "datePublished": "2023-03-28T22:36:43+08:00",
-  "dateModified": "2023-03-28T22:36:43+08:00",
-  "author":{
-    "@type": "Person",
-    "name": "eimy"
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "http://eimy.ink/posts/2023/b-tree-llrb/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "EIMY",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "http://eimy.ink/favicons/favicon.ico"
-    }
-  }
-}
-</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+<link rel="icon" href="http://eimy.ink/favicons/favicon.ico">
+
+
+
+      <script src="/js/toc.js"></script>
+    
+    <link type="text/css" rel="stylesheet" href="/vendor/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="/scss/dark-mode.min.1b8d756f5775440d933c9656c9e438b615102519cb3d0c904c91deeaea446782.css" integrity="sha256-G411b1d1RA2TPJZWyeQ4thUQJRnLPQyQTJHe6upEZ4I=" media="screen">
+
+
+<link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Material+Icons">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/noto-serif-sc@5.2.8/index.css">
+<link rel="stylesheet" href="/css/custom-font.css">
+<link rel="stylesheet" href="/css/custom-texture.css">
+
+
 </head>
+<body>
+    	<div id="app"><div class="single-column-drawer-container" id="drawer"
+     v-bind:class="{ 'single-column-drawer-container-active': isDrawerOpen }">
+    <div class="drawer-content">
+        <div class="drawer-menu">
+            
+            
+            
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/archives/">
+                    归档
+                </a>
+                
+            
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/categories/">
+                    分类
+                </a>
+                
+            
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/tags/">
+                    标签
+                </a>
+                
+            
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/search/">
+                    搜索
+                </a>
+                
+            
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/about/">
+                    关于
+                </a>
+                
+            
+            
+            <div class="toc">
 
-<body class="" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
 
-</script>
-
-<header class="header">
-    <nav class="nav">
-        <div class="logo">
-            <a href="http://eimy.ink/" accesskey="h" title="EIMY (Alt + H)">EIMY</a>
-            <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                </button>
-                <ul class="lang-switch"><li>|</li>
-                    <li>
-                        <a href="http://eimy.ink/en/" title="English"
-                            aria-label="English">English</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <ul id="menu">
-            <li>
-                <a href="http://eimy.ink/archives" title="归档">
-                    <span>归档</span>
-                </a>
-            </li>
-            <li>
-                <a href="http://eimy.ink/categories/" title="分类">
-                    <span>分类</span>
-                </a>
-            </li>
-            <li>
-                <a href="http://eimy.ink/tags/" title="标签">
-                    <span>标签</span>
-                </a>
-            </li>
-            <li>
-                <a href="http://eimy.ink/search/" title="搜索">
-                    <span>搜索</span>
-                </a>
-            </li>
-            <li>
-                <a href="http://eimy.ink/about/" title="关于">
-                    <span>关于</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
-</header>
-<main class="main post">
-
-<article class="post-single">
-  <header class="post-header">
-    <div class="breadcrumbs"><a href="http://eimy.ink/">主页</a>&nbsp;»&nbsp;<a href="http://eimy.ink/posts/">Posts</a></div>
-    <h1 class="post-title">
-      61B Notes - B-Trees &amp; LLRB
-    </h1>
-    <div class="post-meta"><span title='2023-03-28 22:36:43 +0800 +0800'>三月 28, 2023</span>&nbsp;·&nbsp;eimy&nbsp;|&nbsp;语言:
-<ul class="i18n_list">
-    <li>
-        <a href="http://eimy.ink/en/posts/2023/b-tree-llrb/">English</a>
-    </li>
-</ul>
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- 目录 -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#b-tree-llrb" class="nav-b-tree-llrb">
+									B-Tree, LLRB
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#bst%e7%9a%84%e5%b1%80%e9%99%90" class="nav-bst的局限">
+									BST的局限
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#b-trees--2-3-trees--2-3-4-trees" class="nav-b-trees--2-3-trees--2-3-4-trees">
+									B-Trees / 2-3 trees / 2-3-4 trees
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e5%ae%9a%e4%b9%89" class="nav-定义">
+									定义
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e6%9e%84%e6%88%90%e6%9c%ba%e5%88%b6" class="nav-构成机制">
+									构成机制
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e6%80%a7%e8%b4%a8" class="nav-性质">
+									性质
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#runtime-analysis" class="nav-runtime-analysis">
+									Runtime Analysis
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#b-tree%e7%9a%84%e5%b1%80%e9%99%90" class="nav-b-tree的局限">
+									B-Tree的局限
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#left-leaning-red-black-trees" class="nav-left-leaning-red-black-trees">
+									Left Leaning Red-Black Trees
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e5%ae%9a%e4%b9%89-1" class="nav-定义-1">
+									定义
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e6%80%a7%e8%b4%a8-1" class="nav-性质-1">
+									性质
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e6%9e%84%e6%88%90%e6%9c%ba%e5%88%b6-1" class="nav-构成机制-1">
+									构成机制
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0" class="nav-代码实现">
+									代码实现
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#runtime-analysis-1" class="nav-runtime-analysis-1">
+									Runtime Analysis
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#summary-of-search-trees" class="nav-summary-of-search-trees">
+									Summary of search trees
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e9%80%bb%e8%be%91%e6%a2%b3%e7%90%86" class="nav-逻辑梳理">
+									逻辑梳理
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#complexityruntime%e5%af%b9%e6%af%94" class="nav-complexityruntime对比">
+									Complexity/runtime对比
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
 
 </div>
-  </header> <aside id="toc-container" class="toc-container wide">
-    <div class="toc">
-        <details  open>
-            <summary accesskey="c" title="(Alt + C)">
-                <span class="details">目录</span>
-            </summary>
-
-            <div class="inner"><ul>
-                    <li>
-                        <a href="#b-tree-llrb" aria-label="B-Tree, LLRB">B-Tree, LLRB</a><ul>
-                            
-                    <li>
-                        <a href="#bst%e7%9a%84%e5%b1%80%e9%99%90" aria-label="BST的局限">BST的局限</a></li>
-                    <li>
-                        <a href="#b-trees--2-3-trees--2-3-4-trees" aria-label="B-Trees / 2-3 trees / 2-3-4 trees">B-Trees / 2-3 trees / 2-3-4 trees</a><ul>
-                            
-                    <li>
-                        <a href="#%e5%ae%9a%e4%b9%89" aria-label="定义">定义</a></li>
-                    <li>
-                        <a href="#%e6%9e%84%e6%88%90%e6%9c%ba%e5%88%b6" aria-label="构成机制">构成机制</a></li>
-                    <li>
-                        <a href="#%e6%80%a7%e8%b4%a8" aria-label="性质">性质</a></li>
-                    <li>
-                        <a href="#runtime-analysis" aria-label="Runtime Analysis">Runtime Analysis</a></li>
-                    <li>
-                        <a href="#b-tree%e7%9a%84%e5%b1%80%e9%99%90" aria-label="B-Tree的局限">B-Tree的局限</a></li></ul>
-                    </li>
-                    <li>
-                        <a href="#left-leaning-red-black-trees" aria-label="Left Leaning Red-Black Trees">Left Leaning Red-Black Trees</a><ul>
-                            
-                    <li>
-                        <a href="#%e5%ae%9a%e4%b9%89-1" aria-label="定义">定义</a></li>
-                    <li>
-                        <a href="#%e6%80%a7%e8%b4%a8-1" aria-label="性质">性质</a></li>
-                    <li>
-                        <a href="#%e6%9e%84%e6%88%90%e6%9c%ba%e5%88%b6-1" aria-label="构成机制">构成机制</a></li>
-                    <li>
-                        <a href="#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0" aria-label="代码实现">代码实现</a></li>
-                    <li>
-                        <a href="#runtime-analysis-1" aria-label="Runtime Analysis">Runtime Analysis</a></li></ul>
-                    </li>
-                    <li>
-                        <a href="#summary-of-search-trees" aria-label="Summary of search trees">Summary of search trees</a><ul>
-                            
-                    <li>
-                        <a href="#%e9%80%bb%e8%be%91%e6%a2%b3%e7%90%86" aria-label="逻辑梳理">逻辑梳理</a></li>
-                    <li>
-                        <a href="#complexityruntime%e5%af%b9%e6%af%94" aria-label="Complexity/runtime对比">Complexity/runtime对比</a>
-                    </li>
-                </ul>
-                </li>
-                </ul>
-                </li>
-                </ul>
-            </div>
-        </details>
+            
+        </div>
     </div>
-</aside>
-<script>
-    let activeElement;
-    let elements;
-    window.addEventListener('DOMContentLoaded', function (event) {
-        checkTocPosition();
-
-        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
-         
-         activeElement = elements[0];
-         const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
-         document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
-     }, false);
-
-    window.addEventListener('resize', function(event) {
-        checkTocPosition();
-    }, false);
-
-    window.addEventListener('scroll', () => {
+</div>
+<transition name="fade">
+    <div id="drawer-mask" v-bind:class="{ 'single-column-drawer-mask': mounted }" v-if="isDrawerOpen" v-on:click="toggleDrawer"></div>
+</transition>
+<nav id="navBar" class="navbar sticky-top navbar-light single-column-nav-container">
+    <div id="navBackground" class="nav-background"></div>
+    <div class="container container-narrow nav-content">
+        <button id="nav_dropdown_btn" class="nav-dropdown-toggle" type="button" v-on:click="toggleDrawer">
+            <i class="material-icons">
+                menu
+            </i>
+        </button>
+        <a id="navTitle" class="navbar-brand" href="http://eimy.ink/">
+            EIMY
+        </a>
         
-        activeElement = Array.from(elements).find((element) => {
-            if ((getOffsetTop(element) - window.pageYOffset) > 0 && 
-                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
-                return element;
-            }
-        }) || activeElement
+        <button type="button" class="nav-darkmode-toggle" id="darkModeToggleButton2">
+            <i class="material-icons" id="darkModeToggleIcon2">
+                dark_mode
+            </i>
+        </button>
+        
+    </div>
+</nav>
+<div class="single-column-header-container" id="pageHead"
+     v-bind:style="{ transform: 'translateZ(0px) translateY('+.3*scrollY+'px)', opacity: 1-navOpacity }">
+    <a href="http://eimy.ink/">
+        <div class="single-column-header-title">EIMY</div>
+        
+        <div class="single-column-header-subtitle">The dots will connect.</div>
+        
 
-        elements.forEach(element => {
-             const id = encodeURI(element.getAttribute('id')).toLowerCase();
-             if (element === activeElement){
-                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
-             } else {
-                 document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
-             }
-         })
-     }, false);
+    </a>
+</div>
 
-    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
-    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
-    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+            <div id="content">
+                <div id="streamContainer" class="stream-container">
 
-    function checkTocPosition() {
-        const width = document.body.scrollWidth;
+    <div class="post-list-container post-list-container-shadow">
+        <div class="post">
+            
+            
+            
 
-        if (width - main - (toc * 2) - (gap * 4) > 0) {
-            document.getElementById("toc-container").classList.add("wide");
-        } else {
-            document.getElementById("toc-container").classList.remove("wide");
-        }
-    }
+            <div class="post-head-wrapper-text-only"
+                
+            >
+                <div class="post-title">
+                    61B Notes - B-Trees &amp; LLRB
+                    
+                    <div class="post-meta">
+                        
+                        <time itemprop="datePublished">
+                            2023-03-28 22:36
+                        </time>
+                        
 
-    function getOffsetTop(element) {
-        if (!element.getClientRects().length) {
-            return 0;
-        }
-        let rect = element.getBoundingClientRect();
-        let win = element.ownerDocument.defaultView;
-        return rect.top + win.pageYOffset;   
-    }
-</script>
+                        
+                            <i class="material-icons" style="">folder</i>
+                                <a href="/categories/">[笔记]</a>
+                                &nbsp;
+                        
 
-  <div class="post-content"><h1 id="b-tree-llrb">B-Tree, LLRB<a hidden class="anchor" aria-hidden="true" href="#b-tree-llrb">#</a></h1>
+                        
+                            <i class="material-icons" style="">label</i>
+                            
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">数据结构</a>
+                                &nbsp;
+                            
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="post-body-wrapper">
+                
+                <div class="post-body" v-pre>
+                
+                    <h1 id="b-tree-llrb">B-Tree, LLRB</h1>
 <p>Hug一般会顺滑地衔接/引入知识点，但这些衔接部分写在笔记里多少有点啰嗦，所以这里会略写。</p>
-<h2 id="bst的局限">BST的局限<a hidden class="anchor" aria-hidden="true" href="#bst的局限">#</a></h2>
+<h2 id="bst的局限">BST的局限</h2>
 <ul>
 <li>先引入两个BST的属性：height和average depth
 <ul>
@@ -386,13 +599,13 @@
 </ul>
 </li>
 </ul>
-<h2 id="b-trees--2-3-trees--2-3-4-trees">B-Trees / 2-3 trees / 2-3-4 trees<a hidden class="anchor" aria-hidden="true" href="#b-trees--2-3-trees--2-3-4-trees">#</a></h2>
+<h2 id="b-trees--2-3-trees--2-3-4-trees">B-Trees / 2-3 trees / 2-3-4 trees</h2>
 <p>接上，为了防止不平衡，我们不断把新的key insert进原来的node中，然后进行node splitting。</p>
 <p>于是就出现了新的树B-trees。</p>
 <blockquote>
 <p>B-trees should be called juicy trees.</p>
 </blockquote>
-<h3 id="定义">定义<a hidden class="anchor" aria-hidden="true" href="#定义">#</a></h3>
+<h3 id="定义">定义</h3>
 <ul>
 <li>B-tree是一种自平衡树，总的分为以下几类：
 <ul>
@@ -403,7 +616,7 @@
 </li>
 </ul>
 <img src="./B-Tree-LLRB.assets/image-20230328102217909.png#center" alt="image-20230328102217909" style="zoom:50%;" />
-<h3 id="构成机制">构成机制<a hidden class="anchor" aria-hidden="true" href="#构成机制">#</a></h3>
+<h3 id="构成机制">构成机制</h3>
 <p>（node-split）</p>
 <ul>
 <li>
@@ -432,7 +645,7 @@
  box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);zoom:40%;" 
  src="./B-Tree-LLRB.assets/image-20230328103520808.png">
 </center>
-<h3 id="性质">性质<a hidden class="anchor" aria-hidden="true" href="#性质">#</a></h3>
+<h3 id="性质">性质</h3>
 <p>（or Invariants）</p>
 <p>基于以上构成机制，可以得出B-tree的一些性质。B-trees are balanced in that:</p>
 <ul>
@@ -447,7 +660,7 @@
 <p>A <strong>non-leaf node</strong> with k items must have exactly <strong>k+1 children</strong></p>
 </li>
 </ul>
-<h3 id="runtime-analysis">Runtime Analysis<a hidden class="anchor" aria-hidden="true" href="#runtime-analysis">#</a></h3>
+<h3 id="runtime-analysis">Runtime Analysis</h3>
 <ul>
 <li>Height：Θ(log N) for both worst cast and best case
 <ul>
@@ -467,12 +680,12 @@
  box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);zoom:40%;" 
  src="./B-Tree-LLRB.assets/image-20230328115018100.png">
 </center>
-<h3 id="b-tree的局限">B-Tree的局限<a hidden class="anchor" aria-hidden="true" href="#b-tree的局限">#</a></h3>
+<h3 id="b-tree的局限">B-Tree的局限</h3>
 <blockquote>
 <p>猜猜为什么上面没有代码实现部分</p>
 </blockquote>
-<h2 id="left-leaning-red-black-trees">Left Leaning Red-Black Trees<a hidden class="anchor" aria-hidden="true" href="#left-leaning-red-black-trees">#</a></h2>
-<h3 id="定义-1">定义<a hidden class="anchor" aria-hidden="true" href="#定义-1">#</a></h3>
+<h2 id="left-leaning-red-black-trees">Left Leaning Red-Black Trees</h2>
+<h3 id="定义-1">定义</h3>
 <p>A BST with left glue links that represents a 2-3 tree is often called a “Left Leaning Red Black Binary Search Tree” or LLRB</p>
 <p>可以理解为：LLRB是一种和某一个B-Tree对应的BST。具体备注：</p>
 <ul>
@@ -480,14 +693,14 @@
 <li>There is a <strong>1-1 correspondence</strong> between an LLRB and an equivalent 2-3 tree.</li>
 <li>The red is just a convenient fiction. Red links don’t “do” anything special</li>
 </ul>
-<h3 id="性质-1">性质<a hidden class="anchor" aria-hidden="true" href="#性质-1">#</a></h3>
+<h3 id="性质-1">性质</h3>
 <p>和BST一样</p>
 <p>尤其需要注意的几个性质：</p>
 <ul>
 <li>All leaves must be the same distance from the source（只数black links）</li>
 <li>No node has two red links</li>
 </ul>
-<h3 id="构成机制-1">构成机制<a hidden class="anchor" aria-hidden="true" href="#构成机制-1">#</a></h3>
+<h3 id="构成机制-1">构成机制</h3>
 <ul>
 <li>原理上是基于2-3 tree，将node中较小的item下移，如</li>
 </ul>
@@ -527,7 +740,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="代码实现">代码实现<a hidden class="anchor" aria-hidden="true" href="#代码实现">#</a></h3>
+<h3 id="代码实现">代码实现</h3>
 <p>以下是这些方法的代码实现，包括调整过的Node Class、<code>put()</code>、新增的<code>rotate</code>系列、<code>flipColors()</code>和<code>isred()</code>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -665,7 +878,7 @@
 </span></span><span class="line"><span class="cl"><span class="c1">// delete比较麻烦，详细见p.441.
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="runtime-analysis-1">Runtime Analysis<a hidden class="anchor" aria-hidden="true" href="#runtime-analysis-1">#</a></h3>
+</div><h3 id="runtime-analysis-1">Runtime Analysis</h3>
 <ul>
 <li>Height:  $O(logN)$</li>
 <li><code>contains()</code>:  $O(logN)$</li>
@@ -676,8 +889,8 @@
 </ul>
 </li>
 </ul>
-<h2 id="summary-of-search-trees">Summary of search trees<a hidden class="anchor" aria-hidden="true" href="#summary-of-search-trees">#</a></h2>
-<h3 id="逻辑梳理">逻辑梳理<a hidden class="anchor" aria-hidden="true" href="#逻辑梳理">#</a></h3>
+<h2 id="summary-of-search-trees">Summary of search trees</h2>
+<h3 id="逻辑梳理">逻辑梳理</h3>
 <blockquote>
 <p>Cited from the slides [lec 18, 19sp]</p>
 </blockquote>
@@ -709,7 +922,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="complexityruntime对比">Complexity/runtime对比<a hidden class="anchor" aria-hidden="true" href="#complexityruntime对比">#</a></h3>
+<h3 id="complexityruntime对比">Complexity/runtime对比</h3>
 <p>WC = worst case</p>
 <table>
 <thead>
@@ -766,200 +979,513 @@
 <li>而LLRB不仅继承了B-trees的自平衡特性，还继承了BST易于实现的特点。</li>
 </ul>
 
-
-  </div>
-
-  <footer class="post-footer">
-    <ul class="post-tags">
-      <li><a href="http://eimy.ink/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></li>
-    </ul>
-<nav class="paginav">
-  <a class="prev" href="http://eimy.ink/posts/2023/hashing/">
-    <span class="title">« 上一页</span>
-    <br>
-    <span>61B Notes - Hashing</span>
-  </a>
-  <a class="next" href="http://eimy.ink/posts/2023/bst/">
-    <span class="title">下一页 »</span>
-    <br>
-    <span>61B Notes - ADT and BST</span>
-  </a>
-</nav>
-
-  </footer>
-</article>
-    </main>
-    
-<footer class="footer">
-    <span>&copy; 2026 <a href="http://eimy.ink/">EIMY</a></span><span style="display: inline-block; margin-left: 1em;">
-        Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://github.com/reorx/hugo-PaperMod" rel="noopener" target="_blank">PaperMod</a>
-    </span>
-</footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
-    </svg>
-</a>
-
-<script>
-  (function() {
-    let menu = document.getElementById('menu')
-    if (menu) {
-        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
-        menu.onscroll = function () {
-            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
-        }
-    }
-
-    const disableSmoothScroll = '' == '1';
-    const enableInstantClick = '' == '1';
-    
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || disableSmoothScroll || enableInstantClick) {
-      return;
-    }
-    
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            var id = this.getAttribute("href").substr(1);
-            document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                behavior: "smooth"
-            });
-            if (id === "top") {
-                history.replaceState(null, null, " ");
-            } else {
-                history.pushState(null, null, `#${id}`);
-            }
-        });
-    });
-  })();
-</script>
-<script>
-    var mybutton = document.getElementById("top-link");
-    window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
-        } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
-        }
-    };
-
-</script>
-<script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            document.body.classList.add('dark');
-            localStorage.setItem("pref-theme", 'dark');
-        }
-    })
-
-</script>
-<script>
-    document.querySelectorAll('pre > code').forEach((codeblock) => {
-        const container = codeblock.parentNode.parentNode;
-
-        const copybutton = document.createElement('button');
-        copybutton.classList.add('copy-code');
-        copybutton.innerText = '复制';
-
-        function copyingDone() {
-            copybutton.innerText = '已复制！';
-            setTimeout(() => {
-                copybutton.innerText = '复制';
-            }, 2000);
-        }
-
-        copybutton.addEventListener('click', (cb) => {
-            if ('clipboard' in navigator) {
-                navigator.clipboard.writeText(codeblock.textContent);
-                copyingDone();
-                return;
-            }
-
-            const range = document.createRange();
-            range.selectNodeContents(codeblock);
-            const selection = window.getSelection();
-            selection.removeAllRanges();
-            selection.addRange(range);
-            try {
-                document.execCommand('copy');
-                copyingDone();
-            } catch (e) { };
-            selection.removeRange(range);
-        });
-
-        if (container.classList.contains("highlight")) {
-            container.appendChild(copybutton);
-        } else if (container.parentNode.firstChild == container) {
+                    
+                    <HR width="100%" id="EOF">
+		    <p style="color:#777;">最后修改于 2023-03-28</p>
+                    
+                </div>
+            </div>
             
-        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
             
-            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
-        } else {
+            <nav class="post-pagination">
+
+                
+                <a class="newer-posts" href="/posts/2023/hashing/">
+			下回<br>61B Notes - Hashing
+                </a>
+                
+                
+                
+                <a class="older-posts" href="/posts/2023/bst/">
+			上回<br>61B Notes - ADT and BST
+                </a>
+                
+            </nav>
+            <div class="post-comment-wrapper">
+                
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+                    </div>
+            </div><div id="sideContainer" class="side-container">
+    
+    <a class="a-block nav-head false" href="http://eimy.ink/">
+    
+        <div class="nav-title">
+            EIMY
+        </div>
+        
+        <div class="nav-subtitle">
+            The dots will connect.
+        </div>
+        
+    </a>
+
+    <div class="nav-link-list">
+        
+        
             
-            codeblock.parentNode.appendChild(copybutton);
-        }
-    });
-</script>
-<script>
-window.addEventListener('DOMContentLoaded', function (event) {
-  const headings = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id]');
-  const activeClass = 'active';
+            
+            
+            <a class="a-block nav-link-item false" href="/archives/">
+                归档
+            </a>
+            
+        
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/categories/">
+                分类
+            </a>
+            
+        
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/tags/">
+                标签
+            </a>
+            
+        
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/search/">
+                搜索
+            </a>
+            
+        
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/about/">
+                关于
+            </a>
+            
+        
+    </div>
 
-  
-  let activeHeading = headings[0];
-  getLinkByHeading(activeHeading).classList.add(activeClass);
+    <div class="nav-footer">
+        
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+移植自 <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
 
-  const onScroll = () => {
-    const passedHeadings = [];
-    for (const h of headings) {
-      
-      if (getOffsetTop(h) < 5) {
-        passedHeadings.push(h)
-      } else {
-        break;
-      }
-    }
-    if (passedHeadings.length > 0) {
-      newActiveHeading = passedHeadings[passedHeadings.length - 1];
-    } else {
-      newActiveHeading = headings[0];
-    }
-    if (activeHeading != newActiveHeading) {
-      getLinkByHeading(activeHeading).classList.remove(activeClass);
-      activeHeading = newActiveHeading;
-      getLinkByHeading(activeHeading).classList.add(activeClass);
-    }
-  }
+&copy;
+	
+	2026 EIMY
+	
 
-  let timer = null;
-  window.addEventListener('scroll', () => {
-    if (timer !== null) {
-      clearTimeout(timer)
-    }
-    timer = setTimeout(onScroll, 50)
-  }, false);
+    </div>
+</div>
+<div id="extraContainer" class="extra-container">
+    <div class="toc-wrapper">
+        
 
-  function getLinkByHeading(heading) {
-    const id = encodeURI(heading.getAttribute('id')).toLowerCase();
-    return document.querySelector(`.toc ul li a[href="#${id}"]`);
-  }
+        
+        <div class="toc">
 
-  function getOffsetTop(heading) {
-    if (!heading.getClientRects().length) {
-      return 0;
-    }
-    let rect = heading.getBoundingClientRect();
-    return rect.top
-  }
-}, false);
-</script></body>
 
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- 目录 -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#b-tree-llrb" class="nav-b-tree-llrb">
+									B-Tree, LLRB
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#bst%e7%9a%84%e5%b1%80%e9%99%90" class="nav-bst的局限">
+									BST的局限
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#b-trees--2-3-trees--2-3-4-trees" class="nav-b-trees--2-3-trees--2-3-4-trees">
+									B-Trees / 2-3 trees / 2-3-4 trees
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e5%ae%9a%e4%b9%89" class="nav-定义">
+									定义
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e6%9e%84%e6%88%90%e6%9c%ba%e5%88%b6" class="nav-构成机制">
+									构成机制
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e6%80%a7%e8%b4%a8" class="nav-性质">
+									性质
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#runtime-analysis" class="nav-runtime-analysis">
+									Runtime Analysis
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#b-tree%e7%9a%84%e5%b1%80%e9%99%90" class="nav-b-tree的局限">
+									B-Tree的局限
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#left-leaning-red-black-trees" class="nav-left-leaning-red-black-trees">
+									Left Leaning Red-Black Trees
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e5%ae%9a%e4%b9%89-1" class="nav-定义-1">
+									定义
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e6%80%a7%e8%b4%a8-1" class="nav-性质-1">
+									性质
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e6%9e%84%e6%88%90%e6%9c%ba%e5%88%b6-1" class="nav-构成机制-1">
+									构成机制
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0" class="nav-代码实现">
+									代码实现
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#runtime-analysis-1" class="nav-runtime-analysis-1">
+									Runtime Analysis
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#summary-of-search-trees" class="nav-summary-of-search-trees">
+									Summary of search trees
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e9%80%bb%e8%be%91%e6%a2%b3%e7%90%86" class="nav-逻辑梳理">
+									逻辑梳理
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#complexityruntime%e5%af%b9%e6%af%94" class="nav-complexityruntime对比">
+									Complexity/runtime对比
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+        
+    </div>
+    <div class="pagination">
+        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top"
+            :class="{ invisible: scrollY == 0 }">
+            <i class="material-icons pagination-action-icon">
+                keyboard_arrow_up
+            </i>
+        </a>
+        
+        <a type="button" class="pagination-action" id="darkModeToggleButton">
+            <span class="material-icons pagination-action-icon" id="darkModeToggleIcon">
+                dark_mode
+            </span>
+        </a>
+        
+        
+    </div>
+</div>
+
+<div id="single-column-footer">
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+移植自 <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	2026 EIMY
+	
+</div>
+            </div>
+    
+    <script src="/js/journal.js"></script></body>
 </html>

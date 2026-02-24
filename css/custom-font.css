@@ -1,0 +1,8 @@
+body,
+.side-container *,
+.stream-container *,
+.single-column-nav-container *,
+.single-column-header-container *,
+.single-column-drawer-container * {
+  font-family: "Noto Serif SC", serif !important;
+}
