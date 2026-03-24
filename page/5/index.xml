@@ -7,9 +7,154 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <copyright>2026 EIMY</copyright>
-    <lastBuildDate>Tue, 24 Feb 2026 12:28:57 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 24 Mar 2026 14:45:57 -0500</lastBuildDate>
     
         <atom:link href="http://eimy.ink/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+        <item>
+        <title>Intel Mac迁移至M1 Mac记录</title>
+        <link>http://eimy.ink/posts/2023/mbp-setup/</link>
+        <pubDate>Wed, 15 Mar 2023 10:12:10 +0800</pubDate>
+        
+        <guid>http://eimy.ink/posts/2023/mbp-setup/</guid>
+        <description>EIMY http://eimy.ink/posts/2023/mbp-setup/ -&lt;p&gt;因为是intel转m1，会涉及到一些软件的重装和重新配置，所以在这里备忘一下&lt;/p&gt;
+&lt;p&gt;主要参考：https://sspai.com/post/64301&lt;/p&gt;
+&lt;h2 id=&#34;设备情况&#34;&gt;设备情况&lt;/h2&gt;
+&lt;p&gt;旧机：MBP 13&amp;rsquo; 2018 256+8 Intel i5，系统是Monterey 12.1&lt;/p&gt;
+&lt;p&gt;新机：MBP 14&amp;rsquo; 2021 512+16 M1&lt;/p&gt;
+&lt;h2 id=&#34;步骤&#34;&gt;步骤&lt;/h2&gt;
+&lt;h3 id=&#34;旧机准备&#34;&gt;旧机准备&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;01 升级系统至最新版本&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;实际因为不剩多少内存了，就没有升级&lt;/p&gt;
+&lt;p&gt;备注：迁移后新机的系统版本是和旧机保持一致的！&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;02 整理归档文件&amp;amp;应用&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;具体完成了以下事项：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;【文件】系统性分类归档所有文件夹（以前分的太随意了）&lt;/li&gt;
+&lt;li&gt;【文件】删除“下载”和“桌面”上显然不需要的文件&lt;/li&gt;
+&lt;li&gt;【文件】删除/硬盘备份占用容量过大的文件&lt;/li&gt;
+&lt;li&gt;【文件】从用户文件夹中备份命令行工具配置文件（可选）&lt;/li&gt;
+&lt;li&gt;【应用】记录预备安装的软件（因为应用打算在新机上全部手动装）&lt;/li&gt;
+&lt;li&gt;【应用】删除基本不用的软件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;顺便分享一下我目前的归档方案。&lt;/p&gt;
+&lt;p&gt;桌面一般不放东西，下载一般乱放文件。除此以外，文稿分成以下几个文件夹：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;【ug-fdu】：UnderGrad，包含了每学年的文件夹、证书和资料以及社团和活动&lt;/li&gt;
+&lt;li&gt;【grad】gradschool&lt;/li&gt;
+&lt;li&gt;【life】：各种爱好&lt;/li&gt;
+&lt;li&gt;【work】：工作相关的&lt;/li&gt;
+&lt;li&gt;【selfedu】：自学内容+相应的作业和笔记&lt;/li&gt;
+&lt;li&gt;【misc-notes】：miscellaneous, 存放没有明确父项目的笔记或整理，未来可能会分成tech和non-tech两类&lt;/li&gt;
+&lt;li&gt;【misc-zatsu】：杂记。读笔、随笔什么的&lt;/li&gt;
+&lt;li&gt;【常用证书和照片】：时不时被要求上传的东西，比如护照、证件照、电子签名&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;说明：整体分为学业、生活、工作三块，因为想尽可能减少层级方便查找，所以“生活”中的笔记、自学、杂记、照片都被独立出来平行放置了。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;03 创建备份&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;用的是west digital的硬盘和系统自带应用time machine&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;04 退出iCloud&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;退出iCloud且关闭查找我的mac&lt;/li&gt;
+&lt;li&gt;解除各种授权（可选，之后可以补救）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;新机配置&#34;&gt;新机配置&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;01 迁移&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;同一wifi连接状态下，两机打开迁移助手，选择需要迁移的文件即可。&lt;/p&gt;
+&lt;p&gt;一些个人小故障：迁移完后旧机的触控板反应速度突然变得过于灵敏&amp;hellip;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;02 安装软件&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;秉持实质极简主义，不想全部迁移以后再一个个卸载，于是新机上的所有应用软件都是一个个安装的。&lt;/p&gt;
+&lt;p&gt;第一批安装的主要应用（用不到这些感觉浑身有bug在爬）：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Chrome&lt;/li&gt;
+&lt;li&gt;Alfred 5&lt;/li&gt;
+&lt;li&gt;ClashX pro：用旧机下dmg然后drop过去&lt;/li&gt;
+&lt;li&gt;typora&lt;/li&gt;
+&lt;li&gt;IINA&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;其他东西：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;git：有新版本，但还是用的旧机迁移的&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;jdk&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Praat&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;R+Rstudio&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;vscode&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;intellij idea&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Adobe photoshop（备忘）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;logic&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;final cut pro（备忘）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;office全家桶&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;aldente（电池管理软件)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;03 其他设置&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;桌面：系统偏好设置-桌面与屏幕保护程序&lt;/li&gt;
+&lt;li&gt;本地主机名：系统偏好设置-共享
+这次给mac起了个独特又好记的名字——ipad-pro-max！&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;04 软件使用测试&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;测一下 git本地仓库使用
+和旧机完全相同，不需要重新配置&lt;/li&gt;
+&lt;li&gt;检查各个应用的耗能&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;附录遇到的问题&#34;&gt;附录：遇到的问题&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;git和homebrew&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;问题描述：执行&lt;a href=&#34;https://brew.idayer.com/guide/m1/&#34;&gt;官网quickstart&lt;/a&gt;的命令，显示“///git: bad CPU type in executable&amp;quot;&lt;/p&gt;
+&lt;p&gt;原因：迁移过来的旧机系统没装rosetta&lt;/p&gt;
+&lt;p&gt;解决方案：&lt;a href=&#34;https://superuser.com/questions/1647798/what-is-the-correct-homebrew-installation-command-for-an-m1-mac-mini-and-big-sur&#34;&gt;装rosetta&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;配置x86和arm的brew新名字时候出错&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;问题：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-zsh&#34; data-lang=&#34;zsh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;› &lt;span class=&#34;nb&#34;&gt;source&lt;/span&gt; ~/.zprofile
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;The operation couldn’t be completed. Unable to locate a Java Runtime.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;原因：看来是因为没装java&lt;/p&gt;
+&lt;p&gt;解决：去&lt;a href=&#34;https://www.oracle.com/java/technologies/downloads/#jdk19-mac&#34;&gt;oracle&lt;/a&gt;极速装了个jdk就好了。顺便这里最后没有把arm brew改成abrew，只把intel brew配置成了ibrew。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;不知道git是自带的还是迁移的版本&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;问题：如题&lt;/p&gt;
+&lt;p&gt;解决：通过which git和git &amp;ndash;version确认版本和位置&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;迁移旧brew软件包&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;解决：看&lt;a href=&#34;https://type.cyhsu.xyz/2020/12/use-homebred-on-m1-macs/#4-%E4%BB%8E%E6%97%A7-mac%E6%88%96-x86-%E7%89%88-homebrew%E8%BF%81%E7%A7%BB%E8%BD%AF%E4%BB%B6%E5%8C%85&#34;&gt;这里&lt;/a&gt;&lt;/p&gt;
+- http://eimy.ink/posts/2023/mbp-setup/ - 2026 EIMY</description>
+        </item>
     
     
     
