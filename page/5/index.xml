@@ -7,9 +7,220 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <copyright>2026 EIMY</copyright>
-    <lastBuildDate>Tue, 24 Mar 2026 14:45:57 -0500</lastBuildDate>
+    <lastBuildDate>Tue, 07 Apr 2026 23:45:57 -0500</lastBuildDate>
     
         <atom:link href="http://eimy.ink/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+        <item>
+        <title>61B Notes - Asymptotics</title>
+        <link>http://eimy.ink/posts/2023/asymptotics-notes/</link>
+        <pubDate>Wed, 22 Mar 2023 18:19:26 +0800</pubDate>
+        
+        <guid>http://eimy.ink/posts/2023/asymptotics-notes/</guid>
+        <description>EIMY http://eimy.ink/posts/2023/asymptotics-notes/ -&lt;h1 id=&#34;asymptotics&#34;&gt;Asymptotics&lt;/h1&gt;
+&lt;p&gt;CS61b算法部分的第一个lecture（中英混记）。记录的是lec的主要脉络。&lt;/p&gt;
+&lt;h2 id=&#34;general-goal&#34;&gt;General Goal&lt;/h2&gt;
+&lt;p&gt;这部分引出核心问题——“如何衡量算法效率”。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Efficiency comes in two ways&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;编程成本（programming cost）&amp;lt;&amp;ndash; 61b前半程的关注点&lt;/li&gt;
+&lt;li&gt;执行成本（execution cost）&amp;lt;&amp;ndash; 现在开始的关注点
+&lt;ul&gt;
+&lt;li&gt;time cost&lt;/li&gt;
+&lt;li&gt;memory cost&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;引出问题：How to measure code efficiency？&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;因此这一讲的目标是引入衡量算法效率的正式标准&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;intuitive-runtime-characterizations&#34;&gt;Intuitive Runtime Characterizations&lt;/h2&gt;
+&lt;p&gt;这部分由浅入深展示了几个可以衡量程序效率的方法。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;比较执行时间
+优点是直观，缺点是因为影响因素过多，不太可靠&lt;/li&gt;
+&lt;li&gt;计算所有运算步骤累计次数（用实数/抽象N表示）
+优点是可以看出增长规模（how it scales），但是算起来麻烦&lt;/li&gt;
+&lt;/ol&gt;
+&lt;center&gt;
+ &lt;div style=&#34;color:orange; border-bottom: 1px solid #d9d9d9;
+ display: inline-block;
+ color: #999;
+ padding: 2px;&#34;&gt;scrnshot&lt;/div&gt;
+&lt;img style=&#34;border-radius: 0.3125em;
+ box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&#34; 
+ src=&#34;./Asymptotics-notes.assets/image-20230322165608035.png&#34;&gt;
+ &lt;br&gt;
+&lt;/center&gt;
+&lt;h2 id=&#34;asymptotic-analysis&#34;&gt;Asymptotic Analysis&lt;/h2&gt;
+&lt;p&gt;这部分首先介绍算法效率多大程度上受到增长规模（order of growth）的影响，然后引出能够简化渐进分析的方法。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Order of Growth的影响&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;基本原则是，在分析效率时，只关注asymptotic behavior（即N趋向无穷大时的表现）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;基于这个原则，可以观察比较N无穷大时的函数形状&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;暂时称这个&lt;strong&gt;函数形状&lt;/strong&gt;为order of growth，比如它可以是line、cubic、quadratic etc.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;也就是说，我们可以通过Order of Growth来衡量算法效率&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;但目前的分析增长规模的方式（symbolic count）不够简单，在数学上也不太严谨，所以需要将其简化：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;只看worst cast count&lt;/li&gt;
+&lt;li&gt;只选一个有代表性的操作来count&lt;/li&gt;
+&lt;li&gt;只看对order影响最大的一项，比如：n^3~~+n^2+1~~&lt;/li&gt;
+&lt;li&gt;忽略系数&lt;/li&gt;
+&lt;/ol&gt;
+&lt;center&gt;
+ &lt;div style=&#34;color:orange; border-bottom: 1px solid #d9d9d9;
+ display: inline-block;
+ color: #999;
+ padding: 2px;&#34;&gt;simplification/1&lt;/div&gt;
+&lt;img style=&#34;border-radius: 0.3125em;
+ box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&#34; 
+ src=&#34;./Asymptotics-notes.assets/image-20230322173642986-9480231.png&#34;&gt;
+ &lt;br&gt;
+    &lt;/center&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;到这步为止，分析时需要1）计算一整个表格，2）挑出一个代表性count，3）简化。这种分析步骤还可以进一步简化：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;一种是直接看着代码，选择某个运算符进行计数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;center&gt;
+ &lt;div style=&#34;color:orange; border-bottom: 1px solid #d9d9d9;
+ display: inline-block;
+ color: #999;
+ padding: 2px;&#34;&gt;Approach1-based on exact count&lt;/div&gt;
+&lt;img style=&#34;border-radius: 0.3125em;
+ box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&#34; 
+ src=&#34;./Asymptotics-notes.assets/image-20230322174121371-9480240.png&#34;&gt;
+ &lt;br&gt;
+&lt;/center&gt;
+&lt;ul&gt;
+&lt;li&gt;更加简单的一种是几何上的分析（假设边是$N-1$，直接得出$N^2$）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;center&gt;
+&lt;div style=&#34;color:orange; border-bottom: 1px solid #d9d9d9;
+ display: inline-block;
+ color: #999;
+ padding: 2px;&#34;&gt;Approach2-simpler geometric argument&lt;/div&gt;
+&lt;img style=&#34;border-radius: 0.3125em;
+ box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&#34; 
+ src=&#34;./Asymptotics-notes.assets/image-20230322174300699-9480253.png&#34;&gt;
+ &lt;br&gt;
+&lt;/center&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;asymptotic-notation&#34;&gt;Asymptotic Notation&lt;/h2&gt;
+&lt;p&gt;最后介绍渐进分析的常用记号Big Theta（即Order of Growth）和Big O。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Big theta&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;可以用Big Theta来描述某一程序运行时间的增长速率。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;记号&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;假设有一个runtime function $R(n)$，如果$R(n)$的order of growth（函数形状）是$f(N)$&lt;/p&gt;
+&lt;p&gt;则记作：
+$$
+R(n) \in \Theta (f(N))
+$$&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;定义&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+R(n) \in \Theta (f(N))
+$$&lt;/p&gt;
+&lt;p&gt;的意思是存在正常数$k_1$, $k_2$，使得
+$$
+k_1 · f(n) \leq R(N) \leq k_2 · f(N)
+$$
+对$N&amp;gt;N_0$（i.e. very large N）的所有数均成立。&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;举例&lt;/li&gt;
+&lt;/ol&gt;
+&lt;center&gt;
+ &lt;div style=&#34;color:orange; border-bottom: 1px solid #d9d9d9;
+ display: inline-block;
+ color: #999;
+ padding: 2px;&#34;&gt;Big Theta demo&lt;/div&gt;
+&lt;img style=&#34;border-radius: 0.3125em;
+ box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&#34; 
+ src=&#34;./Asymptotics-notes.assets/image-20230322180018120-9480260.png&#34;&gt;
+ &lt;br&gt;
+&lt;/center&gt;
+&lt;ul&gt;
+&lt;li&gt;Big O&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Big Theta更像是描述一种“等于”的关系（某一函数的增长速度等于xx），而Big O描述的是“小于等于”的关系。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;定义（*可以看出相比$\Theta$是把下限去掉了）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+R(n) \in \Theta (f(N))
+$$&lt;/p&gt;
+&lt;p&gt;的意思是存在正常数$k_2$，使得
+$$
+R(N) \leq k_2 · f(N)
+$$
+对$N&amp;gt;N_0$（i.e. very large N）的所有数均成立。&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;举例：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
+N^3+3N^4 \in \Theta(N^4)
+$$&lt;/p&gt;
+&lt;p&gt;$$
+N^3+3N^4 \in O(N^6)
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Big O vs Big Theta&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Informal meaning&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Family&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Family Members&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Big Theta$$\Theta(f(N))$$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Order of Growth is f(N)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\Theta(f(N^2))$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$$N^2/2$$$$2N^2$$$$N^2+38N$$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Big O&lt;br/&gt;$$O(f(N))$$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Order of growth is less than or equal to f(N)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$O(f(N^2))$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$$N^2/2$$$$2N^2$$$$lg(N)$$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+- http://eimy.ink/posts/2023/asymptotics-notes/ - 2026 EIMY</description>
+        </item>
     
     
     
